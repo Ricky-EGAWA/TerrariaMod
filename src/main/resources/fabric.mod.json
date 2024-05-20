@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "terraria-mod",
+	"version": "${version}",
+	"name": "Terraria Mod",
+	"description": "This is an Terraria Mod made by Ricky!",
+	"authors": [
+		"Ricky"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/terraria-mod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"ricky.terraria.TerrariaMod"
+		],
+		"client": [
+			"ricky.terraria.TerrariaModClient"
+		],
+		"fabric-datagen": [
+			"ricky.terraria.TerrariaModDataGenerator"
+		]
+	},
+	"mixins": [
+		"terraria-mod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
