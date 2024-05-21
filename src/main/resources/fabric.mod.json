@@ -12,17 +12,17 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "MIT",
-	"icon": "assets/terraria-mod/icon.png",
+	"icon": "assets/terrariamod/textures/item/spider_fang.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"ricky.terraria.TerrariaMod"
+			"ricky.terrariamod.TerrariaMod"
 		],
 		"client": [
-			"ricky.terraria.TerrariaModClient"
+			"ricky.terrariamod.TerrariaModClient"
 		],
 		"fabric-datagen": [
-			"ricky.terraria.TerrariaModDataGenerator"
+			"ricky.terrariamod.TerrariaModDataGenerator"
 		]
 	},
 	"mixins": [

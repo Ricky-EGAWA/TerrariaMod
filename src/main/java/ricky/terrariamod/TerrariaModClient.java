@@ -1,4 +1,4 @@
-package ricky.terraria;
+package ricky.terrariamod;
 
 import net.fabricmc.api.ClientModInitializer;
 

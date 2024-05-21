@@ -1,4 +1,4 @@
-package ricky.terraria;
+package ricky.terrariamod;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
