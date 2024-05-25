@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X  ",
+    "X  ",
+    "#  "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "terrariamod:orichalcum_ingot"
+    }
+  },
+  "result": {
+    "item": "terrariamod:orichalcum_sword"
+  }
+}

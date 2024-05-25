@@ -13,6 +13,14 @@ import net.minecraft.util.Identifier;
 public class ModItems {
 
     public static final Item SPIDER_FANG = registerItem("spider_fang", new Item(new FabricItemSettings()));
+    public static final Item COBALT_INGOT = registerItem("cobalt_ingot", new Item(new FabricItemSettings()));
+    public static final Item ORICHALCUM_INGOT = registerItem("orichalcum_ingot", new Item(new FabricItemSettings()));
+    public static final Item ADAMANTITE_INGOT = registerItem("adamantite_ingot", new Item(new FabricItemSettings()));
+    public static final Item HELLSTONE_INGOT = registerItem("hellstone_ingot", new Item(new FabricItemSettings()));
+    public static final Item COBALT_RAW = registerItem("cobalt_raw", new Item(new FabricItemSettings()));
+    public static final Item ORICHALCUM_RAW = registerItem("orichalcum_raw", new Item(new FabricItemSettings()));
+    public static final Item ADAMANTITE_RAW = registerItem("adamantite_raw", new Item(new FabricItemSettings()));
+    public static final Item HELLSTONE_RAW = registerItem("hellstone_raw", new Item(new FabricItemSettings()));
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(SPIDER_FANG);
     }
