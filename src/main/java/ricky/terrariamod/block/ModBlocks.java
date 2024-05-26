@@ -8,10 +8,14 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.TerrariaMod;
+import ricky.terrariamod.block.custom.SoundBlock;
 
 public class ModBlocks {
+    public static final Block SOUND_BLOCK = registerBlock("sound_block",
+            new SoundBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
 
     public static final Block COBALT_BLOCK = registerBlock("cobalt_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));

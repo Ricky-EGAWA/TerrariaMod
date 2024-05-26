@@ -9,8 +9,11 @@ import ricky.terrariamod.TerrariaMod;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
+import ricky.terrariamod.item.custom.MetalDetectorItem;
 
 public class ModItems {
+    public static final Item MetalDetectorItem = registerItem("metal_detector",
+            new MetalDetectorItem(new FabricItemSettings().maxDamage(64)));
 
     public static final Item SPIDER_FANG = registerItem("spider_fang", new Item(new FabricItemSettings()));
     public static final Item COBALT_INGOT = registerItem("cobalt_ingot", new Item(new FabricItemSettings()));

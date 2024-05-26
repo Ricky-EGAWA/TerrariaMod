@@ -17,7 +17,8 @@ public class ModItemGroups {
                     .icon(()->new ItemStack(ModItems.SPIDER_FANG)).entries((displayContext, entries) -> {
                         entries.add(ModItems.SPIDER_FANG);
 
-                        entries.add(ModBlocks.COBALT_BLOCK);
+                        entries.add(ModItems.MetalDetectorItem);
+                        entries.add(ModBlocks.SOUND_BLOCK);
                     }).build());
     public static final ItemGroup MOD_MIN_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TerrariaMod.MOD_ID, "mod_min"),
