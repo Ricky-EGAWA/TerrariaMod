@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "terrariamod:cobalt_ore",
+    "#minecraft:coal_ores"
+  ]
+}
