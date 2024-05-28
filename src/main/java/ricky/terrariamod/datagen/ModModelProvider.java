@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.item.ArmorItem;
 import ricky.terrariamod.block.ModBlocks;
 import ricky.terrariamod.item.ModItems;
 
@@ -43,5 +44,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COBALT_DRILL, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.MetalDetectorItem, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SPIDER_FANG, Models.GENERATED);
+
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_BOOTS));
     }
 }

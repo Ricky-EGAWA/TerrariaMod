@@ -35,6 +35,16 @@ public class ModItems {
             new SwordItem(ModToolMaterial.COBALT_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
     public static final Item COBALT_DRILL = registerItem("cobalt_drill",
             new PickaxeItem(ModToolMaterial.COBALT_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+
+    public static final Item COBALT_HELMET = registerItem("cobalt_helmet",
+            new ArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item COBALT_CHESTPLATE = registerItem("cobalt_chestplate",
+            new ArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item COBALT_LEGGINGS = registerItem("cobalt_leggings",
+            new ArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item COBALT_BOOTS = registerItem("cobalt_boots",
+            new ArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(SPIDER_FANG);
     }

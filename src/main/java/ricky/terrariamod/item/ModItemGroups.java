@@ -20,6 +20,17 @@ public class ModItemGroups {
                         entries.add(ModItems.MetalDetectorItem);
                         entries.add(ModBlocks.SOUND_BLOCK);
                     }).build());
+
+    public static final ItemGroup MOD_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,
+            new Identifier(TerrariaMod.MOD_ID, "mod_armor"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.cobalt_chestplate"))
+                    .icon(()->new ItemStack(ModItems.COBALT_CHESTPLATE)).entries((displayContext, entries) -> {
+                        entries.add(ModItems.COBALT_HELMET);
+                        entries.add(ModItems.COBALT_CHESTPLATE);
+                        entries.add(ModItems.COBALT_LEGGINGS);
+                        entries.add(ModItems.COBALT_BOOTS);
+                    }).build());
+
     public static final ItemGroup MOD_MIN_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TerrariaMod.MOD_ID, "mod_min"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.cobalt"))

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "terrariamod:cobalt_helmet",
+    "terrariamod:cobalt_chestplate",
+    "terrariamod:cobalt_leggings",
+    "terrariamod:cobalt_boots"
+  ]
+}
