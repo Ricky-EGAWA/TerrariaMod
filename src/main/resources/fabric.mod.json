@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "terraria-mod",
+	"id": "terrariamod",
 	"version": "${version}",
 	"name": "Terraria Mod",
 	"description": "This is an Terraria Mod made by Ricky!",
@@ -26,7 +26,7 @@
 		]
 	},
 	"mixins": [
-		"terraria-mod.mixins.json"
+		"terrariamod.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.11",

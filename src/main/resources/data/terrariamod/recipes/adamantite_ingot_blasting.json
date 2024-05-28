@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "terrariamod:adamantite_raw"
-  },
-  "result": "terrariamod:adamantite_ingot",
-  "experience": 0.35,
-  "cookingtime": 200
-}

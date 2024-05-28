@@ -43,6 +43,12 @@ public class ModItemGroups {
                         entries.add(ModBlocks.ORICHALCUM_ORE);
                         entries.add(ModBlocks.ADAMANTITE_ORE);
                         entries.add(ModBlocks.HELLSTONE_ORE);
+
+                        entries.add(ModItems.COBALT_PICKAXE);
+                        entries.add(ModItems.COBALT_AXE);
+                        entries.add(ModItems.COBALT_SHOVEL);
+                        entries.add(ModItems.COBALT_SWORD);
+                        entries.add(ModItems.COBALT_DRILL);
                     }).build());
 
     public static void registerItemGroups(){
