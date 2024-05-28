@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "terrariamod:cobalt_ore",
+    "terrariamod:cobalt_block",
+    "terrariamod:orichalcum_ore",
+    "terrariamod:orichalcum_block",
+    "terrariamod:adamantite_ore",
+    "terrariamod:adamantite_block",
+    "terrariamod:hellstone_ore",
+    "terrariamod:hellstone_block"
+  ]
+}
