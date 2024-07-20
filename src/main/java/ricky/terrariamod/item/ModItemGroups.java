@@ -29,6 +29,18 @@ public class ModItemGroups {
                         entries.add(ModItems.COBALT_CHESTPLATE);
                         entries.add(ModItems.COBALT_LEGGINGS);
                         entries.add(ModItems.COBALT_BOOTS);
+                        entries.add(ModItems.ORICHALCUM_HELMET);
+                        entries.add(ModItems.ORICHALCUM_CHESTPLATE);
+                        entries.add(ModItems.ORICHALCUM_LEGGINGS);
+                        entries.add(ModItems.ORICHALCUM_BOOTS);
+                        entries.add(ModItems.ADAMANTITE_HELMET);
+                        entries.add(ModItems.ADAMANTITE_CHESTPLATE);
+                        entries.add(ModItems.ADAMANTITE_LEGGINGS);
+                        entries.add(ModItems.ADAMANTITE_BOOTS);
+                        entries.add(ModItems.HELLSTONE_HELMET);
+                        entries.add(ModItems.HELLSTONE_CHESTPLATE);
+                        entries.add(ModItems.HELLSTONE_LEGGINGS);
+                        entries.add(ModItems.HELLSTONE_BOOTS);
                     }).build());
 
     public static final ItemGroup MOD_MIN_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -60,6 +72,24 @@ public class ModItemGroups {
                         entries.add(ModItems.COBALT_SHOVEL);
                         entries.add(ModItems.COBALT_SWORD);
                         entries.add(ModItems.COBALT_DRILL);
+
+                        entries.add(ModItems.ORICHALCUM_PICKAXE);
+                        entries.add(ModItems.ORICHALCUM_AXE);
+                        entries.add(ModItems.ORICHALCUM_SHOVEL);
+                        entries.add(ModItems.ORICHALCUM_SWORD);
+                        entries.add(ModItems.ORICHALCUM_DRILL);
+
+                        entries.add(ModItems.ADAMANTITE_PICKAXE);
+                        entries.add(ModItems.ADAMANTITE_AXE);
+                        entries.add(ModItems.ADAMANTITE_SHOVEL);
+                        entries.add(ModItems.ADAMANTITE_SWORD);
+                        entries.add(ModItems.ADAMANTITE_DRILL);
+
+                        entries.add(ModItems.HELLSTONE_PICKAXE);
+                        entries.add(ModItems.HELLSTONE_AXE);
+                        entries.add(ModItems.HELLSTONE_SHOVEL);
+                        entries.add(ModItems.HELLSTONE_SWORD);
+                        entries.add(ModItems.HELLSTONE_DRILL);
                     }).build());
 
     public static void registerItemGroups(){

@@ -8,7 +8,16 @@ import java.util.function.Supplier;
 
 public enum ModToolMaterial implements ToolMaterial {
     COBALT_INGOT(5,650, 4.5f,3.5f,26,
-            () -> Ingredient.ofItems(ModItems.COBALT_INGOT));
+            () -> Ingredient.ofItems(ModItems.COBALT_INGOT)),
+
+    ORICHALCUM_INGOT(5,650, 4.5f,3.5f,26,
+                         () -> Ingredient.ofItems(ModItems.ORICHALCUM_INGOT)),
+
+    ADAMANTITE_INGOT(5,650, 4.5f,3.5f,26,
+            () -> Ingredient.ofItems(ModItems.ADAMANTITE_INGOT)),
+
+    HELLSTONE_INGOT(5,650, 4.5f,3.5f,26,
+                             () -> Ingredient.ofItems(ModItems.HELLSTONE_INGOT));
 
     private final int miningLevel;
     private final int itemDurability;

@@ -42,6 +42,16 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COBALT_SHOVEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.COBALT_SWORD, Models.GENERATED);
         itemModelGenerator.register(ModItems.COBALT_DRILL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ORICHALCUM_PICKAXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ORICHALCUM_AXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ORICHALCUM_SHOVEL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ORICHALCUM_SWORD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ORICHALCUM_DRILL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ADAMANTITE_PICKAXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ADAMANTITE_AXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ADAMANTITE_SHOVEL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ADAMANTITE_SWORD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ADAMANTITE_DRILL, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.MetalDetectorItem, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPIDER_FANG, Models.GENERATED);
@@ -50,5 +60,17 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_BOOTS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ORICHALCUM_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ORICHALCUM_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ORICHALCUM_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ORICHALCUM_BOOTS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ADAMANTITE_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ADAMANTITE_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ADAMANTITE_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ADAMANTITE_BOOTS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HELLSTONE_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HELLSTONE_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HELLSTONE_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HELLSTONE_BOOTS));
     }
 }

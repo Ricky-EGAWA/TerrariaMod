@@ -36,6 +36,39 @@ public class ModItems {
     public static final Item COBALT_DRILL = registerItem("cobalt_drill",
             new PickaxeItem(ModToolMaterial.COBALT_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
 
+    public static final Item ORICHALCUM_PICKAXE = registerItem("orichalcum_pickaxe",
+            new PickaxeItem(ModToolMaterial.ORICHALCUM_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+    public static final Item ORICHALCUM_AXE = registerItem("orichalcum_axe",
+            new AxeItem(ModToolMaterial.ORICHALCUM_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+    public static final Item ORICHALCUM_SHOVEL = registerItem("orichalcum_shovel",
+            new ShovelItem(ModToolMaterial.ORICHALCUM_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+    public static final Item ORICHALCUM_SWORD = registerItem("orichalcum_sword",
+            new SwordItem(ModToolMaterial.ORICHALCUM_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+    public static final Item ORICHALCUM_DRILL = registerItem("orichalcum_drill",
+            new PickaxeItem(ModToolMaterial.ORICHALCUM_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+
+    public static final Item ADAMANTITE_PICKAXE = registerItem("adamantite_pickaxe",
+            new PickaxeItem(ModToolMaterial.ADAMANTITE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+    public static final Item ADAMANTITE_AXE = registerItem("adamantite_axe",
+            new AxeItem(ModToolMaterial.ADAMANTITE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+    public static final Item ADAMANTITE_SHOVEL = registerItem("adamantite_shovel",
+            new ShovelItem(ModToolMaterial.ADAMANTITE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+    public static final Item ADAMANTITE_SWORD = registerItem("adamantite_sword",
+            new SwordItem(ModToolMaterial.ADAMANTITE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+    public static final Item ADAMANTITE_DRILL = registerItem("adamantite_drill",
+            new PickaxeItem(ModToolMaterial.ADAMANTITE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+
+    public static final Item HELLSTONE_PICKAXE = registerItem("hellstone_pickaxe",
+            new PickaxeItem(ModToolMaterial.HELLSTONE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+    public static final Item HELLSTONE_AXE = registerItem("hellstone_axe",
+            new AxeItem(ModToolMaterial.HELLSTONE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+    public static final Item HELLSTONE_SHOVEL = registerItem("hellstone_shovel",
+            new ShovelItem(ModToolMaterial.HELLSTONE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+    public static final Item HELLSTONE_SWORD = registerItem("hellstone_sword",
+            new SwordItem(ModToolMaterial.HELLSTONE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+    public static final Item HELLSTONE_DRILL = registerItem("hellstone_drill",
+            new PickaxeItem(ModToolMaterial.HELLSTONE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+
     public static final Item COBALT_HELMET = registerItem("cobalt_helmet",
             new ArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item COBALT_CHESTPLATE = registerItem("cobalt_chestplate",
@@ -44,6 +77,33 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item COBALT_BOOTS = registerItem("cobalt_boots",
             new ArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
+    public static final Item ORICHALCUM_HELMET = registerItem("orichalcum_helmet",
+            new ArmorItem(ModArmorMaterials.ORICHALCUM, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item ORICHALCUM_CHESTPLATE = registerItem("orichalcum_chestplate",
+            new ArmorItem(ModArmorMaterials.ORICHALCUM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item ORICHALCUM_LEGGINGS = registerItem("orichalcum_leggings",
+            new ArmorItem(ModArmorMaterials.ORICHALCUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item ORICHALCUM_BOOTS = registerItem("orichalcum_boots",
+            new ArmorItem(ModArmorMaterials.ORICHALCUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
+    public static final Item ADAMANTITE_HELMET = registerItem("adamantite_helmet",
+            new ArmorItem(ModArmorMaterials.ADAMANTITE, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item ADAMANTITE_CHESTPLATE = registerItem("adamantite_chestplate",
+            new ArmorItem(ModArmorMaterials.ADAMANTITE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item ADAMANTITE_LEGGINGS = registerItem("adamantite_leggings",
+            new ArmorItem(ModArmorMaterials.ADAMANTITE, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item ADAMANTITE_BOOTS = registerItem("adamantite_boots",
+            new ArmorItem(ModArmorMaterials.ADAMANTITE, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
+    public static final Item HELLSTONE_HELMET = registerItem("hellstone_helmet",
+            new ArmorItem(ModArmorMaterials.HELLSTONE, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item HELLSTONE_CHESTPLATE = registerItem("hellstone_chestplate",
+            new ArmorItem(ModArmorMaterials.HELLSTONE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item HELLSTONE_LEGGINGS = registerItem("hellstone_leggings",
+            new ArmorItem(ModArmorMaterials.HELLSTONE, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item HELLSTONE_BOOTS = registerItem("hellstone_boots",
+            new ArmorItem(ModArmorMaterials.HELLSTONE, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(SPIDER_FANG);
