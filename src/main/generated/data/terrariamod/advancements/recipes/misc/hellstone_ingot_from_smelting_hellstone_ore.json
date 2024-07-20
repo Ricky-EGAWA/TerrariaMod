@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hellstone_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "terrariamod:hellstone_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:hellstone_ingot_from_smelting_hellstone_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_hellstone_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:hellstone_ingot_from_smelting_hellstone_ore"
+    ]
+  },
+  "sends_telemetry_event": false
+}
