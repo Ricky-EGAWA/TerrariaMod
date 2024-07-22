@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import ricky.terrariamod.block.ModBlocks;
 import ricky.terrariamod.item.ModItemGroups;
 import ricky.terrariamod.item.ModItems;
+import ricky.terrariamod.world.gen.ModWorldGeneration;
 
 public class TerrariaMod implements ModInitializer {
 	public static final String MOD_ID = "terrariamod";
@@ -20,5 +21,8 @@ public class TerrariaMod implements ModInitializer {
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+
+
+		ModWorldGeneration.generateModWorldGen();
 	}
 }
