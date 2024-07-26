@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.item.custom.MetalDetectorItem;
+import ricky.terrariamod.item.custom.ModArmorItem;
 import ricky.terrariamod.item.custom.ModToolMaterial;
 
 public class ModItems {
@@ -70,7 +71,7 @@ public class ModItems {
             new PickaxeItem(ModToolMaterial.HELLSTONE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
 
     public static final Item COBALT_HELMET = registerItem("cobalt_helmet",
-            new ArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.HELMET, new FabricItemSettings()));
+            new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item COBALT_CHESTPLATE = registerItem("cobalt_chestplate",
             new ArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
     public static final Item COBALT_LEGGINGS = registerItem("cobalt_leggings",
@@ -79,7 +80,7 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
     public static final Item ORICHALCUM_HELMET = registerItem("orichalcum_helmet",
-            new ArmorItem(ModArmorMaterials.ORICHALCUM, ArmorItem.Type.HELMET, new FabricItemSettings()));
+            new ModArmorItem(ModArmorMaterials.ORICHALCUM, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item ORICHALCUM_CHESTPLATE = registerItem("orichalcum_chestplate",
             new ArmorItem(ModArmorMaterials.ORICHALCUM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
     public static final Item ORICHALCUM_LEGGINGS = registerItem("orichalcum_leggings",
@@ -88,7 +89,7 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.ORICHALCUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
     public static final Item ADAMANTITE_HELMET = registerItem("adamantite_helmet",
-            new ArmorItem(ModArmorMaterials.ADAMANTITE, ArmorItem.Type.HELMET, new FabricItemSettings()));
+            new ModArmorItem(ModArmorMaterials.ADAMANTITE, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item ADAMANTITE_CHESTPLATE = registerItem("adamantite_chestplate",
             new ArmorItem(ModArmorMaterials.ADAMANTITE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
     public static final Item ADAMANTITE_LEGGINGS = registerItem("adamantite_leggings",
@@ -97,7 +98,7 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.ADAMANTITE, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
     public static final Item HELLSTONE_HELMET = registerItem("hellstone_helmet",
-            new ArmorItem(ModArmorMaterials.HELLSTONE, ArmorItem.Type.HELMET, new FabricItemSettings()));
+            new ModArmorItem(ModArmorMaterials.HELLSTONE, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item HELLSTONE_CHESTPLATE = registerItem("hellstone_chestplate",
             new ArmorItem(ModArmorMaterials.HELLSTONE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
     public static final Item HELLSTONE_LEGGINGS = registerItem("hellstone_leggings",
