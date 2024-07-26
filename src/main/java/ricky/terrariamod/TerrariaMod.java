@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import ricky.terrariamod.block.ModBlocks;
 import ricky.terrariamod.item.ModItemGroups;
 import ricky.terrariamod.item.ModItems;
+import ricky.terrariamod.util.ModLootTableModifiers;
 import ricky.terrariamod.world.gen.ModWorldGeneration;
 
 public class TerrariaMod implements ModInitializer {
@@ -22,6 +23,7 @@ public class TerrariaMod implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 
+		ModLootTableModifiers.modifyLootTables();
 
 		ModWorldGeneration.generateModWorldGen();
 	}
