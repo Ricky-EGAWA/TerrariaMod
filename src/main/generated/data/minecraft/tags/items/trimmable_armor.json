@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
+    "terrariamod:cactus_helmet",
+    "terrariamod:cactus_chestplate",
+    "terrariamod:cactus_leggings",
+    "terrariamod:cactus_boots",
     "terrariamod:cobalt_helmet",
     "terrariamod:cobalt_chestplate",
     "terrariamod:cobalt_leggings",

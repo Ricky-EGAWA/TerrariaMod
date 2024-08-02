@@ -70,6 +70,14 @@ public class ModItems {
     public static final Item HELLSTONE_DRILL = registerItem("hellstone_drill",
             new PickaxeItem(ModToolMaterial.HELLSTONE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
 
+    public static final Item CACTUS_HELMET = registerItem("cactus_helmet",
+            new ModArmorItem(ModArmorMaterials.CACTUS, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item CACTUS_CHESTPLATE = registerItem("cactus_chestplate",
+            new ArmorItem(ModArmorMaterials.CACTUS, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item CACTUS_LEGGINGS = registerItem("cactus_leggings",
+            new ArmorItem(ModArmorMaterials.CACTUS, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item CACTUS_BOOTS = registerItem("cactus_boots",
+            new ArmorItem(ModArmorMaterials.CACTUS, ArmorItem.Type.BOOTS, new FabricItemSettings()));
     public static final Item COBALT_HELMET = registerItem("cobalt_helmet",
             new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item COBALT_CHESTPLATE = registerItem("cobalt_chestplate",

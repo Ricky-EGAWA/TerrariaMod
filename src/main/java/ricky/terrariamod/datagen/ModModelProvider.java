@@ -77,5 +77,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.HELLSTONE_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.HELLSTONE_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.HELLSTONE_BOOTS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CACTUS_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CACTUS_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CACTUS_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CACTUS_BOOTS));
     }
 }

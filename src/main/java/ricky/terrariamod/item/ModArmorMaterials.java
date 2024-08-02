@@ -1,5 +1,6 @@
 package ricky.terrariamod.item;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -9,7 +10,12 @@ import ricky.terrariamod.TerrariaMod;
 
 import java.util.function.Supplier;
 
+import static net.minecraft.datafixer.fix.EntityRavagerRenameFix.ITEMS;
+
 public enum ModArmorMaterials implements ArmorMaterial {
+    CACTUS("cactus", 25, new int[] {3,8,6,3}, 19,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(Blocks.CACTUS)),
+
     COBALT("cobalt", 25, new int[] {3,8,6,3}, 19,
             SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(ModItems.COBALT_INGOT)),
     ORICHALCUM("orichalcum", 25, new int[] {3,8,6,3}, 19,

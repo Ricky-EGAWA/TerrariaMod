@@ -41,6 +41,10 @@ public class ModItemGroups {
                         entries.add(ModItems.HELLSTONE_CHESTPLATE);
                         entries.add(ModItems.HELLSTONE_LEGGINGS);
                         entries.add(ModItems.HELLSTONE_BOOTS);
+                        entries.add(ModItems.CACTUS_HELMET);
+                        entries.add(ModItems.CACTUS_CHESTPLATE);
+                        entries.add(ModItems.CACTUS_LEGGINGS);
+                        entries.add(ModItems.CACTUS_BOOTS);
                     }).build());
 
     public static final ItemGroup MOD_MIN_GROUP = Registry.register(Registries.ITEM_GROUP,
