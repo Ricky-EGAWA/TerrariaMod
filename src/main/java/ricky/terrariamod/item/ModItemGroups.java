@@ -19,6 +19,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.MetalDetectorItem);
                         entries.add(ModBlocks.SOUND_BLOCK);
+                        entries.add(ModItems.INFINITE_WATER_BUCKET);
+                        entries.add(ModItems.INFINITE_LAVA_BUCKET);
                     }).build());
 
     public static final ItemGroup MOD_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,

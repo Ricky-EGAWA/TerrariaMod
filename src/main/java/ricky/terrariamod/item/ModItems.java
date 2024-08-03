@@ -8,9 +8,7 @@ import ricky.terrariamod.TerrariaMod;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import ricky.terrariamod.item.custom.MetalDetectorItem;
-import ricky.terrariamod.item.custom.ModArmorItem;
-import ricky.terrariamod.item.custom.ModToolMaterial;
+import ricky.terrariamod.item.custom.*;
 
 public class ModItems {
     public static final Item MetalDetectorItem = registerItem("metal_detector",
@@ -113,6 +111,13 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.HELLSTONE, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item HELLSTONE_BOOTS = registerItem("hellstone_boots",
             new ArmorItem(ModArmorMaterials.HELLSTONE, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
+    public static final Item INFINITE_WATER_BUCKET = registerItem("infinite_water_bucket",
+            new InfiniteWaterBucketItem(new FabricItemSettings().maxCount(1)));
+
+    public static final Item INFINITE_LAVA_BUCKET = registerItem("infinite_lava_bucket",
+            new InfiniteLavaBucketItem(new FabricItemSettings().maxCount(1)));
+
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(SPIDER_FANG);

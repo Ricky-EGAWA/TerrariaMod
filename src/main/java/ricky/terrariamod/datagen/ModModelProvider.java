@@ -60,6 +60,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.MetalDetectorItem, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPIDER_FANG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.INFINITE_WATER_BUCKET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.INFINITE_LAVA_BUCKET, Models.GENERATED);
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_CHESTPLATE));
