@@ -118,6 +118,9 @@ public class ModItems {
     public static final Item INFINITE_LAVA_BUCKET = registerItem("infinite_lava_bucket",
             new InfiniteLavaBucketItem(new FabricItemSettings().maxCount(1)));
 
+    public static final Item MAGIC_MIRROR = registerItem("magic_mirror",
+            new MagicMirrorItem(new Item.Settings()));
+
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries){
         entries.add(SPIDER_FANG);
