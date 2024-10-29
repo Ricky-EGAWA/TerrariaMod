@@ -78,25 +78,25 @@ public class ModItemGroups {
                         entries.add(ModItems.COBALT_AXE);
                         entries.add(ModItems.COBALT_SHOVEL);
                         entries.add(ModItems.COBALT_SWORD);
-                        entries.add(ModItems.COBALT_DRILL);
+//                        entries.add(ModItems.COBALT_DRILL);
 
                         entries.add(ModItems.ORICHALCUM_PICKAXE);
                         entries.add(ModItems.ORICHALCUM_AXE);
                         entries.add(ModItems.ORICHALCUM_SHOVEL);
                         entries.add(ModItems.ORICHALCUM_SWORD);
-                        entries.add(ModItems.ORICHALCUM_DRILL);
+//                        entries.add(ModItems.ORICHALCUM_DRILL);
 
                         entries.add(ModItems.ADAMANTITE_PICKAXE);
                         entries.add(ModItems.ADAMANTITE_AXE);
                         entries.add(ModItems.ADAMANTITE_SHOVEL);
                         entries.add(ModItems.ADAMANTITE_SWORD);
-                        entries.add(ModItems.ADAMANTITE_DRILL);
+//                        entries.add(ModItems.ADAMANTITE_DRILL);
 
                         entries.add(ModItems.HELLSTONE_PICKAXE);
                         entries.add(ModItems.HELLSTONE_AXE);
                         entries.add(ModItems.HELLSTONE_SHOVEL);
                         entries.add(ModItems.HELLSTONE_SWORD);
-                        entries.add(ModItems.HELLSTONE_DRILL);
+//                        entries.add(ModItems.HELLSTONE_DRILL);
                     }).build());
 
     public static void registerItemGroups(){

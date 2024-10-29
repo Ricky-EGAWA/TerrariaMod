@@ -41,22 +41,22 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COBALT_AXE, Models.GENERATED);
         itemModelGenerator.register(ModItems.COBALT_SHOVEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.COBALT_SWORD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.COBALT_DRILL, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.COBALT_DRILL, Models.GENERATED);
         itemModelGenerator.register(ModItems.ORICHALCUM_PICKAXE, Models.GENERATED);
         itemModelGenerator.register(ModItems.ORICHALCUM_AXE, Models.GENERATED);
         itemModelGenerator.register(ModItems.ORICHALCUM_SHOVEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.ORICHALCUM_SWORD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ORICHALCUM_DRILL, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.ORICHALCUM_DRILL, Models.GENERATED);
         itemModelGenerator.register(ModItems.ADAMANTITE_PICKAXE, Models.GENERATED);
         itemModelGenerator.register(ModItems.ADAMANTITE_AXE, Models.GENERATED);
         itemModelGenerator.register(ModItems.ADAMANTITE_SHOVEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.ADAMANTITE_SWORD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ADAMANTITE_DRILL, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.ADAMANTITE_DRILL, Models.GENERATED);
         itemModelGenerator.register(ModItems.HELLSTONE_PICKAXE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HELLSTONE_AXE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HELLSTONE_SHOVEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.HELLSTONE_SWORD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.HELLSTONE_DRILL, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.HELLSTONE_DRILL, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.MetalDetectorItem, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPIDER_FANG, Models.GENERATED);
