@@ -48,6 +48,10 @@ public class ModItemGroups {
                         entries.add(ModItems.CACTUS_CHESTPLATE);
                         entries.add(ModItems.CACTUS_LEGGINGS);
                         entries.add(ModItems.CACTUS_BOOTS);
+                        entries.add(ModItems.PUMPKIN_HELMET);
+                        entries.add(ModItems.PUMPKIN_CHESTPLATE);
+                        entries.add(ModItems.PUMPKIN_LEGGINGS);
+                        entries.add(ModItems.PUMPKIN_BOOTS);
                     }).build());
 
     public static final ItemGroup MOD_MIN_GROUP = Registry.register(Registries.ITEM_GROUP,

@@ -84,5 +84,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.CACTUS_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.CACTUS_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.CACTUS_BOOTS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PUMPKIN_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PUMPKIN_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PUMPKIN_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PUMPKIN_BOOTS));
     }
 }

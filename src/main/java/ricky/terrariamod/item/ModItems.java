@@ -76,6 +76,15 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.CACTUS, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item CACTUS_BOOTS = registerItem("cactus_boots",
             new ArmorItem(ModArmorMaterials.CACTUS, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
+    public static final Item PUMPKIN_HELMET = registerItem("pumpkin_helmet",
+            new ModArmorItem(ModArmorMaterials.PUMPKIN, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item PUMPKIN_CHESTPLATE = registerItem("pumpkin_chestplate",
+            new ArmorItem(ModArmorMaterials.PUMPKIN, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item PUMPKIN_LEGGINGS = registerItem("pumpkin_leggings",
+            new ArmorItem(ModArmorMaterials.PUMPKIN, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item PUMPKIN_BOOTS = registerItem("pumpkin_boots",
+            new ArmorItem(ModArmorMaterials.PUMPKIN, ArmorItem.Type.BOOTS, new FabricItemSettings()));
     public static final Item COBALT_HELMET = registerItem("cobalt_helmet",
             new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item COBALT_CHESTPLATE = registerItem("cobalt_chestplate",
