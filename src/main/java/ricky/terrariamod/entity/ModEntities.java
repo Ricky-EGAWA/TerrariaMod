@@ -21,11 +21,7 @@ public class ModEntities {
     public static final EntityType<FrozenZombieEntity> FROZENZOMBIE = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(TerrariaMod.MOD_ID, "frozenzombie"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FrozenZombieEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.6f, 1.95f)).build());
+                    .dimensions(EntityDimensions.fixed(1f, 1.9f)).build());
 
-    public static void registerEntities() {
-        TerrariaMod.LOGGER.info("Registering FrozenZombie attributes");
-        FabricDefaultAttributeRegistry.register(FROZENZOMBIE, FrozenZombieEntity.createFrozenZombieAttributes());
-    }
 
 }

@@ -27,9 +27,9 @@ public class FrozenZombieRenderer extends MobEntityRenderer<FrozenZombieEntity, 
     public void render(FrozenZombieEntity mobEntity, float f, float g, MatrixStack matrixStack,
                        VertexConsumerProvider vertexConsumerProvider, int i) {
         if (mobEntity.isBaby()) {
-            matrixStack.scale(0.5f, 1.0f, 0.5f);
+            matrixStack.scale(0.5f, 0.5f, 0.5f);
         } else {
-            matrixStack.scale(0.6f, 1.9f, 0.6f);
+            matrixStack.scale(1f, 1f, 1f);
         }
         super.render(mobEntity, f, g, matrixStack, vertexConsumerProvider, i);
     }

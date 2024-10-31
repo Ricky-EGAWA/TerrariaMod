@@ -34,6 +34,5 @@ public class TerrariaMod implements ModInitializer {
 		LOGGER.info("Registering attributes for entities");
 		FabricDefaultAttributeRegistry.register(ModEntities.FROZENZOMBIE, FrozenZombieEntity.createFrozenZombieAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.PORCUPINE, PorcupineEntity.createPorcupineAttributes());
-		ModEntities.registerEntities(); // ここで呼び出し
 	}
 }
