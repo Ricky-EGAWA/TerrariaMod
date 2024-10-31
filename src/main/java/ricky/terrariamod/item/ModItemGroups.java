@@ -52,6 +52,18 @@ public class ModItemGroups {
                         entries.add(ModItems.PUMPKIN_CHESTPLATE);
                         entries.add(ModItems.PUMPKIN_LEGGINGS);
                         entries.add(ModItems.PUMPKIN_BOOTS);
+                        entries.add(ModItems.OAK_HELMET);
+                        entries.add(ModItems.OAK_CHESTPLATE);
+                        entries.add(ModItems.OAK_LEGGINGS);
+                        entries.add(ModItems.OAK_BOOTS);
+                        entries.add(ModItems.COPPER_HELMET);
+                        entries.add(ModItems.COPPER_CHESTPLATE);
+                        entries.add(ModItems.COPPER_LEGGINGS);
+                        entries.add(ModItems.COPPER_BOOTS);
+                        entries.add(ModItems.OBSIDIAN_HELMET);
+                        entries.add(ModItems.OBSIDIAN_CHESTPLATE);
+                        entries.add(ModItems.OBSIDIAN_LEGGINGS);
+                        entries.add(ModItems.OBSIDIAN_BOOTS);
                     }).build());
 
     public static final ItemGroup MOD_MIN_GROUP = Registry.register(Registries.ITEM_GROUP,

@@ -17,6 +17,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.CACTUS_HELMET, ModItems.CACTUS_CHESTPLATE, ModItems.CACTUS_LEGGINGS, ModItems.CACTUS_BOOTS,
+                        ModItems.OAK_HELMET, ModItems.OAK_CHESTPLATE, ModItems.OAK_LEGGINGS, ModItems.OAK_BOOTS,
+                        ModItems.COPPER_HELMET, ModItems.COPPER_CHESTPLATE, ModItems.COPPER_LEGGINGS, ModItems.COPPER_BOOTS,
+                        ModItems.OBSIDIAN_HELMET, ModItems.OBSIDIAN_CHESTPLATE, ModItems.OBSIDIAN_LEGGINGS, ModItems.OBSIDIAN_BOOTS,
                         ModItems.PUMPKIN_HELMET, ModItems.PUMPKIN_CHESTPLATE, ModItems.PUMPKIN_LEGGINGS, ModItems.PUMPKIN_BOOTS,
                         ModItems.COBALT_HELMET, ModItems.COBALT_CHESTPLATE, ModItems.COBALT_LEGGINGS, ModItems.COBALT_BOOTS,
                         ModItems.ORICHALCUM_HELMET, ModItems.ORICHALCUM_CHESTPLATE, ModItems.ORICHALCUM_LEGGINGS, ModItems.ORICHALCUM_BOOTS,

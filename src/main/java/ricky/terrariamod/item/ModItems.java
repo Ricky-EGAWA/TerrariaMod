@@ -68,6 +68,34 @@ public class ModItems {
 //    public static final Item HELLSTONE_DRILL = registerItem("hellstone_drill",
 //            new PickaxeItem(ModToolMaterial.HELLSTONE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
 
+    public static final Item OAK_HELMET = registerItem("oak_helmet",
+            new ModArmorItem(ModArmorMaterials.OAK, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item OAK_CHESTPLATE = registerItem("oak_chestplate",
+            new ArmorItem(ModArmorMaterials.OAK, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item OAK_LEGGINGS = registerItem("oak_leggings",
+            new ArmorItem(ModArmorMaterials.OAK, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item OAK_BOOTS = registerItem("oak_boots",
+            new ArmorItem(ModArmorMaterials.OAK, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
+    public static final Item COPPER_HELMET = registerItem("copper_helmet",
+            new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item COPPER_CHESTPLATE = registerItem("copper_chestplate",
+            new ArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item COPPER_LEGGINGS = registerItem("copper_leggings",
+            new ArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item COPPER_BOOTS = registerItem("copper_boots",
+            new ArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
+    public static final Item OBSIDIAN_HELMET = registerItem("obsidian_helmet",
+            new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item OBSIDIAN_CHESTPLATE = registerItem("obsidian_chestplate",
+            new ArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item OBSIDIAN_LEGGINGS = registerItem("obsidian_leggings",
+            new ArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item OBSIDIAN_BOOTS = registerItem("obsidian_boots",
+            new ArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
+
     public static final Item CACTUS_HELMET = registerItem("cactus_helmet",
             new ModArmorItem(ModArmorMaterials.CACTUS, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item CACTUS_CHESTPLATE = registerItem("cactus_chestplate",

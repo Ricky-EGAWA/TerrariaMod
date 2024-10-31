@@ -88,5 +88,17 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PUMPKIN_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PUMPKIN_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PUMPKIN_BOOTS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.OAK_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.OAK_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.OAK_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.OAK_BOOTS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COPPER_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COPPER_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COPPER_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COPPER_BOOTS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.OBSIDIAN_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.OBSIDIAN_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.OBSIDIAN_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.OBSIDIAN_BOOTS));
     }
 }
