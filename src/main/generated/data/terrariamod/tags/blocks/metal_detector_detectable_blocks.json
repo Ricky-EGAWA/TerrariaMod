@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "terrariamod:cobalt_ore",
+    "terrariamod:deepslate_cobalt_ore",
     "#minecraft:gold_ores",
     "#minecraft:emerald_ores",
     "#minecraft:redstone_ores",

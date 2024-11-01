@@ -23,14 +23,20 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block COBALT_ORE = registerBlock("cobalt_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).strength(4.0f,4.0f), UniformIntProvider.create(2,5)));
+    public static final Block DEEPSLATE_COBALT_ORE = registerBlock("deepslate_cobalt_ore",
+            new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).strength(4.0f,4.0f), UniformIntProvider.create(2,5)));
     public static final Block ORICHALCUM_BLOCK = registerBlock("orichalcum_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block ORICHALCUM_ORE = registerBlock("orichalcum_ore",
             new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).strength(5.0f,5.0f)));
+    public static final Block DEEPSLATE_ORICHALCUM_ORE = registerBlock("deepslate_orichalcum_ore",
+            new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).strength(4.0f,4.0f), UniformIntProvider.create(2,5)));
     public static final Block ADAMANTITE_BLOCK = registerBlock("adamantite_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block ADAMANTITE_ORE = registerBlock("adamantite_ore",
             new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).strength(6.0f,6.0f)));
+    public static final Block DEEPSLATE_ADAMANTITE_ORE = registerBlock("deepslate_adamantite_ore",
+            new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).strength(4.0f,4.0f), UniformIntProvider.create(2,5)));
     public static final Block HELLSTONE_BLOCK = registerBlock("hellstone_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block HELLSTONE_ORE = registerBlock("hellstone_ore",

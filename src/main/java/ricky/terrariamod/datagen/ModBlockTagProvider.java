@@ -21,6 +21,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(ModTags.Blocks.METAL_DETECTOR_DETECTABLE_BLOCKS)
                 .add(ModBlocks.COBALT_ORE)
+                .add(ModBlocks.DEEPSLATE_COBALT_ORE)
                 .forceAddTag(BlockTags.GOLD_ORES)
                 .forceAddTag(BlockTags.EMERALD_ORES)
                 .forceAddTag(BlockTags.REDSTONE_ORES)
@@ -32,6 +33,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.COBALT_ORE)
+                .add(ModBlocks.DEEPSLATE_COBALT_ORE)
                 .add(ModBlocks.COBALT_BLOCK)
                 .add(ModBlocks.ORICHALCUM_ORE)
                 .add(ModBlocks.ORICHALCUM_BLOCK)

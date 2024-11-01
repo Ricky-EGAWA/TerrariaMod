@@ -3,9 +3,9 @@
   "category": "misc",
   "cookingtime": 100,
   "experience": 0.7,
-  "group": "cobalt_from_blasting_Cobalt Raw",
+  "group": "orichalcum",
   "ingredient": {
-    "item": "terrariamod:cobalt_raw"
+    "item": "terrariamod:deepslate_orichalcum_ore"
   },
-  "result": "terrariamod:cobalt_ingot"
+  "result": "terrariamod:orichalcum_ingot"
 }

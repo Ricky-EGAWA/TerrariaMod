@@ -86,8 +86,11 @@ public class ModItemGroups {
                         entries.add(ModBlocks.HELLSTONE_BLOCK);
 
                         entries.add(ModBlocks.COBALT_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_COBALT_ORE);
                         entries.add(ModBlocks.ORICHALCUM_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_ORICHALCUM_ORE);
                         entries.add(ModBlocks.ADAMANTITE_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_ADAMANTITE_ORE);
                         entries.add(ModBlocks.HELLSTONE_ORE);
 
                         entries.add(ModItems.COBALT_PICKAXE);

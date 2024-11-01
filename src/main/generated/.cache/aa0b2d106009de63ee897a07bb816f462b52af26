@@ -1,7 +1,8 @@
-// 1.20.1	2024-11-01T12:44:03.6604529	Terraria Mod/Block Loot Tables
+// 1.20.1	2024-11-01T22:09:04.9820794	Terraria Mod/Block Loot Tables
 42a7aa8d041edb18d2cc843c64ec7591596bec27 data\terrariamod\loot_tables\blocks\adamantite_block.json
 a54cd25c544414df7b2489900f5d96a1494f2cf7 data\terrariamod\loot_tables\blocks\hellstone_block.json
 87e40e80f5db8f8514122ed853662284b3f0507a data\terrariamod\loot_tables\blocks\orichalcum_block.json
+dcaf4aa5636348b7e26e5c8afbea932815a5a71b data\terrariamod\loot_tables\blocks\deepslate_cobalt_ore.json
 71f55e7ced0724fd19b6b505ba0911b09d7e9df9 data\terrariamod\loot_tables\blocks\cobalt_ore.json
 dc5ce09b98935d941eeba44cf0ee621bbb62c512 data\terrariamod\loot_tables\blocks\cobalt_block.json
 bed524674a7efa9eef747eaad653336737d5063f data\terrariamod\loot_tables\blocks\orichalcum_ore.json

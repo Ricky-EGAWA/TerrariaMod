@@ -3,9 +3,9 @@
   "category": "misc",
   "cookingtime": 200,
   "experience": 0.7,
-  "group": "cobalt_from_smelting_Cobalt Ore",
+  "group": "adamantite",
   "ingredient": {
-    "item": "terrariamod:cobalt_ore"
+    "item": "terrariamod:deepslate_adamantite_ore"
   },
-  "result": "terrariamod:cobalt_ingot"
+  "result": "terrariamod:adamantite_ingot"
 }

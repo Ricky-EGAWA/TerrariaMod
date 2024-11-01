@@ -3,7 +3,7 @@
   "category": "misc",
   "cookingtime": 200,
   "experience": 0.7,
-  "group": "cobalt",
+  "group": "cobalt_from_smelting_Cobalt Raw",
   "ingredient": {
     "item": "terrariamod:cobalt_raw"
   },

@@ -9,8 +9,17 @@
           "Name": "terrariamod:adamantite_ore"
         },
         "target": {
-          "block": "minecraft:end_stone",
-          "predicate_type": "minecraft:block_match"
+          "predicate_type": "minecraft:tag_match",
+          "tag": "minecraft:stone_ore_replaceables"
+        }
+      },
+      {
+        "state": {
+          "Name": "terrariamod:deepslate_adamantite_ore"
+        },
+        "target": {
+          "predicate_type": "minecraft:tag_match",
+          "tag": "minecraft:deepslate_ore_replaceables"
         }
       }
     ]

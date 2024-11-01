@@ -1,7 +1,7 @@
-// 1.20.1	2024-11-01T12:44:03.6614512	Terraria Mod/Tags for minecraft:block
+// 1.20.1	2024-11-01T22:09:04.9835811	Terraria Mod/Tags for minecraft:block
 a0b5bd2abef3a7461f22833016e007c1c878d492 data\fabric\tags\blocks\needs_tool_level_4.json
 d5321c89e7bc74767d4d98a4f6842758b6aa4c54 data\minecraft\tags\blocks\needs_iron_tool.json
 31eaf6b0819ddb12e2bd3b0bf60f00e2b8898e70 data\minecraft\tags\blocks\needs_stone_tool.json
-68e13155dbc21bd51580ef5d6fe826c3d72f1407 data\terrariamod\tags\blocks\metal_detector_detectable_blocks.json
-fcd15eb9f8dc004126a6aacdfe5124ed2a433d3f data\minecraft\tags\blocks\mineable\pickaxe.json
+fec1e7a2894a1c44a4dabcfaccc993d166dbed3e data\terrariamod\tags\blocks\metal_detector_detectable_blocks.json
+94e3f669031ac0faff041ad39c6197bceb2e8f39 data\minecraft\tags\blocks\mineable\pickaxe.json
 8d2f302c78647df39f1605f71f6109e9225495f8 data\minecraft\tags\blocks\needs_diamond_tool.json

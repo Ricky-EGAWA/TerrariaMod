@@ -20,8 +20,10 @@ import java.util.List;
 
 public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> COBALT_ORE_KEY = registerKey("cobalt_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_COBALT_ORE_KEY = registerKey("orichalcum_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> END_COBALT_ORE_KEY = registerKey("adamantite_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ORICHALCUM_ORE_KEY = registerKey("orichalcum_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ADAMANTITE_ORE_KEY = registerKey("adamantite_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_COBALT_ORE_KEY = registerKey("orichalcum_ore2");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> END_COBALT_ORE_KEY = registerKey("adamantite_ore2");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context){
         RuleTest stoneReplacables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -31,7 +33,13 @@ public class ModConfiguredFeatures {
 
         List<OreFeatureConfig.Target> overworldCobaltOres =
                 List.of(OreFeatureConfig.createTarget(stoneReplacables, ModBlocks.COBALT_ORE.getDefaultState()),
-                        OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.COBALT_ORE.getDefaultState()));
+                        OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.DEEPSLATE_COBALT_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> overworldOrichalcumOres =
+                List.of(OreFeatureConfig.createTarget(stoneReplacables, ModBlocks.ORICHALCUM_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.DEEPSLATE_ORICHALCUM_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> overworldAdamantiteOres =
+                List.of(OreFeatureConfig.createTarget(stoneReplacables, ModBlocks.ADAMANTITE_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.DEEPSLATE_ADAMANTITE_ORE.getDefaultState()));
 
         List<OreFeatureConfig.Target> netherCobaltOres =
                 List.of(OreFeatureConfig.createTarget(netherReplacables, ModBlocks.ORICHALCUM_ORE.getDefaultState()));
@@ -40,6 +48,8 @@ public class ModConfiguredFeatures {
                 List.of(OreFeatureConfig.createTarget(endReplacables, ModBlocks.ADAMANTITE_ORE.getDefaultState()));
 
         register(context, COBALT_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldCobaltOres, 12));
+        register(context, ORICHALCUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldOrichalcumOres, 12));
+        register(context, ADAMANTITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldAdamantiteOres, 12));
         register(context, NETHER_COBALT_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherCobaltOres, 12));
         register(context, END_COBALT_ORE_KEY, Feature.ORE, new OreFeatureConfig(endCobaltOres, 12));
     }

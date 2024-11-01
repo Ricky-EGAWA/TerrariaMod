@@ -3,9 +3,9 @@
   "category": "misc",
   "cookingtime": 200,
   "experience": 0.7,
-  "group": "cobalt_from_smelting_Cobalt Ore",
+  "group": "cobalt",
   "ingredient": {
-    "item": "terrariamod:cobalt_ore"
+    "item": "terrariamod:deepslate_cobalt_ore"
   },
   "result": "terrariamod:cobalt_ingot"
 }

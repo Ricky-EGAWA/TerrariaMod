@@ -3,7 +3,7 @@
   "category": "misc",
   "cookingtime": 100,
   "experience": 0.7,
-  "group": "cobalt",
+  "group": "cobalt_from_blasting_Cobalt Ore",
   "ingredient": {
     "item": "terrariamod:cobalt_ore"
   },

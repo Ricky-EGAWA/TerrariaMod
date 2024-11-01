@@ -16,9 +16,12 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
-    private static final List<ItemConvertible> COBALT_SMELTABLE = List.of(ModItems.COBALT_RAW, ModBlocks.COBALT_ORE);
-    private static final List<ItemConvertible> ORICHALCUM_SMELTABLE = List.of(ModItems.ORICHALCUM_RAW, ModBlocks.ORICHALCUM_ORE);
-    private static final List<ItemConvertible> ADAMANTITE_SMELTABLE = List.of(ModItems.ADAMANTITE_RAW, ModBlocks.ADAMANTITE_ORE);
+    private static final List<ItemConvertible> COBALT_SMELTABLE = List.of(ModItems.COBALT_RAW,
+            ModBlocks.COBALT_ORE,ModBlocks.DEEPSLATE_COBALT_ORE);
+    private static final List<ItemConvertible> ORICHALCUM_SMELTABLE = List.of(ModItems.ORICHALCUM_RAW,
+            ModBlocks.ORICHALCUM_ORE, ModBlocks.DEEPSLATE_ORICHALCUM_ORE);
+    private static final List<ItemConvertible> ADAMANTITE_SMELTABLE = List.of(ModItems.ADAMANTITE_RAW,
+            ModBlocks.ADAMANTITE_ORE, ModBlocks.DEEPSLATE_ADAMANTITE_ORE);
     private static final List<ItemConvertible> HELLSTONE_SMELTABLE = List.of(ModItems.HELLSTONE_RAW, ModBlocks.HELLSTONE_ORE);
 
     public ModRecipeProvider(FabricDataOutput output) {
