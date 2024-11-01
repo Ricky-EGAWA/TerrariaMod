@@ -11,6 +11,8 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "frozenzombie"), "main");
     public static final EntityModelLayer PORCUPINE =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "porcupine"), "main2");
+    public static final EntityModelLayer ICE_SLIME_LAYER =
+            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "ice_slime"), "ice_slime_layer");
 
 
 }

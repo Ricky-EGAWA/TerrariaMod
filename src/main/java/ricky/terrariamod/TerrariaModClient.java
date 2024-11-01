@@ -16,5 +16,8 @@ public class TerrariaModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.FROZENZOMBIE, FrozenZombieRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.FROZENZOMBIE_LAYER, ricky.terrariamod.entity.client.FrozenZombieModel::getTexturedModelData);
 
+        EntityRendererRegistry.register(ModEntities.ICE_SLIME, IceSlimeRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ICE_SLIME_LAYER, ricky.terrariamod.entity.client.IceSlimeModel::getTexturedModelData);
+
     }
 }
