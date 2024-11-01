@@ -2,20 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "R": {
+    "I": {
       "item": "terrariamod:cobalt_ingot"
-    },
-    "S": {
-      "item": "minecraft:stone"
     }
   },
   "pattern": [
-    "SSS",
-    "SRS",
-    "SSS"
+    "III",
+    "I I",
+    "   "
   ],
   "result": {
-    "item": "terrariamod:cobalt_raw"
+    "item": "terrariamod:cobalt_helmet"
   },
   "show_notification": true
 }

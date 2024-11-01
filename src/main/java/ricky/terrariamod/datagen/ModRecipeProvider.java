@@ -2,6 +2,7 @@ package ricky.terrariamod.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
@@ -15,14 +16,10 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
-    private static final List<ItemConvertible> COBALT_SMELTABLE = List.of(ModItems.COBALT_RAW,
-            ModBlocks.COBALT_ORE);
-    private static final List<ItemConvertible> ORICHALCUM_SMELTABLE = List.of(ModItems.ORICHALCUM_RAW,
-            ModBlocks.ORICHALCUM_ORE);
-    private static final List<ItemConvertible> ADAMANTITE_SMELTABLE = List.of(ModItems.ADAMANTITE_RAW,
-            ModBlocks.ADAMANTITE_ORE);
-    private static final List<ItemConvertible> HELLSTONE_SMELTABLE = List.of(ModItems.HELLSTONE_RAW,
-            ModBlocks.HELLSTONE_ORE);
+    private static final List<ItemConvertible> COBALT_SMELTABLE = List.of(ModItems.COBALT_RAW, ModBlocks.COBALT_ORE);
+    private static final List<ItemConvertible> ORICHALCUM_SMELTABLE = List.of(ModItems.ORICHALCUM_RAW, ModBlocks.ORICHALCUM_ORE);
+    private static final List<ItemConvertible> ADAMANTITE_SMELTABLE = List.of(ModItems.ADAMANTITE_RAW, ModBlocks.ADAMANTITE_ORE);
+    private static final List<ItemConvertible> HELLSTONE_SMELTABLE = List.of(ModItems.HELLSTONE_RAW, ModBlocks.HELLSTONE_ORE);
 
     public ModRecipeProvider(FabricDataOutput output) {
         super(output);
@@ -30,200 +27,92 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
-        offerSmelting(exporter, COBALT_SMELTABLE, RecipeCategory.MISC, ModItems.COBALT_INGOT,
-                0.7f,200,"cobalt");
-        offerBlasting(exporter, COBALT_SMELTABLE, RecipeCategory.MISC, ModItems.COBALT_INGOT,
-                0.7f,100,"cobalt");
-        offerSmelting(exporter, ORICHALCUM_SMELTABLE, RecipeCategory.MISC, ModItems.ORICHALCUM_INGOT,
-                0.7f,200,"orichalcum");
-        offerBlasting(exporter, ORICHALCUM_SMELTABLE, RecipeCategory.MISC, ModItems.ORICHALCUM_INGOT,
-                0.7f,100,"orichalcum");
-        offerSmelting(exporter, ADAMANTITE_SMELTABLE, RecipeCategory.MISC, ModItems.ADAMANTITE_INGOT,
-                0.7f,200,"adamantite");
-        offerBlasting(exporter, ADAMANTITE_SMELTABLE, RecipeCategory.MISC, ModItems.ADAMANTITE_INGOT,
-                0.7f,100,"adamantite");
-        offerSmelting(exporter, HELLSTONE_SMELTABLE, RecipeCategory.MISC, ModItems.HELLSTONE_INGOT,
-                0.7f,200,"hellstone");
-        offerBlasting(exporter, HELLSTONE_SMELTABLE, RecipeCategory.MISC, ModItems.HELLSTONE_INGOT,
-                0.7f,100,"hellstone");
+        // 各種インゴットの生成レシピ
+        generateSmeltingAndBlastingRecipes(exporter, COBALT_SMELTABLE, ModItems.COBALT_INGOT, "cobalt");
+        generateSmeltingAndBlastingRecipes(exporter, ORICHALCUM_SMELTABLE, ModItems.ORICHALCUM_INGOT, "orichalcum");
+        generateSmeltingAndBlastingRecipes(exporter, ADAMANTITE_SMELTABLE, ModItems.ADAMANTITE_INGOT, "adamantite");
+        generateSmeltingAndBlastingRecipes(exporter, HELLSTONE_SMELTABLE, ModItems.HELLSTONE_INGOT, "hellstone");
 
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.COBALT_INGOT, RecipeCategory.DECORATIONS,
-                ModBlocks.COBALT_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.ORICHALCUM_INGOT, RecipeCategory.DECORATIONS,
-                ModBlocks.ORICHALCUM_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.ADAMANTITE_INGOT, RecipeCategory.DECORATIONS,
-                ModBlocks.ADAMANTITE_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.HELLSTONE_INGOT, RecipeCategory.DECORATIONS,
-                ModBlocks.HELLSTONE_BLOCK);
+        // 各種インゴットとブロックのコンパクトレシピ
+        generateCompactingRecipes(exporter, ModItems.COBALT_INGOT, ModBlocks.COBALT_BLOCK);
+        generateCompactingRecipes(exporter, ModItems.ORICHALCUM_INGOT, ModBlocks.ORICHALCUM_BLOCK);
+        generateCompactingRecipes(exporter, ModItems.ADAMANTITE_INGOT, ModBlocks.ADAMANTITE_BLOCK);
+        generateCompactingRecipes(exporter, ModItems.HELLSTONE_INGOT, ModBlocks.HELLSTONE_BLOCK);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.COBALT_RAW, 1)
-                .pattern("SSS")
-                .pattern("SRS")
-                .pattern("SSS")
-                .input('S', Items.STONE)
-                .input('R', ModItems.COBALT_INGOT)
-                .criterion(hasItem(Items.STONE), conditionsFromItem(Items.STONE))
-                .criterion(hasItem(ModItems.COBALT_INGOT), conditionsFromItem(ModItems.COBALT_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.COBALT_RAW)));
-//      Pickaxe recipe
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.COBALT_PICKAXE, 1)
-                .pattern("III")
-                .pattern(" S ")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.COBALT_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.COBALT_INGOT), conditionsFromItem(ModItems.COBALT_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.COBALT_PICKAXE)));
+        // 各種ツールのレシピ
+        generateToolRecipes(exporter, ModItems.COBALT_INGOT, "cobalt");
+        generateToolRecipes(exporter, ModItems.ORICHALCUM_INGOT, "orichalcum");
+        generateToolRecipes(exporter, ModItems.ADAMANTITE_INGOT, "adamantite");
+        generateToolRecipes(exporter, ModItems.HELLSTONE_INGOT, "hellstone");
+        // 各種防具のレシピ
+        generateArmorRecipes(exporter, ModItems.COBALT_INGOT, "cobalt");
+        generateArmorRecipes(exporter, ModItems.ORICHALCUM_INGOT, "orichalcum");
+        generateArmorRecipes(exporter, ModItems.ADAMANTITE_INGOT, "adamantite");
+        generateArmorRecipes(exporter, ModItems.HELLSTONE_INGOT, "hellstone");
+        generateArmorRecipes(exporter, Blocks.OAK_LOG, "oak");
+        generateArmorRecipes(exporter, Blocks.PUMPKIN, "pumpkin");
+        generateArmorRecipes(exporter, Blocks.CACTUS, "cactus");
+        generateArmorRecipes(exporter, Blocks.OBSIDIAN, "obsidian");
+    }
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ORICHALCUM_PICKAXE, 1)
-                .pattern("III")
-                .pattern(" S ")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.ORICHALCUM_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.ORICHALCUM_INGOT), conditionsFromItem(ModItems.ORICHALCUM_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ORICHALCUM_PICKAXE)));
+    private void generateSmeltingAndBlastingRecipes(Consumer<RecipeJsonProvider> exporter, List<ItemConvertible> smeltables, ItemConvertible result, String name) {
+        offerSmelting(exporter, smeltables, RecipeCategory.MISC, result, 0.7f, 200, name);
+        offerBlasting(exporter, smeltables, RecipeCategory.MISC, result, 0.7f, 100, name);
+    }
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ADAMANTITE_PICKAXE, 1)
-                .pattern("III")
-                .pattern(" S ")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.ADAMANTITE_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.ADAMANTITE_INGOT), conditionsFromItem(ModItems.ADAMANTITE_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ADAMANTITE_PICKAXE)));
+    private void generateCompactingRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible ingot, ItemConvertible block) {
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ingot, RecipeCategory.DECORATIONS, block);
+    }
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.HELLSTONE_PICKAXE, 1)
-                .pattern("III")
-                .pattern(" S ")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.HELLSTONE_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.HELLSTONE_INGOT), conditionsFromItem(ModItems.HELLSTONE_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.HELLSTONE_PICKAXE)));
-//        AXE Recipe
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.COBALT_AXE, 1)
-                .pattern(" II")
-                .pattern(" SI")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.COBALT_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.COBALT_INGOT), conditionsFromItem(ModItems.COBALT_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.COBALT_AXE)));
+    private void generateToolRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible ingot, String materialName) {
+        // ピッケル
+        createToolRecipe(exporter, RecipeCategory.MISC, ModItems.getPickaxe(materialName), "III", " S ", " S ", ingot, materialName, "_pickaxe");
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ORICHALCUM_AXE, 1)
-                .pattern(" II")
-                .pattern(" SI")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.ORICHALCUM_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.ORICHALCUM_INGOT), conditionsFromItem(ModItems.ORICHALCUM_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ORICHALCUM_AXE)));
+        // アックス
+        createToolRecipe(exporter, RecipeCategory.MISC, ModItems.getAxe(materialName), " II", " SI", " S ", ingot, materialName, "_axe");
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ADAMANTITE_AXE, 1)
-                .pattern(" II")
-                .pattern(" SI")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.ADAMANTITE_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.ADAMANTITE_INGOT), conditionsFromItem(ModItems.ADAMANTITE_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ADAMANTITE_AXE)));
+        // ソード
+        createToolRecipe(exporter, RecipeCategory.MISC, ModItems.getSword(materialName), " I ", " I ", " S ", ingot, materialName, "_sword");
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.HELLSTONE_AXE, 1)
-                .pattern(" II")
-                .pattern(" SI")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.HELLSTONE_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.HELLSTONE_INGOT), conditionsFromItem(ModItems.HELLSTONE_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.HELLSTONE_AXE)));
-//      sword recipe
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.COBALT_SWORD, 1)
-                .pattern(" I ")
-                .pattern(" I ")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.COBALT_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.COBALT_INGOT), conditionsFromItem(ModItems.COBALT_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.COBALT_SWORD)));
+        // シャベル
+        createToolRecipe(exporter, RecipeCategory.MISC, ModItems.getShovel(materialName), " I ", " S ", " S ", ingot, materialName, "_shovel");
+    }
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ORICHALCUM_SWORD, 1)
-                .pattern(" I ")
-                .pattern(" I ")
-                .pattern(" S ")
+    private void createToolRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible tool, String row1, String row2, String row3, ItemConvertible ingot, String materialName, String toolType) {
+        ShapedRecipeJsonBuilder.create(category, tool, 1)
+                .pattern(row1)
+                .pattern(row2)
+                .pattern(row3)
                 .input('S', Items.STICK)
-                .input('I', ModItems.ORICHALCUM_INGOT)
+                .input('I', ingot)
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.ORICHALCUM_INGOT), conditionsFromItem(ModItems.ORICHALCUM_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ORICHALCUM_SWORD)));
+                .criterion(hasItem(ingot), conditionsFromItem(ingot))
+                .offerTo(exporter, new Identifier(getRecipeName(tool)));
+    }
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ADAMANTITE_SWORD, 1)
-                .pattern(" I ")
-                .pattern(" I ")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.ADAMANTITE_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.ADAMANTITE_INGOT), conditionsFromItem(ModItems.ADAMANTITE_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ADAMANTITE_SWORD)));
+    // Armorレシピ生成関数
+    private void generateArmorRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible ingot, String materialName) {
+        // ヘルメットのレシピ
+        createArmorRecipe(exporter, RecipeCategory.MISC, ModItems.getHelmet(materialName), "III", "I I", "   ", ingot, materialName, "_helmet");
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.HELLSTONE_SWORD, 1)
-                .pattern(" I ")
-                .pattern(" I ")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.HELLSTONE_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.HELLSTONE_INGOT), conditionsFromItem(ModItems.HELLSTONE_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.HELLSTONE_SWORD)));
-//      shovel recipe
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.COBALT_SHOVEL, 1)
-                .pattern(" I ")
-                .pattern(" S ")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.COBALT_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.COBALT_INGOT), conditionsFromItem(ModItems.COBALT_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.COBALT_SHOVEL)));
+        // チェストプレートのレシピ
+        createArmorRecipe(exporter, RecipeCategory.MISC, ModItems.getChestplate(materialName), "I I", "III", "III", ingot, materialName, "_chestplate");
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ORICHALCUM_SHOVEL, 1)
-                .pattern(" I ")
-                .pattern(" S ")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.ORICHALCUM_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.ORICHALCUM_INGOT), conditionsFromItem(ModItems.ORICHALCUM_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ORICHALCUM_SHOVEL)));
+        // レギンスのレシピ
+        createArmorRecipe(exporter, RecipeCategory.MISC, ModItems.getLeggings(materialName), "III", "I I", "I I", ingot, materialName, "_leggings");
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ADAMANTITE_SHOVEL, 1)
-                .pattern(" I ")
-                .pattern(" S ")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.ADAMANTITE_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.ADAMANTITE_INGOT), conditionsFromItem(ModItems.ADAMANTITE_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ADAMANTITE_SHOVEL)));
+        // ブーツのレシピ
+        createArmorRecipe(exporter, RecipeCategory.MISC, ModItems.getBoots(materialName), "   ", "I I", "I I", ingot, materialName, "_boots");
+    }
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.HELLSTONE_SHOVEL, 1)
-                .pattern(" I ")
-                .pattern(" S ")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', ModItems.HELLSTONE_INGOT)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(ModItems.HELLSTONE_INGOT), conditionsFromItem(ModItems.HELLSTONE_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.HELLSTONE_SHOVEL)));
+    // 防具レシピを個別に作成する関数
+    private void createArmorRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible armor, String row1, String row2, String row3, ItemConvertible ingot, String materialName, String armorType) {
+        ShapedRecipeJsonBuilder.create(category, armor, 1)
+                .pattern(row1)
+                .pattern(row2)
+                .pattern(row3)
+                .input('I', ingot)
+                .criterion(hasItem(ingot), conditionsFromItem(ingot))
+                .offerTo(exporter, new Identifier("terrariamod", materialName + armorType));
     }
 }
