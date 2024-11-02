@@ -103,5 +103,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.OBSIDIAN_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.OBSIDIAN_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.OBSIDIAN_BOOTS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.GLASS_HELMET));
     }
 }

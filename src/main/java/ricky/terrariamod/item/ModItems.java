@@ -116,6 +116,9 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.PUMPKIN, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item PUMPKIN_BOOTS = registerItem("pumpkin_boots",
             new ArmorItem(ModArmorMaterials.PUMPKIN, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+    //水中ヘルメット
+    public static final Item GLASS_HELMET = registerItem("glass_helmet",
+            new ModArmorItem(ModArmorMaterials.GLASS, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item COBALT_HELMET = registerItem("cobalt_helmet",
             new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item COBALT_CHESTPLATE = registerItem("cobalt_chestplate",
@@ -212,6 +215,7 @@ public class ModItems {
             case "pumpkin" -> PUMPKIN_HELMET;
             case "oak" -> OAK_HELMET;
             case "obsidian" -> OBSIDIAN_HELMET;
+            case "glass" -> GLASS_HELMET;
             default -> throw new IllegalArgumentException("Unknown material: " + materialName);
         };
     }

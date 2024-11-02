@@ -16,15 +16,17 @@ import java.util.Map;
 public class ModArmorItem extends ArmorItem {
     public static final Map<ArmorMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, StatusEffectInstance>())
-                    .put(ModArmorMaterials.COBALT, new StatusEffectInstance(StatusEffects.HASTE, 400,1,
-            false,false,true))
-                    .put(ModArmorMaterials.ORICHALCUM, new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 400,1,
-                            false,false,true))
-                    .put(ModArmorMaterials.ADAMANTITE, new StatusEffectInstance(StatusEffects.STRENGTH, 400,1,
-                            false,false,true))
-                    .put(ModArmorMaterials.HELLSTONE, new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 400,1,
-                            false,true,true)).build();
-
+                    .put(ModArmorMaterials.COBALT, new StatusEffectInstance(StatusEffects.HASTE, 400, 1,
+                            false, false, true))
+                    .put(ModArmorMaterials.ORICHALCUM, new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 400, 1,
+                            false, false, true))
+                    .put(ModArmorMaterials.ADAMANTITE, new StatusEffectInstance(StatusEffects.STRENGTH, 400, 1,
+                            false, false, true))
+                    .put(ModArmorMaterials.HELLSTONE, new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 400, 1,
+                            false, true, true))
+                    .put(ModArmorMaterials.GLASS, new StatusEffectInstance(StatusEffects.WATER_BREATHING, 400, 1,
+                            false, true, true))
+                    .build();
 
     public ModArmorItem(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);
@@ -32,9 +34,12 @@ public class ModArmorItem extends ArmorItem {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if(!world.isClient()) {
-            if(entity instanceof PlayerEntity player && hasFullSuitOfArmorOn(player)) {
-                evaluateArmorEffects(player);
+        if (!world.isClient()) {
+            if (entity instanceof PlayerEntity player) {
+                // Glass素材のヘルメットが装備されているか、またはフル装備の場合に効果を評価
+                if (isWearingGlassHelmet(player) || hasFullSuitOfArmorOn(player)) {
+                    evaluateArmorEffects(player);
+                }
             }
         }
 
@@ -46,7 +51,7 @@ public class ModArmorItem extends ArmorItem {
             ArmorMaterial mapArmorMaterial = entry.getKey();
             StatusEffectInstance mapStatusEffect = entry.getValue();
 
-            if(hasCorrectArmorOn(mapArmorMaterial, player)) {
+            if (hasCorrectArmorOn(mapArmorMaterial, player)) {
                 addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
             }
         }
@@ -55,9 +60,17 @@ public class ModArmorItem extends ArmorItem {
     private void addStatusEffectForMaterial(PlayerEntity player, ArmorMaterial mapArmorMaterial, StatusEffectInstance mapStatusEffect) {
         boolean hasPlayerEffect = player.hasStatusEffect(mapStatusEffect.getEffectType());
 
-        if(hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
+        if (hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
             player.addStatusEffect(new StatusEffectInstance(mapStatusEffect));
         }
+    }
+
+    // プレイヤーがヘルメットだけ装備していればtrueを返す
+    private boolean isWearingGlassHelmet(PlayerEntity player) {
+        ItemStack helmet = player.getInventory().getArmorStack(3);
+
+        // ヘルメットがGlass素材であることを確認
+        return !helmet.isEmpty() && ((ArmorItem) helmet.getItem()).getMaterial() == ModArmorMaterials.GLASS;
     }
 
     private boolean hasFullSuitOfArmorOn(PlayerEntity player) {
@@ -71,16 +84,21 @@ public class ModArmorItem extends ArmorItem {
     }
 
     private boolean hasCorrectArmorOn(ArmorMaterial material, PlayerEntity player) {
-        for (ItemStack armorStack: player.getInventory().armor) {
-            if(!(armorStack.getItem() instanceof ArmorItem)) {
+        // Glass素材であればヘルメットのみのチェックを行う
+        if (material == ModArmorMaterials.GLASS) {
+            return isWearingGlassHelmet(player);
+        }
+
+        for (ItemStack armorStack : player.getInventory().armor) {
+            if (!(armorStack.getItem() instanceof ArmorItem)) {
                 return false;
             }
         }
 
-        ArmorItem boots = ((ArmorItem)player.getInventory().getArmorStack(0).getItem());
-        ArmorItem leggings = ((ArmorItem)player.getInventory().getArmorStack(1).getItem());
-        ArmorItem breastplate = ((ArmorItem)player.getInventory().getArmorStack(2).getItem());
-        ArmorItem helmet = ((ArmorItem)player.getInventory().getArmorStack(3).getItem());
+        ArmorItem boots = ((ArmorItem) player.getInventory().getArmorStack(0).getItem());
+        ArmorItem leggings = ((ArmorItem) player.getInventory().getArmorStack(1).getItem());
+        ArmorItem breastplate = ((ArmorItem) player.getInventory().getArmorStack(2).getItem());
+        ArmorItem helmet = ((ArmorItem) player.getInventory().getArmorStack(3).getItem());
 
         return helmet.getMaterial() == material && breastplate.getMaterial() == material &&
                 leggings.getMaterial() == material && boots.getMaterial() == material;

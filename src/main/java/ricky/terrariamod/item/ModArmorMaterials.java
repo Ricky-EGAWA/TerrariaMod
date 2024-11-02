@@ -22,9 +22,10 @@ public enum ModArmorMaterials implements ArmorMaterial {
             SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(Blocks.OBSIDIAN)),
     CACTUS("cactus", 25, new int[] {3,8,6,3}, 19,
             SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(Blocks.CACTUS)),
-
     PUMPKIN("pumpkin", 25, new int[] {3,8,6,3}, 19,
             SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(Blocks.PUMPKIN)),
+    GLASS("glass", 25, new int[] {3,8,6,3}, 19,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(Blocks.GLASS)),
 
     COBALT("cobalt", 25, new int[] {3,8,6,3}, 19,
             SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(ModItems.COBALT_INGOT)),

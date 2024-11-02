@@ -1,4 +1,4 @@
-// 1.20.1	2024-11-01T22:09:04.9848893	Terraria Mod/Recipes
+// 1.20.1	2024-11-03T00:36:47.404041	Terraria Mod/Recipes
 28af722fa612ee96beeaee99b471b71c5289385d data\terrariamod\recipes\adamantite_ingot_from_smelting_adamantite_raw.json
 1d0963e6efc1269b37667e4c3f345a9e5edbcfe8 data\terrariamod\recipes\cobalt_sword.json
 059c313d4d8d22948058b5e4ce35646fd56560e2 data\terrariamod\recipes\adamantite_pickaxe.json
@@ -16,8 +16,8 @@ d9c917458f544fd61fc5a7e4d89f23f77d12aec3 data\terrariamod\recipes\hellstone_axe.
 8083013b66dd8d3299b77b8d1f95777d38660652 data\terrariamod\recipes\orichalcum_axe.json
 4f53b5d44d424d8c38bf8a77f90aac41417dbd63 data\terrariamod\recipes\hellstone_boots.json
 efb536f7e17d8a173e32d099bc8ef6a4bb41b611 data\terrariamod\advancements\recipes\building_blocks\orichalcum_ingot.json
-dbe0b614390069e05550d88e233af063f9977b7b data\terrariamod\advancements\recipes\misc\orichalcum_ingot_from_blasting_orichalcum_ore.json
 c879db462e20f4e796388970ea3be49dcc8ba924 data\terrariamod\recipes\orichalcum_ingot_from_smelting_deepslate_orichalcum_ore.json
+dbe0b614390069e05550d88e233af063f9977b7b data\terrariamod\advancements\recipes\misc\orichalcum_ingot_from_blasting_orichalcum_ore.json
 582e4a2edb70390385c786bc6d5d9c1ddcbd4752 data\terrariamod\recipes\oak_chestplate.json
 647f803e42dc5de5fb0b2fa32b475cc82125aa92 data\terrariamod\advancements\recipes\misc\cobalt_boots.json
 075b66ca30e83ed26c490504906421ba0a2b0d15 data\terrariamod\advancements\recipes\misc\adamantite_shovel.json
