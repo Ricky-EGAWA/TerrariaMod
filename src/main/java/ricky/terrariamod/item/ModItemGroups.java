@@ -65,6 +65,7 @@ public class ModItemGroups {
                         entries.add(ModItems.OBSIDIAN_LEGGINGS);
                         entries.add(ModItems.OBSIDIAN_BOOTS);
                         entries.add(ModItems.GLASS_HELMET);
+                        entries.add(ModItems.NIGHT_HELMET);
                     }).build());
 
     public static final ItemGroup MOD_MIN_GROUP = Registry.register(Registries.ITEM_GROUP,

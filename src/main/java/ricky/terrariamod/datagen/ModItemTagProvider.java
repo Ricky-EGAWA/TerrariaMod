@@ -25,6 +25,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.ORICHALCUM_HELMET, ModItems.ORICHALCUM_CHESTPLATE, ModItems.ORICHALCUM_LEGGINGS, ModItems.ORICHALCUM_BOOTS,
                         ModItems.ADAMANTITE_HELMET, ModItems.ADAMANTITE_CHESTPLATE, ModItems.ADAMANTITE_LEGGINGS, ModItems.ADAMANTITE_BOOTS,
                         ModItems.HELLSTONE_HELMET, ModItems.HELLSTONE_CHESTPLATE, ModItems.HELLSTONE_LEGGINGS, ModItems.HELLSTONE_BOOTS,
-                        ModItems.GLASS_HELMET);
+                        ModItems.GLASS_HELMET, ModItems.NIGHT_HELMET);
     }
 }

@@ -119,6 +119,8 @@ public class ModItems {
     //水中ヘルメット
     public static final Item GLASS_HELMET = registerItem("glass_helmet",
             new ModArmorItem(ModArmorMaterials.GLASS, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item NIGHT_HELMET = registerItem("night_helmet",
+            new ModArmorItem(ModArmorMaterials.NIGHT, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item COBALT_HELMET = registerItem("cobalt_helmet",
             new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item COBALT_CHESTPLATE = registerItem("cobalt_chestplate",
@@ -216,6 +218,7 @@ public class ModItems {
             case "oak" -> OAK_HELMET;
             case "obsidian" -> OBSIDIAN_HELMET;
             case "glass" -> GLASS_HELMET;
+            case "night" -> NIGHT_HELMET;
             default -> throw new IllegalArgumentException("Unknown material: " + materialName);
         };
     }
