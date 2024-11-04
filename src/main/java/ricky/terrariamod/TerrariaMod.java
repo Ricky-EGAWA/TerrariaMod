@@ -10,6 +10,7 @@ import ricky.terrariamod.entity.ModEntities;
 import ricky.terrariamod.entity.custom.FrozenZombieEntity;
 import ricky.terrariamod.entity.custom.IceSlimeEntity;
 import ricky.terrariamod.entity.custom.PorcupineEntity;
+import ricky.terrariamod.entity.custom.SandSlimeEntity;
 import ricky.terrariamod.item.ModItemGroups;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.util.ModLootTableModifiers;
@@ -36,5 +37,6 @@ public class TerrariaMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.FROZENZOMBIE, FrozenZombieEntity.createFrozenZombieAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.PORCUPINE, PorcupineEntity.createPorcupineAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.ICE_SLIME, IceSlimeEntity.createIceSlimeAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.SAND_SLIME, SandSlimeEntity.createSandSlimeAttributes());
 	}
 }
