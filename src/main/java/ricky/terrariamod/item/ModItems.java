@@ -10,9 +10,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.item.custom.*;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ModItems {
     public static final Item MetalDetectorItem = registerItem("metal_detector",
             new MetalDetectorItem(new FabricItemSettings().maxDamage(64)));
@@ -274,7 +271,7 @@ public class ModItems {
         return Registry.register(Registries.ITEM, new Identifier(TerrariaMod.MOD_ID,name),item);
     }
     public static void registerModItems(){
-        TerrariaMod.LOGGER.info("Regisytering Mod Items for " + TerrariaMod.MOD_ID);
+        TerrariaMod.LOGGER.info("Registering Mod Items for " + TerrariaMod.MOD_ID);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientTabItemGroup);
     }

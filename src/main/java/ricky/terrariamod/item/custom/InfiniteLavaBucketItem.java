@@ -6,7 +6,6 @@ import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -17,7 +16,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
-import net.minecraft.world.event.GameEvent;
 
 public class InfiniteLavaBucketItem extends BucketItem {
 
