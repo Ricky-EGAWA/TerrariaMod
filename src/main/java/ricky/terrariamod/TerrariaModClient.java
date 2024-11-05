@@ -5,6 +5,8 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import ricky.terrariamod.entity.ModEntities;
 import ricky.terrariamod.entity.client.*;
+import ricky.terrariamod.entity.client.slimes.SandSlimeModel;
+import ricky.terrariamod.entity.client.slimes.SandSlimeRenderer;
 
 public class TerrariaModClient implements ClientModInitializer {
     @Override
@@ -20,8 +22,7 @@ public class TerrariaModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ICE_SLIME_LAYER, ricky.terrariamod.entity.client.IceSlimeModel::getTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.SAND_SLIME, SandSlimeRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.SAND_SLIME_LAYER, ricky.terrariamod.entity.client.SandSlimeModel::getInnerTexturedModelData);
-//        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.SAND_OUTER_SLIME_LAYER, ricky.terrariamod.entity.client.SandSlimeModel::getOuterTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.SAND_SLIME_LAYER, SandSlimeModel::getInnerTexturedModelData);
 
     }
 }

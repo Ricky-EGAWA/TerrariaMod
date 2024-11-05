@@ -1,7 +1,7 @@
 /*
  * Decompiled with CFR 0.2.2 (FabricMC 7c48b8c4).
  */
-package ricky.terrariamod.entity.client;
+package ricky.terrariamod.entity.client.slimes;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -13,8 +13,7 @@ import net.minecraft.entity.mob.SlimeEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import ricky.terrariamod.TerrariaMod;
-import ricky.terrariamod.entity.client.SandSlimeModel;
-import ricky.terrariamod.entity.custom.SandSlimeEntity;
+import ricky.terrariamod.entity.client.ModModelLayers;
 
 @Environment(value=EnvType.CLIENT)
 public class SandSlimeRenderer

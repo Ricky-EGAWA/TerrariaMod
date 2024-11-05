@@ -14,6 +14,7 @@ import ricky.terrariamod.entity.custom.SandSlimeEntity;
 import ricky.terrariamod.item.ModItemGroups;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.util.ModLootTableModifiers;
+import ricky.terrariamod.entity.ModEntitySpawn;
 import ricky.terrariamod.world.gen.ModWorldGeneration;
 
 public class TerrariaMod implements ModInitializer {
@@ -38,5 +39,8 @@ public class TerrariaMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.PORCUPINE, PorcupineEntity.createPorcupineAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.ICE_SLIME, IceSlimeEntity.createIceSlimeAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.SAND_SLIME, SandSlimeEntity.createSandSlimeAttributes());
+
+		// エンティティのスポーンを追加
+		ModEntitySpawn.addEntitySpawn();
 	}
 }

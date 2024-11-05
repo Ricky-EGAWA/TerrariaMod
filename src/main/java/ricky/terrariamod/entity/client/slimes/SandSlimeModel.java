@@ -1,7 +1,7 @@
 /*
  * Decompiled with CFR 0.2.2 (FabricMC 7c48b8c4).
  */
-package ricky.terrariamod.entity.client;
+package ricky.terrariamod.entity.client.slimes;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
