@@ -9,10 +9,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.TerrariaMod;
-import ricky.terrariamod.entity.custom.FrozenZombieEntity;
-import ricky.terrariamod.entity.custom.IceSlimeEntity;
-import ricky.terrariamod.entity.custom.PorcupineEntity;
-import ricky.terrariamod.entity.custom.SandSlimeEntity;
+import ricky.terrariamod.entity.custom.*;
 
 public class ModEntities {
     public static final EntityType<PorcupineEntity> PORCUPINE = Registry.register(Registries.ENTITY_TYPE,
@@ -33,6 +30,11 @@ public class ModEntities {
     public static final EntityType<SandSlimeEntity> SAND_SLIME = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(TerrariaMod.MOD_ID, "sand_slime"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, SandSlimeEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 1f)).build());
+
+    public static final EntityType<JungleBatEntity> JUNGLE_BAT_ENTITY_ENTITY_TYPE = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "jungle_bat"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, JungleBatEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 1f)).build());
 
 

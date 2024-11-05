@@ -7,10 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ricky.terrariamod.block.ModBlocks;
 import ricky.terrariamod.entity.ModEntities;
-import ricky.terrariamod.entity.custom.FrozenZombieEntity;
-import ricky.terrariamod.entity.custom.IceSlimeEntity;
-import ricky.terrariamod.entity.custom.PorcupineEntity;
-import ricky.terrariamod.entity.custom.SandSlimeEntity;
+import ricky.terrariamod.entity.custom.*;
 import ricky.terrariamod.item.ModItemGroups;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.util.ModLootTableModifiers;
@@ -40,6 +37,7 @@ public class TerrariaMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.PORCUPINE, PorcupineEntity.createPorcupineAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.ICE_SLIME, IceSlimeEntity.createIceSlimeAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.SAND_SLIME, SandSlimeEntity.createSandSlimeAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.JUNGLE_BAT_ENTITY_ENTITY_TYPE, JungleBatEntity.createJungleBatAttributes());
 
 		// エンティティのスポーンを追加
 		ModEntitySpawn.addEntitySpawn();

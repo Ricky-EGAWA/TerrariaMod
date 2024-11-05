@@ -23,10 +23,9 @@ public class ModModelLayers {
     public static final EntityModelLayer SAND_SLIME_LAYER =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "sand_slime"), "sand_slime_layer");
 
-//    public static final EntityModelLayer SAND_SLIME_LAYER = ModModelLayers.registerMain("slime");
-//    public static final EntityModelLayer SLIME_OUTER = ModModelLayers.register("slime", "outer");
-//    public static final EntityModelLayer SAND_OUTER_SLIME_LAYER =
-//            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "sand_slime2"), "sand_slime_outer_layer");
+    public static final EntityModelLayer JUNGLE_BAT_LAYER =
+            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "jungle_bat"), "jungle_bat_layer");
+
 
     private static EntityModelLayer registerMain(String id) {
         return ModModelLayers.register(id, MAIN);

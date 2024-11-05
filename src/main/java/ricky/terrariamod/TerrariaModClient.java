@@ -5,6 +5,8 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import ricky.terrariamod.entity.ModEntities;
 import ricky.terrariamod.entity.client.*;
+import ricky.terrariamod.entity.client.bats.JungleBatEntityModel;
+import ricky.terrariamod.entity.client.bats.JungleBatEntityRenderer;
 import ricky.terrariamod.entity.client.slimes.IceSlimeModel;
 import ricky.terrariamod.entity.client.slimes.IceSlimeRenderer;
 import ricky.terrariamod.entity.client.slimes.SandSlimeModel;
@@ -25,6 +27,9 @@ public class TerrariaModClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.SAND_SLIME, SandSlimeRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.SAND_SLIME_LAYER, SandSlimeModel::getInnerTexturedModelData);
+
+        EntityRendererRegistry.register(ModEntities.JUNGLE_BAT_ENTITY_ENTITY_TYPE, JungleBatEntityRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.JUNGLE_BAT_LAYER, JungleBatEntityModel::getTexturedModelData);
 
     }
 }

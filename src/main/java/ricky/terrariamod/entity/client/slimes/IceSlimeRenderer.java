@@ -21,7 +21,7 @@ public class IceSlimeRenderer
     private static final Identifier TEXTURE = new Identifier(TerrariaMod.MOD_ID,"textures/entity/ice_slime.png");
 
     public IceSlimeRenderer(EntityRendererFactory.Context context) {
-        super(context, new SandSlimeModel(context.getPart(ModModelLayers.SAND_SLIME_LAYER)), 0.25f);
+        super(context, new SandSlimeModel(context.getPart(ModModelLayers.ICE_SLIME_LAYER)), 0.25f);
         this.addFeature(new SandSlimeOverlayFeatureRenderer<>(this, context.getModelLoader()));
     }
 
