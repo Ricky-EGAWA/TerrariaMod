@@ -7,18 +7,28 @@ import net.minecraft.world.biome.BiomeKeys;
 
 public class ModEntitySpawn {
     public static void addEntitySpawn() {
-        // バイオームをIdentifierで指定してモブのスポーン設定を追加
+        // 砂漠でのSand Slimeのスポーン設定
         BiomeModifications.addSpawn(
-                BiomeSelectors.includeByKey(BiomeKeys.DESERT), // BiomeKeys.PLAINSでプレーンズバイオームを指定
+                BiomeSelectors.includeByKey(BiomeKeys.DESERT),
                 SpawnGroup.MONSTER,
                 ModEntities.SAND_SLIME,
                 100, 2, 4 // ウェイト100、2〜4体
         );
+
+        // 雪原でのIce Slimeのスポーン設定
         BiomeModifications.addSpawn(
-                BiomeSelectors.includeByKey(BiomeKeys.SNOWY_PLAINS), // BiomeKeys.PLAINSでプレーンズバイオームを指定
+                BiomeSelectors.includeByKey(BiomeKeys.SNOWY_PLAINS),
                 SpawnGroup.MONSTER,
                 ModEntities.ICE_SLIME,
                 100, 2, 4 // ウェイト100、2〜4体
+        );
+
+        // 繫茂した洞窟でのJungle Batのスポーン設定
+        BiomeModifications.addSpawn(
+                BiomeSelectors.includeByKey(BiomeKeys.LUSH_CAVES),
+                SpawnGroup.MONSTER,
+                ModEntities.JUNGLE_BAT,
+                80, 1, 3 // ウェイト80、1〜3体
         );
     }
 }
