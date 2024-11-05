@@ -32,10 +32,11 @@ public class ModEntities {
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, SandSlimeEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 1f)).build());
 
-    public static final EntityType<JungleBatEntity> JUNGLE_BAT_ENTITY_ENTITY_TYPE = Registry.register(Registries.ENTITY_TYPE,
+    public static final EntityType<JungleBatEntity> JUNGLE_BAT = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(TerrariaMod.MOD_ID, "jungle_bat"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, JungleBatEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 1f)).build());
+
 
 
 }
