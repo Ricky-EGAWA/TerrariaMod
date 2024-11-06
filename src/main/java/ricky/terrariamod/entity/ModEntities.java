@@ -36,6 +36,11 @@ public class ModEntities {
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, JungleBatEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 1f)).build());
 
+    public static final EntityType<PiranhaEntity> PIRANHA = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "piranha"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, PiranhaEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 1f)).build());
+
 
 
 }
