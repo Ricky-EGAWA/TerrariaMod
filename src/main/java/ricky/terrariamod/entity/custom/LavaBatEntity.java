@@ -1,5 +1,6 @@
 package ricky.terrariamod.entity.custom;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
@@ -31,6 +32,17 @@ public class LavaBatEntity extends BatEntity {
         // 自作の攻撃ゴールを追加
         this.goalSelector.add(2, new LavaBatAttackGoal(this, 0.6)); // 速度を適宜調整
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+    }
+
+    // 攻撃が成功した場合にターゲットを燃やす
+    @Override
+    public boolean tryAttack(Entity target) {
+        boolean success = super.tryAttack(target);
+        if (success && target instanceof LivingEntity) {
+            // 攻撃が成功した場合、ターゲットを燃やす
+            target.setOnFireFor(5); // 5秒間炎上させる
+        }
+        return success;
     }
 
     // 攻撃用のゴールクラス
