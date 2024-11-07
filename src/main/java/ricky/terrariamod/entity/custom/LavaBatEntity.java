@@ -50,7 +50,8 @@ public class LavaBatEntity extends BatEntity {
         private final LavaBatEntity lavaBat;
         private LivingEntity target;
         private final double speed;
-        private final double attackRange = 1.0D;
+        private final double attackRange = 2.0D;
+        private int attackCooldown = 0;
 
         public LavaBatAttackGoal(LavaBatEntity lavaBat, double speed) {
             this.lavaBat = lavaBat;
@@ -68,21 +69,33 @@ public class LavaBatEntity extends BatEntity {
         public void stop() {
             this.target = null;
             this.lavaBat.setVelocity(Vec3d.ZERO);
+            this.attackCooldown = 0; // クールダウンリセット
         }
 
         @Override
         public void tick() {
             if (this.target != null) {
-                // ターゲット方向に向けて速度をセット
-                Vec3d direction = target.getPos().subtract(lavaBat.getPos()).normalize().multiply(speed);
+                // ターゲットの顔（目）の位置を取得
+                Vec3d targetEyePos = new Vec3d(target.getX(), target.getEyeY(), target.getZ());
+
+                // 現在位置からターゲットの顔の位置への方向ベクトルを計算
+                Vec3d direction = targetEyePos.subtract(lavaBat.getPos()).normalize().multiply(speed);
+
+                // 計算した方向に向かって移動
                 lavaBat.setVelocity(direction);
 
                 // ターゲットに向かって顔を向ける
                 lavaBat.getLookControl().lookAt(target, 30.0F, 30.0F);
 
-                // 攻撃範囲に入ったら攻撃
-                if (lavaBat.squaredDistanceTo(target) < attackRange * attackRange) {
+                // クールダウン中でない場合にのみ攻撃する
+                if (attackCooldown <= 0 && lavaBat.squaredDistanceTo(target) < attackRange * attackRange) {
                     lavaBat.tryAttack(target);
+                    attackCooldown = 10; // 10ティック（0.5秒）クールダウンを設定
+                }
+
+                // クールダウンが設定されている場合は減らす
+                if (attackCooldown > 0) {
+                    attackCooldown--;
                 }
             }
         }
