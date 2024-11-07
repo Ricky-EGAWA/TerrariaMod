@@ -26,6 +26,9 @@ public class ModModelLayers {
     public static final EntityModelLayer JUNGLE_BAT_LAYER =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "jungle_bat"), "jungle_bat_layer");
 
+    public static final EntityModelLayer LAVA_BAT_LAYER =
+            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "lava_bat"), "lava_bat_layer");
+
     public static final EntityModelLayer PIRANHA_LAYER =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "piranha"), "piranha_layer");
 

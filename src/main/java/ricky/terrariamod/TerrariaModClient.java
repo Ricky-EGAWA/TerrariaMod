@@ -7,6 +7,8 @@ import ricky.terrariamod.entity.ModEntities;
 import ricky.terrariamod.entity.client.*;
 import ricky.terrariamod.entity.client.bats.JungleBatEntityModel;
 import ricky.terrariamod.entity.client.bats.JungleBatEntityRenderer;
+import ricky.terrariamod.entity.client.bats.LavaBatEntityModel;
+import ricky.terrariamod.entity.client.bats.LavaBatEntityRenderer;
 import ricky.terrariamod.entity.client.slimes.IceSlimeModel;
 import ricky.terrariamod.entity.client.slimes.IceSlimeRenderer;
 import ricky.terrariamod.entity.client.slimes.SandSlimeModel;
@@ -30,6 +32,9 @@ public class TerrariaModClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.JUNGLE_BAT, JungleBatEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.JUNGLE_BAT_LAYER, JungleBatEntityModel::getTexturedModelData);
+
+        EntityRendererRegistry.register(ModEntities.LAVA_BAT, LavaBatEntityRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.LAVA_BAT_LAYER, LavaBatEntityModel::getTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.PIRANHA, PiranhaEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PIRANHA_LAYER, PiranhaEntityModel::getTexturedModelData);
