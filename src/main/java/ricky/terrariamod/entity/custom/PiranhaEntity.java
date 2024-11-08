@@ -57,6 +57,7 @@ public class PiranhaEntity extends CodEntity {
         private LivingEntity target;
         private final double speed;
         private final double attackRange = 1.0D;
+        private int attackCooldown = 0;
 
         public PiranhaAttackGoal(PiranhaEntity piranha, double speed) {
             this.piranha = piranha;
@@ -76,19 +77,43 @@ public class PiranhaEntity extends CodEntity {
             this.piranha.setVelocity(Vec3d.ZERO);
         }
 
+//        @Override
+//        public void tick() {
+//            if (this.target != null && this.target.isTouchingWater()) {
+//                // ターゲット方向に向けて速度をセット
+//                Vec3d direction = target.getPos().subtract(piranha.getPos()).normalize().multiply(speed);
+//                piranha.setVelocity(direction);
+//
+//                // ターゲットに向かって顔を向ける
+//                piranha.getLookControl().lookAt(target, 30.0F, 30.0F);
+//
+//                // 攻撃範囲に入ったら攻撃
+//                if (piranha.squaredDistanceTo(target) < attackRange * attackRange) {
+//                    piranha.tryAttack(target);
+//                }
+//            }
+//        }
         @Override
         public void tick() {
-            if (this.target != null && this.target.isTouchingWater()) {
-                // ターゲット方向に向けて速度をセット
+            if (this.target != null) {
+                // 現在位置からターゲットの位置への方向ベクトルを計算
                 Vec3d direction = target.getPos().subtract(piranha.getPos()).normalize().multiply(speed);
+
+                // 計算した方向に向かって移動
                 piranha.setVelocity(direction);
 
                 // ターゲットに向かって顔を向ける
                 piranha.getLookControl().lookAt(target, 30.0F, 30.0F);
 
-                // 攻撃範囲に入ったら攻撃
-                if (piranha.squaredDistanceTo(target) < attackRange * attackRange) {
+                // クールダウン中でない場合にのみ攻撃する
+                if (attackCooldown <= 0 && piranha.squaredDistanceTo(target) < attackRange * attackRange) {
                     piranha.tryAttack(target);
+                    attackCooldown = 10; // 10ティック（0.5秒）クールダウンを設定
+                }
+
+                // クールダウンが設定されている場合は減らす
+                if (attackCooldown > 0) {
+                    attackCooldown--;
                 }
             }
         }

@@ -31,7 +31,7 @@ public class ModEntitySpawn {
                 80, 1, 3 // ウェイト80、1〜3体
         );
 
-        // 繫茂した洞窟でのJungle Batのスポーン設定
+        // ネザーでのlava Batのスポーン設定
         BiomeModifications.addSpawn(
                 BiomeSelectors.includeByKey(BiomeKeys.NETHER_WASTES),
                 SpawnGroup.MONSTER,

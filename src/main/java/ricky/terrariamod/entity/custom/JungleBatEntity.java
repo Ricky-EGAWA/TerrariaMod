@@ -38,7 +38,8 @@ public class JungleBatEntity extends BatEntity {
         private final JungleBatEntity jungleBat;
         private LivingEntity target;
         private final double speed;
-        private final double attackRange = 1.0D;
+        private final double attackRange = 2.0D;
+        private int attackCooldown = 0;
 
         public JungleBatAttackGoal(JungleBatEntity jungleBat, double speed) {
             this.jungleBat = jungleBat;
@@ -61,16 +62,27 @@ public class JungleBatEntity extends BatEntity {
         @Override
         public void tick() {
             if (this.target != null) {
-                // ターゲット方向に向けて速度をセット
-                Vec3d direction = target.getPos().subtract(jungleBat.getPos()).normalize().multiply(speed);
+                // ターゲットの顔（目）の位置を取得
+                Vec3d targetEyePos = new Vec3d(target.getX(), target.getEyeY(), target.getZ());
+
+                // 現在位置からターゲットの顔の位置への方向ベクトルを計算
+                Vec3d direction = targetEyePos.subtract(jungleBat.getPos()).normalize().multiply(speed);
+
+                // 計算した方向に向かって移動
                 jungleBat.setVelocity(direction);
 
                 // ターゲットに向かって顔を向ける
                 jungleBat.getLookControl().lookAt(target, 30.0F, 30.0F);
 
-                // 攻撃範囲に入ったら攻撃
-                if (jungleBat.squaredDistanceTo(target) < attackRange * attackRange) {
+                // クールダウン中でない場合にのみ攻撃する
+                if (attackCooldown <= 0 && jungleBat.squaredDistanceTo(target) < attackRange * attackRange) {
                     jungleBat.tryAttack(target);
+                    attackCooldown = 10; // 10ティック（0.5秒）クールダウンを設定
+                }
+
+                // クールダウンが設定されている場合は減らす
+                if (attackCooldown > 0) {
+                    attackCooldown--;
                 }
             }
         }
