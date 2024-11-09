@@ -46,6 +46,7 @@
   "item.terrariamod.adamantite_drill": "Adamantite Drill",
   "block.terrariamod.adamantite_block": "Adamantite Block",
   "block.terrariamod.adamantite_ore": "Adamantite Ore",
+  "block.terrariamod.deepslate_adamantite_ore": "Deepslate Adamantite Ore",
 
   "item.terrariamod.hellstone_ingot": "Hellstone Ingot",
   "item.terrariamod.hellstone_helmet": "Hellstone Helmet",
@@ -77,5 +78,7 @@
   "itemgroup.cobalt_chestplate": "Mod Armors",
 
   "tooltip.terrariamod.metal_detector.tooltip": "Finds Valuables underground",
+  "message.terrariamod.metal_detector.not_found": "No Valuables Nearby!",
+  "message.terrariamod.metal_detector.found": "Found %s!",
   "tooltip.terrariamod.magic_mirror.tooltip": "teleport to home"
 }

@@ -18,6 +18,7 @@
   "item.terrariamod.cobalt_drill": "コバルトのドリル",
   "block.terrariamod.cobalt_block": "コバルトブロック",
   "block.terrariamod.cobalt_ore": "コバルト鉱石",
+  "block.terrariamod.deepslate_cobalt_ore": "深層コバルト鉱石",
 
   "item.terrariamod.orichalcum_ingot": "オリハルコンインゴット",
   "item.terrariamod.orichalcum_helmet": "オリハルコンのヘルメット",
@@ -32,6 +33,7 @@
   "item.terrariamod.orichalcum_drill": "オリハルコンのドリル",
   "block.terrariamod.orichalcum_block": "オリハルコンブロック",
   "block.terrariamod.orichalcum_ore": "オリハルコン鉱石",
+  "block.terrariamod.deepslate_orichalcum_ore": "深層オリハルコン鉱石",
 
   "item.terrariamod.adamantite_ingot": "アダマンタイトインゴット",
   "item.terrariamod.adamantite_helmet": "アダマンタイトのヘルメット",
@@ -46,6 +48,7 @@
   "item.terrariamod.adamantite_drill": "アダマンタイトのドリル",
   "block.terrariamod.adamantite_block": "アダマンタイトブロック",
   "block.terrariamod.adamantite_ore": "アダマンタイト鉱石",
+  "block.terrariamod.deepslate_adamantite_ore": "深層アダマンタイト鉱石",
 
   "item.terrariamod.hellstone_ingot": "ヘルストーンインゴット",
   "item.terrariamod.hellstone_helmet": "ヘルストーンのヘルメット",
@@ -72,6 +75,8 @@
   "itemgroup.spyder_fang": "特殊アイテム",
   "itemgroup.cobalt_chestplate": "武器と防具",
 
-  "tooltip.terrariamod.metal_detector.tooltip": "真下の鉱石を探索",
+  "tooltip.terrariamod.metal_detector.tooltip": "近くの鉱石を探索",
+  "message.terrariamod.metal_detector.not_found": "近くにレア鉱石はありません",
+  "message.terrariamod.metal_detector.found": "%s を発見しました！",
   "tooltip.terrariamod.magic_mirror.tooltip": "リスポーン地点にテレポート"
 }

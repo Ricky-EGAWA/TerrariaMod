@@ -19,23 +19,23 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> ORICHALCUM_ORE_PLACED_KEY = registerKey("orichalcum_ore_placed");
     public static final RegistryKey<PlacedFeature> ADAMANTITE_ORE_PLACED_KEY = registerKey("adamantite_ore_placed");
     public static final RegistryKey<PlacedFeature> NETHER_HELLSTONE_ORE_PLACED_KEY = registerKey("nether_hellstone_ore_placed");
-    public static final RegistryKey<PlacedFeature> END_COBALT_ORE_PLACED_KEY = registerKey("end_cobalt_ore_placed");
+    public static final RegistryKey<PlacedFeature> END_COBALT_ORE_PLACED_KEY = registerKey("end_temp_ore_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
         register(context, COBALT_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.COBALT_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(3,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(-60), YOffset.fixed(80))));
+                        HeightRangePlacementModifier.uniform(YOffset.fixed(-60), YOffset.fixed(20))));
         register(context, ORICHALCUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ORICHALCUM_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(2,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(-60), YOffset.fixed(80))));
+                        HeightRangePlacementModifier.uniform(YOffset.fixed(-60), YOffset.fixed(10))));
         register(context, ADAMANTITE_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ADAMANTITE_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(1,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(-60), YOffset.fixed(80))));
+                        HeightRangePlacementModifier.uniform(YOffset.fixed(-60), YOffset.fixed(5))));
         register(context, NETHER_HELLSTONE_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_HELLSTONE_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(2,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(8), YOffset.fixed(15))));
+                        HeightRangePlacementModifier.uniform(YOffset.fixed(5), YOffset.fixed(25))));
         register(context, END_COBALT_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.END_COBALT_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(12,
                         HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(80))));

@@ -49,15 +49,14 @@ public class MetalDetectorItem extends Item {
 
             // 鉱石が見つからなかった場合
             if (!foundBlock) {
-                player.sendMessage(Text.literal("No Valuables Nearby!"), true);
+                player.sendMessage(Text.translatable("message.terrariamod.metal_detector.not_found"), true);
             }
         }
     }
 
 
     private void outValuableCoordinates(BlockPos blockPos, PlayerEntity player, Block block) {
-        player.sendMessage(Text.literal("Found " + block.asItem().getName().getString() + " at (" +
-                blockPos.getX() + ", " + blockPos.getY() + ", " + blockPos.getZ() + ")"), true);
+        player.sendMessage(Text.translatable("message.terrariamod.metal_detector.found", block.asItem().getName().getString()), true);
     }
 
     private boolean isValuableBlock(BlockState state) {

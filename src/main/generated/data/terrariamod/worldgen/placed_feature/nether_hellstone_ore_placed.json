@@ -1,5 +1,5 @@
 {
-  "feature": "terrariamod:orichalcum_ore2",
+  "feature": "terrariamod:hellstone_ore",
   "placement": [
     {
       "type": "minecraft:count",
@@ -13,10 +13,10 @@
       "height": {
         "type": "minecraft:uniform",
         "max_inclusive": {
-          "absolute": 15
+          "absolute": 25
         },
         "min_inclusive": {
-          "absolute": 8
+          "absolute": 5
         }
       }
     },
