@@ -22,15 +22,15 @@ public class LavaBatEntity extends BatEntity {
     public static DefaultAttributeContainer.Builder createLavaBatAttributes() {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 10)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5f)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 2);
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 5);
     }
 
     @Override
     protected void initGoals() {
         // 自作の攻撃ゴールを追加
-        this.goalSelector.add(2, new LavaBatAttackGoal(this, 0.6)); // 速度を適宜調整
+        this.goalSelector.add(2, new LavaBatAttackGoal(this, 0.45)); // 速度を適宜調整
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
     }
 

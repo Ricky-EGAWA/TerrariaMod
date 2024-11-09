@@ -23,15 +23,15 @@ public class PiranhaEntity extends CodEntity {
     public static DefaultAttributeContainer.Builder createPiranhaAttributes() {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 10)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 2);
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 25.0)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4);
     }
 
     @Override
     protected void initGoals() {
         // 自作の攻撃ゴールを追加
-        this.goalSelector.add(2, new PiranhaEntity.PiranhaAttackGoal(this, 0.6)); // 速度を適宜調整
+        this.goalSelector.add(2, new PiranhaEntity.PiranhaAttackGoal(this, 0.4)); // 速度を適宜調整
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         this.goalSelector.add(4, new SwimToRandomPlaceGoal(this));
     }
@@ -77,22 +77,6 @@ public class PiranhaEntity extends CodEntity {
             this.piranha.setVelocity(Vec3d.ZERO);
         }
 
-//        @Override
-//        public void tick() {
-//            if (this.target != null && this.target.isTouchingWater()) {
-//                // ターゲット方向に向けて速度をセット
-//                Vec3d direction = target.getPos().subtract(piranha.getPos()).normalize().multiply(speed);
-//                piranha.setVelocity(direction);
-//
-//                // ターゲットに向かって顔を向ける
-//                piranha.getLookControl().lookAt(target, 30.0F, 30.0F);
-//
-//                // 攻撃範囲に入ったら攻撃
-//                if (piranha.squaredDistanceTo(target) < attackRange * attackRange) {
-//                    piranha.tryAttack(target);
-//                }
-//            }
-//        }
         @Override
         public void tick() {
             if (this.target != null) {

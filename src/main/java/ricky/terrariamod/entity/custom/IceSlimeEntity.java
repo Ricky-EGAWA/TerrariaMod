@@ -16,9 +16,9 @@ public class IceSlimeEntity extends SlimeEntity {
     public static DefaultAttributeContainer.Builder createIceSlimeAttributes() {
         TerrariaMod.LOGGER.info("Creating IceSlime attributes");
         return ZombieEntity.createZombieAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 30)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 12)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 10.0)
                 .add(EntityAttributes.GENERIC_ARMOR, 0.5f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4);
     }
