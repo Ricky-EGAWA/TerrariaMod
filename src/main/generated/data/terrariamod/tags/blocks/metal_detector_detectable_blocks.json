@@ -7,7 +7,6 @@
     "terrariamod:deepslate_orichalcum_ore",
     "terrariamod:adamantite_ore",
     "terrariamod:deepslate_adamantite_ore",
-    "terrariamod:hellstone_ore",
-    "#minecraft:netherite_block"
+    "terrariamod:hellstone_ore"
   ]
 }

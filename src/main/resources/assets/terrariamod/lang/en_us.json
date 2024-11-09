@@ -18,6 +18,7 @@
   "item.terrariamod.cobalt_drill": "Cobalt Drill",
   "block.terrariamod.cobalt_block": "Cobalt Block",
   "block.terrariamod.cobalt_ore": "Cobalt Ore",
+  "block.terrariamod.deepslate_cobalt_ore": "Deepslate_Cobalt Ore",
 
   "item.terrariamod.orichalcum_ingot": "Orichalcum Ingot",
   "item.terrariamod.orichalcum_helmet": "Orichalcum Helmet",
@@ -32,6 +33,7 @@
   "item.terrariamod.orichalcum_drill": "Orichalcum Drill",
   "block.terrariamod.orichalcum_block": "Orichalcum Block",
   "block.terrariamod.orichalcum_ore": "Orichalcum Ore",
+  "block.terrariamod.deepslate_orichalcum_ore": "Deepslate Orichalcum Ore",
 
   "item.terrariamod.adamantite_ingot": "Adamantite Ingot",
   "item.terrariamod.adamantite_helmet": "Adamantite Helmet",
