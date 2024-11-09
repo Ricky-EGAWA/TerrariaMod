@@ -1,4 +1,4 @@
-// 1.20.1	2024-11-09T18:05:14.2959376	Terraria Mod/World Gen
+// 1.20.1	2024-11-09T20:36:40.5016737	Terraria Mod/World Gen
 4eb3aba2f556fa48bebaab2ed6f160051cc916c9 data\terrariamod\worldgen\configured_feature\adamantite_ore.json
 5d83ac132b137f5a30df1a8f2666339251911dd6 data\terrariamod\worldgen\placed_feature\nether_hellstone_ore_placed.json
 8ff50afc62945a18499e15d2f83ef04e0773c66c data\terrariamod\worldgen\placed_feature\cobalt_ore_placed.json
@@ -7,5 +7,5 @@
 9f3a67387c28369dbdc391dd806308104d435bcf data\terrariamod\worldgen\configured_feature\cobalt_ore.json
 329067491c368647300fe7c9711ab7545f4c5825 data\terrariamod\worldgen\configured_feature\end_temp_ore.json
 14c69123754153f54c4abb5c7f88e59d02b89944 data\terrariamod\worldgen\configured_feature\hellstone_ore.json
-391a49383839b9fd9287614749e0d495eab38482 data\terrariamod\worldgen\placed_feature\orichalcum_ore_placed.json
 30ed9848689df0626a5b01f8ef488b51b257145e data\terrariamod\worldgen\placed_feature\adamantite_ore_placed.json
+391a49383839b9fd9287614749e0d495eab38482 data\terrariamod\worldgen\placed_feature\orichalcum_ore_placed.json
