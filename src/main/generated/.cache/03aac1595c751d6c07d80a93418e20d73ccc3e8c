@@ -1,7 +1,9 @@
-// 1.20.1	2024-11-09T14:15:07.9749007	Terraria Mod/Tags for minecraft:block
-a0b5bd2abef3a7461f22833016e007c1c878d492 data\fabric\tags\blocks\needs_tool_level_4.json
+// 1.20.1	2024-11-09T15:40:04.9407354	Terraria Mod/Tags for minecraft:block
+ff6d0222f6080df6e93c6a331c283cbcf243afd6 data\fabric\tags\blocks\needs_tool_level_4.json
 d5321c89e7bc74767d4d98a4f6842758b6aa4c54 data\minecraft\tags\blocks\needs_iron_tool.json
 31eaf6b0819ddb12e2bd3b0bf60f00e2b8898e70 data\minecraft\tags\blocks\needs_stone_tool.json
 fec1e7a2894a1c44a4dabcfaccc993d166dbed3e data\terrariamod\tags\blocks\metal_detector_detectable_blocks.json
-94e3f669031ac0faff041ad39c6197bceb2e8f39 data\minecraft\tags\blocks\mineable\pickaxe.json
+f1be8c305be97a64658e70806ef527e26b99cbe5 data\fabric\tags\blocks\needs_tool_level_5.json
+f39345e4d5eada78d074bf6c95da5839dfb2041e data\minecraft\tags\blocks\mineable\pickaxe.json
 8d2f302c78647df39f1605f71f6109e9225495f8 data\minecraft\tags\blocks\needs_diamond_tool.json
+3e82fc089f39e802bb74555448a8be2800a96f07 data\fabric\tags\blocks\needs_tool_level_6.json

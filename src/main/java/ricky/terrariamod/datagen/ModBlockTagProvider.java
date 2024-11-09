@@ -36,8 +36,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.DEEPSLATE_COBALT_ORE)
                 .add(ModBlocks.COBALT_BLOCK)
                 .add(ModBlocks.ORICHALCUM_ORE)
+                .add(ModBlocks.DEEPSLATE_ORICHALCUM_ORE)
                 .add(ModBlocks.ORICHALCUM_BLOCK)
                 .add(ModBlocks.ADAMANTITE_ORE)
+                .add(ModBlocks.DEEPSLATE_ADAMANTITE_ORE)
                 .add(ModBlocks.ADAMANTITE_BLOCK)
                 .add(ModBlocks.HELLSTONE_ORE)
                 .add(ModBlocks.HELLSTONE_BLOCK);
@@ -54,7 +56,13 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.HELLSTONE_BLOCK);
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_4")))
-                .add(ModBlocks.COBALT_ORE);
+                .add(ModBlocks.COBALT_ORE).add(ModBlocks.DEEPSLATE_COBALT_ORE);
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_5")))
+                .add(ModBlocks.ORICHALCUM_ORE).add(ModBlocks.DEEPSLATE_ORICHALCUM_ORE);
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_6")))
+                .add(ModBlocks.ADAMANTITE_ORE).add(ModBlocks.DEEPSLATE_ADAMANTITE_ORE);
 
     }
 }

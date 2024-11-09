@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "terrariamod:cobalt_ore"
+    "terrariamod:cobalt_ore",
+    "terrariamod:deepslate_cobalt_ore"
   ]
 }

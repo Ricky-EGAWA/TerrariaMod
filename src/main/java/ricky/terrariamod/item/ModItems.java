@@ -25,46 +25,46 @@ public class ModItems {
     public static final Item HELLSTONE_RAW = registerItem("hellstone_raw", new Item(new FabricItemSettings()));
 
     public static final Item COBALT_PICKAXE = registerItem("cobalt_pickaxe",
-            new PickaxeItem(ModToolMaterial.COBALT_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new PickaxeItem(ModToolMaterial.COBALT_INGOT, 2, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item COBALT_AXE = registerItem("cobalt_axe",
-            new AxeItem(ModToolMaterial.COBALT_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new AxeItem(ModToolMaterial.COBALT_INGOT, 5, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item COBALT_SHOVEL = registerItem("cobalt_shovel",
-            new ShovelItem(ModToolMaterial.COBALT_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new ShovelItem(ModToolMaterial.COBALT_INGOT, 1, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item COBALT_SWORD = registerItem("cobalt_sword",
-            new SwordItem(ModToolMaterial.COBALT_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new SwordItem(ModToolMaterial.COBALT_INGOT, 3, -2.4f, new FabricItemSettings().maxCount(1)));
 //    public static final Item COBALT_DRILL = registerItem("cobalt_drill",
 //            new PickaxeItem(ModToolMaterial.COBALT_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
 
     public static final Item ORICHALCUM_PICKAXE = registerItem("orichalcum_pickaxe",
-            new PickaxeItem(ModToolMaterial.ORICHALCUM_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new PickaxeItem(ModToolMaterial.ORICHALCUM_INGOT, 2, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item ORICHALCUM_AXE = registerItem("orichalcum_axe",
-            new AxeItem(ModToolMaterial.ORICHALCUM_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new AxeItem(ModToolMaterial.ORICHALCUM_INGOT, 5, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item ORICHALCUM_SHOVEL = registerItem("orichalcum_shovel",
-            new ShovelItem(ModToolMaterial.ORICHALCUM_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new ShovelItem(ModToolMaterial.ORICHALCUM_INGOT, 1, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item ORICHALCUM_SWORD = registerItem("orichalcum_sword",
-            new SwordItem(ModToolMaterial.ORICHALCUM_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new SwordItem(ModToolMaterial.ORICHALCUM_INGOT, 3, -2.4f, new FabricItemSettings().maxCount(1)));
 //    public static final Item ORICHALCUM_DRILL = registerItem("orichalcum_drill",
 //            new PickaxeItem(ModToolMaterial.ORICHALCUM_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
 
     public static final Item ADAMANTITE_PICKAXE = registerItem("adamantite_pickaxe",
-            new PickaxeItem(ModToolMaterial.ADAMANTITE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new PickaxeItem(ModToolMaterial.ADAMANTITE_INGOT, 2, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item ADAMANTITE_AXE = registerItem("adamantite_axe",
-            new AxeItem(ModToolMaterial.ADAMANTITE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new AxeItem(ModToolMaterial.ADAMANTITE_INGOT, 5, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item ADAMANTITE_SHOVEL = registerItem("adamantite_shovel",
-            new ShovelItem(ModToolMaterial.ADAMANTITE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new ShovelItem(ModToolMaterial.ADAMANTITE_INGOT, 1, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item ADAMANTITE_SWORD = registerItem("adamantite_sword",
-            new SwordItem(ModToolMaterial.ADAMANTITE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new SwordItem(ModToolMaterial.ADAMANTITE_INGOT, 3, -2.4f, new FabricItemSettings().maxCount(1)));
 //    public static final Item ADAMANTITE_DRILL = registerItem("adamantite_drill",
 //            new PickaxeItem(ModToolMaterial.ADAMANTITE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
 
     public static final Item HELLSTONE_PICKAXE = registerItem("hellstone_pickaxe",
-            new PickaxeItem(ModToolMaterial.HELLSTONE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new PickaxeItem(ModToolMaterial.HELLSTONE_INGOT, 2, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item HELLSTONE_AXE = registerItem("hellstone_axe",
-            new AxeItem(ModToolMaterial.HELLSTONE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new AxeItem(ModToolMaterial.HELLSTONE_INGOT, 5, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item HELLSTONE_SHOVEL = registerItem("hellstone_shovel",
-            new ShovelItem(ModToolMaterial.HELLSTONE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new ShovelItem(ModToolMaterial.HELLSTONE_INGOT, 1, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item HELLSTONE_SWORD = registerItem("hellstone_sword",
-            new SwordItem(ModToolMaterial.HELLSTONE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
+            new SwordItem(ModToolMaterial.HELLSTONE_INGOT, 3, -2.4f, new FabricItemSettings().maxCount(1)));
 //    public static final Item HELLSTONE_DRILL = registerItem("hellstone_drill",
 //            new PickaxeItem(ModToolMaterial.HELLSTONE_INGOT, 2, 2f, new FabricItemSettings().maxCount(1)));
 
