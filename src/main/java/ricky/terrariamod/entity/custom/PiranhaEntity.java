@@ -11,7 +11,6 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.CodEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
