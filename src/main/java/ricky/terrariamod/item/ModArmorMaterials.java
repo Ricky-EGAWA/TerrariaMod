@@ -14,31 +14,31 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
 
-    OAK("oak", 25, new int[] {3,8,6,3}, 19,
-            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(Blocks.OAK_LOG)),
-    COPPER("copper", 25, new int[] {3,8,6,3}, 19,
-            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(Items.COPPER_INGOT)),
-    OBSIDIAN("obsidian", 25, new int[] {3,8,6,3}, 19,
-            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(Blocks.OBSIDIAN)),
-    CACTUS("cactus", 25, new int[] {3,8,6,3}, 19,
-            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(Blocks.CACTUS)),
-    PUMPKIN("pumpkin", 25, new int[] {3,8,6,3}, 19,
-            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(Blocks.PUMPKIN)),
-    GLASS("glass", 25, new int[] {3,8,6,3}, 19,
-            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(Blocks.GLASS)),
-    NIGHT("night", 25, new int[] {3,8,6,3}, 19,
-            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(Blocks.GLASS)),
+    OAK("oak", 5, new int[] {1,2,2,1}, 10,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 0f, 0f, () -> Ingredient.ofItems(Blocks.OAK_LOG)),
+    COPPER("copper", 12, new int[] {2,5,4,2}, 9,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 0f, 0f, () -> Ingredient.ofItems(Items.COPPER_INGOT)),
+    OBSIDIAN("obsidian", 35, new int[] {3,8,6,3}, 7,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 0f, 0f, () -> Ingredient.ofItems(Blocks.OBSIDIAN)),
+    CACTUS("cactus", 8, new int[] {2,5,3,1}, 19,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 0f, 0f, () -> Ingredient.ofItems(Blocks.CACTUS)),
+    PUMPKIN("pumpkin", 8, new int[] {2,5,3,1}, 19,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 0f, 0f, () -> Ingredient.ofItems(Blocks.PUMPKIN)),
+    GLASS("glass", 25, new int[] {2,0,0,0}, 9,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 0f, 0f, () -> Ingredient.ofItems(Blocks.GLASS)),
+    NIGHT("night", 25, new int[] {2,0,0,0}, 19,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 0f, 0f, () -> Ingredient.ofItems(Blocks.GLASS)),
 
-    COBALT("cobalt", 25, new int[] {3,8,6,3}, 19,
-            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(ModItems.COBALT_INGOT)),
-    ORICHALCUM("orichalcum", 25, new int[] {3,8,6,3}, 19,
-            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(ModItems.ORICHALCUM_INGOT)),
+    COBALT("cobalt", 35, new int[] {4,8,6,4}, 15,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4f, 0.1f, () -> Ingredient.ofItems(ModItems.COBALT_INGOT)),
+    ORICHALCUM("orichalcum", 45, new int[] {5,12,9,4}, 15,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4f, 0.2f, () -> Ingredient.ofItems(ModItems.ORICHALCUM_INGOT)),
 
-    ADAMANTITE("adamantite", 25, new int[] {3,8,6,3}, 19,
-            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(ModItems.ADAMANTITE_INGOT)),
+    ADAMANTITE("adamantite", 50, new int[] {6,16,12,6}, 15,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 5f, 0.3f, () -> Ingredient.ofItems(ModItems.ADAMANTITE_INGOT)),
 
-    HELLSTONE("hellstone", 25, new int[] {3,8,6,3}, 19,
-            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2f, 0.1f, () -> Ingredient.ofItems(ModItems.ADAMANTITE_INGOT));
+    HELLSTONE("hellstone", 40, new int[] {3,8,6,3}, 15,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3f, 0.1f, () -> Ingredient.ofItems(ModItems.ADAMANTITE_INGOT));
 
     private final String name;
     private final int durabilityMultiplier;

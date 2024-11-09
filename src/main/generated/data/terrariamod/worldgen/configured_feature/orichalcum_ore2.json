@@ -2,11 +2,11 @@
   "type": "minecraft:ore",
   "config": {
     "discard_chance_on_air_exposure": 0.0,
-    "size": 12,
+    "size": 1,
     "targets": [
       {
         "state": {
-          "Name": "terrariamod:orichalcum_ore"
+          "Name": "terrariamod:hellstone_ore"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",

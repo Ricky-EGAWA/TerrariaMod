@@ -22,7 +22,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> COBALT_ORE_KEY = registerKey("cobalt_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> ORICHALCUM_ORE_KEY = registerKey("orichalcum_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> ADAMANTITE_ORE_KEY = registerKey("adamantite_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_COBALT_ORE_KEY = registerKey("orichalcum_ore2");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_HELLSTONE_ORE_KEY = registerKey("orichalcum_ore2");
     public static final RegistryKey<ConfiguredFeature<?, ?>> END_COBALT_ORE_KEY = registerKey("adamantite_ore2");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context){
@@ -41,16 +41,16 @@ public class ModConfiguredFeatures {
                 List.of(OreFeatureConfig.createTarget(stoneReplacables, ModBlocks.ADAMANTITE_ORE.getDefaultState()),
                         OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.DEEPSLATE_ADAMANTITE_ORE.getDefaultState()));
 
-        List<OreFeatureConfig.Target> netherCobaltOres =
-                List.of(OreFeatureConfig.createTarget(netherReplacables, ModBlocks.ORICHALCUM_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> netherHellstoneOres =
+                List.of(OreFeatureConfig.createTarget(netherReplacables, ModBlocks.HELLSTONE_ORE.getDefaultState()));
 
         List<OreFeatureConfig.Target> endCobaltOres =
                 List.of(OreFeatureConfig.createTarget(endReplacables, ModBlocks.ADAMANTITE_ORE.getDefaultState()));
 
-        register(context, COBALT_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldCobaltOres, 12));
-        register(context, ORICHALCUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldOrichalcumOres, 12));
-        register(context, ADAMANTITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldAdamantiteOres, 12));
-        register(context, NETHER_COBALT_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherCobaltOres, 12));
+        register(context, COBALT_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldCobaltOres, 3));
+        register(context, ORICHALCUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldOrichalcumOres, 2));
+        register(context, ADAMANTITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldAdamantiteOres, 1));
+        register(context, NETHER_HELLSTONE_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherHellstoneOres, 1));
         register(context, END_COBALT_ORE_KEY, Feature.ORE, new OreFeatureConfig(endCobaltOres, 12));
     }
 

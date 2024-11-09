@@ -23,11 +23,15 @@ public class ModArmorItem extends ArmorItem {
                     .put(ModArmorMaterials.ADAMANTITE, new StatusEffectInstance(StatusEffects.STRENGTH, 219, 1,
                             false, false, true))
                     .put(ModArmorMaterials.HELLSTONE, new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 219, 1,
-                            false, true, true))
+                            false, false, true))
                     .put(ModArmorMaterials.GLASS, new StatusEffectInstance(StatusEffects.WATER_BREATHING, 219, 1,
-                            false, true, true))
+                            false, false, true))
                     .put(ModArmorMaterials.NIGHT, new StatusEffectInstance(StatusEffects.NIGHT_VISION, 219, 1,
-                            false, true, true))
+                            false, false, true))
+                    .put(ModArmorMaterials.OBSIDIAN, new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 219, 1,
+                            false, false, true))
+                    .put(ModArmorMaterials.PUMPKIN, new StatusEffectInstance(StatusEffects.STRENGTH, 219, 1,
+                            false, false, true))
                     .build();
 
     public ModArmorItem(ArmorMaterial material, Type type, Settings settings) {
