@@ -48,8 +48,8 @@ public class ModConfiguredFeatures {
                 List.of(OreFeatureConfig.createTarget(endReplacables, ModBlocks.ADAMANTITE_ORE.getDefaultState()));
 
         register(context, COBALT_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldCobaltOres, 3));
-        register(context, ORICHALCUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldOrichalcumOres, 2));
-        register(context, ADAMANTITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldAdamantiteOres, 1));
+        register(context, ORICHALCUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldOrichalcumOres, 3));
+        register(context, ADAMANTITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldAdamantiteOres, 3));
         register(context, NETHER_HELLSTONE_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherHellstoneOres, 7));
         register(context, END_COBALT_ORE_KEY, Feature.ORE, new OreFeatureConfig(endCobaltOres, 12));
     }
