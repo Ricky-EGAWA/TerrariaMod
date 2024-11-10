@@ -25,13 +25,13 @@ public class ModPlacedFeatures {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
         register(context, COBALT_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.COBALT_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(3,
+                ModOrePlacement.modifiersWithCount(5,
                         HeightRangePlacementModifier.uniform(YOffset.fixed(-60), YOffset.fixed(20))));
         register(context, ORICHALCUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ORICHALCUM_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(2,
+                ModOrePlacement.modifiersWithCount(4,
                         HeightRangePlacementModifier.uniform(YOffset.fixed(-60), YOffset.fixed(10))));
         register(context, ADAMANTITE_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ADAMANTITE_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(1,
+                ModOrePlacement.modifiersWithCount(3,
                         HeightRangePlacementModifier.uniform(YOffset.fixed(-60), YOffset.fixed(5))));
         register(context, NETHER_HELLSTONE_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_HELLSTONE_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(2,

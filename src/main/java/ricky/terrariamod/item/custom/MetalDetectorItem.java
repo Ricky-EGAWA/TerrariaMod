@@ -29,9 +29,9 @@ public class MetalDetectorItem extends Item {
             boolean foundBlock = false;
             BlockPos playerPos = player.getBlockPos();
 
-            for (int x = -5; x <= 5; x++) {
-                for (int y = -5; y <= 5; y++) {
-                    for (int z = -5; z <= 5; z++) {
+            for (int x = -10; x <= 10; x++) {
+                for (int y = -10; y <= 10; y++) {
+                    for (int z = -10; z <= 10; z++) {
                         BlockPos scanPos = playerPos.add(x, y, z);
                         BlockState state = world.getBlockState(scanPos);
 
