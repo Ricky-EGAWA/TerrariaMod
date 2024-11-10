@@ -28,8 +28,6 @@ public class ModLootTableModifiers {
             new Identifier("minecraft", "entities/creeper");
     private static final Identifier PIGLIN_BRUTE_ID =
             new Identifier("minecraft", "entities/piglin_brute");
-    private static final Identifier LAVA_BAT_ID =
-            new Identifier(TerrariaMod.MOD_ID, "lava_bat");
 
 
     public static void modifyLootTables() {
@@ -95,10 +93,10 @@ public class ModLootTableModifiers {
                 tableBuilder.pool(poolBuilder.build());
             }
             //無限溶岩バケツをピグリンブルートのドロップアイテムに追加
-            if(LAVA_BAT_ID.equals(id)) {
+            if(PIGLIN_BRUTE_ID.equals(id)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.1f))
+                        .conditionally(RandomChanceLootCondition.builder(1f))
                         .with(ItemEntry.builder(ModItems.INFINITE_LAVA_BUCKET))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
 

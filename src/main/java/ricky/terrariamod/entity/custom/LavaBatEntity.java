@@ -50,7 +50,7 @@ public class LavaBatEntity extends BatEntity {
         private final LavaBatEntity lavaBat;
         private LivingEntity target;
         private final double speed;
-        private final double attackRange = 2.0D;
+        private final double attackRange = 1.8D;
         private int attackCooldown = 0;
 
         public LavaBatAttackGoal(LavaBatEntity lavaBat, double speed) {

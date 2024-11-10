@@ -38,7 +38,7 @@ public class JungleBatEntity extends BatEntity {
         private final JungleBatEntity jungleBat;
         private LivingEntity target;
         private final double speed;
-        private final double attackRange = 2.0D;
+        private final double attackRange = 1.8D;
         private int attackCooldown = 0;
 
         public JungleBatAttackGoal(JungleBatEntity jungleBat, double speed) {
