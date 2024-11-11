@@ -2,10 +2,10 @@ package ricky.terrariamod.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Models;
+import net.minecraft.block.Block;
+import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.util.Identifier;
 import ricky.terrariamod.block.ModBlocks;
 import ricky.terrariamod.item.ModItems;
 
@@ -28,6 +28,19 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HELLSTONE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HELLSTONE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SOUND_BLOCK);
+
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EBON_STONE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EBON_ICE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EBON_SAND);
+        blockStateModelGenerator.registerSingleton(ModBlocks.EBON_SANDSTONE, TexturedModel.CUBE_BOTTOM_TOP);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRIM_STONE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRIM_ICE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRIM_SAND);
+        blockStateModelGenerator.registerSingleton(ModBlocks.CRIM_SANDSTONE, TexturedModel.CUBE_BOTTOM_TOP);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PEARL_STONE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PEARL_ICE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PEARL_SAND);
+        blockStateModelGenerator.registerSingleton(ModBlocks.PEARL_SANDSTONE, TexturedModel.CUBE_BOTTOM_TOP);
     }
 
     @Override

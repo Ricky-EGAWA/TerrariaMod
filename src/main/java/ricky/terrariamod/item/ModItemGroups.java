@@ -23,6 +23,25 @@ public class ModItemGroups {
                         entries.add(ModItems.MAGIC_MIRROR);
                     }).build());
 
+    //ModBlocks
+    public static final ItemGroup MOD_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
+            new Identifier(TerrariaMod.MOD_ID, "mod_blocks"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.mod_blocks"))
+                    .icon(()->new ItemStack(ModItems.COBALT_CHESTPLATE)).entries((displayContext, entries) -> {
+                        entries.add(ModBlocks.EBON_STONE);
+                        entries.add(ModBlocks.EBON_ICE);
+                        entries.add(ModBlocks.EBON_SAND);
+                        entries.add(ModBlocks.EBON_SANDSTONE);
+                        entries.add(ModBlocks.CRIM_STONE);
+                        entries.add(ModBlocks.CRIM_ICE);
+                        entries.add(ModBlocks.CRIM_SAND);
+                        entries.add(ModBlocks.CRIM_SANDSTONE);
+                        entries.add(ModBlocks.PEARL_STONE);
+                        entries.add(ModBlocks.PEARL_ICE);
+                        entries.add(ModBlocks.PEARL_SAND);
+                        entries.add(ModBlocks.PEARL_SANDSTONE);
+                    }).build());
+
     public static final ItemGroup MOD_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TerrariaMod.MOD_ID, "mod_armor"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.cobalt_chestplate"))

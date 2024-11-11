@@ -28,19 +28,44 @@ public class ModBlocks {
     public static final Block ORICHALCUM_BLOCK = registerBlock("orichalcum_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block ORICHALCUM_ORE = registerBlock("orichalcum_ore",
-            new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).strength(50f,1200f)));
+            new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).strength(50f,1200f), UniformIntProvider.create(2,5)));
     public static final Block DEEPSLATE_ORICHALCUM_ORE = registerBlock("deepslate_orichalcum_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).strength(50f,1200f), UniformIntProvider.create(2,5)));
     public static final Block ADAMANTITE_BLOCK = registerBlock("adamantite_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block ADAMANTITE_ORE = registerBlock("adamantite_ore",
-            new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).strength(50f,1200f)));
+            new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).strength(50f,1200f), UniformIntProvider.create(2,5)));
     public static final Block DEEPSLATE_ADAMANTITE_ORE = registerBlock("deepslate_adamantite_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).strength(50f,1200f), UniformIntProvider.create(2,5)));
     public static final Block HELLSTONE_BLOCK = registerBlock("hellstone_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block HELLSTONE_ORE = registerBlock("hellstone_ore",
-            new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).strength(50f,1200f)));
+            new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).strength(50f,1200f), UniformIntProvider.create(2,5)));
+
+    public static final Block EBON_STONE = registerBlock("ebon_stone",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
+    public static final Block EBON_SAND = registerBlock("ebon_sand",
+            new Block(FabricBlockSettings.copyOf(Blocks.SAND)));
+    public static final Block EBON_SANDSTONE = registerBlock("ebon_sandstone",
+            new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
+    public static final Block EBON_ICE = registerBlock("ebon_ice",
+            new Block(FabricBlockSettings.copyOf(Blocks.ICE)));
+    public static final Block CRIM_STONE = registerBlock("crim_stone",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
+    public static final Block CRIM_SAND = registerBlock("crim_sand",
+            new Block(FabricBlockSettings.copyOf(Blocks.SAND)));
+    public static final Block CRIM_SANDSTONE = registerBlock("crim_sandstone",
+            new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
+    public static final Block CRIM_ICE = registerBlock("crim_ice",
+            new Block(FabricBlockSettings.copyOf(Blocks.ICE)));
+    public static final Block PEARL_STONE = registerBlock("pearl_stone",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
+    public static final Block PEARL_SAND = registerBlock("pearl_sand",
+            new Block(FabricBlockSettings.copyOf(Blocks.SAND)));
+    public static final Block PEARL_SANDSTONE = registerBlock("pearl_sandstone",
+            new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
+    public static final Block PEARL_ICE = registerBlock("pearl_ice",
+            new Block(FabricBlockSettings.copyOf(Blocks.ICE)));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

@@ -33,6 +33,19 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.ORICHALCUM_ORE, copperLikeOreDrops(ModBlocks.ORICHALCUM_ORE, ModItems.ORICHALCUM_RAW));
         addDrop(ModBlocks.ADAMANTITE_ORE, copperLikeOreDrops(ModBlocks.ADAMANTITE_ORE, ModItems.ADAMANTITE_RAW));
         addDrop(ModBlocks.HELLSTONE_ORE, copperLikeOreDrops(ModBlocks.HELLSTONE_ORE, ModItems.HELLSTONE_RAW));
+
+        addDrop(ModBlocks.EBON_STONE);
+        addDrop(ModBlocks.EBON_ICE);
+        addDrop(ModBlocks.EBON_SAND);
+        addDrop(ModBlocks.EBON_SANDSTONE);
+        addDrop(ModBlocks.CRIM_STONE);
+        addDrop(ModBlocks.CRIM_ICE);
+        addDrop(ModBlocks.CRIM_SAND);
+        addDrop(ModBlocks.CRIM_SANDSTONE);
+        addDrop(ModBlocks.PEARL_STONE);
+        addDrop(ModBlocks.PEARL_ICE);
+        addDrop(ModBlocks.PEARL_SAND);
+        addDrop(ModBlocks.PEARL_SANDSTONE);
     }
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {
         return BlockLootTableGenerator.dropsWithSilkTouch(drop, (LootPoolEntry.Builder)this.applyExplosionDecay(drop,
