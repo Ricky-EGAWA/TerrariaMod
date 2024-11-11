@@ -7,6 +7,7 @@ import net.minecraft.registry.RegistryKeys;
 import ricky.terrariamod.datagen.*;
 import ricky.terrariamod.world.ModConfiguredFeatures;
 import ricky.terrariamod.world.ModPlacedFeatures;
+import ricky.terrariamod.world.biome.ModBiomes;
 
 public class TerrariaModDataGenerator implements DataGeneratorEntrypoint {
 	@Override
@@ -25,5 +26,6 @@ public class TerrariaModDataGenerator implements DataGeneratorEntrypoint {
 	public void buildRegistry(RegistryBuilder registryBuilder) {
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::bootstrap);
 	}
 }
