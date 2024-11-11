@@ -22,9 +22,12 @@ import ricky.terrariamod.entity.ModEntities;
 public class ModBiomes {
     public static final RegistryKey<Biome> TEST_BIOME = RegistryKey.of(RegistryKeys.BIOME,
             new Identifier(TerrariaMod.MOD_ID, "test_biome"));
+    public static final RegistryKey<Biome> EBON_BIOME = RegistryKey.of(RegistryKeys.BIOME,
+            new Identifier(TerrariaMod.MOD_ID, "ebon_biome"));
 
     public static void bootstrap(Registerable<Biome> context) {
         context.register(TEST_BIOME, testBiome(context));
+        context.register(EBON_BIOME, EbonBiome(context));
     }
     public static void globalOverworldGeneration(GenerationSettings.LookupBackedBuilder builder) {
         DefaultBiomeFeatures.addLandCarvers(builder);
@@ -36,6 +39,7 @@ public class ModBiomes {
     }
 
     public static Biome testBiome(Registerable<Biome> context) {
+        //モブのスポーン
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.PORCUPINE, 2, 3, 5));
 
@@ -43,7 +47,7 @@ public class ModBiomes {
 
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
         DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
-
+        //地形の生成
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
                         context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
@@ -73,6 +77,48 @@ public class ModBiomes {
                         .grassColor(0x7f03fc)
                         .foliageColor(0xd203fc)
                         .fogColor(0x22a1e6)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+//                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                .build();
+    }
+    public static Biome EbonBiome(Registerable<Biome> context) {
+        //モブのスポーン
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.JUNGLE_BAT, 100, 3, 5));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 4));
+
+        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        //地形の生成
+        GenerationSettings.LookupBackedBuilder biomeBuilder =
+                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
+                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
+
+        globalOverworldGeneration(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
+        DefaultBiomeFeatures.addExtraGoldOre(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_PLAINS);
+        DefaultBiomeFeatures.addForestFlowers(biomeBuilder);
+        DefaultBiomeFeatures.addLargeFerns(biomeBuilder);
+
+        DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.4f)
+                .temperature(0.7f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0x53527D)
+                        .waterFogColor(0x53527D)
+                        .skyColor(0x53527D)
+                        .grassColor(0x53527D)
+                        .foliageColor(0x53527D)
+                        .fogColor(0x53527D)
                         .moodSound(BiomeMoodSound.CAVE).build())
 //                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
                 .build();
