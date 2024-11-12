@@ -3,6 +3,9 @@ package ricky.terrariamod;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
+import net.minecraft.block.Blocks;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ricky.terrariamod.block.ModBlocks;
@@ -43,5 +46,12 @@ public class TerrariaMod implements ModInitializer {
 
 		// エンティティのスポーンを追加
 		ModEntitySpawn.addEntitySpawn();
+
+		CustomPortalBuilder.beginPortal()
+				.frameBlock(Blocks.END_STONE)
+				.lightWithItem(ModItems.COBALT_INGOT)
+				.destDimID(new Identifier(TerrariaMod.MOD_ID, "terraria"))
+				.tintColor(0xc76efa)
+				.registerPortal();
 	}
 }

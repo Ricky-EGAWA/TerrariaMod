@@ -8,6 +8,7 @@ import ricky.terrariamod.datagen.*;
 import ricky.terrariamod.world.ModConfiguredFeatures;
 import ricky.terrariamod.world.ModPlacedFeatures;
 import ricky.terrariamod.world.biome.ModBiomes;
+import ricky.terrariamod.world.dimension.ModDimensions;
 
 public class TerrariaModDataGenerator implements DataGeneratorEntrypoint {
 	@Override
@@ -27,5 +28,6 @@ public class TerrariaModDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, ModDimensions::bootstrapType);
 	}
 }
