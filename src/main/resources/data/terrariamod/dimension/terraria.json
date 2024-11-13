@@ -1,5 +1,5 @@
 {
-  "type": "terrariamod:terraria_type",
+  "type": "minecraft:overworld",
   "generator": {
     "type": "minecraft:noise",
     "settings": "minecraft:overworld",
@@ -7,9 +7,33 @@
       "type": "minecraft:multi_noise",
       "biomes": [
         {
-          "biome": "terrariamod:test_biome",
+          "biome": "terrariamod:pearl_biome",
           "parameters": {
             "temperature": 0.2,
+            "humidity": 1,
+            "continentalness": 0.3,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "terrariamod:pearl_desert_biome",
+          "parameters": {
+            "temperature": 0.7,
+            "humidity": 1,
+            "continentalness": 0.3,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "terrariamod:pearl_ice_biome",
+          "parameters": {
+            "temperature": 1,
             "humidity": 0.5,
             "continentalness": 0,
             "erosion": 0,
@@ -21,8 +45,68 @@
         {
           "biome": "terrariamod:ebon_biome",
           "parameters": {
-            "temperature": 0,
-            "humidity": 0.5,
+            "temperature": 0.2,
+            "humidity": 0,
+            "continentalness": 0.3,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "terrariamod:ebon_desert_biome",
+          "parameters": {
+            "temperature": 0.7,
+            "humidity": 0,
+            "continentalness": 0.3,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "terrariamod:ebon_ice_biome",
+          "parameters": {
+            "temperature": -0.6,
+            "humidity": 0,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "terrariamod:crim_biome",
+          "parameters": {
+            "temperature": 0.1,
+            "humidity": -1,
+            "continentalness": 0.3,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "terrariamod:crim_desert_biome",
+          "parameters": {
+            "temperature": 0.8,
+            "humidity": -1,
+            "continentalness": 0.3,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "terrariamod:crim_ice_biome",
+          "parameters": {
+            "temperature": -0.6,
+            "humidity": -1,
             "continentalness": 0,
             "erosion": 0,
             "weirdness": 0,

@@ -20,14 +20,35 @@ import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.entity.ModEntities;
 
 public class ModBiomes {
-    public static final RegistryKey<Biome> TEST_BIOME = RegistryKey.of(RegistryKeys.BIOME,
-            new Identifier(TerrariaMod.MOD_ID, "test_biome"));
+    public static final RegistryKey<Biome> CRIM_DESERT_BIOME = RegistryKey.of(RegistryKeys.BIOME,
+            new Identifier(TerrariaMod.MOD_ID, "crim_desert_biome"));
+    public static final RegistryKey<Biome> EBON_DESERT_BIOME = RegistryKey.of(RegistryKeys.BIOME,
+            new Identifier(TerrariaMod.MOD_ID, "ebon_desert_biome"));
+    public static final RegistryKey<Biome> PEARL_DESERT_BIOME = RegistryKey.of(RegistryKeys.BIOME,
+            new Identifier(TerrariaMod.MOD_ID, "pearl_desert_biome"));
+    public static final RegistryKey<Biome> CRIM_BIOME = RegistryKey.of(RegistryKeys.BIOME,
+            new Identifier(TerrariaMod.MOD_ID, "crim_biome"));
     public static final RegistryKey<Biome> EBON_BIOME = RegistryKey.of(RegistryKeys.BIOME,
             new Identifier(TerrariaMod.MOD_ID, "ebon_biome"));
+    public static final RegistryKey<Biome> PEARL_BIOME = RegistryKey.of(RegistryKeys.BIOME,
+            new Identifier(TerrariaMod.MOD_ID, "pearl_biome"));
+    public static final RegistryKey<Biome> CRIM_ICE_BIOME = RegistryKey.of(RegistryKeys.BIOME,
+            new Identifier(TerrariaMod.MOD_ID, "crim_ice_biome"));
+    public static final RegistryKey<Biome> EBON_ICE_BIOME = RegistryKey.of(RegistryKeys.BIOME,
+            new Identifier(TerrariaMod.MOD_ID, "ebon_ice_biome"));
+    public static final RegistryKey<Biome> PEARL_ICE_BIOME = RegistryKey.of(RegistryKeys.BIOME,
+            new Identifier(TerrariaMod.MOD_ID, "pearl_ice_biome"));
 
     public static void bootstrap(Registerable<Biome> context) {
-        context.register(TEST_BIOME, testBiome(context));
-        context.register(EBON_BIOME, EbonBiome(context));
+        context.register(CRIM_DESERT_BIOME, crimDesertBiome(context));
+        context.register(EBON_DESERT_BIOME, ebonDesertBiome(context));
+        context.register(PEARL_DESERT_BIOME, pearlDesertBiome(context));
+        context.register(CRIM_BIOME, crimBiome(context));
+        context.register(EBON_BIOME, ebonBiome(context));
+        context.register(PEARL_BIOME, pearlBiome(context));
+        context.register(CRIM_ICE_BIOME, crimIceBiome(context));
+        context.register(EBON_ICE_BIOME, ebonIceBiome(context));
+        context.register(PEARL_ICE_BIOME, pearlIceBiome(context));
     }
     public static void globalOverworldGeneration(GenerationSettings.LookupBackedBuilder builder) {
         DefaultBiomeFeatures.addLandCarvers(builder);
@@ -38,7 +59,7 @@ public class ModBiomes {
         DefaultBiomeFeatures.addFrozenTopLayer(builder);
     }
 
-    public static Biome testBiome(Registerable<Biome> context) {
+    public static Biome crimDesertBiome(Registerable<Biome> context) {
         //モブのスポーン
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.PORCUPINE, 2, 3, 5));
@@ -73,15 +94,15 @@ public class ModBiomes {
                 .effects((new BiomeEffects.Builder())
                         .waterColor(0xe82e3b)
                         .waterFogColor(0xbf1b26)
-                        .skyColor(0x30c918)
+                        .skyColor(0xe82e3b)
                         .grassColor(0x7f03fc)
                         .foliageColor(0xd203fc)
-                        .fogColor(0x22a1e6)
+                        .fogColor(0xbf1b26)
                         .moodSound(BiomeMoodSound.CAVE).build())
 //                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
                 .build();
     }
-    public static Biome EbonBiome(Registerable<Biome> context) {
+    public static Biome ebonDesertBiome(Registerable<Biome> context) {
         //モブのスポーン
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.JUNGLE_BAT, 100, 3, 5));
@@ -119,6 +140,302 @@ public class ModBiomes {
                         .grassColor(0x53527D)
                         .foliageColor(0x53527D)
                         .fogColor(0x53527D)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+//                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                .build();
+    }
+    public static Biome pearlDesertBiome(Registerable<Biome> context) {
+        //モブのスポーン
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.JUNGLE_BAT, 100, 3, 5));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 4));
+
+        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        //地形の生成
+        GenerationSettings.LookupBackedBuilder biomeBuilder =
+                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
+                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
+
+        globalOverworldGeneration(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
+        DefaultBiomeFeatures.addExtraGoldOre(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_PLAINS);
+        DefaultBiomeFeatures.addForestFlowers(biomeBuilder);
+        DefaultBiomeFeatures.addLargeFerns(biomeBuilder);
+
+        DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.4f)
+                .temperature(0.7f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0xFF63DA)
+                        .waterFogColor(0xFF63DA)
+                        .skyColor(0xFF63DA)
+                        .grassColor(0xFF63DA)
+                        .foliageColor(0xFF63DA)
+                        .fogColor(0xFF63DA)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+//                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                .build();
+    }
+    public static Biome crimBiome(Registerable<Biome> context) {
+        //モブのスポーン
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.PORCUPINE, 2, 3, 5));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 4));
+
+        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        //地形の生成
+        GenerationSettings.LookupBackedBuilder biomeBuilder =
+                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
+                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
+
+        globalOverworldGeneration(biomeBuilder);
+        DefaultBiomeFeatures.addMossyRocks(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
+        DefaultBiomeFeatures.addExtraGoldOre(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_PLAINS);
+        DefaultBiomeFeatures.addForestFlowers(biomeBuilder);
+        DefaultBiomeFeatures.addLargeFerns(biomeBuilder);
+
+        DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.4f)
+                .temperature(0.7f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0xe82e3b)
+                        .waterFogColor(0xbf1b26)
+                        .skyColor(0xe82e3b)
+                        .grassColor(0x7f03fc)
+                        .foliageColor(0xd203fc)
+                        .fogColor(0xbf1b26)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+//                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                .build();
+    }
+    public static Biome ebonBiome(Registerable<Biome> context) {
+        //モブのスポーン
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.JUNGLE_BAT, 100, 3, 5));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 4));
+
+        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        //地形の生成
+        GenerationSettings.LookupBackedBuilder biomeBuilder =
+                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
+                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
+
+        globalOverworldGeneration(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
+        DefaultBiomeFeatures.addExtraGoldOre(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_PLAINS);
+        DefaultBiomeFeatures.addForestFlowers(biomeBuilder);
+        DefaultBiomeFeatures.addLargeFerns(biomeBuilder);
+
+        DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.4f)
+                .temperature(0.7f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0x53527D)
+                        .waterFogColor(0x53527D)
+                        .skyColor(0x53527D)
+                        .grassColor(0x53527D)
+                        .foliageColor(0x53527D)
+                        .fogColor(0x53527D)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+//                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                .build();
+    }
+    public static Biome pearlBiome(Registerable<Biome> context) {
+        //モブのスポーン
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.JUNGLE_BAT, 100, 3, 5));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 4));
+
+        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        //地形の生成
+        GenerationSettings.LookupBackedBuilder biomeBuilder =
+                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
+                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
+
+        globalOverworldGeneration(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
+        DefaultBiomeFeatures.addExtraGoldOre(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_PLAINS);
+        DefaultBiomeFeatures.addForestFlowers(biomeBuilder);
+        DefaultBiomeFeatures.addLargeFerns(biomeBuilder);
+
+        DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.4f)
+                .temperature(0.7f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0xFF63DA)
+                        .waterFogColor(0xFF63DA)
+                        .skyColor(0xFF63DA)
+                        .grassColor(0xFF63DA)
+                        .foliageColor(0xFF63DA)
+                        .fogColor(0xFF63DA)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+//                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                .build();
+    }
+    public static Biome crimIceBiome(Registerable<Biome> context) {
+        //モブのスポーン
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.PORCUPINE, 2, 3, 5));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 4));
+
+        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        //地形の生成
+        GenerationSettings.LookupBackedBuilder biomeBuilder =
+                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
+                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
+
+        globalOverworldGeneration(biomeBuilder);
+        DefaultBiomeFeatures.addMossyRocks(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
+        DefaultBiomeFeatures.addExtraGoldOre(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_PLAINS);
+        DefaultBiomeFeatures.addForestFlowers(biomeBuilder);
+        DefaultBiomeFeatures.addLargeFerns(biomeBuilder);
+
+        DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.4f)
+                .temperature(0.7f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0xe82e3b)
+                        .waterFogColor(0xbf1b26)
+                        .skyColor(0xe82e3b)
+                        .grassColor(0x7f03fc)
+                        .foliageColor(0xd203fc)
+                        .fogColor(0xbf1b26)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+//                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                .build();
+    }
+    public static Biome ebonIceBiome(Registerable<Biome> context) {
+        //モブのスポーン
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.JUNGLE_BAT, 100, 3, 5));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 4));
+
+        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        //地形の生成
+        GenerationSettings.LookupBackedBuilder biomeBuilder =
+                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
+                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
+
+        globalOverworldGeneration(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
+        DefaultBiomeFeatures.addExtraGoldOre(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_PLAINS);
+        DefaultBiomeFeatures.addForestFlowers(biomeBuilder);
+        DefaultBiomeFeatures.addLargeFerns(biomeBuilder);
+
+        DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.4f)
+                .temperature(0.7f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0x53527D)
+                        .waterFogColor(0x53527D)
+                        .skyColor(0x53527D)
+                        .grassColor(0x53527D)
+                        .foliageColor(0x53527D)
+                        .fogColor(0x53527D)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+//                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                .build();
+    }
+    public static Biome pearlIceBiome(Registerable<Biome> context) {
+        //モブのスポーン
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.JUNGLE_BAT, 100, 3, 5));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 4));
+
+        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        //地形の生成
+        GenerationSettings.LookupBackedBuilder biomeBuilder =
+                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
+                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
+
+        globalOverworldGeneration(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
+        DefaultBiomeFeatures.addExtraGoldOre(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_PLAINS);
+        DefaultBiomeFeatures.addForestFlowers(biomeBuilder);
+        DefaultBiomeFeatures.addLargeFerns(biomeBuilder);
+
+        DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.4f)
+                .temperature(0.7f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0xFF63DA)
+                        .waterFogColor(0xFF63DA)
+                        .skyColor(0xFF63DA)
+                        .grassColor(0xFF63DA)
+                        .foliageColor(0xFF63DA)
+                        .fogColor(0xFF63DA)
                         .moodSound(BiomeMoodSound.CAVE).build())
 //                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
                 .build();
