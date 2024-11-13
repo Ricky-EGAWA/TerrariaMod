@@ -222,7 +222,7 @@ public class ModBiomes {
                         .waterColor(0xe82e3b)
                         .waterFogColor(0xbf1b26)
                         .skyColor(0xe82e3b)
-                        .grassColor(0x7f03fc)
+                        .grassColor(11797508)
                         .foliageColor(0xd203fc)
                         .fogColor(0xbf1b26)
                         .moodSound(BiomeMoodSound.CAVE).build())
