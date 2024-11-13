@@ -1,4 +1,4 @@
-// 1.20.1	2024-11-12T12:30:08.8020751	Terraria Mod/Block Loot Tables
+// 1.20.1	2024-11-13T14:03:44.1369581	Terraria Mod/Block Loot Tables
 38e24b2abb955513f79391a4600201964c00a8f1 data\terrariamod\loot_tables\blocks\crim_sand.json
 67f207039d304ee0842fef6e182d2eab78b915e2 data\terrariamod\loot_tables\blocks\pearl_sandstone.json
 a54cd25c544414df7b2489900f5d96a1494f2cf7 data\terrariamod\loot_tables\blocks\hellstone_block.json
@@ -17,6 +17,6 @@ dcaf4aa5636348b7e26e5c8afbea932815a5a71b data\terrariamod\loot_tables\blocks\dee
 2ee65a3fda454b50be14d3aa52d63c040bcf2357 data\terrariamod\loot_tables\blocks\ebon_sandstone.json
 dc5ce09b98935d941eeba44cf0ee621bbb62c512 data\terrariamod\loot_tables\blocks\cobalt_block.json
 226456410a57ce8290d2eff2b651270f62019850 data\terrariamod\loot_tables\blocks\adamantite_ore.json
-191ced29213d6913018e2baa05a125738f48d261 data\terrariamod\loot_tables\blocks\ebon_ice.json
 513b5f53c6ec8294cd7e0b4fd1fc6f7201ceb1af data\terrariamod\loot_tables\blocks\ebon_stone.json
+191ced29213d6913018e2baa05a125738f48d261 data\terrariamod\loot_tables\blocks\ebon_ice.json
 710c99e0c3a1ca1da3a76fc3b62c8854680ad292 data\terrariamod\loot_tables\blocks\crim_sandstone.json

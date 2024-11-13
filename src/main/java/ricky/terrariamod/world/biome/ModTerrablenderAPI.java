@@ -11,10 +11,8 @@ public class ModTerrablenderAPI implements TerraBlenderApi {
     @Override
     public void onTerraBlenderInitialized(){
         Regions.register(new ModOverworldRegion(new Identifier(TerrariaMod.MOD_ID, "overworld"), 4));
-
+        // 表層のルールを登録
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, TerrariaMod.MOD_ID,
-                ModMaterialRules.makeTestBiomeRules());
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, TerrariaMod.MOD_ID,
-                ModMaterialRules.makeEbonBiomeRules());
+                ModMaterialRules.makeCustomSurfaceRules());
     }
 }
