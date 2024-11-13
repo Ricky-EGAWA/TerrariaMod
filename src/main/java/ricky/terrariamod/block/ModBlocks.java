@@ -2,9 +2,7 @@ package ricky.terrariamod.block;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ExperienceDroppingBlock;
+import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -45,27 +43,27 @@ public class ModBlocks {
     public static final Block EBON_STONE = registerBlock("ebon_stone",
             new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
     public static final Block EBON_SAND = registerBlock("ebon_sand",
-            new Block(FabricBlockSettings.copyOf(Blocks.SAND)));
+            new SandBlock(10947717,FabricBlockSettings.copyOf(Blocks.SAND)));
     public static final Block EBON_SANDSTONE = registerBlock("ebon_sandstone",
             new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
     public static final Block EBON_ICE = registerBlock("ebon_ice",
-            new Block(FabricBlockSettings.copyOf(Blocks.ICE)));
+            new IceBlock(FabricBlockSettings.copyOf(Blocks.ICE)));
     public static final Block CRIM_STONE = registerBlock("crim_stone",
             new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
     public static final Block CRIM_SAND = registerBlock("crim_sand",
-            new Block(FabricBlockSettings.copyOf(Blocks.SAND)));
+            new SandBlock(11732246, FabricBlockSettings.copyOf(Blocks.SAND)));
     public static final Block CRIM_SANDSTONE = registerBlock("crim_sandstone",
             new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
     public static final Block CRIM_ICE = registerBlock("crim_ice",
-            new Block(FabricBlockSettings.copyOf(Blocks.ICE)));
+            new IceBlock(FabricBlockSettings.copyOf(Blocks.ICE)));
     public static final Block PEARL_STONE = registerBlock("pearl_stone",
             new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
     public static final Block PEARL_SAND = registerBlock("pearl_sand",
-            new Block(FabricBlockSettings.copyOf(Blocks.SAND)));
+            new SandBlock(15987186, FabricBlockSettings.copyOf(Blocks.SAND)));
     public static final Block PEARL_SANDSTONE = registerBlock("pearl_sandstone",
             new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
     public static final Block PEARL_ICE = registerBlock("pearl_ice",
-            new Block(FabricBlockSettings.copyOf(Blocks.ICE)));
+            new IceBlock(FabricBlockSettings.copyOf(Blocks.ICE)));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

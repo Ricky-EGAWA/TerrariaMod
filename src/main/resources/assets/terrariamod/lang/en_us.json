@@ -87,9 +87,23 @@
   "item.terrariamod.night_helmet": "Night Vision Helmet",
   "item.terrariamod.glass_helmet": "Diving Helmet",
 
+  "block.terrariamod.ebon_sand": "",
+  "block.terrariamod.ebon_sandstone": "",
+  "block.terrariamod.ebon_stone": "",
+  "block.terrariamod.ebon_ice": "",
+  "block.terrariamod.crim_sand": "",
+  "block.terrariamod.crim_sandstone": "",
+  "block.terrariamod.crim_stone": "",
+  "block.terrariamod.crim_ice": "",
+  "block.terrariamod.pearl_sand": "",
+  "block.terrariamod.pearl_sandstone": "",
+  "block.terrariamod.pearl_stone": "",
+  "block.terrariamod.pearl_ice": "",
+
   "itemgroup.cobalt": "Mod Items",
   "itemgroup.special_item": "Mod Special Items",
   "itemgroup.cobalt_chestplate": "Mod Armors",
+  "itemgroup.mod_blocks": "Mod Blocks",
 
   "tooltip.terrariamod.metal_detector.tooltip": "Finds Valuables underground",
   "message.terrariamod.metal_detector.not_found": "No Valuables Nearby!",

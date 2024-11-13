@@ -27,7 +27,7 @@ public class ModItemGroups {
     public static final ItemGroup MOD_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TerrariaMod.MOD_ID, "mod_blocks"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.mod_blocks"))
-                    .icon(()->new ItemStack(ModItems.COBALT_CHESTPLATE)).entries((displayContext, entries) -> {
+                    .icon(()->new ItemStack(ModBlocks.EBON_STONE)).entries((displayContext, entries) -> {
                         entries.add(ModBlocks.EBON_STONE);
                         entries.add(ModBlocks.EBON_ICE);
                         entries.add(ModBlocks.EBON_SAND);

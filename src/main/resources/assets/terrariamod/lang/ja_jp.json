@@ -87,9 +87,23 @@
   "item.terrariamod.night_helmet": "暗視ヘルメット",
   "item.terrariamod.glass_helmet": "ダイビングヘルメット",
 
+  "block.terrariamod.ebon_sand": "エボンサンド",
+  "block.terrariamod.ebon_sandstone": "エボンサンドストーン",
+  "block.terrariamod.ebon_stone": "エボンストーン",
+  "block.terrariamod.ebon_ice": "氷（紫）",
+  "block.terrariamod.crim_sand": "クリムサンド",
+  "block.terrariamod.crim_sandstone": "クリムサンドストーン",
+  "block.terrariamod.crim_stone": "クリムストーン",
+  "block.terrariamod.crim_ice": "氷（赤）",
+  "block.terrariamod.pearl_sand": "パールサンド",
+  "block.terrariamod.pearl_sandstone": "パールサンドストーン",
+  "block.terrariamod.pearl_stone": "パールストーン",
+  "block.terrariamod.pearl_ice": "氷（白）",
+
   "itemgroup.cobalt": "モッドアイテム",
   "itemgroup.special_item": "特殊アイテム",
   "itemgroup.cobalt_chestplate": "武器と防具",
+  "itemgroup.mod_blocks": "モッドブロック",
 
   "tooltip.terrariamod.metal_detector.tooltip": "近くの鉱石を探索",
   "message.terrariamod.metal_detector.not_found": "近くにレア鉱石はありません",
