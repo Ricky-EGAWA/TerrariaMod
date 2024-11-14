@@ -14,6 +14,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.block.custom.SoundBlock;
+import ricky.terrariamod.world.tree.EbonSaplingGenerator;
 
 public class ModBlocks {
     //採掘力 = ( ツールの基礎採掘力 + ( 1 + 効率強化レベル ^2)) × ( 1 + 採掘速度上昇 × 0.2)
@@ -76,6 +77,21 @@ public class ModBlocks {
             new FlowerBlock(StatusEffects.INSTANT_DAMAGE,10,FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM)));
     public static final Block POTTED_VILE_MUSHROOM = Registry.register(Registries.BLOCK, new Identifier(TerrariaMod.MOD_ID, "potted_vile_mushroom"),
             new FlowerPotBlock(VILE_MUSHROOM, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
+    //tree
+    public static final Block EBON_LOG = registerBlock("ebon_log",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG)));
+    public static final Block EBON_WOOD = registerBlock("ebon_wood",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD)));
+    public static final Block STRIPPED_EBON_LOG = registerBlock("stripped_ebon_log",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_LOG)));
+    public static final Block STRIPPED_EBON_WOOD = registerBlock("stripped_ebon_wood",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD)));
+    public static final Block EBON_PLANKS = registerBlock("ebon_planks",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS)));
+    public static final Block EBON_LEAVES = registerBlock("ebon_leaves",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).nonOpaque()));
+    public static final Block EBON_SAPLING = registerBlock("ebon_sapling",
+            new SaplingBlock(new EbonSaplingGenerator(),FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).nonOpaque()));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

@@ -101,6 +101,13 @@
   "block.terrariamod.pearl_ice": "Pearl Ice",
   "block.terrariamod.death_weed": "Death Weed",
   "block.terrariamod.vile_mushroom": "Vile Mushroom",
+  "block.terrariamod.ebon_log": "Ebon Log",
+  "block.terrariamod.ebon_wood": "Ebon Wood",
+  "block.terrariamod.stripped_ebon_log": "Stripped Ebon Log",
+  "block.terrariamod.stripped_ebon_wood": "Stripped Ebon Wood",
+  "block.terrariamod.ebon_planks": "Ebon Plank",
+  "block.terrariamod.ebon_leaves": "Ebon Leave",
+  "block.terrariamod.ebon_sapling": "Ebon Sapling",
 
   "itemgroup.cobalt": "Mod Items",
   "itemgroup.special_item": "Mod Special Items",

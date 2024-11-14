@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "terrariamod:ebon_log",
+    "terrariamod:ebon_wood",
+    "terrariamod:stripped_ebon_log",
+    "terrariamod:stripped_ebon_wood"
+  ]
+}

@@ -101,6 +101,13 @@
   "block.terrariamod.pearl_ice": "氷（白）",
   "block.terrariamod.death_weed": "デスウィード",
   "block.terrariamod.vile_mushroom": "邪悪なキノコ",
+  "block.terrariamod.ebon_log": "エボンの原木",
+  "block.terrariamod.ebon_wood": "エボンの",
+  "block.terrariamod.stripped_ebon_log": "皮を向かれたエボンの丸太",
+  "block.terrariamod.stripped_ebon_wood": "エボン",
+  "block.terrariamod.ebon_planks": "エボンの木材",
+  "block.terrariamod.ebon_leaves": "エボンの葉",
+  "block.terrariamod.ebon_sapling": "エボンの苗木",
 
   "itemgroup.cobalt": "モッドアイテム",
   "itemgroup.special_item": "特殊アイテム",

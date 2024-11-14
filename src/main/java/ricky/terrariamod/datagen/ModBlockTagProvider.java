@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.block.ModBlocks;
@@ -69,6 +70,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_6")))
                 .add(ModBlocks.ADAMANTITE_ORE).add(ModBlocks.DEEPSLATE_ADAMANTITE_ORE);
+
+        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+                .add(ModBlocks.EBON_LOG)
+                .add(ModBlocks.EBON_WOOD)
+                .add(ModBlocks.STRIPPED_EBON_LOG)
+                .add(ModBlocks.STRIPPED_EBON_WOOD);
 
     }
 }

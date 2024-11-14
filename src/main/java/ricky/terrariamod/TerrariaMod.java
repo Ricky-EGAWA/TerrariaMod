@@ -3,6 +3,8 @@ package ricky.terrariamod;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
@@ -33,6 +35,17 @@ public class TerrariaMod implements ModInitializer {
 		ModLootTableModifiers.modifyLootTables();
 
 		ModWorldGeneration.generateModWorldGen();
+		//tree
+		StrippableBlockRegistry.register(ModBlocks.EBON_LOG, ModBlocks.STRIPPED_EBON_LOG);
+		StrippableBlockRegistry.register(ModBlocks.EBON_WOOD, ModBlocks.STRIPPED_EBON_WOOD);
+		//可燃ブロック
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.EBON_LOG,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.EBON_WOOD,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_EBON_LOG,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_EBON_WOOD,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.EBON_PLANKS,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.EBON_LEAVES,5,5);
+
 
 		//エンティティの登録
 		LOGGER.info("Registering attributes for entities");

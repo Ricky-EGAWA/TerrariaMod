@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
+import ricky.terrariamod.block.ModBlocks;
 import ricky.terrariamod.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -26,5 +27,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.ADAMANTITE_HELMET, ModItems.ADAMANTITE_CHESTPLATE, ModItems.ADAMANTITE_LEGGINGS, ModItems.ADAMANTITE_BOOTS,
                         ModItems.HELLSTONE_HELMET, ModItems.HELLSTONE_CHESTPLATE, ModItems.HELLSTONE_LEGGINGS, ModItems.HELLSTONE_BOOTS,
                         ModItems.GLASS_HELMET, ModItems.NIGHT_HELMET);
+        getOrCreateTagBuilder(ItemTags.PLANKS)
+                .add(ModBlocks.EBON_PLANKS.asItem());
+        getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
+                .add(ModBlocks.EBON_LOG.asItem())
+                .add(ModBlocks.EBON_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_EBON_LOG.asItem())
+                .add(ModBlocks.STRIPPED_EBON_WOOD.asItem());
     }
 }

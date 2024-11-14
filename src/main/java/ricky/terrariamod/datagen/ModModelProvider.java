@@ -41,9 +41,15 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PEARL_ICE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PEARL_SAND);
         blockStateModelGenerator.registerSingleton(ModBlocks.PEARL_SANDSTONE, TexturedModel.CUBE_BOTTOM_TOP);
-
+        //plants
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.DEATH_WEED, ModBlocks.POTTED_DEATH_WEED,BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.VILE_MUSHROOM, ModBlocks.POTTED_VILE_MUSHROOM,BlockStateModelGenerator.TintType.NOT_TINTED);
+        //tree
+        blockStateModelGenerator.registerLog(ModBlocks.EBON_LOG).log(ModBlocks.EBON_LOG).wood(ModBlocks.EBON_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_EBON_LOG).log(ModBlocks.STRIPPED_EBON_LOG).wood(ModBlocks.STRIPPED_EBON_WOOD);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EBON_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EBON_LEAVES);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.EBON_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     @Override
