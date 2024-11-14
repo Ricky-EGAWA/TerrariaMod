@@ -3,6 +3,7 @@ package ricky.terrariamod.block;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -10,10 +11,13 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.block.custom.SoundBlock;
 
 public class ModBlocks {
+    //採掘力 = ( ツールの基礎採掘力 + ( 1 + 効率強化レベル ^2)) × ( 1 + 採掘速度上昇 × 0.2)
+    //採掘時間 = ブロックの硬度 × 30 / 採掘力
     public static final Block SOUND_BLOCK = registerBlock("sound_block",
             new SoundBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
 
@@ -64,6 +68,14 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
     public static final Block PEARL_ICE = registerBlock("pearl_ice",
             new IceBlock(FabricBlockSettings.copyOf(Blocks.ICE)));
+    public static final Block DEATH_WEED = registerBlock("death_weed",
+            new FlowerBlock(StatusEffects.INSTANT_DAMAGE,10,FabricBlockSettings.copyOf(Blocks.ALLIUM)));
+    public static final Block POTTED_DEATH_WEED = Registry.register(Registries.BLOCK, new Identifier(TerrariaMod.MOD_ID, "potted_death_weed"),
+            new FlowerPotBlock(DEATH_WEED, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
+    public static final Block VILE_MUSHROOM = registerBlock("vile_mushroom",
+            new FlowerBlock(StatusEffects.INSTANT_DAMAGE,10,FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM)));
+    public static final Block POTTED_VILE_MUSHROOM = Registry.register(Registries.BLOCK, new Identifier(TerrariaMod.MOD_ID, "potted_vile_mushroom"),
+            new FlowerPotBlock(VILE_MUSHROOM, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

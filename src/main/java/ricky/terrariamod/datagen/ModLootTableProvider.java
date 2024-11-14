@@ -46,6 +46,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.PEARL_ICE);
         addDrop(ModBlocks.PEARL_SAND);
         addDrop(ModBlocks.PEARL_SANDSTONE);
+        addDrop(ModBlocks.DEATH_WEED);
+        addPottedPlantDrops(ModBlocks.POTTED_DEATH_WEED);
+        addDrop(ModBlocks.VILE_MUSHROOM);
+        addPottedPlantDrops(ModBlocks.POTTED_VILE_MUSHROOM);
     }
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {
         return BlockLootTableGenerator.dropsWithSilkTouch(drop, (LootPoolEntry.Builder)this.applyExplosionDecay(drop,

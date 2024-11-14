@@ -40,6 +40,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PEARL_ICE);
                         entries.add(ModBlocks.PEARL_SAND);
                         entries.add(ModBlocks.PEARL_SANDSTONE);
+                        entries.add(ModBlocks.DEATH_WEED);
+                        entries.add(ModBlocks.VILE_MUSHROOM);
                     }).build());
 
     public static final ItemGroup MOD_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,
