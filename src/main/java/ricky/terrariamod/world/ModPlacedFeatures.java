@@ -8,9 +8,12 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
+import net.minecraft.world.gen.feature.PlacedFeatures;
+import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 import ricky.terrariamod.TerrariaMod;
+import ricky.terrariamod.block.ModBlocks;
 
 import java.util.List;
 
@@ -20,6 +23,8 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> ADAMANTITE_ORE_PLACED_KEY = registerKey("adamantite_ore_placed");
     public static final RegistryKey<PlacedFeature> NETHER_HELLSTONE_ORE_PLACED_KEY = registerKey("nether_hellstone_ore_placed");
     public static final RegistryKey<PlacedFeature> END_COBALT_ORE_PLACED_KEY = registerKey("end_temp_ore_placed");
+
+    public static final RegistryKey<PlacedFeature> EBON_PLACED_KEY = registerKey("ebon_tree_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -39,6 +44,9 @@ public class ModPlacedFeatures {
         register(context, END_COBALT_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.END_COBALT_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(12,
                         HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(80))));
+        register(context, EBON_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.EBON_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(2,0.1f,2),
+                        ModBlocks.EBON_SAPLING));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

@@ -58,10 +58,13 @@ public class ModConfiguredFeatures {
 
         register(context, EBON_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlocks.EBON_LOG),
+                //幹　基本的な高さ　ランダムな追加高さ　最大高さ
                 new StraightTrunkPlacer(5,4,3),
                 BlockStateProvider.of(ModBlocks.EBON_LEAVES),
-                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1),2),
-                new TwoLayersFeatureSize(1,0,2)).build());
+                //葉の半径　相互との高さ　最大高さ
+                new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(2),3),
+                //地面近くの葉の層の高さ  葉が生成されない高さのオフセット  幹の上部の葉の層の高さ。
+                new TwoLayersFeatureSize(2,0,2)).build());
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
