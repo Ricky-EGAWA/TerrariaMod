@@ -3,7 +3,8 @@
 	"package": "ricky.terrariamod.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+		"CactusBlockMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
