@@ -94,7 +94,7 @@ public class ModConfiguredFeatures {
         ConfiguredFeature<SimpleBlockFeatureConfig, ?> flowerConfiguredFeature = new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, flowerConfig);
         PlacedFeature flowerPlacedFeature = new PlacedFeature(RegistryEntry.of(flowerConfiguredFeature), List.of());
         //試行回数　xzの広がり　ｙの広がり
-        register(context, DEATH_WEED_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(64,10,3, RegistryEntry.of(flowerPlacedFeature)));
+        register(context, DEATH_WEED_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(flowerPlacedFeature)));
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

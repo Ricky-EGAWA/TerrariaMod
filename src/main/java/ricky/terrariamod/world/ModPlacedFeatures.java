@@ -57,7 +57,7 @@ public class ModPlacedFeatures {
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(2,0.1f,2),
                         ModBlocks.PEARL_SAPLING));
         register(context, DEATH_WEED_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.DEATH_WEED_KEY),
-                VegetationPlacedFeatures.modifiers(2));
+                VegetationPlacedFeatures.modifiers(1));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {
