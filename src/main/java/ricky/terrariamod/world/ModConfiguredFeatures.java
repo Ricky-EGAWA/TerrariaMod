@@ -1,6 +1,8 @@
 package ricky.terrariamod.world;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.MushroomBlock;
 import net.minecraft.predicate.block.BlockPredicate;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -32,6 +34,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> CRIM_TREE_KEY = (registerKey("crim_tree"));
     public static final RegistryKey<ConfiguredFeature<?, ?>> PEARL_TREE_KEY = (registerKey("pearl_tree"));
     public static final RegistryKey<ConfiguredFeature<?, ?>> DEATH_WEED_KEY = (registerKey("death_weed"));
+    public static final RegistryKey<ConfiguredFeature<?, ?>> HUGE_GLOWING_MUSHROOM = registerKey("huge_glowing_mushroom");
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context){
         RuleTest stoneReplacables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplacables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
@@ -95,6 +98,8 @@ public class ModConfiguredFeatures {
         PlacedFeature flowerPlacedFeature = new PlacedFeature(RegistryEntry.of(flowerConfiguredFeature), List.of());
         //試行回数　xzの広がり　ｙの広がり
         register(context, DEATH_WEED_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(flowerPlacedFeature)));
+        register(context, HUGE_GLOWING_MUSHROOM, Feature.HUGE_RED_MUSHROOM, new HugeMushroomFeatureConfig(BlockStateProvider.of((BlockState)ModBlocks.GLOWING_MUSHROOM_BLOCK.getDefaultState().with(MushroomBlock.DOWN, false)), BlockStateProvider.of((BlockState)((BlockState)ModBlocks.GLOWING_MUSHROOM_STEM.getDefaultState().with(MushroomBlock.UP, false)).with(MushroomBlock.DOWN, false)), 2));
+
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

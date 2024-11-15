@@ -45,6 +45,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.DEATH_WEED, ModBlocks.POTTED_DEATH_WEED,BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.VILE_MUSHROOM, ModBlocks.POTTED_VILE_MUSHROOM,BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.VICIOUS_MUSHROOM, ModBlocks.POTTED_VICIOUS_MUSHROOM,BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.GLOWING_MUSHROOM, ModBlocks.POTTED_GLOWING_MUSHROOM,BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerMushroomBlock(ModBlocks.GLOWING_MUSHROOM_BLOCK);
+        blockStateModelGenerator.registerMushroomBlock(ModBlocks.GLOWING_MUSHROOM_STEM);
         //tree
         blockStateModelGenerator.registerLog(ModBlocks.EBON_LOG).log(ModBlocks.EBON_LOG).wood(ModBlocks.EBON_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_EBON_LOG).log(ModBlocks.STRIPPED_EBON_LOG).wood(ModBlocks.STRIPPED_EBON_WOOD);

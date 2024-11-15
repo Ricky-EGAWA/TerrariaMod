@@ -14,6 +14,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.block.custom.SoundBlock;
+import ricky.terrariamod.world.ModConfiguredFeatures;
 import ricky.terrariamod.world.tree.CrimSaplingGenerator;
 import ricky.terrariamod.world.tree.EbonSaplingGenerator;
 import ricky.terrariamod.world.tree.PearlSaplingGenerator;
@@ -83,6 +84,14 @@ public class ModBlocks {
             new FlowerBlock(StatusEffects.INSTANT_DAMAGE,10,FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM)));
     public static final Block POTTED_VICIOUS_MUSHROOM = Registry.register(Registries.BLOCK, new Identifier(TerrariaMod.MOD_ID, "potted_vicious_mushroom"),
             new FlowerPotBlock(VICIOUS_MUSHROOM, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
+    public static final Block GLOWING_MUSHROOM = registerBlock("glowing_mushroom",
+            new MushroomPlantBlock(FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM), ModConfiguredFeatures.HUGE_GLOWING_MUSHROOM));
+    public static final Block POTTED_GLOWING_MUSHROOM = Registry.register(Registries.BLOCK, new Identifier(TerrariaMod.MOD_ID, "potted_glowing_mushroom"),
+            new FlowerPotBlock(GLOWING_MUSHROOM, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
+    public static final Block GLOWING_MUSHROOM_BLOCK = registerBlock("glowing_mushroom_block",
+            new MushroomBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM_BLOCK)));
+    public static final Block GLOWING_MUSHROOM_STEM = registerBlock("glowing_mushroom_stem",
+            new MushroomBlock(FabricBlockSettings.copyOf(Blocks.MUSHROOM_STEM)));
     //tree
     public static final Block EBON_LOG = registerBlock("ebon_log",
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG)));
