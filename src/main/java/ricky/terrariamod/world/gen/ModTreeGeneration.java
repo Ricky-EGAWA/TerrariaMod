@@ -15,5 +15,7 @@ public class ModTreeGeneration {
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.CRIM_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.PEARL_BIOME),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.PEARL_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.EBON_BIOME),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.DEATH_WEED_PLACED_KEY);
     }
 }

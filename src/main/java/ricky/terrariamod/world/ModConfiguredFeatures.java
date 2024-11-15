@@ -1,9 +1,11 @@
 package ricky.terrariamod.world;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.predicate.block.BlockPredicate;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
@@ -29,7 +31,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> EBON_TREE_KEY = (registerKey("ebon_tree"));
     public static final RegistryKey<ConfiguredFeature<?, ?>> CRIM_TREE_KEY = (registerKey("crim_tree"));
     public static final RegistryKey<ConfiguredFeature<?, ?>> PEARL_TREE_KEY = (registerKey("pearl_tree"));
-
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DEATH_WEED_KEY = (registerKey("death_weed"));
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context){
         RuleTest stoneReplacables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplacables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
@@ -85,6 +87,14 @@ public class ModConfiguredFeatures {
                 new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(2),3),
                 //地面近くの葉の層の高さ  葉が生成されない高さのオフセット  幹の上部の葉の層の高さ。
                 new TwoLayersFeatureSize(2,0,2)).build());
+
+        BlockStateProvider flowerProvider = BlockStateProvider.of(ModBlocks.DEATH_WEED.getDefaultState());
+        SimpleBlockFeatureConfig flowerConfig = new SimpleBlockFeatureConfig(flowerProvider);
+
+        ConfiguredFeature<SimpleBlockFeatureConfig, ?> flowerConfiguredFeature = new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, flowerConfig);
+        PlacedFeature flowerPlacedFeature = new PlacedFeature(RegistryEntry.of(flowerConfiguredFeature), List.of());
+        //試行回数　xzの広がり　ｙの広がり
+        register(context, DEATH_WEED_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(64,10,3, RegistryEntry.of(flowerPlacedFeature)));
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
