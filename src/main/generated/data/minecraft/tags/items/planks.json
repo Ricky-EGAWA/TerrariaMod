@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "terrariamod:ebon_planks"
+    "terrariamod:ebon_planks",
+    "terrariamod:crim_planks",
+    "terrariamod:pearl_planks"
   ]
 }

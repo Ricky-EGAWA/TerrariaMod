@@ -28,11 +28,21 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.HELLSTONE_HELMET, ModItems.HELLSTONE_CHESTPLATE, ModItems.HELLSTONE_LEGGINGS, ModItems.HELLSTONE_BOOTS,
                         ModItems.GLASS_HELMET, ModItems.NIGHT_HELMET);
         getOrCreateTagBuilder(ItemTags.PLANKS)
-                .add(ModBlocks.EBON_PLANKS.asItem());
+                .add(ModBlocks.EBON_PLANKS.asItem())
+                .add(ModBlocks.CRIM_PLANKS.asItem())
+                .add(ModBlocks.PEARL_PLANKS.asItem());
         getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.EBON_LOG.asItem())
                 .add(ModBlocks.EBON_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_EBON_LOG.asItem())
-                .add(ModBlocks.STRIPPED_EBON_WOOD.asItem());
+                .add(ModBlocks.STRIPPED_EBON_WOOD.asItem())
+                .add(ModBlocks.CRIM_LOG.asItem())
+                .add(ModBlocks.CRIM_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_CRIM_LOG.asItem())
+                .add(ModBlocks.STRIPPED_CRIM_WOOD.asItem())
+                .add(ModBlocks.PEARL_LOG.asItem())
+                .add(ModBlocks.PEARL_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_PEARL_LOG.asItem())
+                .add(ModBlocks.STRIPPED_PEARL_WOOD.asItem());
     }
 }

@@ -11,5 +11,9 @@ public class ModTreeGeneration {
     public static void  generateTrees() {
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.EBON_BIOME),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.EBON_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.CRIM_BIOME),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.CRIM_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.PEARL_BIOME),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.PEARL_PLACED_KEY);
     }
 }

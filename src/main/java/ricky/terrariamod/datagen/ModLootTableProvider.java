@@ -51,6 +51,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addPottedPlantDrops(ModBlocks.POTTED_DEATH_WEED);
         addDrop(ModBlocks.VILE_MUSHROOM);
         addPottedPlantDrops(ModBlocks.POTTED_VILE_MUSHROOM);
+        addDrop(ModBlocks.VICIOUS_MUSHROOM);
+        addPottedPlantDrops(ModBlocks.POTTED_VICIOUS_MUSHROOM);
 
         addDrop(ModBlocks.EBON_LOG);
         addDrop(ModBlocks.EBON_WOOD);
@@ -59,6 +61,21 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.EBON_PLANKS);
         addDrop(ModBlocks.EBON_SAPLING);
         addDrop(ModBlocks.EBON_LEAVES, leavesDrops(ModBlocks.EBON_LEAVES, ModBlocks.EBON_SAPLING, 0.0025f));
+        addDrop(ModBlocks.CRIM_LOG);
+        addDrop(ModBlocks.CRIM_WOOD);
+        addDrop(ModBlocks.STRIPPED_CRIM_LOG);
+        addDrop(ModBlocks.STRIPPED_CRIM_WOOD);
+        addDrop(ModBlocks.CRIM_PLANKS);
+        addDrop(ModBlocks.CRIM_SAPLING);
+        addDrop(ModBlocks.CRIM_LEAVES, leavesDrops(ModBlocks.CRIM_LEAVES, ModBlocks.CRIM_SAPLING, 0.0025f));
+        addDrop(ModBlocks.PEARL_LOG);
+        addDrop(ModBlocks.PEARL_WOOD);
+        addDrop(ModBlocks.STRIPPED_PEARL_LOG);
+        addDrop(ModBlocks.STRIPPED_PEARL_WOOD);
+        addDrop(ModBlocks.PEARL_PLANKS);
+        addDrop(ModBlocks.PEARL_SAPLING);
+        addDrop(ModBlocks.PEARL_LEAVES, leavesDrops(ModBlocks.PEARL_LEAVES, ModBlocks.PEARL_SAPLING, 0.0025f));
+
     }
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {
         return BlockLootTableGenerator.dropsWithSilkTouch(drop, (LootPoolEntry.Builder)this.applyExplosionDecay(drop,

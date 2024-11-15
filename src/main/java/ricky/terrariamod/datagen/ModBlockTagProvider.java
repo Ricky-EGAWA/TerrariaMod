@@ -75,7 +75,15 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.EBON_LOG)
                 .add(ModBlocks.EBON_WOOD)
                 .add(ModBlocks.STRIPPED_EBON_LOG)
-                .add(ModBlocks.STRIPPED_EBON_WOOD);
+                .add(ModBlocks.STRIPPED_EBON_WOOD)
+                .add(ModBlocks.CRIM_LOG)
+                .add(ModBlocks.CRIM_WOOD)
+                .add(ModBlocks.STRIPPED_CRIM_LOG)
+                .add(ModBlocks.STRIPPED_CRIM_WOOD)
+                .add(ModBlocks.PEARL_LOG)
+                .add(ModBlocks.PEARL_WOOD)
+                .add(ModBlocks.STRIPPED_PEARL_LOG)
+                .add(ModBlocks.STRIPPED_PEARL_WOOD);
 
     }
 }

@@ -14,7 +14,9 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.block.custom.SoundBlock;
+import ricky.terrariamod.world.tree.CrimSaplingGenerator;
 import ricky.terrariamod.world.tree.EbonSaplingGenerator;
+import ricky.terrariamod.world.tree.PearlSaplingGenerator;
 
 public class ModBlocks {
     //採掘力 = ( ツールの基礎採掘力 + ( 1 + 効率強化レベル ^2)) × ( 1 + 採掘速度上昇 × 0.2)
@@ -77,6 +79,10 @@ public class ModBlocks {
             new FlowerBlock(StatusEffects.INSTANT_DAMAGE,10,FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM)));
     public static final Block POTTED_VILE_MUSHROOM = Registry.register(Registries.BLOCK, new Identifier(TerrariaMod.MOD_ID, "potted_vile_mushroom"),
             new FlowerPotBlock(VILE_MUSHROOM, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
+    public static final Block VICIOUS_MUSHROOM = registerBlock("vicious_mushroom",
+            new FlowerBlock(StatusEffects.INSTANT_DAMAGE,10,FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM)));
+    public static final Block POTTED_VICIOUS_MUSHROOM = Registry.register(Registries.BLOCK, new Identifier(TerrariaMod.MOD_ID, "potted_vicious_mushroom"),
+            new FlowerPotBlock(VICIOUS_MUSHROOM, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
     //tree
     public static final Block EBON_LOG = registerBlock("ebon_log",
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG)));
@@ -92,6 +98,34 @@ public class ModBlocks {
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).nonOpaque()));
     public static final Block EBON_SAPLING = registerBlock("ebon_sapling",
             new SaplingBlock(new EbonSaplingGenerator(),FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).nonOpaque()));
+    public static final Block CRIM_LOG = registerBlock("crim_log",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG)));
+    public static final Block CRIM_WOOD = registerBlock("crim_wood",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD)));
+    public static final Block STRIPPED_CRIM_LOG = registerBlock("stripped_crim_log",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_LOG)));
+    public static final Block STRIPPED_CRIM_WOOD = registerBlock("stripped_crim_wood",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD)));
+    public static final Block CRIM_PLANKS = registerBlock("crim_planks",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS)));
+    public static final Block CRIM_LEAVES = registerBlock("crim_leaves",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).nonOpaque()));
+    public static final Block CRIM_SAPLING = registerBlock("crim_sapling",
+            new SaplingBlock(new CrimSaplingGenerator(),FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).nonOpaque()));
+    public static final Block PEARL_LOG = registerBlock("pearl_log",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG)));
+    public static final Block PEARL_WOOD = registerBlock("pearl_wood",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD)));
+    public static final Block STRIPPED_PEARL_LOG = registerBlock("stripped_pearl_log",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_LOG)));
+    public static final Block STRIPPED_PEARL_WOOD = registerBlock("stripped_pearl_wood",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD)));
+    public static final Block PEARL_PLANKS = registerBlock("pearl_planks",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS)));
+    public static final Block PEARL_LEAVES = registerBlock("pearl_leaves",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).nonOpaque()));
+    public static final Block PEARL_SAPLING = registerBlock("pearl_sapling",
+            new SaplingBlock(new PearlSaplingGenerator(),FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).nonOpaque()));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

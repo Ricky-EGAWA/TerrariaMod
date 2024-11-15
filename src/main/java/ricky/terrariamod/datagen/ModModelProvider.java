@@ -44,12 +44,23 @@ public class ModModelProvider extends FabricModelProvider {
         //plants
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.DEATH_WEED, ModBlocks.POTTED_DEATH_WEED,BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.VILE_MUSHROOM, ModBlocks.POTTED_VILE_MUSHROOM,BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.VICIOUS_MUSHROOM, ModBlocks.POTTED_VICIOUS_MUSHROOM,BlockStateModelGenerator.TintType.NOT_TINTED);
         //tree
         blockStateModelGenerator.registerLog(ModBlocks.EBON_LOG).log(ModBlocks.EBON_LOG).wood(ModBlocks.EBON_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_EBON_LOG).log(ModBlocks.STRIPPED_EBON_LOG).wood(ModBlocks.STRIPPED_EBON_WOOD);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EBON_PLANKS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EBON_LEAVES);
         blockStateModelGenerator.registerTintableCross(ModBlocks.EBON_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerLog(ModBlocks.CRIM_LOG).log(ModBlocks.CRIM_LOG).wood(ModBlocks.CRIM_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_CRIM_LOG).log(ModBlocks.STRIPPED_CRIM_LOG).wood(ModBlocks.STRIPPED_CRIM_WOOD);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRIM_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRIM_LEAVES);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.CRIM_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerLog(ModBlocks.PEARL_LOG).log(ModBlocks.PEARL_LOG).wood(ModBlocks.PEARL_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_PEARL_LOG).log(ModBlocks.STRIPPED_PEARL_LOG).wood(ModBlocks.STRIPPED_PEARL_WOOD);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PEARL_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PEARL_LEAVES);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.PEARL_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     @Override

@@ -27,6 +27,8 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_HELLSTONE_ORE_KEY = registerKey("hellstone_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> END_COBALT_ORE_KEY = registerKey("end_temp_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> EBON_TREE_KEY = (registerKey("ebon_tree"));
+    public static final RegistryKey<ConfiguredFeature<?, ?>> CRIM_TREE_KEY = (registerKey("crim_tree"));
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PEARL_TREE_KEY = (registerKey("pearl_tree"));
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context){
         RuleTest stoneReplacables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -61,6 +63,24 @@ public class ModConfiguredFeatures {
                 //幹　基本的な高さ　ランダムな追加高さ　最大高さ
                 new StraightTrunkPlacer(5,4,3),
                 BlockStateProvider.of(ModBlocks.EBON_LEAVES),
+                //葉の半径　相互との高さ　最大高さ
+                new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(2),3),
+                //地面近くの葉の層の高さ  葉が生成されない高さのオフセット  幹の上部の葉の層の高さ。
+                new TwoLayersFeatureSize(2,0,2)).build());
+        register(context, CRIM_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlocks.CRIM_LOG),
+                //幹　基本的な高さ　ランダムな追加高さ　最大高さ
+                new StraightTrunkPlacer(5,4,3),
+                BlockStateProvider.of(ModBlocks.CRIM_LEAVES),
+                //葉の半径　相互との高さ　最大高さ
+                new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(2),3),
+                //地面近くの葉の層の高さ  葉が生成されない高さのオフセット  幹の上部の葉の層の高さ。
+                new TwoLayersFeatureSize(2,0,2)).build());
+        register(context, PEARL_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlocks.PEARL_LOG),
+                //幹　基本的な高さ　ランダムな追加高さ　最大高さ
+                new StraightTrunkPlacer(5,4,3),
+                BlockStateProvider.of(ModBlocks.PEARL_LEAVES),
                 //葉の半径　相互との高さ　最大高さ
                 new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(2),3),
                 //地面近くの葉の層の高さ  葉が生成されない高さのオフセット  幹の上部の葉の層の高さ。

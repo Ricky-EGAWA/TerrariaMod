@@ -38,6 +38,10 @@ public class TerrariaMod implements ModInitializer {
 		//tree
 		StrippableBlockRegistry.register(ModBlocks.EBON_LOG, ModBlocks.STRIPPED_EBON_LOG);
 		StrippableBlockRegistry.register(ModBlocks.EBON_WOOD, ModBlocks.STRIPPED_EBON_WOOD);
+		StrippableBlockRegistry.register(ModBlocks.CRIM_LOG, ModBlocks.STRIPPED_CRIM_LOG);
+		StrippableBlockRegistry.register(ModBlocks.CRIM_WOOD, ModBlocks.STRIPPED_CRIM_WOOD);
+		StrippableBlockRegistry.register(ModBlocks.PEARL_LOG, ModBlocks.STRIPPED_PEARL_LOG);
+		StrippableBlockRegistry.register(ModBlocks.PEARL_WOOD, ModBlocks.STRIPPED_PEARL_WOOD);
 		//可燃ブロック
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.EBON_LOG,5,5);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.EBON_WOOD,5,5);
@@ -45,6 +49,18 @@ public class TerrariaMod implements ModInitializer {
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_EBON_WOOD,5,5);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.EBON_PLANKS,5,5);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.EBON_LEAVES,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CRIM_LOG,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CRIM_WOOD,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_CRIM_LOG,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_CRIM_WOOD,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CRIM_PLANKS,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CRIM_LEAVES,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PEARL_LOG,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PEARL_WOOD,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_PEARL_LOG,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_PEARL_WOOD,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PEARL_PLANKS,5,5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PEARL_LEAVES,5,5);
 
 
 		//エンティティの登録

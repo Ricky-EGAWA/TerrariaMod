@@ -42,6 +42,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PEARL_SANDSTONE);
                         entries.add(ModBlocks.DEATH_WEED);
                         entries.add(ModBlocks.VILE_MUSHROOM);
+                        entries.add(ModBlocks.VICIOUS_MUSHROOM);
                         entries.add(ModBlocks.EBON_LOG);
                         entries.add(ModBlocks.EBON_WOOD);
                         entries.add(ModBlocks.STRIPPED_EBON_LOG);
@@ -49,6 +50,20 @@ public class ModItemGroups {
                         entries.add(ModBlocks.EBON_PLANKS);
                         entries.add(ModBlocks.EBON_LEAVES);
                         entries.add(ModBlocks.EBON_SAPLING);
+                        entries.add(ModBlocks.CRIM_LOG);
+                        entries.add(ModBlocks.CRIM_WOOD);
+                        entries.add(ModBlocks.STRIPPED_CRIM_LOG);
+                        entries.add(ModBlocks.STRIPPED_CRIM_WOOD);
+                        entries.add(ModBlocks.CRIM_PLANKS);
+                        entries.add(ModBlocks.CRIM_LEAVES);
+                        entries.add(ModBlocks.CRIM_SAPLING);
+                        entries.add(ModBlocks.PEARL_LOG);
+                        entries.add(ModBlocks.PEARL_WOOD);
+                        entries.add(ModBlocks.STRIPPED_PEARL_LOG);
+                        entries.add(ModBlocks.STRIPPED_PEARL_WOOD);
+                        entries.add(ModBlocks.PEARL_PLANKS);
+                        entries.add(ModBlocks.PEARL_LEAVES);
+                        entries.add(ModBlocks.PEARL_SAPLING);
                     }).build());
 
     public static final ItemGroup MOD_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,

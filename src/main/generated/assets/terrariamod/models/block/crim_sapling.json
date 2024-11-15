@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "terrariamod:block/crim_sapling"
+  }
+}
