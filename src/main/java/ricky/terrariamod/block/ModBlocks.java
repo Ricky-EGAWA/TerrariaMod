@@ -85,7 +85,11 @@ public class ModBlocks {
     public static final Block POTTED_VICIOUS_MUSHROOM = Registry.register(Registries.BLOCK, new Identifier(TerrariaMod.MOD_ID, "potted_vicious_mushroom"),
             new FlowerPotBlock(VICIOUS_MUSHROOM, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
     public static final Block GLOWING_MUSHROOM = registerBlock("glowing_mushroom",
-            new MushroomPlantBlock(FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM), ModConfiguredFeatures.HUGE_GLOWING_MUSHROOM));
+            new MushroomPlantBlock(FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM).luminance(state -> 6), ModConfiguredFeatures.HUGE_GLOWING_MUSHROOM));
+    public static final Block GLOWING_MOSS = registerBlock("glowing_moss_block",
+            new MossBlock(FabricBlockSettings.copyOf(Blocks.MOSS_BLOCK).luminance(state -> 6).mapColor(MapColor.BLUE)));//TODO 骨粉をかけたときコケブロックが生成されている
+    public static final Block ICICLE = registerBlock("icicle",
+            new PointedDripstoneBlock(FabricBlockSettings.copyOf(Blocks.POINTED_DRIPSTONE)));
     public static final Block POTTED_GLOWING_MUSHROOM = Registry.register(Registries.BLOCK, new Identifier(TerrariaMod.MOD_ID, "potted_glowing_mushroom"),
             new FlowerPotBlock(GLOWING_MUSHROOM, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
     public static final Block GLOWING_MUSHROOM_BLOCK = registerBlock("glowing_mushroom_block",
@@ -140,7 +144,6 @@ public class ModBlocks {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(TerrariaMod.MOD_ID, name), block);
     }
-
     private static Item registerBlockItem(String name, Block block){
         return Registry.register(Registries.ITEM, new Identifier(TerrariaMod.MOD_ID,name),
                 new BlockItem(block, new FabricItemSettings()));

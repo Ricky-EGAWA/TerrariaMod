@@ -46,6 +46,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.GLOWING_MUSHROOM);
                         entries.add(ModBlocks.GLOWING_MUSHROOM_BLOCK);
                         entries.add(ModBlocks.GLOWING_MUSHROOM_STEM);
+                        entries.add(ModBlocks.GLOWING_MOSS);
+                        entries.add(ModBlocks.ICICLE);
                         entries.add(ModBlocks.EBON_LOG);
                         entries.add(ModBlocks.EBON_WOOD);
                         entries.add(ModBlocks.STRIPPED_EBON_LOG);
