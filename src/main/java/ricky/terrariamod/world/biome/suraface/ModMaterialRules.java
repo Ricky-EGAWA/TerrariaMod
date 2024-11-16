@@ -1,6 +1,7 @@
 package ricky.terrariamod.world.biome.suraface;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.VerticalSurfaceType;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
@@ -8,8 +9,10 @@ import ricky.terrariamod.block.ModBlocks;
 import ricky.terrariamod.world.biome.ModBiomes;
 
 public class ModMaterialRules {
-    private static final MaterialRules.MaterialRule SNOW = makeStateRule(Blocks.SNOW_BLOCK);
+    private static final MaterialRules.MaterialRule SNOW = makeStateRule(Blocks.SNOW);
+    private static final MaterialRules.MaterialRule GRAVEL =makeStateRule(Blocks.GRAVEL);
     private static final MaterialRules.MaterialRule GRASS_BLOCK = makeStateRule(Blocks.GRASS_BLOCK);
+    private static final MaterialRules.MaterialRule DIRT = makeStateRule(Blocks.DIRT);
     private static final MaterialRules.MaterialRule EBON_SAND = makeStateRule(ModBlocks.EBON_SAND);
     private static final MaterialRules.MaterialRule EBON_SANDSTONE = makeStateRule(ModBlocks.EBON_SANDSTONE);
     private static final MaterialRules.MaterialRule EBON_STONE = makeStateRule(ModBlocks.EBON_STONE);
@@ -35,15 +38,16 @@ public class ModMaterialRules {
         MaterialRules.MaterialCondition ebonIceBiomeCondition = MaterialRules.biome(ModBiomes.EBON_ICE_BIOME);
         MaterialRules.MaterialCondition pearlIceBiomeCondition = MaterialRules.biome(ModBiomes.PEARL_ICE_BIOME);
 
-        MaterialRules.MaterialRule surfaceRule_crim_desert = surfaceRuleMaker(CRIM_SAND, CRIM_SANDSTONE);
-        MaterialRules.MaterialRule surfaceRule_ebon_desert = surfaceRuleMaker(EBON_SAND, EBON_SANDSTONE);
-        MaterialRules.MaterialRule surfaceRule_pearl_desert = surfaceRuleMaker(PEARL_SAND, PEARL_SANDSTONE);
-        MaterialRules.MaterialRule surfaceRule_crim = surfaceRuleMaker(GRASS_BLOCK, CRIM_STONE);
-        MaterialRules.MaterialRule surfaceRule_ebon = surfaceRuleMaker(GRASS_BLOCK, EBON_STONE);
-        MaterialRules.MaterialRule surfaceRule_pearl = surfaceRuleMaker(GRASS_BLOCK, PEARL_STONE);
-        MaterialRules.MaterialRule surfaceRule_crim_ice = surfaceRuleMaker(SNOW, CRIM_ICE);
-        MaterialRules.MaterialRule surfaceRule_ebon_ice = surfaceRuleMaker(SNOW, EBON_ICE);
-        MaterialRules.MaterialRule surfaceRule_pearl_ice = surfaceRuleMaker(SNOW, PEARL_ICE);
+        //第一ブロック、 表層（一層目　二層目）、　ベース、　水の下、　洞窟（天井　床）
+        MaterialRules.MaterialRule surfaceRule_crim_desert = surfaceRuleMaker(CRIM_SAND, CRIM_SAND, CRIM_SANDSTONE, ModBlocks.CRIM_STONE.getDefaultState(), CRIM_SAND, CRIM_STONE, CRIM_STONE);
+        MaterialRules.MaterialRule surfaceRule_ebon_desert = surfaceRuleMaker(EBON_SAND, EBON_SAND, EBON_SANDSTONE, ModBlocks.EBON_STONE.getDefaultState(), EBON_SAND, EBON_STONE, EBON_STONE);
+        MaterialRules.MaterialRule surfaceRule_pearl_desert = surfaceRuleMaker(PEARL_SAND, PEARL_SAND, PEARL_SANDSTONE, ModBlocks.PEARL_STONE.getDefaultState(), PEARL_SAND, PEARL_STONE, PEARL_STONE);
+        MaterialRules.MaterialRule surfaceRule_crim = surfaceRuleMaker(GRASS_BLOCK, DIRT, CRIM_STONE, ModBlocks.CRIM_STONE.getDefaultState(), GRAVEL, CRIM_STONE, CRIM_STONE);
+        MaterialRules.MaterialRule surfaceRule_ebon = surfaceRuleMaker(GRASS_BLOCK, DIRT, EBON_STONE, ModBlocks.EBON_STONE.getDefaultState(), GRAVEL, EBON_STONE, EBON_STONE);
+        MaterialRules.MaterialRule surfaceRule_pearl = surfaceRuleMaker(GRASS_BLOCK, DIRT, PEARL_STONE, ModBlocks.PEARL_STONE.getDefaultState(), GRAVEL, PEARL_STONE, PEARL_STONE);
+        MaterialRules.MaterialRule surfaceRule_crim_ice = surfaceRuleMaker(SNOW, CRIM_ICE, CRIM_ICE, ModBlocks.CRIM_ICE.getDefaultState(), CRIM_ICE, CRIM_STONE, CRIM_STONE);
+        MaterialRules.MaterialRule surfaceRule_ebon_ice = surfaceRuleMaker(SNOW, EBON_ICE, EBON_ICE, ModBlocks.EBON_ICE.getDefaultState(), EBON_ICE, EBON_STONE, EBON_STONE);
+        MaterialRules.MaterialRule surfaceRule_pearl_ice = surfaceRuleMaker(SNOW, PEARL_ICE, PEARL_ICE, ModBlocks.PEARL_ICE.getDefaultState(), PEARL_STONE, EBON_STONE, PEARL_STONE);
 
         MaterialRules.MaterialRule crimDesertBiomeRule = MaterialRules.condition(crimDesertBiomeCondition, surfaceRule_crim_desert);
         MaterialRules.MaterialRule ebonDesertBiomeRule = MaterialRules.condition(ebonDesertBiomeCondition, surfaceRule_ebon_desert);
@@ -73,21 +77,28 @@ public class ModMaterialRules {
     private static MaterialRules.MaterialRule makeStateRule(Block block) {
         return MaterialRules.block(block.getDefaultState());
     }
-    private static MaterialRules.MaterialRule surfaceRuleMaker(MaterialRules.MaterialRule first, MaterialRules.MaterialRule second){
+    //表層（一層目　二層目）、　ベース、　水の下、　洞窟（天井　床）
+    private static MaterialRules.MaterialRule surfaceRuleMaker(MaterialRules.MaterialRule surface,MaterialRules.MaterialRule first, MaterialRules.MaterialRule second, BlockState base, MaterialRules.MaterialRule underwater, MaterialRules.MaterialRule ceiling, MaterialRules.MaterialRule floor){
         // 地表部分に適用するための条件
         MaterialRules.MaterialCondition isSurface = MaterialRules.surface();
-
-        MaterialRules.MaterialCondition topLayer = MaterialRules.stoneDepth(0, false, VerticalSurfaceType.FLOOR);
-        MaterialRules.MaterialCondition secondLayer = MaterialRules.stoneDepth(1, false, VerticalSurfaceType.FLOOR);
-        MaterialRules.MaterialCondition thirdLayer = MaterialRules.stoneDepth(2, false, VerticalSurfaceType.FLOOR);
-        MaterialRules.MaterialCondition subSurfaceLayer = MaterialRules.stoneDepth(3, true, VerticalSurfaceType.FLOOR);
-        MaterialRules.MaterialCondition subSurfaceLayer_up = MaterialRules.stoneDepth(3, true, VerticalSurfaceType.CEILING);
+        MaterialRules.MaterialCondition subSurfaceLayer_floor = MaterialRules.stoneDepth(3, true, VerticalSurfaceType.FLOOR);
+        MaterialRules.MaterialCondition subSurfaceLayer_ceiling = MaterialRules.stoneDepth(3, true, VerticalSurfaceType.CEILING);
         return MaterialRules.sequence(
-                MaterialRules.condition(topLayer, first),
-                MaterialRules.condition(secondLayer, first),
-                MaterialRules.condition(thirdLayer, first),
-                MaterialRules.condition(subSurfaceLayer, second),
-                MaterialRules.condition(subSurfaceLayer_up, second)
+                MaterialRules.condition(isSurface, surfaceRule(first,second,surface,underwater)),
+                MaterialRules.block(base),
+                MaterialRules.condition(subSurfaceLayer_floor, floor),
+                MaterialRules.condition(subSurfaceLayer_ceiling, ceiling)
+        );
+    }
+    private static MaterialRules.MaterialRule surfaceRule(MaterialRules.MaterialRule first, MaterialRules.MaterialRule second, MaterialRules.MaterialRule surface,MaterialRules.MaterialRule underwater){
+        MaterialRules.MaterialCondition topLayer = MaterialRules.stoneDepth(2, true, VerticalSurfaceType.FLOOR);
+        MaterialRules.MaterialCondition subSurfaceLayer = MaterialRules.stoneDepth(3, true, VerticalSurfaceType.FLOOR);
+        MaterialRules.MaterialCondition isAtOrAboveWaterLevel = MaterialRules.water(-1, 0);
+        MaterialRules.MaterialRule waterSurface = MaterialRules.sequence(MaterialRules.condition(isAtOrAboveWaterLevel, surface), underwater);
+        return MaterialRules.sequence(
+                MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, waterSurface),
+                MaterialRules.condition(topLayer,first),
+                MaterialRules.condition(subSurfaceLayer,second)
         );
     }
 }
