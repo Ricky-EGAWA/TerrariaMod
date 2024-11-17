@@ -1,6 +1,0 @@
-{
-  "parent": "terrariamod:block/icicle",
-  "textures": {
-    "cross": "terrariamod:block/icicle_up_frustum"
-  }
-}

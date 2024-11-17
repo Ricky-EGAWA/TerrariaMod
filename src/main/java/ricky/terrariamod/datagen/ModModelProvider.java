@@ -51,19 +51,38 @@ public class ModModelProvider extends FabricModelProvider {
         //tree
         blockStateModelGenerator.registerLog(ModBlocks.EBON_LOG).log(ModBlocks.EBON_LOG).wood(ModBlocks.EBON_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_EBON_LOG).log(ModBlocks.STRIPPED_EBON_LOG).wood(ModBlocks.STRIPPED_EBON_WOOD);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EBON_PLANKS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EBON_LEAVES);
         blockStateModelGenerator.registerTintableCross(ModBlocks.EBON_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerLog(ModBlocks.CRIM_LOG).log(ModBlocks.CRIM_LOG).wood(ModBlocks.CRIM_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_CRIM_LOG).log(ModBlocks.STRIPPED_CRIM_LOG).wood(ModBlocks.STRIPPED_CRIM_WOOD);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRIM_PLANKS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRIM_LEAVES);
         blockStateModelGenerator.registerTintableCross(ModBlocks.CRIM_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerLog(ModBlocks.PEARL_LOG).log(ModBlocks.PEARL_LOG).wood(ModBlocks.PEARL_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_PEARL_LOG).log(ModBlocks.STRIPPED_PEARL_LOG).wood(ModBlocks.STRIPPED_PEARL_WOOD);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PEARL_PLANKS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PEARL_LEAVES);
         blockStateModelGenerator.registerTintableCross(ModBlocks.PEARL_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        BlockStateModelGenerator.BlockTexturePool ebonPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.EBON_PLANKS);
+        ebonPool.stairs(ModBlocks.EBON_STAIRS);
+        ebonPool.slab(ModBlocks.EBON_SLAB);
+        ebonPool.button(ModBlocks.EBON_BUTTON);
+        ebonPool.pressurePlate(ModBlocks.EBON_PRESSURE_PLATE);
+        ebonPool.fence(ModBlocks.EBON_FENCE);
+        ebonPool.fenceGate(ModBlocks.EBON_FENCE_GATE);
+        BlockStateModelGenerator.BlockTexturePool crimPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.CRIM_PLANKS);
+        crimPool.stairs(ModBlocks.CRIM_STAIRS);
+        crimPool.slab(ModBlocks.CRIM_SLAB);
+        crimPool.button(ModBlocks.CRIM_BUTTON);
+        crimPool.pressurePlate(ModBlocks.CRIM_PRESSURE_PLATE);
+        crimPool.fence(ModBlocks.CRIM_FENCE);
+        crimPool.fenceGate(ModBlocks.CRIM_FENCE_GATE);
+        BlockStateModelGenerator.BlockTexturePool pearlPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PEARL_PLANKS);
+        pearlPool.stairs(ModBlocks.PEARL_STAIRS);
+        pearlPool.slab(ModBlocks.PEARL_SLAB);
+        pearlPool.button(ModBlocks.PEARL_BUTTON);
+        pearlPool.pressurePlate(ModBlocks.PEARL_PRESSURE_PLATE);
+        pearlPool.fence(ModBlocks.PEARL_FENCE);
+        pearlPool.fenceGate(ModBlocks.PEARL_FENCE_GATE);
     }
 
     @Override

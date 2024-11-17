@@ -69,6 +69,24 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PEARL_PLANKS);
                         entries.add(ModBlocks.PEARL_LEAVES);
                         entries.add(ModBlocks.PEARL_SAPLING);
+                        entries.add(ModBlocks.EBON_STAIRS);
+                        entries.add(ModBlocks.EBON_SLAB);
+                        entries.add(ModBlocks.EBON_BUTTON);
+                        entries.add(ModBlocks.EBON_PRESSURE_PLATE);
+                        entries.add(ModBlocks.EBON_FENCE);
+                        entries.add(ModBlocks.EBON_FENCE_GATE);
+                        entries.add(ModBlocks.CRIM_STAIRS);
+                        entries.add(ModBlocks.CRIM_SLAB);
+                        entries.add(ModBlocks.CRIM_BUTTON);
+                        entries.add(ModBlocks.CRIM_PRESSURE_PLATE);
+                        entries.add(ModBlocks.CRIM_FENCE);
+                        entries.add(ModBlocks.CRIM_FENCE_GATE);
+                        entries.add(ModBlocks.PEARL_STAIRS);
+                        entries.add(ModBlocks.PEARL_SLAB);
+                        entries.add(ModBlocks.PEARL_BUTTON);
+                        entries.add(ModBlocks.PEARL_PRESSURE_PLATE);
+                        entries.add(ModBlocks.PEARL_FENCE);
+                        entries.add(ModBlocks.PEARL_FENCE_GATE);
                     }).build());
 
     public static final ItemGroup MOD_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,

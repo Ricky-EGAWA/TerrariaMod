@@ -139,6 +139,43 @@ public class ModBlocks {
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).nonOpaque()));
     public static final Block PEARL_SAPLING = registerBlock("pearl_sapling",
             new SaplingBlock(new PearlSaplingGenerator(),FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).nonOpaque()));
+    public static final Block EBON_STAIRS = registerBlock("ebon_stair",
+            new StairsBlock(ModBlocks.EBON_PLANKS.getDefaultState(),FabricBlockSettings.copyOf(Blocks.OAK_STAIRS)));
+    public static final Block EBON_SLAB = registerBlock("ebon_slab",
+            new SlabBlock(FabricBlockSettings.copyOf(Blocks.OAK_SLAB)));
+    public static final Block EBON_BUTTON = registerBlock("ebon_button",
+            new ButtonBlock(FabricBlockSettings.copyOf(Blocks.OAK_BUTTON), BlockSetType.IRON, 10, true));
+    public static final Block EBON_PRESSURE_PLATE = registerBlock("ebon_pressure_plate",
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING,FabricBlockSettings.copyOf(Blocks.OAK_PRESSURE_PLATE),BlockSetType.IRON));
+    public static final Block EBON_FENCE = registerBlock("ebon_fence",
+            new FenceBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE)));
+    public static final Block EBON_FENCE_GATE = registerBlock("ebon_fence_gate",
+            new FenceGateBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE), WoodType.ACACIA));
+    public static final Block CRIM_STAIRS = registerBlock("crim_stair",
+            new StairsBlock(ModBlocks.CRIM_PLANKS.getDefaultState(),FabricBlockSettings.copyOf(Blocks.OAK_STAIRS)));
+    public static final Block CRIM_SLAB = registerBlock("crim_slab",
+            new SlabBlock(FabricBlockSettings.copyOf(Blocks.OAK_SLAB)));
+    public static final Block CRIM_BUTTON = registerBlock("crim_button",
+            new ButtonBlock(FabricBlockSettings.copyOf(Blocks.OAK_BUTTON), BlockSetType.IRON, 10, true));
+    public static final Block CRIM_PRESSURE_PLATE = registerBlock("crim_pressure_plate",
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING,FabricBlockSettings.copyOf(Blocks.OAK_PRESSURE_PLATE),BlockSetType.IRON));
+    public static final Block CRIM_FENCE = registerBlock("crim_fence",
+            new FenceBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE)));
+    public static final Block CRIM_FENCE_GATE = registerBlock("crim_fence_gate",
+            new FenceGateBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE), WoodType.ACACIA));
+    public static final Block PEARL_STAIRS = registerBlock("pearl_stair",
+            new StairsBlock(ModBlocks.PEARL_PLANKS.getDefaultState(),FabricBlockSettings.copyOf(Blocks.OAK_STAIRS)));
+    public static final Block PEARL_SLAB = registerBlock("pearl_slab",
+            new SlabBlock(FabricBlockSettings.copyOf(Blocks.OAK_SLAB)));
+    public static final Block PEARL_BUTTON = registerBlock("pearl_button",
+            new ButtonBlock(FabricBlockSettings.copyOf(Blocks.OAK_BUTTON), BlockSetType.IRON, 10, true));
+    public static final Block PEARL_PRESSURE_PLATE = registerBlock("pearl_pressure_plate",
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING,FabricBlockSettings.copyOf(Blocks.OAK_PRESSURE_PLATE),BlockSetType.IRON));
+    public static final Block PEARL_FENCE = registerBlock("pearl_fence",
+            new FenceBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE)));
+    public static final Block PEARL_FENCE_GATE = registerBlock("pearl_fence_gate",
+            new FenceGateBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE), WoodType.ACACIA));
+
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);
