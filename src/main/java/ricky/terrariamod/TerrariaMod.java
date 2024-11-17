@@ -42,7 +42,7 @@ public class TerrariaMod implements ModInitializer {
 		StrippableBlockRegistry.register(ModBlocks.CRIM_WOOD, ModBlocks.STRIPPED_CRIM_WOOD);
 		StrippableBlockRegistry.register(ModBlocks.PEARL_LOG, ModBlocks.STRIPPED_PEARL_LOG);
 		StrippableBlockRegistry.register(ModBlocks.PEARL_WOOD, ModBlocks.STRIPPED_PEARL_WOOD);
-		//可燃ブロック
+		//可燃ブロック //TODO 階段などを追加
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.EBON_LOG,5,5);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.EBON_WOOD,5,5);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_EBON_LOG,5,5);

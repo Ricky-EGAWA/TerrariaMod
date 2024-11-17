@@ -76,6 +76,10 @@ public class ModBlocks {
             new FlowerBlock(StatusEffects.INSTANT_DAMAGE,10,FabricBlockSettings.copyOf(Blocks.ALLIUM)));
     public static final Block POTTED_DEATH_WEED = Registry.register(Registries.BLOCK, new Identifier(TerrariaMod.MOD_ID, "potted_death_weed"),
             new FlowerPotBlock(DEATH_WEED, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
+    public static final Block SHIVER_THORN = registerBlock("shiver_thorn",
+            new FlowerBlock(StatusEffects.INSTANT_DAMAGE,10,FabricBlockSettings.copyOf(Blocks.ALLIUM)));
+    public static final Block POTTED_SHIVER_THORN = Registry.register(Registries.BLOCK, new Identifier(TerrariaMod.MOD_ID, "potted_shiver_thorn"),
+            new FlowerPotBlock(SHIVER_THORN, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
     public static final Block VILE_MUSHROOM = registerBlock("vile_mushroom",
             new FlowerBlock(StatusEffects.INSTANT_DAMAGE,10,FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM)));
     public static final Block POTTED_VILE_MUSHROOM = Registry.register(Registries.BLOCK, new Identifier(TerrariaMod.MOD_ID, "potted_vile_mushroom"),
@@ -139,6 +143,7 @@ public class ModBlocks {
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).nonOpaque()));
     public static final Block PEARL_SAPLING = registerBlock("pearl_sapling",
             new SaplingBlock(new PearlSaplingGenerator(),FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).nonOpaque()));
+    //stairs slab etc
     public static final Block EBON_STAIRS = registerBlock("ebon_stairs",
             new StairsBlock(ModBlocks.EBON_PLANKS.getDefaultState(),FabricBlockSettings.copyOf(Blocks.OAK_STAIRS)));
     public static final Block EBON_SLAB = registerBlock("ebon_slab",

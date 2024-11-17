@@ -43,6 +43,7 @@ public class ModModelProvider extends FabricModelProvider {
 //        blockStateModelGenerator.registerPointedDripstone();//TODO ツララのモデリング
         //plants
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.DEATH_WEED, ModBlocks.POTTED_DEATH_WEED,BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.SHIVER_THORN, ModBlocks.POTTED_SHIVER_THORN,BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.VILE_MUSHROOM, ModBlocks.POTTED_VILE_MUSHROOM,BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.VICIOUS_MUSHROOM, ModBlocks.POTTED_VICIOUS_MUSHROOM,BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.GLOWING_MUSHROOM, ModBlocks.POTTED_GLOWING_MUSHROOM,BlockStateModelGenerator.TintType.NOT_TINTED);

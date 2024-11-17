@@ -70,6 +70,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_6")))
                 .add(ModBlocks.ADAMANTITE_ORE).add(ModBlocks.DEEPSLATE_ADAMANTITE_ORE);
+        getOrCreateTagBuilder(BlockTags.FENCES)
+                .add(ModBlocks.EBON_FENCE).add(ModBlocks.CRIM_FENCE).add(ModBlocks.PEARL_FENCE);
+        getOrCreateTagBuilder(BlockTags.FENCE_GATES)
+                .add(ModBlocks.EBON_FENCE_GATE).add(ModBlocks.CRIM_FENCE_GATE).add(ModBlocks.PEARL_FENCE_GATE);
+        getOrCreateTagBuilder(BlockTags.WALLS);
 
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .add(ModBlocks.EBON_LOG)

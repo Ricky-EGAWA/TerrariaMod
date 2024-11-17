@@ -41,6 +41,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PEARL_SAND);
                         entries.add(ModBlocks.PEARL_SANDSTONE);
                         entries.add(ModBlocks.DEATH_WEED);
+                        entries.add(ModBlocks.SHIVER_THORN);
                         entries.add(ModBlocks.VILE_MUSHROOM);
                         entries.add(ModBlocks.VICIOUS_MUSHROOM);
                         entries.add(ModBlocks.GLOWING_MUSHROOM);

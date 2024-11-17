@@ -49,6 +49,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.PEARL_SANDSTONE);
         addDrop(ModBlocks.DEATH_WEED);
         addPottedPlantDrops(ModBlocks.POTTED_DEATH_WEED);
+        addDrop(ModBlocks.SHIVER_THORN);
+        addPottedPlantDrops(ModBlocks.POTTED_SHIVER_THORN);
         addDrop(ModBlocks.VILE_MUSHROOM);
         addPottedPlantDrops(ModBlocks.POTTED_VILE_MUSHROOM);
         addDrop(ModBlocks.VICIOUS_MUSHROOM);
