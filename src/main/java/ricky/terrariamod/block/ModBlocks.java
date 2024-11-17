@@ -139,7 +139,7 @@ public class ModBlocks {
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).nonOpaque()));
     public static final Block PEARL_SAPLING = registerBlock("pearl_sapling",
             new SaplingBlock(new PearlSaplingGenerator(),FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).nonOpaque()));
-    public static final Block EBON_STAIRS = registerBlock("ebon_stair",
+    public static final Block EBON_STAIRS = registerBlock("ebon_stairs",
             new StairsBlock(ModBlocks.EBON_PLANKS.getDefaultState(),FabricBlockSettings.copyOf(Blocks.OAK_STAIRS)));
     public static final Block EBON_SLAB = registerBlock("ebon_slab",
             new SlabBlock(FabricBlockSettings.copyOf(Blocks.OAK_SLAB)));
@@ -151,7 +151,7 @@ public class ModBlocks {
             new FenceBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE)));
     public static final Block EBON_FENCE_GATE = registerBlock("ebon_fence_gate",
             new FenceGateBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE), WoodType.ACACIA));
-    public static final Block CRIM_STAIRS = registerBlock("crim_stair",
+    public static final Block CRIM_STAIRS = registerBlock("crim_stairs",
             new StairsBlock(ModBlocks.CRIM_PLANKS.getDefaultState(),FabricBlockSettings.copyOf(Blocks.OAK_STAIRS)));
     public static final Block CRIM_SLAB = registerBlock("crim_slab",
             new SlabBlock(FabricBlockSettings.copyOf(Blocks.OAK_SLAB)));
@@ -163,7 +163,7 @@ public class ModBlocks {
             new FenceBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE)));
     public static final Block CRIM_FENCE_GATE = registerBlock("crim_fence_gate",
             new FenceGateBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE), WoodType.ACACIA));
-    public static final Block PEARL_STAIRS = registerBlock("pearl_stair",
+    public static final Block PEARL_STAIRS = registerBlock("pearl_stairs",
             new StairsBlock(ModBlocks.PEARL_PLANKS.getDefaultState(),FabricBlockSettings.copyOf(Blocks.OAK_STAIRS)));
     public static final Block PEARL_SLAB = registerBlock("pearl_slab",
             new SlabBlock(FabricBlockSettings.copyOf(Blocks.OAK_SLAB)));
