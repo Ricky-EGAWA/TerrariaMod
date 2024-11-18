@@ -20,13 +20,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 
 @Environment(value=EnvType.CLIENT)
-public class SandSlimeOverlayFeatureRenderer<T extends LivingEntity>
-        extends FeatureRenderer<T, SandSlimeModel<T>> {
+public class SlimeOverlayFeatureRenderer<T extends LivingEntity>
+        extends FeatureRenderer<T, SlimeModel<T>> {
     private final EntityModel<T> model;
 
-    public SandSlimeOverlayFeatureRenderer(FeatureRendererContext<T, SandSlimeModel<T>> context, EntityModelLoader loader) {
+    public SlimeOverlayFeatureRenderer(FeatureRendererContext<T, SlimeModel<T>> context, EntityModelLoader loader) {
         super(context);
-        this.model = new SandSlimeModel<>(loader.getModelPart(EntityModelLayers.SLIME_OUTER));
+        this.model = new SlimeModel<>(loader.getModelPart(EntityModelLayers.SLIME_OUTER));
     }
 
     @Override
@@ -38,7 +38,7 @@ public class SandSlimeOverlayFeatureRenderer<T extends LivingEntity>
             return;
         }
         VertexConsumer vertexConsumer = bl ? vertexConsumerProvider.getBuffer(RenderLayer.getOutline(this.getTexture(livingEntity))) : vertexConsumerProvider.getBuffer(RenderLayer.getEntityTranslucent(this.getTexture(livingEntity)));
-        ((SandSlimeModel)this.getContextModel()).copyStateTo(this.model);
+        ((SlimeModel)this.getContextModel()).copyStateTo(this.model);
         this.model.animateModel(livingEntity, f, g, h);
         this.model.setAngles(livingEntity, f, g, j, k, l);
         this.model.render(matrixStack, vertexConsumer, i, LivingEntityRenderer.getOverlay(livingEntity, 0.0f), 1.0f, 1.0f, 1.0f, 1.0f);

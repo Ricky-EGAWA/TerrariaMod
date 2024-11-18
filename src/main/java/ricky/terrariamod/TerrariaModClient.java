@@ -42,13 +42,13 @@ public class TerrariaModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.FROZENZOMBIE_LAYER, ricky.terrariamod.entity.client.FrozenZombieModel::getTexturedModelData);
         //slime type
         EntityRendererRegistry.register(ModEntities.ICE_SLIME, IceSlimeRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ICE_SLIME_LAYER, IceSlimeModel::getInnerTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ICE_SLIME_LAYER, SlimeModel::getInnerTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.SAND_SLIME, SandSlimeRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.SAND_SLIME_LAYER, SandSlimeModel::getInnerTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.SAND_SLIME_LAYER, SlimeModel::getInnerTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.CORRUPT_SLIME, CorruptSlimeRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CORRUPT_SLIME_LAYER, CorruptSlimeModel::getInnerTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CORRUPT_SLIME_LAYER, SlimeModel::getInnerTexturedModelData);
         //bat type
         EntityRendererRegistry.register(ModEntities.JUNGLE_BAT, JungleBatEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.JUNGLE_BAT_LAYER, JungleBatEntityModel::getTexturedModelData);

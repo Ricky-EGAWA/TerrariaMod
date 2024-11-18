@@ -17,12 +17,12 @@ import ricky.terrariamod.entity.client.ModModelLayers;
 
 @Environment(value=EnvType.CLIENT)
 public class IceSlimeRenderer
-        extends MobEntityRenderer<SlimeEntity, SandSlimeModel<SlimeEntity>> {
+        extends MobEntityRenderer<SlimeEntity, SlimeModel<SlimeEntity>> {
     private static final Identifier TEXTURE = new Identifier(TerrariaMod.MOD_ID,"textures/entity/ice_slime.png");
 
     public IceSlimeRenderer(EntityRendererFactory.Context context) {
-        super(context, new SandSlimeModel(context.getPart(ModModelLayers.ICE_SLIME_LAYER)), 0.25f);
-        this.addFeature(new SandSlimeOverlayFeatureRenderer<>(this, context.getModelLoader()));
+        super(context, new SlimeModel(context.getPart(ModModelLayers.ICE_SLIME_LAYER)), 0.25f);
+        this.addFeature(new SlimeOverlayFeatureRenderer<>(this, context.getModelLoader()));
     }
 
     @Override
