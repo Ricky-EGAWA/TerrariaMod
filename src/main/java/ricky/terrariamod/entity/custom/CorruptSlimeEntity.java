@@ -25,7 +25,7 @@ public class CorruptSlimeEntity extends SlimeEntity {
         return ZombieEntity.createZombieAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 12)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 10.0)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40.0)
                 .add(EntityAttributes.GENERIC_ARMOR, 0.5f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4);
     }
@@ -56,6 +56,7 @@ public class CorruptSlimeEntity extends SlimeEntity {
         this.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(50);
         this.setHealth(50);
         this.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE).setBaseValue(10.0);
+        this.getAttributeInstance(EntityAttributes.GENERIC_FOLLOW_RANGE).setBaseValue(40);
     }
 }
 
