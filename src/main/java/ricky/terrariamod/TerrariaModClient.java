@@ -12,10 +12,7 @@ import ricky.terrariamod.entity.client.bats.JungleBatEntityModel;
 import ricky.terrariamod.entity.client.bats.JungleBatEntityRenderer;
 import ricky.terrariamod.entity.client.bats.LavaBatEntityModel;
 import ricky.terrariamod.entity.client.bats.LavaBatEntityRenderer;
-import ricky.terrariamod.entity.client.slimes.IceSlimeModel;
-import ricky.terrariamod.entity.client.slimes.IceSlimeRenderer;
-import ricky.terrariamod.entity.client.slimes.SandSlimeModel;
-import ricky.terrariamod.entity.client.slimes.SandSlimeRenderer;
+import ricky.terrariamod.entity.client.slimes.*;
 
 public class TerrariaModClient implements ClientModInitializer {
     @Override
@@ -49,6 +46,8 @@ public class TerrariaModClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.SAND_SLIME, SandSlimeRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.SAND_SLIME_LAYER, SandSlimeModel::getInnerTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.CORRUPT_SLIME, IceSlimeRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CORRUPT_SLIME_LAYER, CorruptSlimeModel::getInnerTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.JUNGLE_BAT, JungleBatEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.JUNGLE_BAT_LAYER, JungleBatEntityModel::getTexturedModelData);
