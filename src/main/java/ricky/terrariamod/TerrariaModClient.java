@@ -49,6 +49,9 @@ public class TerrariaModClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.CORRUPT_SLIME, CorruptSlimeRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CORRUPT_SLIME_LAYER, SlimeModel::getInnerTexturedModelData);
+
+        EntityRendererRegistry.register(ModEntities.CRIM_SLIME, CrimSlimeRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CRIM_SLIME_LAYER, SlimeModel::getInnerTexturedModelData);
         //bat type
         EntityRendererRegistry.register(ModEntities.JUNGLE_BAT, JungleBatEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.JUNGLE_BAT_LAYER, JungleBatEntityModel::getTexturedModelData);

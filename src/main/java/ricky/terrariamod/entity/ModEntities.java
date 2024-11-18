@@ -34,6 +34,10 @@ public class ModEntities {
             new Identifier(TerrariaMod.MOD_ID, "corrupt_slime"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, CorruptSlimeEntity::new)
                     .dimensions(EntityDimensions.fixed(1.02f, 1.02f)).build());
+    public static final EntityType<CrimSlimeEntity> CRIM_SLIME = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "crim_slime"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, CrimSlimeEntity::new)
+                    .dimensions(EntityDimensions.fixed(1.02f, 1.02f)).build());
 
     public static final EntityType<JungleBatEntity> JUNGLE_BAT = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(TerrariaMod.MOD_ID, "jungle_bat"),

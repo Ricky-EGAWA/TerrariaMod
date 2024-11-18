@@ -45,5 +45,11 @@ public class ModEntitySpawn {
                 ModEntities.CORRUPT_SLIME,
                 100,1,2
         );
+        BiomeModifications.addSpawn(
+                BiomeSelectors.includeByKey(ModBiomes.CRIM_BIOME),
+                SpawnGroup.MONSTER,
+                ModEntities.CRIM_SLIME,
+                100,1,2
+        );
     }
 }

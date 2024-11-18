@@ -24,6 +24,8 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "sand_slime"), "sand_slime_layer");
     public static final EntityModelLayer CORRUPT_SLIME_LAYER =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "corrupt_slime"), "corrupt_slime_layer");
+    public static final EntityModelLayer CRIM_SLIME_LAYER =
+            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "crim_slime"), "crim_slime_layer");
 
     public static final EntityModelLayer JUNGLE_BAT_LAYER =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "jungle_bat"), "jungle_bat_layer");
