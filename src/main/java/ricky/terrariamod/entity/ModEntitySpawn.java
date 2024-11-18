@@ -13,6 +13,7 @@ import net.minecraft.world.Heightmap;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.biome.BiomeKeys;
 import ricky.terrariamod.entity.custom.PiranhaEntity;
+import ricky.terrariamod.world.biome.ModBiomes;
 
 public class ModEntitySpawn {
     public static void addEntitySpawn() {
@@ -46,6 +47,12 @@ public class ModEntitySpawn {
                 SpawnGroup.MONSTER,
                 ModEntities.LAVA_BAT,
                 80, 2, 3 // ウェイト80、1〜3体
+        );
+        BiomeModifications.addSpawn(
+                BiomeSelectors.includeByKey(ModBiomes.EBON_BIOME),
+                SpawnGroup.MONSTER,
+                ModEntities.CORRUPT_SLIME,
+                100,1,2
         );
 //        // 繫茂した洞窟でのPiranhaの水中スポーン設定
 //        BiomeModifications.addSpawn(
