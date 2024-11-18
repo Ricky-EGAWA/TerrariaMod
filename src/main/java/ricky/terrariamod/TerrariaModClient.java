@@ -37,24 +37,25 @@ public class TerrariaModClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.PORCUPINE, PorcupineRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PORCUPINE, PorcupineModel::getTexturedModelData);
-
+        //zombie type
         EntityRendererRegistry.register(ModEntities.FROZENZOMBIE, FrozenZombieRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.FROZENZOMBIE_LAYER, ricky.terrariamod.entity.client.FrozenZombieModel::getTexturedModelData);
-
+        //slime type
         EntityRendererRegistry.register(ModEntities.ICE_SLIME, IceSlimeRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ICE_SLIME_LAYER, IceSlimeModel::getInnerTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.SAND_SLIME, SandSlimeRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.SAND_SLIME_LAYER, SandSlimeModel::getInnerTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.CORRUPT_SLIME, IceSlimeRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CORRUPT_SLIME_LAYER, CorruptSlimeModel::getInnerTexturedModelData);
 
+        EntityRendererRegistry.register(ModEntities.CORRUPT_SLIME, CorruptSlimeRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CORRUPT_SLIME_LAYER, CorruptSlimeModel::getInnerTexturedModelData);
+        //bat type
         EntityRendererRegistry.register(ModEntities.JUNGLE_BAT, JungleBatEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.JUNGLE_BAT_LAYER, JungleBatEntityModel::getTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.LAVA_BAT, LavaBatEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.LAVA_BAT_LAYER, LavaBatEntityModel::getTexturedModelData);
-
+        //fish type
         EntityRendererRegistry.register(ModEntities.PIRANHA, PiranhaEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PIRANHA_LAYER, PiranhaEntityModel::getTexturedModelData);
 

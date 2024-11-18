@@ -17,12 +17,12 @@ import ricky.terrariamod.entity.client.ModModelLayers;
 
 @Environment(value=EnvType.CLIENT)
 public class CorruptSlimeRenderer
-        extends MobEntityRenderer<SlimeEntity, CorruptSlimeModel<SlimeEntity>> {
+        extends MobEntityRenderer<SlimeEntity, SandSlimeModel<SlimeEntity>> {
     private static final Identifier TEXTURE = new Identifier(TerrariaMod.MOD_ID,"textures/entity/corrupt_slime.png");
 
     public CorruptSlimeRenderer(EntityRendererFactory.Context context) {
-        super(context, new CorruptSlimeModel(context.getPart(ModModelLayers.CORRUPT_SLIME_LAYER)), 0.25f);
-        this.addFeature(new CorruptSlimeOverlayFeatureRenderer<>(this, context.getModelLoader()));
+        super(context, new SandSlimeModel(context.getPart(ModModelLayers.CORRUPT_SLIME_LAYER)), 0.25f);
+        this.addFeature(new SandSlimeOverlayFeatureRenderer<>(this, context.getModelLoader()));
     }
 
     @Override
