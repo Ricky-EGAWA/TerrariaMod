@@ -156,5 +156,7 @@
   "tooltip.terrariamod.metal_detector.tooltip": "Finds Valuables underground",
   "message.terrariamod.metal_detector.not_found": "No Valuables Nearby!",
   "message.terrariamod.metal_detector.found": "Found %s!",
-  "tooltip.terrariamod.magic_mirror.tooltip": "teleport to home"
+  "tooltip.terrariamod.magic_mirror.tooltip": "teleport to home",
+
+  "effect.terrariamod.petrification": "Petrification"
 }

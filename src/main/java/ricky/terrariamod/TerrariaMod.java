@@ -11,6 +11,7 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ricky.terrariamod.block.ModBlocks;
+import ricky.terrariamod.effect.ModEffects;
 import ricky.terrariamod.entity.ModEntities;
 import ricky.terrariamod.entity.custom.*;
 import ricky.terrariamod.item.ModItemGroups;
@@ -33,6 +34,8 @@ public class TerrariaMod implements ModInitializer {
 		ModBlocks.registerModBlocks();
 
 		ModLootTableModifiers.modifyLootTables();
+
+		ModEffects.registerEffects();
 
 		ModWorldGeneration.generateModWorldGen();
 		//tree

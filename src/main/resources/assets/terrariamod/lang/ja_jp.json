@@ -155,5 +155,7 @@
   "tooltip.terrariamod.metal_detector.tooltip": "近くの鉱石を探索",
   "message.terrariamod.metal_detector.not_found": "近くにレア鉱石はありません",
   "message.terrariamod.metal_detector.found": "%s を発見しました！",
-  "tooltip.terrariamod.magic_mirror.tooltip": "リスポーン地点にテレポート"
+  "tooltip.terrariamod.magic_mirror.tooltip": "リスポーン地点にテレポート",
+
+  "effect.terrariamod.petrification": "石化"
 }
