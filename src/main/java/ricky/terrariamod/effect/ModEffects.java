@@ -14,6 +14,7 @@ public class ModEffects {
     public static StatusEffect BLEEDING;
     public static StatusEffect CURSED;
     public static StatusEffect CONFUSED;
+    public static StatusEffect CURSED_INFERNO;
 
     // エフェクト登録メソッド
     public static StatusEffect registerStatusEffect(String name, StatusEffect effect) {
@@ -34,5 +35,7 @@ public class ModEffects {
                 new CursedEffect(StatusEffectCategory.HARMFUL, 0xFFFFFF));
         CONFUSED = registerStatusEffect("confused",
                 new CursedEffect(StatusEffectCategory.HARMFUL, 0xFFFFFF));
+        CURSED_INFERNO = registerStatusEffect("confused_inferno",
+                new CursedInfernoEffect(StatusEffectCategory.HARMFUL, 0xFFFFFF));
     }
 }
