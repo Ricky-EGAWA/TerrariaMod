@@ -12,6 +12,7 @@ public class ModEffects {
     public static StatusEffect PETRIFICATION;
     public static StatusEffect UN_PLACEABLE;
     public static StatusEffect BLEEDING;
+    public static StatusEffect CURSED;
 
     // エフェクト登録メソッド
     public static StatusEffect registerStatusEffect(String name, StatusEffect effect) {
@@ -28,6 +29,8 @@ public class ModEffects {
                 new UnPlaceableEffect(StatusEffectCategory.HARMFUL, 0xFFFFFF));
         BLEEDING = registerStatusEffect("bleeding",
                 new BleedingEffect(StatusEffectCategory.HARMFUL, 0xFFFFFF));
+        CURSED = registerStatusEffect("cursed",
+                new CursedEffect(StatusEffectCategory.HARMFUL, 0xFFFFFF));
 
     }
 }
