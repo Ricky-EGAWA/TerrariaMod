@@ -14,6 +14,7 @@ import ricky.terrariamod.block.ModBlocks;
 import ricky.terrariamod.effect.ModEffects;
 import ricky.terrariamod.entity.ModEntities;
 import ricky.terrariamod.entity.custom.*;
+import ricky.terrariamod.event.ModEvents;
 import ricky.terrariamod.item.ModItemGroups;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.util.ModLootTableModifiers;
@@ -36,6 +37,7 @@ public class TerrariaMod implements ModInitializer {
 		ModLootTableModifiers.modifyLootTables();
 
 		ModEffects.registerEffects();
+		ModEvents.registerEvents();
 
 		ModWorldGeneration.generateModWorldGen();
 		//tree
