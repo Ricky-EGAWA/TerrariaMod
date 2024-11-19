@@ -161,5 +161,7 @@
   "effect.terrariamod.petrification": "Petrification",
   "effect.terrariamod.un_placeable": "Un Placeable",
   "effect.terrariamod.bleeding": "Bleeding",
-  "effect.terrariamod.cursed": "Cursed"
+  "effect.terrariamod.cursed": "Cursed",
+  "effect.terrariamod.cursed_inferno": "Cursed Inferno",
+  "effect.terrariamod.confused": "Confused"
 }

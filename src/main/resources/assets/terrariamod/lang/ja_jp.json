@@ -160,5 +160,7 @@
   "effect.terrariamod.petrification": "石化",
   "effect.terrariamod.un_placeable": "設置不可",
   "effect.terrariamod.bleeding": "出血",
-  "effect.terrariamod.cursed": "呪い"
+  "effect.terrariamod.cursed": "呪い",
+  "effect.terrariamod.cursed_inferno": "呪いの炎",
+  "effect.terrariamod.confused": "混乱"
 }
