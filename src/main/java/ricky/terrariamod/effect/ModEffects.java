@@ -10,7 +10,8 @@ import ricky.terrariamod.TerrariaMod;
 public class ModEffects {
     // エフェクトフィールドを追加
     public static StatusEffect PETRIFICATION;
-    public static StatusEffect UN_PLACEABLE; // 2つ目のエフェクト
+    public static StatusEffect UN_PLACEABLE;
+    public static StatusEffect BLEEDING;
 
     // エフェクト登録メソッド
     public static StatusEffect registerStatusEffect(String name, StatusEffect effect) {
@@ -24,6 +25,9 @@ public class ModEffects {
         PETRIFICATION = registerStatusEffect("petrification",
                 new PetrificationEffect(StatusEffectCategory.HARMFUL, 3124687));
         UN_PLACEABLE = registerStatusEffect("un_placeable",
-                new UnPlaceableEffect(StatusEffectCategory.HARMFUL, 0xFFFFFF)); // 色は自由に設定
+                new UnPlaceableEffect(StatusEffectCategory.HARMFUL, 0xFFFFFF));
+        BLEEDING = registerStatusEffect("bleeding",
+                new BleedingEffect(StatusEffectCategory.HARMFUL, 0xFFFFFF));
+
     }
 }
