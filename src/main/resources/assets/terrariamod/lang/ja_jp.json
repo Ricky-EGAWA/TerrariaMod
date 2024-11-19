@@ -157,5 +157,8 @@
   "message.terrariamod.metal_detector.found": "%s を発見しました！",
   "tooltip.terrariamod.magic_mirror.tooltip": "リスポーン地点にテレポート",
 
-  "effect.terrariamod.petrification": "石化"
+  "effect.terrariamod.petrification": "石化",
+  "effect.terrariamod.un_placeable": "設置不可",
+  "effect.terrariamod.bleeding": "出血",
+  "effect.terrariamod.cursed": "呪い"
 }

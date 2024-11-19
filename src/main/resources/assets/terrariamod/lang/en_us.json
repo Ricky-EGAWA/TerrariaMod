@@ -158,5 +158,8 @@
   "message.terrariamod.metal_detector.found": "Found %s!",
   "tooltip.terrariamod.magic_mirror.tooltip": "teleport to home",
 
-  "effect.terrariamod.petrification": "Petrification"
+  "effect.terrariamod.petrification": "Petrification",
+  "effect.terrariamod.un_placeable": "Un Placeable",
+  "effect.terrariamod.bleeding": "Bleeding",
+  "effect.terrariamod.cursed": "Cursed"
 }
