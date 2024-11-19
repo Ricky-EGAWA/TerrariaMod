@@ -13,6 +13,7 @@ import ricky.terrariamod.entity.client.bats.JungleBatEntityRenderer;
 import ricky.terrariamod.entity.client.bats.LavaBatEntityModel;
 import ricky.terrariamod.entity.client.bats.LavaBatEntityRenderer;
 import ricky.terrariamod.entity.client.slimes.*;
+import ricky.terrariamod.entity.client.zombies.*;
 
 public class TerrariaModClient implements ClientModInitializer {
     @Override
@@ -39,7 +40,7 @@ public class TerrariaModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PORCUPINE, PorcupineModel::getTexturedModelData);
         //zombie type
         EntityRendererRegistry.register(ModEntities.FROZENZOMBIE, FrozenZombieRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.FROZENZOMBIE_LAYER, ricky.terrariamod.entity.client.FrozenZombieModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.FROZENZOMBIE_LAYER, FrozenZombieModel::getTexturedModelData);
         //slime type
         EntityRendererRegistry.register(ModEntities.ICE_SLIME, IceSlimeRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ICE_SLIME_LAYER, SlimeModel::getInnerTexturedModelData);
@@ -61,6 +62,15 @@ public class TerrariaModClient implements ClientModInitializer {
         //fish type
         EntityRendererRegistry.register(ModEntities.PIRANHA, PiranhaEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PIRANHA_LAYER, PiranhaEntityModel::getTexturedModelData);
+        //zombie type
+        EntityRendererRegistry.register(ModEntities.MUMMY, MummyRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.MUMMY_LAYER, ZombieTypeModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.DARK_MUMMY, DarkMummyRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.DARK_MUMMY_LAYER, ZombieTypeModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.BLOOD_MUMMY, BloodMummyRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BLOOD_MUMMY_LAYER, ZombieTypeModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.LIGHT_MUMMY, LightMummyRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.LIGHT_MUMMY_LAYER, ZombieTypeModel::getTexturedModelData);
 
     }
 }

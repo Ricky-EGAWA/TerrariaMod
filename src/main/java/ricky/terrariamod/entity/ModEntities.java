@@ -19,7 +19,7 @@ public class ModEntities {
     public static final EntityType<FrozenZombieEntity> FROZENZOMBIE = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(TerrariaMod.MOD_ID, "frozenzombie"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, FrozenZombieEntity::new)
-                    .dimensions(EntityDimensions.fixed(1f, 1.9f)).build());
+                    .dimensions(EntityDimensions.fixed(0.6f, 1.96f)).build());
 
     public static final EntityType<IceSlimeEntity> ICE_SLIME = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(TerrariaMod.MOD_ID, "ice_slime"),
@@ -53,6 +53,23 @@ public class ModEntities {
             new Identifier(TerrariaMod.MOD_ID, "piranha"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, PiranhaEntity::new)
                     .dimensions(EntityDimensions.fixed(0.5f, 0.3f)).build());
+
+    public static final EntityType<MummyEntity> MUMMY = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "mummy"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, MummyEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.6f, 1.95f)).build());
+    public static final EntityType<DarkMummyEntity> DARK_MUMMY = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "dark_mummy"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, DarkMummyEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.6f, 1.95f)).build());
+    public static final EntityType<BloodMummyEntity> BLOOD_MUMMY = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "blood_mummy"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, BloodMummyEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.6f, 1.95f)).build());
+    public static final EntityType<LightMummyEntity> LIGHT_MUMMY = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "light_mummy"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, LightMummyEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.6f, 1.95f)).build());
 
 
 

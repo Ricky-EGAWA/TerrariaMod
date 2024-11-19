@@ -74,6 +74,10 @@ public class TerrariaMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.JUNGLE_BAT, JungleBatEntity.createJungleBatAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.LAVA_BAT, LavaBatEntity.createLavaBatAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.PIRANHA, PiranhaEntity.createPiranhaAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.MUMMY, MummyEntity.createMummyAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.DARK_MUMMY, DarkMummyEntity.createMummyAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.BLOOD_MUMMY, BloodMummyEntity.createMummyAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.LIGHT_MUMMY, LightMummyEntity.createMummyAttributes());
 
 		// エンティティのスポーンを追加
 		ModEntitySpawn.addEntitySpawn();

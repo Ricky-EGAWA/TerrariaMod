@@ -35,6 +35,14 @@ public class ModModelLayers {
 
     public static final EntityModelLayer PIRANHA_LAYER =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "piranha"), "piranha_layer");
+    public static final EntityModelLayer MUMMY_LAYER =
+            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "mummy"), "mummy_layer");
+    public static final EntityModelLayer DARK_MUMMY_LAYER =
+            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "dark_mummy"), "dark_mummy_layer");
+    public static final EntityModelLayer BLOOD_MUMMY_LAYER =
+            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "blood_mummy"), "blood_mummy_layer");
+    public static final EntityModelLayer LIGHT_MUMMY_LAYER =
+            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "light_mummy"), "light_mummy_layer");
 
 
     private static EntityModelLayer registerMain(String id) {
