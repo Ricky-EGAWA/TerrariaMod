@@ -24,13 +24,6 @@ public class SlimeModel<T extends Entity>
         this.root = root;
     }
 
-//    public static TexturedModelData getOuterTexturedModelData() {
-//        ModelData modelData = new ModelData();
-//        ModelPartData modelPartData = modelData.getRoot();
-//        modelPartData.addChild(EntityModelPartNames.CUBE, ModelPartBuilder.create().uv(0, 0).cuboid(-4.0f, 16.0f, -4.0f, 8.0f, 8.0f, 8.0f), ModelTransform.NONE);
-//        return TexturedModelData.of(modelData, 64, 32);
-//    }
-
     public static TexturedModelData getInnerTexturedModelData() {
         ModelData modelData = new ModelData();
         ModelPartData modelPartData = modelData.getRoot();

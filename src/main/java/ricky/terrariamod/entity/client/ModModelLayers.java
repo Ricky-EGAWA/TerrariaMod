@@ -1,9 +1,7 @@
 package ricky.terrariamod.entity.client;
 
 import com.google.common.collect.Sets;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.TerrariaMod;
 
