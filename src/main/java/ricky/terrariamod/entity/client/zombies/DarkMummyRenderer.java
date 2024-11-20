@@ -5,6 +5,8 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.render.entity.ZombieEntityRenderer;
+import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.util.Identifier;
@@ -12,26 +14,15 @@ import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.entity.client.ModModelLayers;
 
 @Environment(EnvType.CLIENT)
-public class DarkMummyRenderer extends MobEntityRenderer<ZombieEntity, ZombieTypeModel<ZombieEntity>> {
+public class DarkMummyRenderer extends ZombieEntityRenderer {
     private static final Identifier TEXTURE = new Identifier(TerrariaMod.MOD_ID, "textures/entity/dark_mummy.png");
 
     public DarkMummyRenderer(EntityRendererFactory.Context context) {
-        super(context, new ZombieTypeModel<>(context.getPart(ModModelLayers.DARK_MUMMY_LAYER)), 0.5f);
+        super(context, EntityModelLayers.HUSK, EntityModelLayers.HUSK_INNER_ARMOR, EntityModelLayers.HUSK_OUTER_ARMOR);
     }
 
     @Override
     public Identifier getTexture(ZombieEntity entity) {
         return TEXTURE;
-    }
-
-    @Override
-    public void render(ZombieEntity mobEntity, float f, float g, MatrixStack matrixStack,
-                       VertexConsumerProvider vertexConsumerProvider, int i) {
-        if (mobEntity.isBaby()) {
-            matrixStack.scale(0.5f, 0.5f, 0.5f);
-        } else {
-            matrixStack.scale(1f, 1f, 1f);
-        }
-        super.render(mobEntity, f, g, matrixStack, vertexConsumerProvider, i);
     }
 }

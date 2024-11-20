@@ -39,20 +39,26 @@ public class ZombieTypeModel<T extends ZombieEntity> extends SinglePartEntityMod
 	@Override
 	public void setAngles(ZombieEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		// 頭の回転
-		this.waist.getChild("body").getChild("head").yaw = headPitch * ((float) Math.PI / 180F);
-		this.waist.getChild("body").getChild("head").pitch = netHeadYaw * ((float) Math.PI / 180F);
+		this.waist.getChild("body").getChild("head").yaw = netHeadYaw * ((float) Math.PI / 180F);
+		this.waist.getChild("body").getChild("head").pitch = headPitch * ((float) Math.PI / 180F);
+
+		// 腕の動き（通常時の歩行アニメーション）
+		this.waist.getChild("body").getChild("rightArm").pitch = MathHelper.cos(limbSwing * 0.6662F) * limbSwingAmount;
+		this.waist.getChild("body").getChild("leftArm").pitch = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * limbSwingAmount;
+
+		// 攻撃時のアニメーション
+		if (entity.handSwinging) {
+			float swingProgress = entity.getHandSwingProgress(ageInTicks);
+			float swingAngle = MathHelper.sin(swingProgress * (float) Math.PI);
+			this.waist.getChild("body").getChild("rightArm").pitch = -swingAngle * 1.5F;
+			this.waist.getChild("body").getChild("leftArm").pitch = swingAngle * 1.5F;
+		}
 
 		// 脚の動き
 		this.waist.getChild("body").getChild("rightLeg").pitch = MathHelper.cos(limbSwing * 0.6662F) * limbSwingAmount;
 		this.waist.getChild("body").getChild("leftLeg").pitch = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * limbSwingAmount;
-
-		// 腕の動き
-		this.waist.getChild("body").getChild("rightArm").pitch = MathHelper.cos(limbSwing * 0.6662F) * limbSwingAmount;
-		this.waist.getChild("body").getChild("leftArm").pitch = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * limbSwingAmount;
-
-		// スピードに応じた頭の動き
-		this.waist.getChild("body").getChild("head").yaw = netHeadYaw * ((float) Math.PI / 180F);
 	}
+
 
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
