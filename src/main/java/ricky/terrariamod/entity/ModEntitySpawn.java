@@ -53,19 +53,19 @@ public class ModEntitySpawn {
         );
 
         BiomeModifications.addSpawn(
-                BiomeSelectors.includeByKey(ModBiomes.EBON_BIOME),
+                BiomeSelectors.includeByKey(ModBiomes.EBON_DESERT_BIOME),
                 SpawnGroup.MONSTER,
                 ModEntities.DARK_MUMMY,
                 100,1,2
         );
         BiomeModifications.addSpawn(
-                BiomeSelectors.includeByKey(ModBiomes.CRIM_BIOME),
+                BiomeSelectors.includeByKey(ModBiomes.CRIM_DESERT_BIOME),
                 SpawnGroup.MONSTER,
                 ModEntities.BLOOD_MUMMY,
                 100,1,2
         );
         BiomeModifications.addSpawn(
-                BiomeSelectors.includeByKey(ModBiomes.PEARL_BIOME),
+                BiomeSelectors.includeByKey(ModBiomes.PEARL_DESERT_BIOME),
                 SpawnGroup.MONSTER,
                 ModEntities.LIGHT_MUMMY,
                 100,1,2

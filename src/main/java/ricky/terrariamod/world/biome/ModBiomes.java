@@ -38,6 +38,9 @@ public class ModBiomes {
             new Identifier(TerrariaMod.MOD_ID, "ebon_ice_biome"));
     public static final RegistryKey<Biome> PEARL_ICE_BIOME = RegistryKey.of(RegistryKeys.BIOME,
             new Identifier(TerrariaMod.MOD_ID, "pearl_ice_biome"));
+    //地下
+    public static final RegistryKey<Biome> GLOWING_MUSHROOM_BIOME = RegistryKey.of(RegistryKeys.BIOME,
+            new Identifier(TerrariaMod.MOD_ID, "glowing_mushroom_biome"));
 
     public static void bootstrap(Registerable<Biome> context) {
         context.register(CRIM_DESERT_BIOME, crimDesertBiome(context));
@@ -49,6 +52,7 @@ public class ModBiomes {
         context.register(CRIM_ICE_BIOME, crimIceBiome(context));
         context.register(EBON_ICE_BIOME, ebonIceBiome(context));
         context.register(PEARL_ICE_BIOME, pearlIceBiome(context));
+        context.register(GLOWING_MUSHROOM_BIOME, glowingMushroomBiome(context));
     }
     public static void globalOverworldGeneration(GenerationSettings.LookupBackedBuilder builder) {
         DefaultBiomeFeatures.addLandCarvers(builder);
@@ -59,6 +63,40 @@ public class ModBiomes {
         DefaultBiomeFeatures.addFrozenTopLayer(builder);
     }
 
+    public static Biome glowingMushroomBiome(Registerable<Biome> context) {
+        //モブのスポーン
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        //地形の生成
+        GenerationSettings.LookupBackedBuilder biomeBuilder =
+                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
+                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
+
+        globalOverworldGeneration(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
+
+        // 植生デコレーション
+        DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
+
+        return new Biome.Builder()
+                .precipitation(false)
+                .downfall(0f)
+                .temperature(0.7f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0xe82e3b)
+                        .waterFogColor(0xbf1b26)
+                        .skyColor(0xe82e3b)
+                        .grassColor(0x7f03fc)
+                        .foliageColor(0xd203fc)
+                        .fogColor(0xbf1b26)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+//                        .music(MusicType.createIngameMusic(RegistryEntry.of(ModSounds.BAR_BRAWL))).build())
+                .build();
+    }
     public static Biome crimDesertBiome(Registerable<Biome> context) {
         //モブのスポーン
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();

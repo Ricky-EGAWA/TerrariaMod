@@ -113,6 +113,18 @@
             "depth": 0,
             "offset": 0
           }
+        },
+        {
+          "biome": "terrariamod:glowing_mushroom_biome",
+          "parameters": {
+            "temperature": 0.6,
+            "humidity": -1,
+            "continentalness": 0.7,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
         }
       ]
     }
