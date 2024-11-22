@@ -1,6 +1,5 @@
 package ricky.terrariamod.world;
 
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MushroomBlock;
 import net.minecraft.registry.Registerable;
@@ -115,8 +114,7 @@ public class ModConfiguredFeatures {
         register(context, DEATH_WEED_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(flowerPlacedFeature)));
         register(context, SHIVER_THORN, Feature.FLOWER, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(shiverPlacedFeature)));
         register(context, GLOWING_MUSHROOM, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(gMushroomPlacedFeature)));
-        register(context, HUGE_GLOWING_MUSHROOM, Feature.HUGE_RED_MUSHROOM, new HugeMushroomFeatureConfig(BlockStateProvider.of((BlockState)ModBlocks.GLOWING_MUSHROOM_BLOCK.getDefaultState().with(MushroomBlock.DOWN, false)), BlockStateProvider.of((BlockState)((BlockState)ModBlocks.GLOWING_MUSHROOM_STEM.getDefaultState().with(MushroomBlock.UP, false)).with(MushroomBlock.DOWN, false)), 2));
-
+        register(context, HUGE_GLOWING_MUSHROOM, Feature.HUGE_RED_MUSHROOM, new HugeMushroomFeatureConfig(BlockStateProvider.of(ModBlocks.GLOWING_MUSHROOM_BLOCK.getDefaultState().with(MushroomBlock.DOWN, false)), BlockStateProvider.of((ModBlocks.GLOWING_MUSHROOM_STEM.getDefaultState().with(MushroomBlock.UP, false)).with(MushroomBlock.DOWN, false)), 2));
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

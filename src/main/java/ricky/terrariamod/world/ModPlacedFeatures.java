@@ -67,8 +67,7 @@ public class ModPlacedFeatures {
         register(context, GLOWING_MUSHROOM_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.GLOWING_MUSHROOM),
                 mushroomModifiers(1, CountPlacementModifier.of(32)));
         register(context, GLOWING_HUGE_MUSHROOM_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.HUGE_GLOWING_MUSHROOM),
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(3,0.1f,2),
-                        ModBlocks.GLOWING_MUSHROOM));
+                mushroomModifiers(1,CountPlacementModifier.of(16)));
     }
 
     private static List<PlacementModifier> mushroomModifiers(int chance, @Nullable PlacementModifier modifier) {

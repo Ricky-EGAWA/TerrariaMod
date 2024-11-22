@@ -21,8 +21,8 @@ public class ModTreeGeneration {
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.SNOWY_PLAINS),
                 GenerationStep.Feature.TOP_LAYER_MODIFICATION, ModPlacedFeatures.SHIVER_THORN_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.GLOWING_MUSHROOM_BIOME),
-                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.GLOWING_MUSHROOM_PLACED_KEY);
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.GLOWING_MUSHROOM_BIOME),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.GLOWING_HUGE_MUSHROOM_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.GLOWING_MUSHROOM_BIOME),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.GLOWING_MUSHROOM_PLACED_KEY);
     }
 }
