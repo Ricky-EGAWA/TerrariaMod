@@ -113,7 +113,7 @@ public class ModConfiguredFeatures {
         //試行回数　xzの広がり　ｙの広がり
         register(context, DEATH_WEED_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(flowerPlacedFeature)));
         register(context, SHIVER_THORN, Feature.FLOWER, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(shiverPlacedFeature)));
-        register(context, GLOWING_MUSHROOM, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(gMushroomPlacedFeature)));
+        register(context, GLOWING_MUSHROOM, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(64,14,1, RegistryEntry.of(gMushroomPlacedFeature)));
         register(context, HUGE_GLOWING_MUSHROOM, Feature.HUGE_RED_MUSHROOM, new HugeMushroomFeatureConfig(BlockStateProvider.of(ModBlocks.GLOWING_MUSHROOM_BLOCK.getDefaultState().with(MushroomBlock.DOWN, false)), BlockStateProvider.of((ModBlocks.GLOWING_MUSHROOM_STEM.getDefaultState().with(MushroomBlock.UP, false)).with(MushroomBlock.DOWN, false)), 2));
     }
 
