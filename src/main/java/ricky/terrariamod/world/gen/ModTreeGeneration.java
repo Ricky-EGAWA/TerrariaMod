@@ -17,10 +17,14 @@ public class ModTreeGeneration {
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.PEARL_BIOME),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.PEARL_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.EBON_BIOME),
-                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.DEATH_WEED_PLACED_KEY);
+                GenerationStep.Feature.TOP_LAYER_MODIFICATION, ModPlacedFeatures.DEATH_WEED_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.CRIM_BIOME),
-                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.DEATH_WEED_PLACED_KEY);
+                GenerationStep.Feature.TOP_LAYER_MODIFICATION, ModPlacedFeatures.DEATH_WEED_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.SNOWY_PLAINS),
-                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.SHIVER_THORN_PLACED_KEY);
+                GenerationStep.Feature.TOP_LAYER_MODIFICATION, ModPlacedFeatures.SHIVER_THORN_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.GLOWING_MUSHROOM_BIOME),
+                GenerationStep.Feature.UNDERGROUND_DECORATION, ModPlacedFeatures.GLOWING_MUSHROOM_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.GLOWING_MUSHROOM_BIOME),
+                GenerationStep.Feature.UNDERGROUND_DECORATION, ModPlacedFeatures.GLOWING_HUGE_MUSHROOM_PLACED_KEY);
     }
 }

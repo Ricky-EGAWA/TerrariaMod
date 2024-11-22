@@ -90,7 +90,7 @@ public class ModBiomes {
                         .waterColor(4159204)
                         .waterFogColor(329011)
                         .skyColor(7907327)
-//                        .grassColor(0x7f03fc)
+                        .grassColor(5721318)
 //                        .foliageColor(0xd203fc)
                         .fogColor(12638463)
                         .moodSound(BiomeMoodSound.CAVE).build())

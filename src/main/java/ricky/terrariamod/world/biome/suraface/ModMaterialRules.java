@@ -51,8 +51,8 @@ public class ModMaterialRules {
         MaterialRules.MaterialRule surfaceRule_crim_ice = surfaceRuleMaker(SNOW, CRIM_ICE, CRIM_ICE, ModBlocks.CRIM_ICE.getDefaultState(), CRIM_ICE, CRIM_STONE, CRIM_STONE);
         MaterialRules.MaterialRule surfaceRule_ebon_ice = surfaceRuleMaker(SNOW, EBON_ICE, EBON_ICE, ModBlocks.EBON_ICE.getDefaultState(), EBON_ICE, EBON_STONE, EBON_STONE);
         MaterialRules.MaterialRule surfaceRule_pearl_ice = surfaceRuleMaker(SNOW, PEARL_ICE, PEARL_ICE, ModBlocks.PEARL_ICE.getDefaultState(), PEARL_STONE, EBON_STONE, PEARL_STONE);
-        //地下
-        MaterialRules.MaterialRule surfaceRule_glowing_mushroom = surfaceRuleMaker(GLOWING_MOSS,GLOWING_MOSS,GLOWING_MOSS, ModBlocks.GLOWING_MOSS.getDefaultState(), GRAVEL, GLOWING_MOSS, GLOWING_MOSS);
+        //地下  天井と床
+        MaterialRules.MaterialRule surfaceRule_glowing_mushroom = undergroundRule(GLOWING_MOSS,GRASS_BLOCK);
 
         MaterialRules.MaterialRule crimDesertBiomeRule = MaterialRules.condition(crimDesertBiomeCondition, surfaceRule_crim_desert);
         MaterialRules.MaterialRule ebonDesertBiomeRule = MaterialRules.condition(ebonDesertBiomeCondition, surfaceRule_ebon_desert);
@@ -107,5 +107,15 @@ public class ModMaterialRules {
                 MaterialRules.condition(topLayer,first),
                 MaterialRules.condition(subSurfaceLayer,second)
         );
+    }
+    //天井と床
+    public static MaterialRules.MaterialRule undergroundRule(MaterialRules.MaterialRule ceiling, MaterialRules.MaterialRule floor){
+        MaterialRules.MaterialCondition ceilingLayer = MaterialRules.stoneDepth(2,true,VerticalSurfaceType.CEILING);
+        MaterialRules.MaterialCondition floorLayer = MaterialRules.stoneDepth(1,true,VerticalSurfaceType.FLOOR);
+        return MaterialRules.sequence(
+                MaterialRules.condition(ceilingLayer, ceiling),
+                MaterialRules.condition(floorLayer,floor)
+        );
+
     }
 }

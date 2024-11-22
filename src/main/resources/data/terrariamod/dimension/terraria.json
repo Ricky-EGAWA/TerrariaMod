@@ -120,8 +120,8 @@
             "temperature": 0.6,
             "humidity": -1,
             "continentalness": 0.7,
-            "erosion": -0.5,
-            "weirdness": -0.5,
+            "erosion": 0.5,
+            "weirdness": 0.6,
             "depth": 1,
             "offset": 0
           }

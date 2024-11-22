@@ -35,6 +35,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> PEARL_TREE_KEY = (registerKey("pearl_tree"));
     public static final RegistryKey<ConfiguredFeature<?, ?>> DEATH_WEED_KEY = (registerKey("death_weed"));
     public static final RegistryKey<ConfiguredFeature<?, ?>> SHIVER_THORN = (registerKey("shiver_thorn"));
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GLOWING_MUSHROOM = (registerKey("glowing_mushroom"));
     public static final RegistryKey<ConfiguredFeature<?, ?>> HUGE_GLOWING_MUSHROOM = registerKey("huge_glowing_mushroom");
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context){
         RuleTest stoneReplacables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -103,9 +104,16 @@ public class ModConfiguredFeatures {
 
         ConfiguredFeature<SimpleBlockFeatureConfig, ?> shiverConfiguredFeature = new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, shiverConfig);
         PlacedFeature shiverPlacedFeature = new PlacedFeature(RegistryEntry.of(shiverConfiguredFeature), List.of());
+
+        BlockStateProvider gMushroomProvider = BlockStateProvider.of(ModBlocks.GLOWING_MUSHROOM.getDefaultState());
+        SimpleBlockFeatureConfig gMushroomConfig = new SimpleBlockFeatureConfig(shiverProvider);
+
+        ConfiguredFeature<SimpleBlockFeatureConfig, ?> gMushroomConfiguredFeature = new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, shiverConfig);
+        PlacedFeature gMushroomPlacedFeature = new PlacedFeature(RegistryEntry.of(gMushroomConfiguredFeature), List.of());
         //試行回数　xzの広がり　ｙの広がり
         register(context, DEATH_WEED_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(flowerPlacedFeature)));
         register(context, SHIVER_THORN, Feature.FLOWER, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(shiverPlacedFeature)));
+        register(context, GLOWING_MUSHROOM, Feature.FLOWER, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(gMushroomPlacedFeature)));
         register(context, HUGE_GLOWING_MUSHROOM, Feature.HUGE_RED_MUSHROOM, new HugeMushroomFeatureConfig(BlockStateProvider.of((BlockState)ModBlocks.GLOWING_MUSHROOM_BLOCK.getDefaultState().with(MushroomBlock.DOWN, false)), BlockStateProvider.of((BlockState)((BlockState)ModBlocks.GLOWING_MUSHROOM_STEM.getDefaultState().with(MushroomBlock.UP, false)).with(MushroomBlock.DOWN, false)), 2));
 
     }

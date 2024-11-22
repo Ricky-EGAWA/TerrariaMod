@@ -97,9 +97,9 @@ public class ModBlocks {
     public static final Block POTTED_GLOWING_MUSHROOM = Registry.register(Registries.BLOCK, new Identifier(TerrariaMod.MOD_ID, "potted_glowing_mushroom"),
             new FlowerPotBlock(GLOWING_MUSHROOM, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
     public static final Block GLOWING_MUSHROOM_BLOCK = registerBlock("glowing_mushroom_block",
-            new MushroomBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM_BLOCK)));
+            new MushroomBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM_BLOCK).luminance(state -> 6)));
     public static final Block GLOWING_MUSHROOM_STEM = registerBlock("glowing_mushroom_stem",
-            new MushroomBlock(FabricBlockSettings.copyOf(Blocks.MUSHROOM_STEM)));
+            new MushroomBlock(FabricBlockSettings.copyOf(Blocks.MUSHROOM_STEM).luminance(state -> 6)));
     //tree
     public static final Block EBON_LOG = registerBlock("ebon_log",
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG)));
