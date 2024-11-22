@@ -3,7 +3,6 @@ package ricky.terrariamod.world;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MushroomBlock;
-import net.minecraft.predicate.block.BlockPredicate;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -14,9 +13,11 @@ import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.placementmodifier.BlockFilterPlacementModifier;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import ricky.terrariamod.TerrariaMod;
@@ -97,23 +98,23 @@ public class ModConfiguredFeatures {
         SimpleBlockFeatureConfig flowerConfig = new SimpleBlockFeatureConfig(flowerProvider);
 
         ConfiguredFeature<SimpleBlockFeatureConfig, ?> flowerConfiguredFeature = new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, flowerConfig);
-        PlacedFeature flowerPlacedFeature = new PlacedFeature(RegistryEntry.of(flowerConfiguredFeature), List.of());
+        PlacedFeature flowerPlacedFeature = new PlacedFeature(RegistryEntry.of(flowerConfiguredFeature), List.of(BlockFilterPlacementModifier.of(BlockPredicate.matchingBlocks(Blocks.AIR))));
 
         BlockStateProvider shiverProvider = BlockStateProvider.of(ModBlocks.SHIVER_THORN.getDefaultState());
         SimpleBlockFeatureConfig shiverConfig = new SimpleBlockFeatureConfig(shiverProvider);
 
         ConfiguredFeature<SimpleBlockFeatureConfig, ?> shiverConfiguredFeature = new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, shiverConfig);
-        PlacedFeature shiverPlacedFeature = new PlacedFeature(RegistryEntry.of(shiverConfiguredFeature), List.of());
+        PlacedFeature shiverPlacedFeature = new PlacedFeature(RegistryEntry.of(shiverConfiguredFeature), List.of(BlockFilterPlacementModifier.of(BlockPredicate.matchingBlocks(Blocks.AIR))));
 
         BlockStateProvider gMushroomProvider = BlockStateProvider.of(ModBlocks.GLOWING_MUSHROOM.getDefaultState());
-        SimpleBlockFeatureConfig gMushroomConfig = new SimpleBlockFeatureConfig(shiverProvider);
+        SimpleBlockFeatureConfig gMushroomConfig = new SimpleBlockFeatureConfig(gMushroomProvider);
 
-        ConfiguredFeature<SimpleBlockFeatureConfig, ?> gMushroomConfiguredFeature = new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, shiverConfig);
-        PlacedFeature gMushroomPlacedFeature = new PlacedFeature(RegistryEntry.of(gMushroomConfiguredFeature), List.of());
+        ConfiguredFeature<SimpleBlockFeatureConfig, ?> gMushroomConfiguredFeature = new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, gMushroomConfig);
+        PlacedFeature gMushroomPlacedFeature = new PlacedFeature(RegistryEntry.of(gMushroomConfiguredFeature), List.of(BlockFilterPlacementModifier.of(BlockPredicate.matchingBlocks(Blocks.AIR))));
         //試行回数　xzの広がり　ｙの広がり
         register(context, DEATH_WEED_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(flowerPlacedFeature)));
         register(context, SHIVER_THORN, Feature.FLOWER, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(shiverPlacedFeature)));
-        register(context, GLOWING_MUSHROOM, Feature.FLOWER, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(gMushroomPlacedFeature)));
+        register(context, GLOWING_MUSHROOM, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32,10,3, RegistryEntry.of(gMushroomPlacedFeature)));
         register(context, HUGE_GLOWING_MUSHROOM, Feature.HUGE_RED_MUSHROOM, new HugeMushroomFeatureConfig(BlockStateProvider.of((BlockState)ModBlocks.GLOWING_MUSHROOM_BLOCK.getDefaultState().with(MushroomBlock.DOWN, false)), BlockStateProvider.of((BlockState)((BlockState)ModBlocks.GLOWING_MUSHROOM_STEM.getDefaultState().with(MushroomBlock.UP, false)).with(MushroomBlock.DOWN, false)), 2));
 
     }

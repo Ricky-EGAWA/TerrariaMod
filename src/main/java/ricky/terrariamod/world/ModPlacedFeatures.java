@@ -1,5 +1,6 @@
 package ricky.terrariamod.world;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -10,8 +11,8 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacedFeatures;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
-import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
-import net.minecraft.world.gen.placementmodifier.PlacementModifier;
+import net.minecraft.world.gen.placementmodifier.*;
+import org.jetbrains.annotations.Nullable;
 import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.block.ModBlocks;
 
@@ -64,10 +65,26 @@ public class ModPlacedFeatures {
         register(context, SHIVER_THORN_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SHIVER_THORN),
                 VegetationPlacedFeatures.modifiers(1));
         register(context, GLOWING_MUSHROOM_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.GLOWING_MUSHROOM),
-                VegetationPlacedFeatures.modifiers(1));
+                mushroomModifiers(1, CountPlacementModifier.of(32)));
         register(context, GLOWING_HUGE_MUSHROOM_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.HUGE_GLOWING_MUSHROOM),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(3,0.1f,2),
                         ModBlocks.GLOWING_MUSHROOM));
+    }
+
+    private static List<PlacementModifier> mushroomModifiers(int chance, @Nullable PlacementModifier modifier) {
+        ImmutableList.Builder<PlacementModifier> builder = ImmutableList.builder();
+        if (modifier != null) {
+            builder.add(modifier);
+        }
+
+        if (chance != 0) {
+            builder.add(RarityFilterPlacementModifier.of(chance));
+        }
+
+        builder.add(SquarePlacementModifier.of());
+        builder.add(PlacedFeatures.BOTTOM_TO_TOP_RANGE);
+        builder.add(BiomePlacementModifier.of());
+        return builder.build();
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {
