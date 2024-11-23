@@ -163,6 +163,9 @@ public class ModItems {
     public static final Item MAGIC_MIRROR = registerItem("magic_mirror",
             new MagicMirrorItem(new Item.Settings()));
 
+    public static final Item IRON_BOW = registerItem("iron_bow",
+            new BowItem(new Item.Settings().maxDamage(500)));
+
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {
         return switch (materialName.toLowerCase()) {
