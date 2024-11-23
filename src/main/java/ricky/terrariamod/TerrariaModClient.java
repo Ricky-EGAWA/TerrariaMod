@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.block.ModBlocks;
 import ricky.terrariamod.entity.ModEntities;
@@ -75,8 +76,12 @@ public class TerrariaModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.LIGHT_MUMMY, LightMummyRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.LIGHT_MUMMY_LAYER, ZombieTypeModel::getTexturedModelData);
 
-        // 弓のモデルプロパティ登録
-        ModelPredicateProviderRegistry.register(ModItems.IRON_BOW, new Identifier("pull"), (stack, world, entity, seed) -> {
+        registerCustomBow(ModItems.IRON_BOW); // IRON_BOW 用の登録
+//        registerCustomBow(ModItems.GOLD_BOW); // GOLD_BOW 用の登録
+//        registerCustomBow(ModItems.DIAMOND_BOW); // DIAMOND_BOW 用の登録
+    }
+    private static void registerCustomBow(Item item) {
+        ModelPredicateProviderRegistry.register(item, new Identifier("pull"), (stack, world, entity, seed) -> {
             if (entity == null) {
                 return 0.0F;
             }
@@ -84,7 +89,7 @@ public class TerrariaModClient implements ClientModInitializer {
                     (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F;
         });
 
-        ModelPredicateProviderRegistry.register(ModItems.IRON_BOW, new Identifier("pulling"), (stack, world, entity, seed) -> {
+        ModelPredicateProviderRegistry.register(item, new Identifier("pulling"), (stack, world, entity, seed) -> {
             return entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F;
         });
     }
