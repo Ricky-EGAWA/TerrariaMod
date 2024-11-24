@@ -9,8 +9,9 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.item.bows.CustomBowItem;
-import ricky.terrariamod.item.bows.ShotGunItem;
+import ricky.terrariamod.item.bows.RocketLauncherItem;
 import ricky.terrariamod.item.custom.*;
+import ricky.terrariamod.item.gun.ammo.MusketBallItem;
 
 public class ModItems {
     public static final Item MetalDetectorItem = registerItem("metal_detector",
@@ -171,8 +172,9 @@ public class ModItems {
             new CustomBowItem(new Item.Settings().maxDamage(384),20,36000));
     public static final Item DIAMOND_BOW = registerItem("diamond_bow",
             new CustomBowItem(new Item.Settings().maxDamage(1024),40,72000));
-    public static final Item SHOTGUN = registerItem("shotgun",
-            new ShotGunItem(new Item.Settings().maxDamage(500),30));
+    public static final Item ROCKET_LAUNCHER = registerItem("rocket_launcher",
+            new RocketLauncherItem(new Item.Settings().maxDamage(500),3));
+    public static final Item MUSKET_BALL = registerItem("musket_ball", new MusketBallItem(new Item.Settings()));
 
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {
