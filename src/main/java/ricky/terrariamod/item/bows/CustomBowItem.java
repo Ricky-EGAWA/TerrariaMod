@@ -19,16 +19,44 @@ public class CustomBowItem extends BowItem {
 
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
-        // デフォルトの処理を呼び出す
-        super.onStoppedUsing(stack, world, user, remainingUseTicks);
-
-        // カスタムダメージを適用
         if (!world.isClient) {
-            ArrowEntity arrow = new ArrowEntity(world, user);
-            arrow.setDamage(this.damage);
-            world.spawnEntity(arrow);
+            // 引き絞り時間を計算
+            int useTime = this.getMaxUseTime(stack) - remainingUseTicks;
+            float pullProgress = getPullProgress(useTime);
+
+            if (pullProgress >= 0.1F) { // 十分引き絞られた場合のみ矢を放つ
+                ArrowEntity arrow = new ArrowEntity(world, user);
+                arrow.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, pullProgress * 3.0F, 1.0F);
+
+                // カスタムダメージを設定
+                arrow.setDamage(this.damage);
+
+                // クリティカル判定
+                if (pullProgress == 1.0F) {
+                    arrow.setCritical(true);
+                }
+
+                // 耐久値を減らす
+                stack.damage(1, user, (e) -> e.sendToolBreakStatus(user.getActiveHand()));
+
+                // 矢を消費
+                ItemStack arrowStack = user.getProjectileType(stack);//TODO　creative の場合矢を消費しないようにする
+                if (!arrowStack.isEmpty()) {
+                    arrowStack.decrement(1);
+                }
+
+                // 矢をスポーン
+                world.spawnEntity(arrow);
+
+                // サウンドを再生
+                world.playSound(null, user.getX(), user.getY(), user.getZ(),
+                        net.minecraft.sound.SoundEvents.ENTITY_ARROW_SHOOT,
+                        net.minecraft.sound.SoundCategory.PLAYERS, 1.0F,
+                        1.0F / (world.getRandom().nextFloat() * 0.4F + 1.2F) + pullProgress * 0.5F);
+            }
         }
     }
+
     @Override
     public int getMaxUseTime(ItemStack stack) {
         return time;
