@@ -92,12 +92,13 @@ public class RocketLauncherItem extends BowItem {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-        boolean bl = !findRocket(user).isEmpty();
-        if (!user.getAbilities().creativeMode && !bl) {
-            return TypedActionResult.fail(itemStack);
+        ItemStack rocketStack = findRocket(user); // ロケットを取得
+        boolean hasRocket = rocketStack != null && !rocketStack.isEmpty(); // null チェックを追加
+        if (!user.getAbilities().creativeMode && !hasRocket) {
+            return TypedActionResult.fail(itemStack); // ロケットがない場合失敗
         } else {
-            user.setCurrentHand(hand);
-            return TypedActionResult.consume(itemStack);
+            user.setCurrentHand(hand); // 使用状態に設定
+            return TypedActionResult.consume(itemStack); // 使用成功として返す
         }
     }
 
