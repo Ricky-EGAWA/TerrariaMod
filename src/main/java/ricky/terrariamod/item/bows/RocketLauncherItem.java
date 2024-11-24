@@ -8,11 +8,13 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class RocketLauncherItem extends BowItem {
-    private final int explosionPower; // 爆発力を指定
+    private final int explosionPower; // 爆発力
+    private final double speedMultiplier; // スピード倍率
 
-    public RocketLauncherItem(Settings settings, int explosionPower) {
+    public RocketLauncherItem(Settings settings, int explosionPower, double speedMultiplier) {
         super(settings);
         this.explosionPower = explosionPower;
+        this.speedMultiplier = speedMultiplier;
     }
 
     @Override
@@ -26,13 +28,18 @@ public class RocketLauncherItem extends BowItem {
                 // ユーザーの視線方向を取得
                 Vec3d lookDirection = user.getRotationVec(1.0F);
 
+                // スピードを調整 (pullProgress * speedMultiplier)
+                double speedX = lookDirection.x * pullProgress * this.speedMultiplier;
+                double speedY = lookDirection.y * pullProgress * this.speedMultiplier;
+                double speedZ = lookDirection.z * pullProgress * this.speedMultiplier;
+
                 // ファイアーボールを作成
                 FireballEntity fireball = new FireballEntity(
                         world,
                         user,
-                        lookDirection.x * pullProgress * 2,
-                        lookDirection.y * pullProgress * 2,
-                        lookDirection.z * pullProgress * 2,
+                        speedX,
+                        speedY,
+                        speedZ,
                         this.explosionPower // 爆発力を設定
                 );
 

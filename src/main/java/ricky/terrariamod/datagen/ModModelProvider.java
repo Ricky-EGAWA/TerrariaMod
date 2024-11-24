@@ -163,5 +163,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.NIGHT_HELMET));
 
         itemModelGenerator.register(ModItems.ROCKET_LAUNCHER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROCKET, Models.GENERATED);
     }
 }

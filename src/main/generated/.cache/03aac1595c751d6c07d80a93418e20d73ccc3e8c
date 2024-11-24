@@ -1,4 +1,4 @@
-// 1.20.1	2024-11-24T18:49:05.0386825	Terraria Mod/Tags for minecraft:block
+// 1.20.1	2024-11-24T19:42:55.0274807	Terraria Mod/Tags for minecraft:block
 ff6d0222f6080df6e93c6a331c283cbcf243afd6 data\fabric\tags\blocks\needs_tool_level_4.json
 d5321c89e7bc74767d4d98a4f6842758b6aa4c54 data\minecraft\tags\blocks\needs_iron_tool.json
 e931369a97135a4f8f3c972f06664ee65f9e51cd data\minecraft\tags\blocks\logs_that_burn.json
@@ -8,6 +8,6 @@ f1be8c305be97a64658e70806ef527e26b99cbe5 data\fabric\tags\blocks\needs_tool_leve
 8d2f302c78647df39f1605f71f6109e9225495f8 data\minecraft\tags\blocks\needs_diamond_tool.json
 31eaf6b0819ddb12e2bd3b0bf60f00e2b8898e70 data\minecraft\tags\blocks\needs_stone_tool.json
 3e82fc089f39e802bb74555448a8be2800a96f07 data\fabric\tags\blocks\needs_tool_level_6.json
-27235121fd36d911d37b6c22c959153003fbea5d data\minecraft\tags\blocks\fence_gates.json
 2d73f6e7326ab2e3268f8a71eed14007e429c908 data\minecraft\tags\blocks\fences.json
+27235121fd36d911d37b6c22c959153003fbea5d data\minecraft\tags\blocks\fence_gates.json
 8a23702b05296c8af5014d6aa6e9265ded85c7d9 data\minecraft\tags\blocks\walls.json

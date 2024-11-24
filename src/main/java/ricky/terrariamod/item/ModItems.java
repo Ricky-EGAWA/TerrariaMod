@@ -173,7 +173,8 @@ public class ModItems {
     public static final Item DIAMOND_BOW = registerItem("diamond_bow",
             new CustomBowItem(new Item.Settings().maxDamage(1024),40,72000));
     public static final Item ROCKET_LAUNCHER = registerItem("rocket_launcher",
-            new RocketLauncherItem(new Item.Settings().maxDamage(500),3));
+            new RocketLauncherItem(new Item.Settings().maxDamage(500),3,10));
+    public static final Item ROCKET = registerItem("rocket", new Item(new Item.Settings()));
     public static final Item MUSKET_BALL = registerItem("musket_ball", new MusketBallItem(new Item.Settings()));
 
     // 各ツールを取得するメソッド

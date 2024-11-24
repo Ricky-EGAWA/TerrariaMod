@@ -189,6 +189,7 @@ public class ModItemGroups {
                         entries.add(ModItems.GOLD_BOW);
                         entries.add(ModItems.DIAMOND_BOW);
                         entries.add(ModItems.ROCKET_LAUNCHER);
+                        entries.add(ModItems.ROCKET);
                     }).build());
 
     public static void registerItemGroups(){
