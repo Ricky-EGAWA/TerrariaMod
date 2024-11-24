@@ -8,6 +8,7 @@ import ricky.terrariamod.TerrariaMod;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
+import ricky.terrariamod.item.bows.CustomBowItem;
 import ricky.terrariamod.item.custom.*;
 
 public class ModItems {
@@ -164,7 +165,11 @@ public class ModItems {
             new MagicMirrorItem(new Item.Settings()));
 
     public static final Item IRON_BOW = registerItem("iron_bow",
-            new BowItem(new Item.Settings().maxDamage(500)));
+            new CustomBowItem(new Item.Settings().maxDamage(640),30,72000));
+    public static final Item GOLD_BOW = registerItem("gold_bow",
+            new CustomBowItem(new Item.Settings().maxDamage(384),20,36000));
+    public static final Item DIAMOND_BOW = registerItem("diamond_bow",
+            new CustomBowItem(new Item.Settings().maxDamage(1024),40,72000));
 
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {

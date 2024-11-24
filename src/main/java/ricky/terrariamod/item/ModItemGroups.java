@@ -186,6 +186,8 @@ public class ModItemGroups {
 //                        entries.add(ModItems.HELLSTONE_DRILL);
 
                         entries.add(ModItems.IRON_BOW);
+                        entries.add(ModItems.GOLD_BOW);
+                        entries.add(ModItems.DIAMOND_BOW);
                     }).build());
 
     public static void registerItemGroups(){

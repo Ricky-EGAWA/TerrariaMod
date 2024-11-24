@@ -77,8 +77,8 @@ public class TerrariaModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.LIGHT_MUMMY_LAYER, ZombieTypeModel::getTexturedModelData);
 
         registerCustomBow(ModItems.IRON_BOW); // IRON_BOW 用の登録
-//        registerCustomBow(ModItems.GOLD_BOW); // GOLD_BOW 用の登録
-//        registerCustomBow(ModItems.DIAMOND_BOW); // DIAMOND_BOW 用の登録
+        registerCustomBow(ModItems.GOLD_BOW); // GOLD_BOW 用の登録
+        registerCustomBow(ModItems.DIAMOND_BOW); // DIAMOND_BOW 用の登録
     }
     private static void registerCustomBow(Item item) {
         ModelPredicateProviderRegistry.register(item, new Identifier("pull"), (stack, world, entity, seed) -> {
