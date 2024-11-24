@@ -1,0 +1,6 @@
+{
+  "parent": "builtin/entity",
+  "textures": {
+    "layer0": "terrariamod:textures/entity/musket_ball.png"
+  }
+}
