@@ -165,5 +165,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ROCKET_LAUNCHER, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROCKET, Models.GENERATED);
         itemModelGenerator.register(ModItems.SHOTGUN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSKET_BALL, Models.GENERATED);
     }
 }

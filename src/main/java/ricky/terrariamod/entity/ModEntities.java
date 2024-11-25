@@ -8,6 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.TerrariaMod;
+import ricky.terrariamod.entity.ammo.MusketBallEntity;
 import ricky.terrariamod.entity.ammo.RocketEntity;
 import ricky.terrariamod.entity.custom.*;
 
@@ -77,6 +78,15 @@ public class ModEntities {
             new Identifier(TerrariaMod.MOD_ID, "rocket"),
             FabricEntityTypeBuilder.<RocketEntity>create(SpawnGroup.MISC, RocketEntity::new)
                     .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+                    .trackRangeBlocks(80)
+                    .trackedUpdateRate(10)
+                    .build()
+    );
+    public static final EntityType<MusketBallEntity> MUSKET_BALL = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "musket_ball"),
+            FabricEntityTypeBuilder.<MusketBallEntity>create(SpawnGroup.MISC, MusketBallEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.05f, 0.05f))
                     .trackRangeBlocks(80)
                     .trackedUpdateRate(10)
                     .build()

@@ -191,6 +191,7 @@ public class ModItemGroups {
                         entries.add(ModItems.ROCKET_LAUNCHER);
                         entries.add(ModItems.ROCKET);
                         entries.add(ModItems.SHOTGUN);
+                        entries.add(ModItems.MUSKET_BALL);
                     }).build());
 
     public static void registerItemGroups(){

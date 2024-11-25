@@ -10,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.block.ModBlocks;
 import ricky.terrariamod.entity.ModEntities;
+import ricky.terrariamod.entity.ammo.MusketBallEntityRenderer;
 import ricky.terrariamod.entity.ammo.RocketEntityRenderer;
 import ricky.terrariamod.entity.client.*;
 import ricky.terrariamod.entity.client.bats.JungleBatEntityModel;
@@ -78,6 +79,7 @@ public class TerrariaModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.LIGHT_MUMMY_LAYER, ZombieTypeModel::getTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.ROCKET, RocketEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.MUSKET_BALL, MusketBallEntityRenderer::new);
 
         registerCustomBow(ModItems.IRON_BOW); // IRON_BOW 用の登録
         registerCustomBow(ModItems.GOLD_BOW); // GOLD_BOW 用の登録
