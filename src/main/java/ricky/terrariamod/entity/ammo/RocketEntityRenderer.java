@@ -3,9 +3,7 @@ package ricky.terrariamod.entity.ammo;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.entity.ProjectileEntityRenderer;
 import net.minecraft.util.Identifier;
-import ricky.terrariamod.entity.ModEntities;
 
 @Environment(EnvType.CLIENT)
 public class RocketEntityRenderer extends RocketTypeRenderer<RocketEntity> {

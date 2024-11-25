@@ -18,10 +18,6 @@ public class RocketEntity extends PersistentProjectileEntity {
         super(entityType, world);
     }
 
-    public RocketEntity(World world, LivingEntity owner) {
-        super(ModEntities.ROCKET, owner, world);
-    }
-
     public RocketEntity(World world, LivingEntity owner, int explosionPower) {
         super(ModEntities.ROCKET, owner, world);
         this.explosionPower = explosionPower;
