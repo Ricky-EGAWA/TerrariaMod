@@ -4,7 +4,6 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.FireballEntity;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
@@ -14,6 +13,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import ricky.terrariamod.entity.ammo.RocketEntity;
 import ricky.terrariamod.item.ModItems;
 
 public class RocketLauncherItem extends BowItem {
@@ -29,46 +29,42 @@ public class RocketLauncherItem extends BowItem {
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
         if (user instanceof PlayerEntity playerEntity) {
-            // クリエイティブモードか、無限エンチャントを持つかのチェック
             boolean bl = playerEntity.getAbilities().creativeMode || EnchantmentHelper.getLevel(Enchantments.INFINITY, stack) > 0;
 
-            // プレイヤーのインベントリからロケットを探す
             ItemStack rocketStack = findRocket(playerEntity);
 
-            if (rocketStack != null || bl) { // ロケットが見つかったかクリエイティブモードの場合
+            if (rocketStack != null || bl) {
                 int useTime = this.getMaxUseTime(stack) - remainingUseTicks;
                 float pullProgress = customGetPullProgress(useTime);
 
-                if (pullProgress >= 0.1F) { // 十分引き絞られた場合のみファイアーボールを発射
+                if (pullProgress >= 0.1F) {
                     Vec3d lookDirection = user.getRotationVec(1.0F);
 
-                    // スピードを調整
+                    // ロケットのスピードを計算
                     double speedX = lookDirection.x * pullProgress * this.speedMultiplier;
                     double speedY = lookDirection.y * pullProgress * this.speedMultiplier;
                     double speedZ = lookDirection.z * pullProgress * this.speedMultiplier;
 
-                    // ファイアーボールを作成
-                    FireballEntity fireball = new FireballEntity(
-                            world,
-                            user,
-                            speedX,
-                            speedY,
-                            speedZ,
-                            this.explosionPower
+                    // ロケットを作成
+                    RocketEntity rocket = new RocketEntity(world, user, this.explosionPower);
+
+                    // ロケットの初期位置をプレイヤー前方に調整
+                    rocket.setPos(
+                            user.getX() + lookDirection.x * 1.5,
+                            user.getEyeY() - 0.1 + lookDirection.y * 1.5,
+                            user.getZ() + lookDirection.z * 1.5
                     );
 
-                    // ファイアーボールの位置を調整
-                    fireball.setPos(user.getX() + lookDirection.x * 2,
-                            user.getEyeY() - 0.1 + lookDirection.y * 2,
-                            user.getZ() + lookDirection.z * 2);
+                    // ロケットの速度を設定
+                    rocket.setVelocity(speedX, speedY, speedZ);
 
-                    // ファイアーボールをスポーン
-                    world.spawnEntity(fireball);
+                    // ワールドにロケットをスポーン
+                    world.spawnEntity(rocket);
 
                     // 耐久値を減らす
                     stack.damage(1, user, (e) -> e.sendToolBreakStatus(user.getActiveHand()));
 
-                    // ロケットを消費（クリエイティブモードでは消費しない）
+                    // ロケットを消費
                     if (!bl) {
                         rocketStack.decrement(1);
                         if (rocketStack.isEmpty()) {
@@ -92,29 +88,28 @@ public class RocketLauncherItem extends BowItem {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-        ItemStack rocketStack = findRocket(user); // ロケットを取得
-        boolean hasRocket = rocketStack != null && !rocketStack.isEmpty(); // null チェックを追加
+        ItemStack rocketStack = findRocket(user);
+        boolean hasRocket = rocketStack != null && !rocketStack.isEmpty();
         if (!user.getAbilities().creativeMode && !hasRocket) {
-            return TypedActionResult.fail(itemStack); // ロケットがない場合失敗
+            return TypedActionResult.fail(itemStack);
         } else {
-            user.setCurrentHand(hand); // 使用状態に設定
-            return TypedActionResult.consume(itemStack); // 使用成功として返す
+            user.setCurrentHand(hand);
+            return TypedActionResult.consume(itemStack);
         }
     }
 
-
     public float customGetPullProgress(int useTicks) {
-        float progress = (float) useTicks / 5.0F; // 40 ticks = 2秒
+        float progress = (float) useTicks / 5.0F;
         progress = (progress * progress + progress * 2.0F) / 3.0F;
         return Math.min(progress, 1.0F);
     }
+
     private ItemStack findRocket(PlayerEntity player) {
-        for (ItemStack stack : player.getInventory().main) { // インベントリのすべてのスロットを検索
-            if (stack.isOf(ModItems.ROCKET)) { // ロケットアイテムに一致するものを探す
-                return stack; // 一致するアイテムを返す
+        for (ItemStack stack : player.getInventory().main) {
+            if (stack.isOf(ModItems.ROCKET)) {
+                return stack;
             }
         }
-        return null; // 見つからない場合は null を返す
+        return null;
     }
-
 }
