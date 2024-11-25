@@ -10,6 +10,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.item.bows.CustomBowItem;
 import ricky.terrariamod.item.bows.RocketLauncherItem;
+import ricky.terrariamod.item.bows.ShotgunItem;
 import ricky.terrariamod.item.custom.*;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
 
@@ -174,6 +175,8 @@ public class ModItems {
             new CustomBowItem(new Item.Settings().maxDamage(1024),40,72000));
     public static final Item ROCKET_LAUNCHER = registerItem("rocket_launcher",
             new RocketLauncherItem(new Item.Settings().maxDamage(500),3,2));
+    public static final Item SHOTGUN = registerItem("shotgun",
+            new ShotgunItem(new Item.Settings().maxDamage(1024)));
     public static final Item ROCKET = registerItem("rocket", new Item(new Item.Settings()));
     public static final Item MUSKET_BALL = registerItem("musket_ball", new MusketBallItem(new Item.Settings()));
 
