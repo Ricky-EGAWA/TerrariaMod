@@ -8,6 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.TerrariaMod;
+import ricky.terrariamod.entity.ammo.RocketEntity;
 import ricky.terrariamod.entity.custom.*;
 
 public class ModEntities {
@@ -70,6 +71,16 @@ public class ModEntities {
             new Identifier(TerrariaMod.MOD_ID, "light_mummy"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, LightMummyEntity::new)
                     .dimensions(EntityDimensions.fixed(0.6f, 1.95f)).build());
+
+    public static final EntityType<RocketEntity> ROCKET = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "rocket"),
+            FabricEntityTypeBuilder.<RocketEntity>create(SpawnGroup.MISC, RocketEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+                    .trackRangeBlocks(80)
+                    .trackedUpdateRate(10)
+                    .build()
+    );
 
 
 
