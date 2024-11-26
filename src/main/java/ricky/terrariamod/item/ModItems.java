@@ -11,6 +11,7 @@ import net.minecraft.util.Identifier;
 import ricky.terrariamod.item.bows.CustomBowItem;
 import ricky.terrariamod.item.bows.RocketLauncherItem;
 import ricky.terrariamod.item.bows.ShotgunItem;
+import ricky.terrariamod.item.bows.SniperRifleItem;
 import ricky.terrariamod.item.custom.*;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
 
@@ -179,6 +180,8 @@ public class ModItems {
             new ShotgunItem(new Item.Settings().maxDamage(1024)));
     public static final Item ROCKET = registerItem("rocket", new Item(new Item.Settings()));
     public static final Item MUSKET_BALL = registerItem("musket_ball", new MusketBallItem(new Item.Settings()));
+    public static final Item SNIPER_RIFLE = registerItem("sniper_rifle",
+            new SniperRifleItem(new Item.Settings().maxDamage(1024)));
 
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {

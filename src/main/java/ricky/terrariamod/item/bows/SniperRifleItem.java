@@ -1,10 +1,10 @@
 package ricky.terrariamod.item.bows;
 
 import com.google.common.collect.Lists;
-import java.util.List;
-import java.util.function.Predicate;
 import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
@@ -34,11 +34,25 @@ import ricky.terrariamod.entity.ammo.MusketBallEntity;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
 
-public class ShotgunItem extends RangedWeaponItem implements Vanishable {
-    private boolean charged = false;
-    private boolean loaded = false;
+import java.util.List;
+import java.util.function.Predicate;
 
-    public ShotgunItem(Item.Settings settings) {
+public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
+    private static final String CHARGED_KEY = "Charged";
+    private static final int DEFAULT_PULL_TIME = 25;
+    public static final int RANGE = 8;
+    private boolean charged = true;
+    private boolean loaded = true;
+    private static final float field_30867 = 0.2F;
+    private static final float field_30868 = 0.5F;
+    private static final float DEFAULT_SPEED = 3.15F;
+
+    private static boolean isZoomedIn = false;
+    private static final double ZOOM_DISTANCE = 5; // ズーム距離
+    private static final float ZOOM_FOV = 30.0F; // ズームイン時のFOV
+    private static final float DEFAULT_FOV = 70.0F; // デフォルトのFOV
+
+    public SniperRifleItem(Settings settings) {
         super(settings);
     }
 
@@ -50,63 +64,61 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
         return BOW_PROJECTILES;
     }
 
+    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-        if (isCharged(itemStack)) {
-            return TypedActionResult.fail(itemStack);
-        } else {
-            ItemStack musketBall = findMusketBall(user); // MusketBallを探す
-            if (musketBall != null && !musketBall.isEmpty()) { // マスケットボールを持っている場合
-                this.charged = false;
-                this.loaded = false;
-                user.setCurrentHand(hand);
-                return TypedActionResult.consume(itemStack);
-            } else {
-                return TypedActionResult.fail(itemStack);
-            }
-        }
+
+        // 使用時のサウンドを再生
+        user.playSound(SoundEvents.ITEM_SPYGLASS_USE, 1.0F, 1.0F);
+        // zoom
+        user.getClientCameraPosVec(2.0f);
+
+        // 持続使用のためにアイテムの消費アクションを呼び出す
+        return ItemUsage.consumeHeldItem(world, user, hand);
     }
+
+//    // ズームイン時のFOV変更
+//    private void zoomIn() {
+//        MinecraftClient client = MinecraftClient.getInstance();
+//        client.options.setFov(ZOOM_FOV); // FOVをズームインの値に設定
+//    }
+//
+//    // ズームアウト時のFOV変更
+//    private void resetFOV() {
+//        MinecraftClient client = MinecraftClient.getInstance();
+//        client.options.setFov(DEFAULT_FOV); // FOVをデフォルトに戻す
+//    }
+
     public TypedActionResult<ItemStack> attack(World world, PlayerEntity user, Hand hand){
         ItemStack itemStack = user.getStackInHand(hand);
-        if (isCharged(itemStack)) {
-            shootAll(world, user, hand, itemStack, getSpeed(itemStack), 1.0F);
-            setCharged(itemStack, false);
-            return TypedActionResult.consume(itemStack);
-        } else {
-            return TypedActionResult.fail(itemStack);
-        }
+        shootAll(world, user, hand, itemStack, getSpeed(itemStack), 1.0F);
+        setCharged(itemStack, false);
+        return TypedActionResult.consume(itemStack);
     }
 
-    public void reload(World world, PlayerEntity player, Hand hand) {
+    public void reload(World world, LivingEntity user, Hand hand){//TODO 動いてない
+        PlayerEntity player = (PlayerEntity) user;
+        player.sendMessage(Text.of("shotgun reload"));
         ItemStack stack = player.getStackInHand(hand);
-
-        if (loadProjectiles(player, stack)) {
-            setCharged(stack, true);  // チャージ状態をセット
-
-            // アイテムを更新
-            stack.setNbt(stack.getNbt());  // これでNBTを明示的に保存
-        } else {
-            player.sendMessage(Text.of("No ammo to reload!"));
-        }
+        loadProjectiles(player, stack);
+        setCharged(stack, true);
+        player.sendMessage(Text.of(String.valueOf(isCharged(stack))));
+        SoundCategory soundCategory = user instanceof PlayerEntity ? SoundCategory.PLAYERS : SoundCategory.HOSTILE;
+        world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_CROSSBOW_LOADING_END, soundCategory, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
     }
-
-
 
 
     private static float getSpeed(ItemStack stack) {
         return hasProjectile(stack, Items.FIREWORK_ROCKET) ? 1.6F : 3.15F;
     }
 
+    @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
-        int i = this.getMaxUseTime(stack) - remainingUseTicks;
-        float f = getPullProgress(i, stack);
-        if (f >= 1.0F && !isCharged(stack) && loadProjectiles(user, stack)) {
-            setCharged(stack, true);
-            SoundCategory soundCategory = user instanceof PlayerEntity ? SoundCategory.PLAYERS : SoundCategory.HOSTILE;
-            world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ITEM_CROSSBOW_LOADING_END, soundCategory, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+        if (user instanceof PlayerEntity) {
+            user.playSound(SoundEvents.ITEM_SPYGLASS_STOP_USING, 1.0F, 1.0F);
         }
-
     }
+
 
     private static boolean loadProjectiles(LivingEntity shooter, ItemStack crossbow) {
         int j = 9; // 発射する弾の数
@@ -160,7 +172,6 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
     public static void setCharged(ItemStack stack, boolean charged) {
         NbtCompound nbtCompound = stack.getOrCreateNbt();
         nbtCompound.putBoolean("Charged", charged);
-        stack.setNbt(nbtCompound);
     }
 
     private static void putProjectile(ItemStack crossbow, ItemStack projectile) {
@@ -245,7 +256,7 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
         musketBallEntity.setVelocity(entity, entity.getPitch(), entity.getYaw(), 0.0F, 3.15F, 1.0F);
         musketBallEntity.setCritical(false);
         musketBallEntity.setPierceLevel((byte) 0);
-        musketBallEntity.pickupType = PersistentProjectileEntity.PickupPermission.DISALLOWED;
+        musketBallEntity.pickupType = PickupPermission.DISALLOWED;
 
         return musketBallEntity;
     }
@@ -316,10 +327,10 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
             SoundEvent soundEvent = this.getQuickChargeSound(i);
             SoundEvent soundEvent2 = i == 0 ? SoundEvents.ITEM_CROSSBOW_LOADING_MIDDLE : null;
             float f = (float)(stack.getMaxUseTime() - remainingUseTicks) / (float)getPullTime(stack);
-            if (f < 0.2F) {
-                this.charged = false;
-                this.loaded = false;
-            }
+//            if (f < 0.2F) {
+//                this.charged = false;
+//                this.loaded = false;
+//            }
 
             if (f >= 0.2F && !this.charged) {
                 this.charged = true;
@@ -335,7 +346,7 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
     }
 
     public int getMaxUseTime(ItemStack stack) {
-        return getPullTime(stack) + 3;
+        return 1200;
     }
 
     public static int getPullTime(ItemStack stack) {
@@ -344,7 +355,7 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
     }
 
     public UseAction getUseAction(ItemStack stack) {
-        return UseAction.CROSSBOW;
+        return UseAction.SPYGLASS;
     }
 
     private SoundEvent getQuickChargeSound(int stage) {

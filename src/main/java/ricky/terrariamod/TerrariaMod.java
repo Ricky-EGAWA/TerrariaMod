@@ -17,6 +17,7 @@ import ricky.terrariamod.entity.custom.*;
 import ricky.terrariamod.event.ModEvents;
 import ricky.terrariamod.item.ModItemGroups;
 import ricky.terrariamod.item.ModItems;
+import ricky.terrariamod.networking.ModNetworking;
 import ricky.terrariamod.util.ModLootTableModifiers;
 import ricky.terrariamod.entity.ModEntitySpawn;
 import ricky.terrariamod.world.gen.ModWorldGeneration;
@@ -40,6 +41,9 @@ public class TerrariaMod implements ModInitializer {
 		ModEvents.registerEvents();
 
 		ModWorldGeneration.generateModWorldGen();
+
+		// サーバー側でパケットの登録を行う
+		ModNetworking.register();
 		//tree
 		StrippableBlockRegistry.register(ModBlocks.EBON_LOG, ModBlocks.STRIPPED_EBON_LOG);
 		StrippableBlockRegistry.register(ModBlocks.EBON_WOOD, ModBlocks.STRIPPED_EBON_WOOD);

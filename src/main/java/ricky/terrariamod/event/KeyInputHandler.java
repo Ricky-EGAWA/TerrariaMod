@@ -12,23 +12,31 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
+import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.item.bows.ShotgunItem;
 
 public class KeyInputHandler {
-    public static final String KEY_CATEGORY_TUTORIAL = "key.category.terrariamod.tutorial";
-    public static final String KEY_RELOAD = "key.terrariamod.drink_water";
+    public static final String KEY_CATEGORY_TUTORIAL = "key.category.terrariamod.mod_key";
+    public static final String KEY_RELOAD = "key.terrariamod.reload";
 
     public static KeyBinding drinkingKey;
 
     public static void registerKeyInputs() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if(drinkingKey.wasPressed()) {
+            if (drinkingKey.wasPressed()) {
                 ItemStack itemStack = client.player.getMainHandStack();
                 if (itemStack.getItem() instanceof ShotgunItem) {
                     PlayerEntity player = client.player;
                     ShotgunItem shotgunItem = (ShotgunItem) itemStack.getItem();
-                    shotgunItem.attack(player.getWorld(), player, Hand.MAIN_HAND);//playerが違うかも
+                    shotgunItem.reload(player.getWorld(), player, Hand.MAIN_HAND); // reload処理
+
+                    // 攻撃処理をサーバーに通知
+                    PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
+                    buf.writeBoolean(true);  // 攻撃フラグ（攻撃するかどうかのフラグ）
+                    ClientPlayNetworking.send(new Identifier(TerrariaMod.MOD_ID, "reload_packet"), buf);
+
                     client.player.sendMessage(Text.of("Reloaded"));
                 }
             }

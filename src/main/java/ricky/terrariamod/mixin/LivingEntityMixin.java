@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import ricky.terrariamod.item.bows.ShotgunItem;
+import ricky.terrariamod.item.bows.SniperRifleItem;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {//TODO 反転してない
@@ -24,6 +25,15 @@ public abstract class LivingEntityMixin {//TODO 反転してない
                 // ショットガンを発射
                 ShotgunItem shotgun = (ShotgunItem) player.getMainHandStack().getItem();
                 shotgun.attack(player.getWorld(), player, Hand.MAIN_HAND);
+
+                ci.cancel(); // 通常の手を振る動作をキャンセル
+            }
+
+            // プレイヤーが Sniper を持っているか確認
+            if (player.getMainHandStack().getItem() instanceof SniperRifleItem) {
+                // ショットガンを発射
+                SniperRifleItem sniper = (SniperRifleItem) player.getMainHandStack().getItem();
+                sniper.attack(player.getWorld(), player, Hand.MAIN_HAND);
 
                 ci.cancel(); // 通常の手を振る動作をキャンセル
             }

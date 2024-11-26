@@ -169,5 +169,8 @@
   "effect.terrariamod.bleeding": "出血",
   "effect.terrariamod.cursed": "呪い",
   "effect.terrariamod.cursed_inferno": "呪いの炎",
-  "effect.terrariamod.confused": "混乱"
+  "effect.terrariamod.confused": "混乱",
+
+  "key.category.terrariamod.mod_key": "MOD用キー配置",
+  "key.terrariamod.reload": "リロード"
 }
