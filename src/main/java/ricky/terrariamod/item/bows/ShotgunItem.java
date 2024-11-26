@@ -59,9 +59,7 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         if (isCharged(itemStack)) {
-            shootAll(world, user, hand, itemStack, getSpeed(itemStack), 1.0F);
-            setCharged(itemStack, false);
-            return TypedActionResult.consume(itemStack);
+            return TypedActionResult.fail(itemStack);
         } else {
             ItemStack musketBall = findMusketBall(user); // MusketBallを探す
             if (musketBall != null && !musketBall.isEmpty()) { // nullチェックを追加
@@ -74,6 +72,16 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
             } else {
                 return TypedActionResult.fail(itemStack);
             }
+        }
+    }
+    public TypedActionResult<ItemStack> attack(World world, PlayerEntity user, Hand hand){
+        ItemStack itemStack = user.getStackInHand(hand);
+        if (isCharged(itemStack)) {
+            shootAll(world, user, hand, itemStack, getSpeed(itemStack), 1.0F);
+            setCharged(itemStack, false);
+            return TypedActionResult.consume(itemStack);
+        } else {
+            return TypedActionResult.fail(itemStack);
         }
     }
 

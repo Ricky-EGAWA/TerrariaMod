@@ -21,11 +21,9 @@ public abstract class LivingEntityMixin {//TODO 反転してない
 
             // プレイヤーが Shotgun を持っているか確認
             if (player.getMainHandStack().getItem() instanceof ShotgunItem) {
-                System.out.println("Mixin : Shotgun detected!");
-
                 // ショットガンを発射
                 ShotgunItem shotgun = (ShotgunItem) player.getMainHandStack().getItem();
-                shotgun.use(player.getWorld(), player, Hand.MAIN_HAND);
+                shotgun.attack(player.getWorld(), player, Hand.MAIN_HAND);
 
                 ci.cancel(); // 通常の手を振る動作をキャンセル
             }
