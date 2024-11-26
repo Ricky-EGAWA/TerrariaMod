@@ -19,6 +19,7 @@ import ricky.terrariamod.entity.client.bats.LavaBatEntityModel;
 import ricky.terrariamod.entity.client.bats.LavaBatEntityRenderer;
 import ricky.terrariamod.entity.client.slimes.*;
 import ricky.terrariamod.entity.client.zombies.*;
+import ricky.terrariamod.event.KeyInputHandler;
 import ricky.terrariamod.item.ModItems;
 
 public class TerrariaModClient implements ClientModInitializer {
@@ -84,6 +85,9 @@ public class TerrariaModClient implements ClientModInitializer {
         registerCustomBow(ModItems.IRON_BOW); // IRON_BOW 用の登録
         registerCustomBow(ModItems.GOLD_BOW); // GOLD_BOW 用の登録
         registerCustomBow(ModItems.DIAMOND_BOW); // DIAMOND_BOW 用の登録
+
+        //key bind
+        KeyInputHandler.register();
     }
     private static void registerCustomBow(Item item) {
         ModelPredicateProviderRegistry.register(item, new Identifier("pull"), (stack, world, entity, seed) -> {

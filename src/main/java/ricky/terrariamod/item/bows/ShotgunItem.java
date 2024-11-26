@@ -62,12 +62,10 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
             return TypedActionResult.fail(itemStack);
         } else {
             ItemStack musketBall = findMusketBall(user); // MusketBallを探す
-            if (musketBall != null && !musketBall.isEmpty()) { // nullチェックを追加
-                if (!isCharged(itemStack)) {
-                    this.charged = false;
-                    this.loaded = false;
-                    user.setCurrentHand(hand);
-                }
+            if (musketBall != null && !musketBall.isEmpty()) { // マスケットボールを持っている場合
+                this.charged = false;
+                this.loaded = false;
+                user.setCurrentHand(hand);
                 return TypedActionResult.consume(itemStack);
             } else {
                 return TypedActionResult.fail(itemStack);
@@ -83,6 +81,17 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
         } else {
             return TypedActionResult.fail(itemStack);
         }
+    }
+
+    public void reload(World world, LivingEntity user, Hand hand){//動いてない
+        PlayerEntity player = (PlayerEntity) user;
+        player.sendMessage(Text.of("shotgun reload"));
+        ItemStack stack = player.getStackInHand(hand);
+        loadProjectiles(player, stack);
+        setCharged(stack, true);
+        player.sendMessage(Text.of(String.valueOf(isCharged(stack))));
+        SoundCategory soundCategory = user instanceof PlayerEntity ? SoundCategory.PLAYERS : SoundCategory.HOSTILE;
+        world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_CROSSBOW_LOADING_END, soundCategory, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
     }
 
 
