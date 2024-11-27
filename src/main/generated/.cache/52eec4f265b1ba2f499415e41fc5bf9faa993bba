@@ -1,4 +1,4 @@
-// 1.20.1	2024-11-25T21:43:35.9463128	Terraria Mod/Recipes
+// 1.20.1	2024-11-27T23:39:56.4403666	Terraria Mod/Recipes
 28af722fa612ee96beeaee99b471b71c5289385d data\terrariamod\recipes\adamantite_ingot_from_smelting_adamantite_raw.json
 1d0963e6efc1269b37667e4c3f345a9e5edbcfe8 data\terrariamod\recipes\cobalt_sword.json
 059c313d4d8d22948058b5e4ce35646fd56560e2 data\terrariamod\recipes\adamantite_pickaxe.json
@@ -91,8 +91,8 @@ ebeb925bb6ff9ec87aab0af8f4a7bb516048a1d2 data\terrariamod\advancements\recipes\m
 16ffcf8d7749a2d076075c86031f512d807d14c5 data\terrariamod\advancements\recipes\misc\cobalt_leggings.json
 c6920734b9b16a94e5a3f6dea17bd6b9b300adde data\terrariamod\recipes\hellstone_block.json
 bc752c923f295773259eaca2b0be74adeeec5cd8 data\terrariamod\recipes\hellstone_shovel.json
-eab973add1102e1477726692057012d6523c598f data\terrariamod\advancements\recipes\misc\cobalt_ingot_from_blasting_cobalt_raw.json
 37a27fd06717116141b74e0c1ba1e45a3a0ebd72 data\terrariamod\recipes\cobalt_ingot_from_blasting_cobalt_raw.json
+eab973add1102e1477726692057012d6523c598f data\terrariamod\advancements\recipes\misc\cobalt_ingot_from_blasting_cobalt_raw.json
 1644ff4921757cbd42c85df7b7ac4902303801f7 data\terrariamod\advancements\recipes\misc\cobalt_shovel.json
 adfeda7b0397a43f0d3d3e70891c20c2f2321ea3 data\terrariamod\recipes\hellstone_ingot_from_smelting_hellstone_ore.json
 5fc924705d25b8029bd4ab04f34c34dff5fad6c2 data\terrariamod\advancements\recipes\misc\cobalt_pickaxe.json
