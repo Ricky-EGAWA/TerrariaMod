@@ -20,6 +20,7 @@ import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.networking.ModNetworking;
 import ricky.terrariamod.util.ModLootTableModifiers;
 import ricky.terrariamod.entity.ModEntitySpawn;
+import ricky.terrariamod.util.ModTrades;
 import ricky.terrariamod.world.gen.ModWorldGeneration;
 
 public class TerrariaMod implements ModInitializer {
@@ -90,6 +91,8 @@ public class TerrariaMod implements ModInitializer {
 
 		// エンティティのスポーンを追加
 		ModEntitySpawn.addEntitySpawn();
+		//交易
+		ModTrades.registerCustomTrades();
 
 		CustomPortalBuilder.beginPortal()
 				.frameBlock(Blocks.END_STONE)
