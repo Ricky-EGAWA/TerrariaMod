@@ -85,6 +85,7 @@ public class TerrariaModClient implements ClientModInitializer {
         registerCustomBow(ModItems.IRON_BOW); // IRON_BOW 用の登録
         registerCustomBow(ModItems.GOLD_BOW); // GOLD_BOW 用の登録
         registerCustomBow(ModItems.DIAMOND_BOW); // DIAMOND_BOW 用の登録
+        registerCustomShotgun(ModItems.SHOTGUN);
 
         //key bind
         KeyInputHandler.register();
@@ -100,6 +101,20 @@ public class TerrariaModClient implements ClientModInitializer {
 
         ModelPredicateProviderRegistry.register(item, new Identifier("pulling"), (stack, world, entity, seed) -> {
             return entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F;
+        });
+    }
+    private static void registerCustomShotgun(Item item) {
+        // "charged" の状態でモデルを切り替え
+        ModelPredicateProviderRegistry.register(item, new Identifier("charged"), (stack, world, entity, seed) -> {
+            if (stack == null || !stack.hasNbt()) {
+                return 0.0F;
+            }
+
+            // チャージ状態を確認する
+            boolean isCharged = stack.getOrCreateSubNbt("Shotgun").getBoolean("charged");
+
+            // チャージされていれば1.0F、そうでなければ0.0F
+            return isCharged ? 1.0F : 0.0F;
         });
     }
 }
