@@ -63,11 +63,12 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
 
 
     public void attack(World world, PlayerEntity user, Hand hand){
-        user.sendMessage(Text.of("attack"));
         ItemStack itemStack = user.getStackInHand(hand);
-        ItemStack projectile = findMusketBall(user);
-        shoot(world, user, hand, itemStack, projectile);
-        setCharged(itemStack, false);
+        if (isCharged(itemStack)) {
+            ItemStack projectile = findMusketBall(user);
+            shoot(world, user, hand, itemStack, projectile);
+            setCharged(itemStack, false);
+        }
     }
 
     public void reload(PlayerEntity player, Hand hand) {

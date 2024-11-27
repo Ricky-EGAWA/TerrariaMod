@@ -14,12 +14,10 @@ public class ModNetworking {
             boolean attackFlag = buf.readBoolean();
             if (attackFlag) {
                 // リロードを実行
-                if (player.getMainHandStack().getItem() instanceof ShotgunItem) {
-                    ShotgunItem shotgunItem = (ShotgunItem) player.getMainHandStack().getItem();
+                if (player.getMainHandStack().getItem() instanceof ShotgunItem shotgunItem) {
                     shotgunItem.reload(player.getWorld(), player, Hand.MAIN_HAND);
                 }
-                if (player.getMainHandStack().getItem() instanceof SniperRifleItem) {
-                    SniperRifleItem sniperRifleItem = (SniperRifleItem) player.getMainHandStack().getItem();
+                if (player.getMainHandStack().getItem() instanceof SniperRifleItem sniperRifleItem) {
                     sniperRifleItem.reload(player, Hand.MAIN_HAND);
                 }
             }
