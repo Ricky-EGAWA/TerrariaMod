@@ -43,7 +43,7 @@ public class KeyInputHandler {
                 if (itemStack.getItem() instanceof SniperRifleItem) {
                     PlayerEntity player = client.player;
                     SniperRifleItem sniperRifleItem = (SniperRifleItem) itemStack.getItem();
-                    sniperRifleItem.reload(player.getWorld(), player, Hand.MAIN_HAND); // reload処理
+                    sniperRifleItem.reload(player, Hand.MAIN_HAND); // reload処理
 
                     // 攻撃処理をサーバーに通知
                     PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());

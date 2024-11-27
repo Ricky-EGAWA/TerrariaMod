@@ -20,7 +20,7 @@ public class ModNetworking {
                 }
                 if (player.getMainHandStack().getItem() instanceof SniperRifleItem) {
                     SniperRifleItem sniperRifleItem = (SniperRifleItem) player.getMainHandStack().getItem();
-                    sniperRifleItem.reload(player.getWorld(), player, Hand.MAIN_HAND);
+                    sniperRifleItem.reload(player, Hand.MAIN_HAND);
                 }
             }
         });
