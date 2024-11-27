@@ -7,6 +7,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
@@ -48,9 +49,10 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
     private static final float DEFAULT_SPEED = 3.15F;
 
     private static boolean isZoomedIn = false;
-    private static final double ZOOM_DISTANCE = 5; // ズーム距離
-    private static final float ZOOM_FOV = 30.0F; // ズームイン時のFOV
-    private static final float DEFAULT_FOV = 70.0F; // デフォルトのFOV
+    private static final float ZOOM_DISTANCE = 5f; // ズーム距離
+
+    private static final int DEFAULT_FOV = 70; // デフォルトのFOV
+    private static final int ZOOM_FOV = 10; // ズームイン時のFOV
 
     public SniperRifleItem(Settings settings) {
         super(settings);
@@ -66,28 +68,16 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack itemStack = user.getStackInHand(hand);
-
-        // 使用時のサウンドを再生
+        // サウンドを再生
         user.playSound(SoundEvents.ITEM_SPYGLASS_USE, 1.0F, 1.0F);
-        // zoom
-        user.getClientCameraPosVec(2.0f);
 
-        // 持続使用のためにアイテムの消費アクションを呼び出す
-        return ItemUsage.consumeHeldItem(world, user, hand);
+        // 使用中の状態を有効化
+        user.setCurrentHand(hand);
+
+        return TypedActionResult.success(user.getStackInHand(hand), world.isClient);
     }
 
-//    // ズームイン時のFOV変更
-//    private void zoomIn() {
-//        MinecraftClient client = MinecraftClient.getInstance();
-//        client.options.setFov(ZOOM_FOV); // FOVをズームインの値に設定
-//    }
-//
-//    // ズームアウト時のFOV変更
-//    private void resetFOV() {
-//        MinecraftClient client = MinecraftClient.getInstance();
-//        client.options.setFov(DEFAULT_FOV); // FOVをデフォルトに戻す
-//    }
+
 
     public TypedActionResult<ItemStack> attack(World world, PlayerEntity user, Hand hand){
         ItemStack itemStack = user.getStackInHand(hand);
