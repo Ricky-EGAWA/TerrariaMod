@@ -1,8 +1,12 @@
 package ricky.terrariamod.item.bows;
 
 import com.google.common.collect.Lists;
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
@@ -18,12 +22,14 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
+import ricky.terrariamod.client.render.ScopeRenderer;
 import ricky.terrariamod.entity.ammo.MusketBallEntity;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
@@ -36,6 +42,7 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
     private boolean loaded = true;
     private static float SPEED = 7;//弾速
     private static float DIVERGENCE = 0;//ばらつき
+    private static final Identifier SCOPE_TEXTURE = new Identifier("textures/misc/spyglass_scope.png");  // スコープのテクスチャ
 
     public SniperRifleItem(Settings settings) {
         super(settings);
@@ -213,10 +220,17 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
 
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         if (MinecraftClient.getInstance().options.attackKey.wasPressed()) {
-            user.sendMessage(Text.of("right click"));
+            user.sendMessage(Text.of("left click"));
             // 左クリックが押された時の処理
             PlayerEntity player = (PlayerEntity) user;
             attack(world, player, Hand.MAIN_HAND);
+        }
+        if (MinecraftClient.getInstance().options.useKey.isPressed()) {
+//            user.sendMessage(Text.of("right click"));
+            // 右クリックが押された時の処理
+
+
+//            ScopeRenderer.renderScope(1);//
         }
         if (!world.isClient) {
             int i = EnchantmentHelper.getLevel(Enchantments.QUICK_CHARGE, stack);

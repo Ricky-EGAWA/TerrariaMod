@@ -4,11 +4,13 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.block.ModBlocks;
+import ricky.terrariamod.client.render.SniperScopeOverlay;
 import ricky.terrariamod.entity.ModEntities;
 import ricky.terrariamod.entity.ammo.MusketBallEntityRenderer;
 import ricky.terrariamod.entity.ammo.RocketEntityRenderer;
@@ -89,6 +91,9 @@ public class TerrariaModClient implements ClientModInitializer {
 
         //key bind
         KeyInputHandler.register();
+        HudRenderCallback.EVENT.register((context, tickDelta) -> {
+            SniperScopeOverlay.renderIfUsingScope(context);
+        });
     }
     private static void registerCustomBow(Item item) {
         ModelPredicateProviderRegistry.register(item, new Identifier("pull"), (stack, world, entity, seed) -> {
