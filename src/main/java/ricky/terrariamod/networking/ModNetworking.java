@@ -5,17 +5,22 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.item.bows.ShotgunItem;
+import ricky.terrariamod.item.bows.SniperRifleItem;
 
 public class ModNetworking {
-    public static final Identifier ATTACK_PACKET = new Identifier(TerrariaMod.MOD_ID, "reload_packet");
+    public static final Identifier RELOAD_PACKET = new Identifier(TerrariaMod.MOD_ID, "reload_packet");
     public static void register() {
-        ServerPlayNetworking.registerGlobalReceiver(ATTACK_PACKET, (server, player, handler, buf, responseSender) -> {
+        ServerPlayNetworking.registerGlobalReceiver(RELOAD_PACKET, (server, player, handler, buf, responseSender) -> {
             boolean attackFlag = buf.readBoolean();
             if (attackFlag) {
-                // 攻撃を実行
+                // リロードを実行
                 if (player.getMainHandStack().getItem() instanceof ShotgunItem) {
                     ShotgunItem shotgunItem = (ShotgunItem) player.getMainHandStack().getItem();
-                    shotgunItem.reload(player.getWorld(), player, Hand.MAIN_HAND);  // attack処理
+                    shotgunItem.reload(player.getWorld(), player, Hand.MAIN_HAND);
+                }
+                if (player.getMainHandStack().getItem() instanceof SniperRifleItem) {
+                    SniperRifleItem sniperRifleItem = (SniperRifleItem) player.getMainHandStack().getItem();
+                    sniperRifleItem.reload(player.getWorld(), player, Hand.MAIN_HAND);
                 }
             }
         });

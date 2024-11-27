@@ -5,6 +5,7 @@ import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.option.KeyBinding;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
@@ -73,28 +74,29 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
 
         // 使用中の状態を有効化
         user.setCurrentHand(hand);
-
-        return TypedActionResult.success(user.getStackInHand(hand), world.isClient);
+        ItemStack itemStack = user.getStackInHand(hand);
+        return TypedActionResult.fail(itemStack);
     }
 
 
 
     public TypedActionResult<ItemStack> attack(World world, PlayerEntity user, Hand hand){
+        user.sendMessage(Text.of("attack"));
         ItemStack itemStack = user.getStackInHand(hand);
         shootAll(world, user, hand, itemStack, getSpeed(itemStack), 1.0F);
         setCharged(itemStack, false);
         return TypedActionResult.consume(itemStack);
     }
 
-    public void reload(World world, LivingEntity user, Hand hand){//TODO 動いてない
-        PlayerEntity player = (PlayerEntity) user;
-        player.sendMessage(Text.of("shotgun reload"));
+    public void reload(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
-        loadProjectiles(player, stack);
-        setCharged(stack, true);
-        player.sendMessage(Text.of(String.valueOf(isCharged(stack))));
-        SoundCategory soundCategory = user instanceof PlayerEntity ? SoundCategory.PLAYERS : SoundCategory.HOSTILE;
-        world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_CROSSBOW_LOADING_END, soundCategory, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+        if (loadProjectiles(player, stack)) {
+            setCharged(stack, true);  // チャージ状態をセット
+            // アイテムを更新
+            stack.setNbt(stack.getNbt());  // これでNBTを明示的に保存
+        } else {
+            player.sendMessage(Text.of("No ammo to reload!"));
+        }
     }
 
 
@@ -312,6 +314,12 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
     }
 
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
+        if (MinecraftClient.getInstance().options.attackKey.wasPressed()) {
+            user.sendMessage(Text.of("right click"));
+            // 左クリックが押された時の処理
+            PlayerEntity player = (PlayerEntity) user;
+            attack(world, player, Hand.MAIN_HAND);
+        }
         if (!world.isClient) {
             int i = EnchantmentHelper.getLevel(Enchantments.QUICK_CHARGE, stack);
             SoundEvent soundEvent = this.getQuickChargeSound(i);

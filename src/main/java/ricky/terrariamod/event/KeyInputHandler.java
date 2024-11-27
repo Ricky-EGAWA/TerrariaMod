@@ -16,6 +16,7 @@ import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.item.bows.ShotgunItem;
+import ricky.terrariamod.item.bows.SniperRifleItem;
 
 public class KeyInputHandler {
     public static final String KEY_CATEGORY_TUTORIAL = "key.category.terrariamod.mod_key";
@@ -31,6 +32,18 @@ public class KeyInputHandler {
                     PlayerEntity player = client.player;
                     ShotgunItem shotgunItem = (ShotgunItem) itemStack.getItem();
                     shotgunItem.reload(player.getWorld(), player, Hand.MAIN_HAND); // reload処理
+
+                    // 攻撃処理をサーバーに通知
+                    PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
+                    buf.writeBoolean(true);  // 攻撃フラグ（攻撃するかどうかのフラグ）
+                    ClientPlayNetworking.send(new Identifier(TerrariaMod.MOD_ID, "reload_packet"), buf);
+
+                    client.player.sendMessage(Text.of("Reloaded"));
+                }
+                if (itemStack.getItem() instanceof SniperRifleItem) {
+                    PlayerEntity player = client.player;
+                    SniperRifleItem sniperRifleItem = (SniperRifleItem) itemStack.getItem();
+                    sniperRifleItem.reload(player.getWorld(), player, Hand.MAIN_HAND); // reload処理
 
                     // 攻撃処理をサーバーに通知
                     PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
