@@ -20,7 +20,7 @@ public class SniperScopeOverlay {
             ItemStack activeItem = player.getStackInHand(Hand.MAIN_HAND);  // メインハンドのアイテム
             if (isSniperRifle(activeItem)) {
                 // スコープのオーバーレイを描画
-                ScopeRenderer.renderScope(context, 1.0F);
+                ScopeRenderer.renderScope(context, 0.5F);
             }
         }
     }

@@ -26,7 +26,7 @@ public class ScopeRenderer {
         int l = (scaledHeight - j) / 2;
 
         // スコープテクスチャを描画
-//        context.drawTexture(SCOPE_TEXTURE, k, l, -90, 0.0F, 0.0F, i, j, i, j);
+        context.drawTexture(SCOPE_TEXTURE, k, l, -90, 0.0F, 0.0F, i, j, i, j);
 
         // スコープの外側の黒いフレームを描画
         context.fill(0, 0, scaledWidth, l, -16777216);  // 上の黒い部分

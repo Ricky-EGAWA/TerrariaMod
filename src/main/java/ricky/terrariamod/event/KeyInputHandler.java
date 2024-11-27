@@ -52,8 +52,6 @@ public class KeyInputHandler {
                     PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
                     buf.writeBoolean(true);  // リロードフラグ
                     ClientPlayNetworking.send(new Identifier(TerrariaMod.MOD_ID, "reload_packet"), buf);
-
-                    client.player.sendMessage(Text.of("Reloaded"));
                 }
             }
         });

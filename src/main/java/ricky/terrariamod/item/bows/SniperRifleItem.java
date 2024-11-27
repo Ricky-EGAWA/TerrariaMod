@@ -1,12 +1,8 @@
 package ricky.terrariamod.item.bows;
 
 import com.google.common.collect.Lists;
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
@@ -22,14 +18,12 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
-import ricky.terrariamod.client.render.ScopeRenderer;
 import ricky.terrariamod.entity.ammo.MusketBallEntity;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
@@ -38,11 +32,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
-    private boolean charged = true;
     private boolean loaded = true;
-    private static float SPEED = 7;//弾速
-    private static float DIVERGENCE = 0;//ばらつき
-    private static final Identifier SCOPE_TEXTURE = new Identifier("textures/misc/spyglass_scope.png");  // スコープのテクスチャ
 
     public SniperRifleItem(Settings settings) {
         super(settings);
@@ -72,8 +62,7 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
     public void attack(World world, PlayerEntity user, Hand hand){
         ItemStack itemStack = user.getStackInHand(hand);
         if (isCharged(itemStack)) {
-            ItemStack projectile = findMusketBall(user);
-            shoot(world, user, hand, itemStack, projectile);
+            shoot(world, user, hand, itemStack);
             setCharged(itemStack, false);
         }
     }
@@ -96,30 +85,33 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
         }
     }
 
-
     private static boolean loadProjectiles(LivingEntity shooter, ItemStack crossbow) {
         int j = 9; // 発射する弾の数
         boolean bl = shooter instanceof PlayerEntity && ((PlayerEntity)shooter).getAbilities().creativeMode;
+
+        // 弾を見つける
         ItemStack musketBall = shooter instanceof PlayerEntity ? findMusketBall((PlayerEntity)shooter) : ItemStack.EMPTY;
-        ItemStack itemStack2 = musketBall.copy();
+
+        // 弾が空でないことを確認しコピー
+        ItemStack itemStack2 = musketBall != null && !musketBall.isEmpty() ? musketBall.copy() : ItemStack.EMPTY;
 
         for (int k = 0; k < j; ++k) {
             if (k > 0) {
-                musketBall = itemStack2.copy();
+                musketBall = itemStack2.copy(); // 再度コピー
             }
-
-            if (musketBall.isEmpty() && bl) {
+            // クリエイティブモードかつ弾が空の場合、新しい弾を生成
+            if ((musketBall == null || musketBall.isEmpty()) && bl) {
                 musketBall = new ItemStack(ModItems.MUSKET_BALL);
                 itemStack2 = musketBall.copy();
             }
-
-            if (!loadProjectile(shooter, crossbow, musketBall, k > 0, bl)) {
+            // 弾をロードできない場合、処理を終了
+            if (musketBall == null || !loadProjectile(shooter, crossbow, musketBall, k > 0, bl)) {
                 return false;
             }
         }
-
         return true;
     }
+
 
     private static boolean loadProjectile(LivingEntity shooter, ItemStack crossbow, ItemStack projectile, boolean simulated, boolean creative) {
         if (projectile.isEmpty()) {
@@ -182,10 +174,10 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
         return list;
     }
 
-    private static void shoot(World world, LivingEntity shooter, Hand hand, ItemStack crossbow, ItemStack projectile) {
+    private static void shoot(World world, LivingEntity shooter, Hand hand, ItemStack crossbow) {
         if (!world.isClient) {
             // カスタム弾丸エンティティを生成
-            PersistentProjectileEntity SniperBulletEntity = createSniperBullet(world, shooter, crossbow, projectile);
+            PersistentProjectileEntity SniperBulletEntity = createSniperBullet(world, shooter);
 
             // 矢の挙動を削除
             SniperBulletEntity.pickupType = PickupPermission.DISALLOWED;
@@ -194,7 +186,7 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
             // 発射方向に回転を適用
             Vector3f rotatedDirection = new Vector3f((float) direction.x, (float) direction.y, (float) direction.z);
 
-            SniperBulletEntity.setVelocity(rotatedDirection.x(), rotatedDirection.y(), rotatedDirection.z(), SPEED, DIVERGENCE);
+            SniperBulletEntity.setVelocity(rotatedDirection.x(), rotatedDirection.y(), rotatedDirection.z(), 10, 0);
 
             // 弾丸を発射
             crossbow.damage(1, shooter, (e) -> e.sendToolBreakStatus(hand));
@@ -207,7 +199,7 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
 
 
 
-    private static PersistentProjectileEntity createSniperBullet(World world, LivingEntity entity, ItemStack crossbow, ItemStack musket) {
+    private static PersistentProjectileEntity createSniperBullet(World world, LivingEntity entity) {
         MusketBallEntity musketBallEntity = new MusketBallEntity(world, entity);
 
         musketBallEntity.setVelocity(entity, entity.getPitch(), entity.getYaw(), 0.0F, 3.15F, 1.0F);
@@ -220,28 +212,14 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
 
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         if (MinecraftClient.getInstance().options.attackKey.wasPressed()) {
-            user.sendMessage(Text.of("left click"));
             // 左クリックが押された時の処理
             PlayerEntity player = (PlayerEntity) user;
             attack(world, player, Hand.MAIN_HAND);
         }
-        if (MinecraftClient.getInstance().options.useKey.isPressed()) {
-//            user.sendMessage(Text.of("right click"));
-            // 右クリックが押された時の処理
-
-
-//            ScopeRenderer.renderScope(1);//
-        }
         if (!world.isClient) {
             int i = EnchantmentHelper.getLevel(Enchantments.QUICK_CHARGE, stack);
-            SoundEvent soundEvent = this.getQuickChargeSound(i);
             SoundEvent soundEvent2 = i == 0 ? SoundEvents.ITEM_CROSSBOW_LOADING_MIDDLE : null;
             float f = (float)(stack.getMaxUseTime() - remainingUseTicks) / (float)getPullTime(stack);
-
-            if (f >= 0.2F && !this.charged) {
-                this.charged = true;
-                world.playSound(null, user.getX(), user.getY(), user.getZ(), soundEvent, SoundCategory.PLAYERS, 0.5F, 1.0F);
-            }
 
             if (f >= 0.5F && soundEvent2 != null && !this.loaded) {
                 this.loaded = true;
@@ -263,20 +241,6 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.SPYGLASS;
     }
-
-    private SoundEvent getQuickChargeSound(int stage) {
-        switch (stage) {
-            case 1:
-                return SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_1;
-            case 2:
-                return SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_2;
-            case 3:
-                return SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_3;
-            default:
-                return SoundEvents.ITEM_CROSSBOW_LOADING_START;
-        }
-    }
-
 
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         List<ItemStack> list = getProjectiles(stack);
