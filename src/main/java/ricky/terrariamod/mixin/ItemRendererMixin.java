@@ -15,11 +15,11 @@ import ricky.terrariamod.item.ModItems;
 
 @Mixin(ItemRenderer.class)
 public abstract class ItemRendererMixin {
-    @ModifyVariable(method = "renderItem", at = @At(value = "HEAD"), argsOnly = true)
-    public BakedModel useRocketLauncherModel(BakedModel value, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
-        if (stack.isOf(ModItems.ROCKET_LAUNCHER) && renderMode != ModelTransformationMode.GUI) {
-            return ((ItemRendererAccessor) this).mccourse$getModels().getModelManager().getModel(new ModelIdentifier(TerrariaMod.MOD_ID, "rocket_launcher_3d", "inventory"));
-        }
-        return value;
-    }
+//    @ModifyVariable(method = "renderItem", at = @At(value = "HEAD"), argsOnly = true)
+//    public BakedModel useRocketLauncherModel(BakedModel value, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+//        if (stack.isOf(ModItems.ROCKET_LAUNCHER) && renderMode != ModelTransformationMode.GUI) {
+//            return ((ItemRendererAccessor) this).mccourse$getModels().getModelManager().getModel(new ModelIdentifier(TerrariaMod.MOD_ID, "rocket_launcher_3d", "inventory"));
+//        }
+//        return value;
+//    }
 }
