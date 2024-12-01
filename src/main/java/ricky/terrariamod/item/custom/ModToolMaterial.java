@@ -7,13 +7,13 @@ import ricky.terrariamod.item.ModItems;
 import java.util.function.Supplier;
 
 public enum ModToolMaterial implements ToolMaterial {
-    COBALT_INGOT(5,2200, 11f,5f,20,
+    COBALT_INGOT(5,2200, 11f,6f,20,
             () -> Ingredient.ofItems(ModItems.COBALT_INGOT)),
 
-    ORICHALCUM_INGOT(6,2500, 13f,5.5f,23,
+    ORICHALCUM_INGOT(6,2500, 13f,7.5f,23,
                          () -> Ingredient.ofItems(ModItems.ORICHALCUM_INGOT)),
 
-    ADAMANTITE_INGOT(7,3000, 15f,6.5f,25,
+    ADAMANTITE_INGOT(7,3000, 15f,9f,25,
             () -> Ingredient.ofItems(ModItems.ADAMANTITE_INGOT)),
 
     HELLSTONE_INGOT(4,1800, 10f,5f,20,

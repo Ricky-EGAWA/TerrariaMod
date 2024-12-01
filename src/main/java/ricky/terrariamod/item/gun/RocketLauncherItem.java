@@ -1,4 +1,4 @@
-package ricky.terrariamod.item.bows;
+package ricky.terrariamod.item.gun;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;

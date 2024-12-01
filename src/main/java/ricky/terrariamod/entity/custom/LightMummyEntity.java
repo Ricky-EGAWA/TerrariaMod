@@ -24,7 +24,6 @@ import ricky.terrariamod.TerrariaMod;
 public class LightMummyEntity extends ZombieEntity  {
     public LightMummyEntity(EntityType<? extends ZombieEntity> entityType, World world) {
         super(entityType, world);
-        TerrariaMod.LOGGER.info("light Mummy created");
     }
 
     public boolean canSpawn(EntityType<? extends ZombieEntity> type, ServerWorldAccess world, SpawnReason spawnReason, BlockPos pos, Random random) {
@@ -66,13 +65,12 @@ public class LightMummyEntity extends ZombieEntity  {
     }
 
     public static DefaultAttributeContainer.Builder createMummyAttributes() {
-        TerrariaMod.LOGGER.info("Creating mummy attributes");
         return ZombieEntity.createZombieAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 30)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 50)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0)
                 .add(EntityAttributes.GENERIC_ARMOR, 0.5f)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4);
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 15);
     }
     @Override
     protected void initGoals() {

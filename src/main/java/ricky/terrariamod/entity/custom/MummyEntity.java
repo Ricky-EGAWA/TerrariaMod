@@ -70,11 +70,11 @@ public class MummyEntity extends ZombieEntity  {
     public static DefaultAttributeContainer.Builder createMummyAttributes() {
         TerrariaMod.LOGGER.info("Creating mummy attributes");
         return ZombieEntity.createZombieAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 30)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 25)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0)
                 .add(EntityAttributes.GENERIC_ARMOR, 0.5f)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4);
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 5);
     }
     @Override
     protected void initGoals() {

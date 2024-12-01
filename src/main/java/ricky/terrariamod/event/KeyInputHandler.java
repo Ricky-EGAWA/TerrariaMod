@@ -9,13 +9,12 @@ import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 import ricky.terrariamod.TerrariaMod;
-import ricky.terrariamod.item.bows.ShotgunItem;
-import ricky.terrariamod.item.bows.SniperRifleItem;
+import ricky.terrariamod.item.gun.ShotgunItem;
+import ricky.terrariamod.item.gun.SniperRifleItem;
 
 public class KeyInputHandler {
     public static final String KEY_CATEGORY_TUTORIAL = "key.category.terrariamod.mod_key";
@@ -33,14 +32,12 @@ public class KeyInputHandler {
                 // ShotgunItem のリロード処理
                 if (itemStack.getItem() instanceof ShotgunItem shotgunItem) {
                     PlayerEntity player = client.player;
-                    shotgunItem.reload(player.getWorld(), player, Hand.MAIN_HAND); // reload処理
+                    shotgunItem.reload(player, Hand.MAIN_HAND); // reload処理
 
                     // リロード情報をサーバーに送信
                     PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
                     buf.writeBoolean(true);  // リロードフラグ
                     ClientPlayNetworking.send(new Identifier(TerrariaMod.MOD_ID, "reload_packet"), buf);
-
-                    client.player.sendMessage(Text.of("Reloaded"));
                 }
 
                 // SniperRifleItem のリロード処理

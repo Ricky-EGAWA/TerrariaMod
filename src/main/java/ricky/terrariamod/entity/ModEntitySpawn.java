@@ -15,6 +15,12 @@ public class ModEntitySpawn {
                 ModEntities.SAND_SLIME,
                 70, 2, 4 // ウェイト100、2〜4体
         );
+        BiomeModifications.addSpawn(
+                BiomeSelectors.includeByKey(ModBiomes.EBON_DESERT_BIOME,ModBiomes.CRIM_DESERT_BIOME,ModBiomes.PEARL_ICE_BIOME),
+                SpawnGroup.MONSTER,
+                ModEntities.SAND_SLIME,
+                70, 4, 8 // ウェイト100、2〜4体
+        );
 
         // 雪原でのIce Slimeのスポーン設定
         BiomeModifications.addSpawn(
@@ -22,6 +28,12 @@ public class ModEntitySpawn {
                 SpawnGroup.MONSTER,
                 ModEntities.ICE_SLIME,
                 70, 2, 4 // ウェイト100、2〜4体
+        );
+        BiomeModifications.addSpawn(
+                BiomeSelectors.includeByKey(ModBiomes.CRIM_ICE_BIOME,ModBiomes.EBON_ICE_BIOME,ModBiomes.PEARL_ICE_BIOME),
+                SpawnGroup.MONSTER,
+                ModEntities.ICE_SLIME,
+                100, 2, 7 // ウェイト100、2〜4体
         );
 
         // 繫茂した洞窟でのJungle Batのスポーン設定
@@ -56,19 +68,25 @@ public class ModEntitySpawn {
                 BiomeSelectors.includeByKey(ModBiomes.EBON_DESERT_BIOME),
                 SpawnGroup.MONSTER,
                 ModEntities.DARK_MUMMY,
-                100,1,2
+                100,1,4
         );
         BiomeModifications.addSpawn(
                 BiomeSelectors.includeByKey(ModBiomes.CRIM_DESERT_BIOME),
                 SpawnGroup.MONSTER,
                 ModEntities.BLOOD_MUMMY,
-                100,1,2
+                100,1,4
         );
         BiomeModifications.addSpawn(
                 BiomeSelectors.includeByKey(ModBiomes.PEARL_DESERT_BIOME),
                 SpawnGroup.MONSTER,
                 ModEntities.LIGHT_MUMMY,
-                100,1,2
+                100,1,4
+        );
+        BiomeModifications.addSpawn(
+                BiomeSelectors.includeByKey(ModBiomes.EBON_BIOME,ModBiomes.CRIM_BIOME,ModBiomes.PEARL_BIOME),
+                SpawnGroup.MONSTER,
+                ModEntities.LAVA_BAT,
+                100,1,3
         );
     }
 }

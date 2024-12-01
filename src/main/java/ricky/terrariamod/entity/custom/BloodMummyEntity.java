@@ -24,7 +24,6 @@ import ricky.terrariamod.TerrariaMod;
 public class BloodMummyEntity extends ZombieEntity  {
     public BloodMummyEntity(EntityType<? extends ZombieEntity> entityType, World world) {
         super(entityType, world);
-        TerrariaMod.LOGGER.info("blood Mummy created");
     }
 
     @Override
@@ -33,13 +32,12 @@ public class BloodMummyEntity extends ZombieEntity  {
     }
 
     public static DefaultAttributeContainer.Builder createMummyAttributes() {
-        TerrariaMod.LOGGER.info("Creating mummy attributes");
         return ZombieEntity.createZombieAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 30)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 50)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0)
                 .add(EntityAttributes.GENERIC_ARMOR, 0.5f)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4);
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 15);
     }
 
     @Override

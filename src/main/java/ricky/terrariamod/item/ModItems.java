@@ -9,9 +9,9 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.item.bows.CustomBowItem;
-import ricky.terrariamod.item.bows.RocketLauncherItem;
-import ricky.terrariamod.item.bows.ShotgunItem;
-import ricky.terrariamod.item.bows.SniperRifleItem;
+import ricky.terrariamod.item.gun.RocketLauncherItem;
+import ricky.terrariamod.item.gun.ShotgunItem;
+import ricky.terrariamod.item.gun.SniperRifleItem;
 import ricky.terrariamod.item.custom.*;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
 

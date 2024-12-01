@@ -1,4 +1,4 @@
-package ricky.terrariamod.item.bows;
+package ricky.terrariamod.item.gun;
 
 import com.google.common.collect.Lists;
 import java.util.List;
@@ -66,7 +66,7 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
         }
     }
 
-    public void reload(World world, PlayerEntity player, Hand hand) {
+    public void reload(PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
 
         if (loadProjectiles(player, stack)) {

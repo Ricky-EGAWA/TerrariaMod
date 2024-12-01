@@ -7,8 +7,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import ricky.terrariamod.item.bows.ShotgunItem;
-import ricky.terrariamod.item.bows.SniperRifleItem;
+import ricky.terrariamod.item.gun.ShotgunItem;
+import ricky.terrariamod.item.gun.SniperRifleItem;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {//TODO 反転してない

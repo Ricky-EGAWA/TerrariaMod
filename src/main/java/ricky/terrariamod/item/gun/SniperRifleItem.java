@@ -1,4 +1,4 @@
-package ricky.terrariamod.item.bows;
+package ricky.terrariamod.item.gun;
 
 import com.google.common.collect.Lists;
 import net.minecraft.client.MinecraftClient;

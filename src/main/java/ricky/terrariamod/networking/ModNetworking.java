@@ -4,8 +4,8 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.TerrariaMod;
-import ricky.terrariamod.item.bows.ShotgunItem;
-import ricky.terrariamod.item.bows.SniperRifleItem;
+import ricky.terrariamod.item.gun.ShotgunItem;
+import ricky.terrariamod.item.gun.SniperRifleItem;
 
 public class ModNetworking {
     public static final Identifier RELOAD_PACKET = new Identifier(TerrariaMod.MOD_ID, "reload_packet");
@@ -15,7 +15,7 @@ public class ModNetworking {
             if (attackFlag) {
                 // リロードを実行
                 if (player.getMainHandStack().getItem() instanceof ShotgunItem shotgunItem) {
-                    shotgunItem.reload(player.getWorld(), player, Hand.MAIN_HAND);
+                    shotgunItem.reload(player, Hand.MAIN_HAND);
                 }
                 if (player.getMainHandStack().getItem() instanceof SniperRifleItem sniperRifleItem) {
                     sniperRifleItem.reload(player, Hand.MAIN_HAND);

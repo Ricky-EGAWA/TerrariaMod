@@ -18,12 +18,10 @@ public class CorruptSlimeEntity extends SlimeEntity {
         super(entityType, world);
         this.setSize(2, true);
         this.reinitDimensions();
-        TerrariaMod.LOGGER.info("CorruptSlimeEntity created");
     }
     public static DefaultAttributeContainer.Builder createCorruptSlimeAttributes() {
-        TerrariaMod.LOGGER.info("Creating CorruptSlime attributes");
         return ZombieEntity.createZombieAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 12)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 24)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40.0)
                 .add(EntityAttributes.GENERIC_ARMOR, 0.5f)
@@ -53,8 +51,8 @@ public class CorruptSlimeEntity extends SlimeEntity {
         this.reinitDimensions();
         // サイズ変更後に体力を50に再設定
         // 体力の設定
-        this.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(50);
-        this.setHealth(50);
+        this.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(40);
+        this.setHealth(40);
         this.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE).setBaseValue(10.0);
         this.getAttributeInstance(EntityAttributes.GENERIC_FOLLOW_RANGE).setBaseValue(40);
     }
