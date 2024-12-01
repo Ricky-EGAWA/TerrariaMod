@@ -3,6 +3,7 @@ package ricky.terrariamod.mixin;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.Camera;
 import net.minecraft.client.render.GameRenderer;
+import net.minecraft.client.option.Perspective;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -19,8 +20,11 @@ public abstract class GameRendererMixin {
 
     @Inject(method = "getFov", at = @At("HEAD"), cancellable = true)
     private void modifyFov(Camera camera, float tickDelta, boolean changingFov, CallbackInfoReturnable<Double> info) {
-        // プレイヤーがスナイパーライフルを使用している場合にズーム
-        if (client.player != null && client.player.isUsingItem()) {
+        // 一人称視点でプレイヤーがスナイパーライフルを使用している場合にズーム
+        if (client.player != null
+                && client.options.getPerspective() == Perspective.FIRST_PERSON // 一人称視点チェック
+                && client.player.isUsingItem()) {
+
             ItemStack activeItem = client.player.getActiveItem();
             if (activeItem.getItem() instanceof SniperRifleItem) {
                 // ズームFOVを設定
@@ -29,4 +33,3 @@ public abstract class GameRendererMixin {
         }
     }
 }
-
