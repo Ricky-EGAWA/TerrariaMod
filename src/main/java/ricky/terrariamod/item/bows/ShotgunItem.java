@@ -52,19 +52,8 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-        if (isCharged(itemStack)) {
-            return TypedActionResult.fail(itemStack);
-        } else {
-            ItemStack musketBall = findMusketBall(user); // MusketBallを探す
-            if (musketBall != null && !musketBall.isEmpty()) { // マスケットボールを持っている場合
-                this.charged = false;
-                this.loaded = false;
-                user.setCurrentHand(hand);
-                return TypedActionResult.consume(itemStack);
-            } else {
-                return TypedActionResult.fail(itemStack);
-            }
-        }
+        user.setCurrentHand(hand);
+        return TypedActionResult.fail(itemStack);
     }
     public TypedActionResult<ItemStack> attack(World world, PlayerEntity user, Hand hand){
         ItemStack itemStack = user.getStackInHand(hand);
@@ -335,7 +324,7 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
     }
 
     public int getMaxUseTime(ItemStack stack) {
-        return getPullTime(stack) + 3;
+        return 7200;
     }
 
     public static int getPullTime(ItemStack stack) {
@@ -344,7 +333,7 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
     }
 
     public UseAction getUseAction(ItemStack stack) {
-        return UseAction.CROSSBOW;
+        return UseAction.BOW;
     }
 
     private SoundEvent getQuickChargeSound(int stage) {

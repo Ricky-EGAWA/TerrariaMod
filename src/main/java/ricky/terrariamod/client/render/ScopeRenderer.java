@@ -5,10 +5,11 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.util.Identifier;
+import ricky.terrariamod.TerrariaMod;
 
 @Environment(EnvType.CLIENT)  // クライアント専用として指定
 public class ScopeRenderer {
-    private static final Identifier SCOPE_TEXTURE = new Identifier("textures/misc/spyglass_scope.png");
+    private static final Identifier SCOPE_TEXTURE = new Identifier(TerrariaMod.MOD_ID,"textures/misc/scope.png");
 
     public static void renderScope(DrawContext context, float scale) {
         MinecraftClient client = MinecraftClient.getInstance();
