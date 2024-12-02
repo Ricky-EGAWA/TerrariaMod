@@ -53,7 +53,7 @@ public class MusketBallEntity extends PersistentProjectileEntity {
         DamageSource damageSource = this.getWorld().getDamageSources().arrow(this, this.getOwner());
 
         // ダメージを与える
-        target.damage(damageSource, 5.0F);
+        target.damage(damageSource, 2.5F);
 
         // 無敵時間をリセット
         target.timeUntilRegen = 0;
