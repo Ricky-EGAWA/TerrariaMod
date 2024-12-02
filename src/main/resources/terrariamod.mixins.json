@@ -6,7 +6,8 @@
 		"ExampleMixin",
 		"CactusBlockMixin",
 		"LivingEntityMixin",
-		"GameRendererMixin"
+		"GameRendererMixin",
+		"KeyboardInputMixin"
 	],
 	"client": [
 		"ItemRendererAccessor",
