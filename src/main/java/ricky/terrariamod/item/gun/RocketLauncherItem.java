@@ -99,7 +99,7 @@ public class RocketLauncherItem extends BowItem {
     }
 
     public float customGetPullProgress(int useTicks) {
-        float progress = (float) useTicks / 5.0F;
+        float progress = (float) useTicks / 15.0F;
         progress = (progress * progress + progress * 2.0F) / 3.0F;
         return Math.min(progress, 1.0F);
     }

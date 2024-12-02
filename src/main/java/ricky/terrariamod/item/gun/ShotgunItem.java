@@ -68,9 +68,10 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
 
     public void reload(PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
-
+        World world = player.getWorld();
         if (loadProjectiles(player, stack)) {
             setCharged(stack, true);  // チャージ状態をセット
+            world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, SoundCategory.PLAYERS, 1.0F, 1.0F);
 
             // アイテムを更新
             stack.setNbt(stack.getNbt());  // これでNBTを明示的に保存
@@ -87,13 +88,13 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
     }
 
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
-        int i = this.getMaxUseTime(stack) - remainingUseTicks;
-        float f = getPullProgress(i, stack);
-        if (f >= 1.0F && !isCharged(stack) && loadProjectiles(user, stack)) {
-            setCharged(stack, true);
-            SoundCategory soundCategory = user instanceof PlayerEntity ? SoundCategory.PLAYERS : SoundCategory.HOSTILE;
-            world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ITEM_CROSSBOW_LOADING_END, soundCategory, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
-        }
+//        int i = this.getMaxUseTime(stack) - remainingUseTicks;
+//        float f = getPullProgress(i, stack);
+//        if (f >= 1.0F && !isCharged(stack) && loadProjectiles(user, stack)) {
+//            setCharged(stack, true);
+//            SoundCategory soundCategory = user instanceof PlayerEntity ? SoundCategory.PLAYERS : SoundCategory.HOSTILE;
+//            world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ITEM_CROSSBOW_LOADING_END, soundCategory, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+//        }
 
     }
 
@@ -220,7 +221,7 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
             // 弾丸を発射
             crossbow.damage(1, shooter, (e) -> e.sendToolBreakStatus(hand));
             world.spawnEntity(musketBallEntity);
-            world.playSound(null, shooter.getX(), shooter.getY(), shooter.getZ(), SoundEvents.ITEM_CROSSBOW_SHOOT, SoundCategory.PLAYERS, 1.0F, soundPitch);
+            world.playSound(null, shooter.getX(), shooter.getY(), shooter.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.PLAYERS, 0.6F, soundPitch);
         }
     }
 
