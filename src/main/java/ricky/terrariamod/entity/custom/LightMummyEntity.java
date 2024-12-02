@@ -20,6 +20,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import ricky.terrariamod.TerrariaMod;
+import ricky.terrariamod.effect.ModEffects;
 
 public class LightMummyEntity extends ZombieEntity  {
     public LightMummyEntity(EntityType<? extends ZombieEntity> entityType, World world) {
@@ -97,7 +98,7 @@ public boolean tryAttack(Entity target) {
             // 攻撃成功時の処理
             // 例えば、ターゲットにスロウ効果を付与する
             float difficultyFactor = this.getWorld().getLocalDifficulty(this.getBlockPos()).getLocalDifficulty();
-            livingTarget.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 140 * (int)difficultyFactor), this);
+            livingTarget.addStatusEffect(new StatusEffectInstance(ModEffects.CONFUSED, 140 * (int)difficultyFactor), this);
         } else {
             this.setAttacking(false); // 攻撃していない状態に戻す
         }
