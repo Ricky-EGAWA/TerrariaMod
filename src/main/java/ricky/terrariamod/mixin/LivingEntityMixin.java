@@ -11,7 +11,7 @@ import ricky.terrariamod.item.gun.ShotgunItem;
 import ricky.terrariamod.item.gun.SniperRifleItem;
 
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityMixin {//TODO 反転してない
+public abstract class LivingEntityMixin {
     @Inject(method = "swingHand", at = @At("HEAD"), cancellable = true)
     private void onHandleInputEvents(CallbackInfo ci) {
         LivingEntity entity = (LivingEntity) (Object) this;
