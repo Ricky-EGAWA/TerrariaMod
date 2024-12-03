@@ -56,6 +56,31 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         generateArmorRecipes(exporter, Blocks.PUMPKIN, "pumpkin");
         generateArmorRecipes(exporter, Blocks.CACTUS, "cactus");
         generateArmorRecipes(exporter, Blocks.OBSIDIAN, "obsidian");
+
+        //階段　ハーフブロックなど
+        generateBlockRecipes(exporter, ModBlocks.EBON_PLANKS,"ebon");
+        generateBlockRecipes(exporter, ModBlocks.CRIM_PLANKS,"crim");
+        generateBlockRecipes(exporter, ModBlocks.PEARL_PLANKS,"pearl");
+        //原木から木
+        generateWoodBlockRecipes(exporter, ModBlocks.EBON_LOG,"ebon");
+        generateWoodBlockRecipes(exporter, ModBlocks.CRIM_LOG,"crim");
+        generateWoodBlockRecipes(exporter, ModBlocks.PEARL_LOG,"pearl");
+        generateWoodBlockRecipes(exporter, ModBlocks.STRIPPED_EBON_LOG,"stripped_ebon");
+        generateWoodBlockRecipes(exporter, ModBlocks.STRIPPED_CRIM_LOG,"stripped_crim");
+        generateWoodBlockRecipes(exporter, ModBlocks.STRIPPED_PEARL_LOG,"stripped_pearl");
+        //木材
+        generatePlankBlockRecipes(exporter, ModBlocks.EBON_WOOD,"ebon");
+        generatePlankBlockRecipes(exporter, ModBlocks.CRIM_WOOD,"crim");
+        generatePlankBlockRecipes(exporter, ModBlocks.PEARL_WOOD,"pearl");
+        generatePlankBlockRecipes(exporter, ModBlocks.EBON_LOG,"ebon_wood");
+        generatePlankBlockRecipes(exporter, ModBlocks.CRIM_LOG,"crim_wood");
+        generatePlankBlockRecipes(exporter, ModBlocks.PEARL_LOG,"pearl_wood");
+        generatePlankBlockRecipes(exporter, ModBlocks.STRIPPED_EBON_WOOD,"stripped_ebon");
+        generatePlankBlockRecipes(exporter, ModBlocks.STRIPPED_CRIM_WOOD,"stripped_crim");
+        generatePlankBlockRecipes(exporter, ModBlocks.STRIPPED_PEARL_WOOD,"stripped_pearl");
+        generatePlankBlockRecipes(exporter, ModBlocks.STRIPPED_EBON_LOG,"stripped_ebon_wood");
+        generatePlankBlockRecipes(exporter, ModBlocks.STRIPPED_CRIM_LOG,"stripped_crim_wood");
+        generatePlankBlockRecipes(exporter, ModBlocks.STRIPPED_PEARL_LOG,"stripped_pearl_wood");
     }
 
     private void generateSmeltingAndBlastingRecipes(Consumer<RecipeJsonProvider> exporter, List<ItemConvertible> smeltables, ItemConvertible result, String name) {
@@ -69,20 +94,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     private void generateToolRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible ingot, String materialName) {
         // ピッケル
-        createToolRecipe(exporter, RecipeCategory.MISC, ModItems.getPickaxe(materialName), "III", " S ", " S ", ingot, materialName, "_pickaxe");
-
+        createStickItemRecipe(exporter, RecipeCategory.TOOLS, ModItems.getPickaxe(materialName), "III", " S ", " S ", ingot, materialName, "_pickaxe",1);
         // アックス
-        createToolRecipe(exporter, RecipeCategory.MISC, ModItems.getAxe(materialName), " II", " SI", " S ", ingot, materialName, "_axe");
-
+        createStickItemRecipe(exporter, RecipeCategory.TOOLS, ModItems.getAxe(materialName), " II", " SI", " S ", ingot, materialName, "_axe",1);
         // ソード
-        createToolRecipe(exporter, RecipeCategory.MISC, ModItems.getSword(materialName), " I ", " I ", " S ", ingot, materialName, "_sword");
-
+        createStickItemRecipe(exporter, RecipeCategory.TOOLS, ModItems.getSword(materialName), " I ", " I ", " S ", ingot, materialName, "_sword",1);
         // シャベル
-        createToolRecipe(exporter, RecipeCategory.MISC, ModItems.getShovel(materialName), " I ", " S ", " S ", ingot, materialName, "_shovel");
+        createStickItemRecipe(exporter, RecipeCategory.TOOLS, ModItems.getShovel(materialName), " I ", " S ", " S ", ingot, materialName, "_shovel",1);
     }
 
-    private void createToolRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible tool, String row1, String row2, String row3, ItemConvertible ingot, String materialName, String toolType) {
-        ShapedRecipeJsonBuilder.create(category, tool, 1)
+    private void createStickItemRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible tool, String row1, String row2, String row3, ItemConvertible ingot, String materialName, String toolType, int num) {
+        ShapedRecipeJsonBuilder.create(category, tool, num)
                 .pattern(row1)
                 .pattern(row2)
                 .pattern(row3)
@@ -96,26 +118,47 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     // Armorレシピ生成関数
     private void generateArmorRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible ingot, String materialName) {
         // ヘルメットのレシピ
-        createArmorRecipe(exporter, RecipeCategory.MISC, ModItems.getHelmet(materialName), "III", "I I", "   ", ingot, materialName, "_helmet");
-
+        createOneItemRecipe(exporter, RecipeCategory.COMBAT, ModItems.getHelmet(materialName), "III", "I I", "   ", ingot, materialName, "_helmet",1);
         // チェストプレートのレシピ
-        createArmorRecipe(exporter, RecipeCategory.MISC, ModItems.getChestplate(materialName), "I I", "III", "III", ingot, materialName, "_chestplate");
-
+        createOneItemRecipe(exporter, RecipeCategory.COMBAT, ModItems.getChestplate(materialName), "I I", "III", "III", ingot, materialName, "_chestplate",1);
         // レギンスのレシピ
-        createArmorRecipe(exporter, RecipeCategory.MISC, ModItems.getLeggings(materialName), "III", "I I", "I I", ingot, materialName, "_leggings");
-
+        createOneItemRecipe(exporter, RecipeCategory.COMBAT, ModItems.getLeggings(materialName), "III", "I I", "I I", ingot, materialName, "_leggings",1);
         // ブーツのレシピ
-        createArmorRecipe(exporter, RecipeCategory.MISC, ModItems.getBoots(materialName), "   ", "I I", "I I", ingot, materialName, "_boots");
+        createOneItemRecipe(exporter, RecipeCategory.COMBAT, ModItems.getBoots(materialName), "   ", "I I", "I I", ingot, materialName, "_boots",1);
     }
 
     // 防具レシピを個別に作成する関数
-    private void createArmorRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible armor, String row1, String row2, String row3, ItemConvertible ingot, String materialName, String armorType) {
-        ShapedRecipeJsonBuilder.create(category, armor, 1)
+    private void createOneItemRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible armor, String row1, String row2, String row3, ItemConvertible ingot, String materialName, String armorType, int num) {
+        ShapedRecipeJsonBuilder.create(category, armor, num)
                 .pattern(row1)
                 .pattern(row2)
                 .pattern(row3)
                 .input('I', ingot)
                 .criterion(hasItem(ingot), conditionsFromItem(ingot))
                 .offerTo(exporter, new Identifier("terrariamod", materialName + armorType));
+    }
+
+    //ブロックレシピ
+    private void generateBlockRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible block, String materialName) {
+        // ハーフブロック
+        createOneItemRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.getSlab(materialName), "   ", "III", "   ", block, materialName, "_slab",6);
+        // 階段
+        createOneItemRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.getStairs(materialName), "I  ", "II ", "III", block, materialName, "_stairs",4);
+        // フェンス
+        createStickItemRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.getFence(materialName), "   ", "ISI", "ISI", block, materialName, "_fence",3);
+        // フェンスゲート
+        createStickItemRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.getFenceGate(materialName), "   ", "SIS", "SIS", block, materialName, "_fence_gate",1);
+        // ボタン
+        createOneItemRecipe(exporter, RecipeCategory.REDSTONE, ModBlocks.getButton(materialName), "   ", " I ", "   ", block, materialName, "_button",1);
+        // 感圧版
+        createOneItemRecipe(exporter, RecipeCategory.REDSTONE, ModBlocks.getPressurePlate(materialName), "   ", " II", "   ", block, materialName, "_pressure_plate",1);
+    }
+    private void generateWoodBlockRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible block, String materialName) {
+        // 木
+        createOneItemRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.getWood(materialName), "II ", "II ", "   ", block, materialName, "_wood",3);
+    }
+    private void generatePlankBlockRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible block, String materialName) {
+        // 板材
+        createOneItemRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.getPlanks(materialName), "   ", " I ", "   ", block, materialName, "_planks",4);
     }
 }

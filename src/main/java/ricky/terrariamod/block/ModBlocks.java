@@ -8,10 +8,8 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
-import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.block.custom.SoundBlock;
 import ricky.terrariamod.world.ModConfiguredFeatures;
@@ -180,6 +178,74 @@ public class ModBlocks {
             new FenceBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE)));
     public static final Block PEARL_FENCE_GATE = registerBlock("pearl_fence_gate",
             new FenceGateBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE), WoodType.ACACIA));
+
+    public static Block getSlab(String materialName) {
+        return switch (materialName.toLowerCase()) {
+            case "ebon" -> EBON_SLAB;
+            case "crim" -> CRIM_SLAB;
+            case "pearl" -> PEARL_SLAB;
+            default -> throw new IllegalArgumentException("Unknown material: " + materialName);
+        };
+    }
+    public static Block getStairs(String materialName) {
+        return switch (materialName.toLowerCase()) {
+            case "ebon" -> EBON_STAIRS;
+            case "crim" -> CRIM_STAIRS;
+            case "pearl" -> PEARL_STAIRS;
+            default -> throw new IllegalArgumentException("Unknown material: " + materialName);
+        };
+    }
+    public static Block getFence(String materialName) {
+        return switch (materialName.toLowerCase()) {
+            case "ebon" -> EBON_FENCE;
+            case "crim" -> CRIM_FENCE;
+            case "pearl" -> PEARL_FENCE;
+            default -> throw new IllegalArgumentException("Unknown material: " + materialName);
+        };
+    }
+    public static Block getFenceGate(String materialName) {
+        return switch (materialName.toLowerCase()) {
+            case "ebon" -> EBON_FENCE_GATE;
+            case "crim" -> CRIM_FENCE_GATE;
+            case "pearl" -> PEARL_FENCE_GATE;
+            default -> throw new IllegalArgumentException("Unknown material: " + materialName);
+        };
+    }
+    public static Block getButton(String materialName) {
+        return switch (materialName.toLowerCase()) {
+            case "ebon" -> EBON_BUTTON;
+            case "crim" -> CRIM_BUTTON;
+            case "pearl" -> PEARL_BUTTON;
+            default -> throw new IllegalArgumentException("Unknown material: " + materialName);
+        };
+    }
+    public static Block getPressurePlate(String materialName) {
+        return switch (materialName.toLowerCase()) {
+            case "ebon" -> EBON_PRESSURE_PLATE;
+            case "crim" -> CRIM_PRESSURE_PLATE;
+            case "pearl" -> PEARL_PRESSURE_PLATE;
+            default -> throw new IllegalArgumentException("Unknown material: " + materialName);
+        };
+    }
+    public static Block getWood(String materialName) {
+        return switch (materialName.toLowerCase()) {
+            case "ebon" -> EBON_WOOD;
+            case "crim" -> CRIM_WOOD;
+            case "pearl" -> PEARL_WOOD;
+            case "stripped_ebon" -> STRIPPED_EBON_WOOD;
+            case "stripped_crim" -> STRIPPED_CRIM_WOOD;
+            case "stripped_pearl" -> STRIPPED_PEARL_WOOD;
+            default -> throw new IllegalArgumentException("Unknown material: " + materialName);
+        };
+    }
+    public static Block getPlanks(String materialName) {
+        return switch (materialName.toLowerCase()) {
+            case "ebon", "ebon_wood", "stripped_ebon", "stripped_ebon_wood" -> EBON_PLANKS;
+            case "crim", "crim_wood", "stripped_crim", "stripped_crim_wood" -> CRIM_PLANKS;
+            case "pearl", "pearl_wood", "stripped_pearl", "stripped_pearl_wood" -> PEARL_PLANKS;
+            default -> throw new IllegalArgumentException("Unknown material: " + materialName);
+        };
+    }
 
 
     private static Block registerBlock(String name, Block block){
