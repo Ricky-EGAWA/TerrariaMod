@@ -41,6 +41,8 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "blood_mummy"), "blood_mummy_layer");
     public static final EntityModelLayer LIGHT_MUMMY_LAYER =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "light_mummy"), "light_mummy_layer");
+    public static final EntityModelLayer EATER_OF_SOUL =
+            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "eater_of_soul"), "eater_of_soul_layer");
 
 
     private static EntityModelLayer registerMain(String id) {

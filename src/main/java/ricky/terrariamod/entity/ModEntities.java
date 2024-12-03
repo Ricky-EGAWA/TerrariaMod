@@ -72,6 +72,12 @@ public class ModEntities {
             new Identifier(TerrariaMod.MOD_ID, "light_mummy"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, LightMummyEntity::new)
                     .dimensions(EntityDimensions.fixed(0.6f, 1.95f)).build());
+    public static final EntityType<EaterOfSoulEntity> EATER_OF_SOUL = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "eater_of_soul"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, EaterOfSoulEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 0.5f)).build());
+
+
 
     public static final EntityType<RocketEntity> ROCKET = Registry.register(
             Registries.ENTITY_TYPE,

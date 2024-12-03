@@ -80,6 +80,9 @@ public class TerrariaModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BLOOD_MUMMY_LAYER, ZombieTypeModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.LIGHT_MUMMY, LightMummyRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.LIGHT_MUMMY_LAYER, ZombieTypeModel::getTexturedModelData);
+        //
+        EntityRendererRegistry.register(ModEntities.EATER_OF_SOUL, EaterOfSoulRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.EATER_OF_SOUL, EaterOfSoulModel::getTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.ROCKET, RocketEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.MUSKET_BALL, MusketBallEntityRenderer::new);
