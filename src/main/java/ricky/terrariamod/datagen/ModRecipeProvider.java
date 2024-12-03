@@ -9,6 +9,7 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
+import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.block.ModBlocks;
 import ricky.terrariamod.item.ModItems;
 
@@ -81,6 +82,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         generatePlankBlockRecipes(exporter, ModBlocks.STRIPPED_EBON_LOG,"stripped_ebon_wood");
         generatePlankBlockRecipes(exporter, ModBlocks.STRIPPED_CRIM_LOG,"stripped_crim_wood");
         generatePlankBlockRecipes(exporter, ModBlocks.STRIPPED_PEARL_LOG,"stripped_pearl_wood");
+
+        //その他
+        createTwoItemRecipe(exporter,RecipeCategory.COMBAT,ModItems.ROCKET,"ABA","BAB","ABA",Items.GUNPOWDER,Items.IRON_INGOT,"rocket",3);
+        createTwoItemRecipe(exporter,RecipeCategory.COMBAT,ModItems.IRON_BOW," AB","A B"," AB",Items.IRON_INGOT,Items.STRING,"iron_bow",1);
+        createTwoItemRecipe(exporter,RecipeCategory.COMBAT,ModItems.GOLD_BOW," AB","A B"," AB",Items.GOLD_INGOT,Items.STRING,"gold_bow",1);
+        createTwoItemRecipe(exporter,RecipeCategory.COMBAT,ModItems.DIAMOND_BOW," AB","A B"," AB",Items.DIAMOND,Items.STRING,"diamond_bow",1);
     }
 
     private void generateSmeltingAndBlastingRecipes(Consumer<RecipeJsonProvider> exporter, List<ItemConvertible> smeltables, ItemConvertible result, String name) {
@@ -135,7 +142,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern(row3)
                 .input('I', ingot)
                 .criterion(hasItem(ingot), conditionsFromItem(ingot))
-                .offerTo(exporter, new Identifier("terrariamod", materialName + armorType));
+                .offerTo(exporter, new Identifier(TerrariaMod.MOD_ID, materialName + armorType));
+    }
+    private void createTwoItemRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible armor, String row1, String row2, String row3, ItemConvertible item1, ItemConvertible item2, String materialName, int num) {
+        ShapedRecipeJsonBuilder.create(category, armor, num)
+                .pattern(row1)
+                .pattern(row2)
+                .pattern(row3)
+                .input('A', item1)
+                .input('B', item2)
+                .criterion(hasItem(item1), conditionsFromItem(item1))
+                .criterion(hasItem(item2), conditionsFromItem(item2))
+                .offerTo(exporter, new Identifier(TerrariaMod.MOD_ID, materialName));
     }
 
     //ブロックレシピ

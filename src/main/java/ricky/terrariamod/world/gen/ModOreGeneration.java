@@ -18,7 +18,7 @@ public class ModOreGeneration {
         BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_HELLSTONE_ORE_PLACED_KEY);
 
-        BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
-                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.END_COBALT_ORE_PLACED_KEY);
+//        BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
+//                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.END_COBALT_ORE_PLACED_KEY);
     }
 }
