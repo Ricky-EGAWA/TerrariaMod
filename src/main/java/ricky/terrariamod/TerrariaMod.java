@@ -89,6 +89,7 @@ public class TerrariaMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.BLOOD_MUMMY, BloodMummyEntity.createMummyAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.LIGHT_MUMMY, LightMummyEntity.createMummyAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.EATER_OF_SOUL, EaterOfSoulEntity.createEaterOfSoulAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.DEMON_EYE, DemonEyeEntity.createDemonEyeAttributes());
 
 		// エンティティのスポーンを追加
 		ModEntitySpawn.addEntitySpawn();

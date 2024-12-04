@@ -76,6 +76,10 @@ public class ModEntities {
             new Identifier(TerrariaMod.MOD_ID, "eater_of_soul"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, EaterOfSoulEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 0.5f)).build());
+    public static final EntityType<DemonEyeEntity> DEMON_EYE = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "demon_eye"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, DemonEyeEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.7f, 0.7f)).build());
 
 
 
