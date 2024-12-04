@@ -4,7 +4,6 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
 import ricky.terrariamod.entity.custom.DemonEyeEntity;
 
 public class DemonEyeModel<T extends DemonEyeEntity> extends SinglePartEntityModel<T> {
