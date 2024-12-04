@@ -80,6 +80,10 @@ public class ModEntities {
             new Identifier(TerrariaMod.MOD_ID, "demon_eye"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, DemonEyeEntity::new)
                     .dimensions(EntityDimensions.fixed(0.7f, 0.7f)).build());
+    public static final EntityType<PossessedArmorEntity> POSSESSED_ARMOR = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "possessed_armor"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, PossessedArmorEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.6f, 1.9f)).build());
 
 
 
