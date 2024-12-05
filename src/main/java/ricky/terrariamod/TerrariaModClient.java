@@ -83,6 +83,8 @@ public class TerrariaModClient implements ClientModInitializer {
         //その他
         EntityRendererRegistry.register(ModEntities.EATER_OF_SOUL, EaterOfSoulRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.EATER_OF_SOUL, EaterOfSoulModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.CRIMERA, CrimeraRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CRIMERA, CrimeraModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.DEMON_EYE, DemonEyeRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.DEMON_EYE, DemonEyeModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.POSSESSED_ARMOR, PossessedArmorRenderer::new);

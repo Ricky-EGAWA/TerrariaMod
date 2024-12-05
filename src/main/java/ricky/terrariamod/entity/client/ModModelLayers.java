@@ -45,6 +45,8 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "eater_of_soul"), "eater_of_soul_layer");
     public static final EntityModelLayer DEMON_EYE =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "demon_eye"), "demon_eye_layer");
+    public static final EntityModelLayer CRIMERA =
+            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "crimera"), "crimera_layer");
     public static final EntityModelLayer POSSESSED_ARMOR =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "possessed_armor"), "possessed_armor_layer");
 
