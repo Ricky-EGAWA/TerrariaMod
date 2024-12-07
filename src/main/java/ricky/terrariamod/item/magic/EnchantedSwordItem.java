@@ -8,6 +8,8 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import ricky.terrariamod.entity.ammo.EnchantedSwordEntity;
+import ricky.terrariamod.util.IEntityDataSaver;
+import ricky.terrariamod.util.ManaData;
 
 public class EnchantedSwordItem extends SwordItem {
     public EnchantedSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
@@ -15,6 +17,10 @@ public class EnchantedSwordItem extends SwordItem {
     }
     public void attack(World world, PlayerEntity playerEntity, Hand hand) {
         if (!world.isClient) {
+            //TODO　test用後で削除
+            IEntityDataSaver dataPlayer = ((IEntityDataSaver) playerEntity);
+            ManaData.removeMana(dataPlayer,1);
+
             ItemStack enchanted = playerEntity.getStackInHand(hand);
 
             // EnchantedSwordEntity を生成

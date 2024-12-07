@@ -10,6 +10,7 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.block.ModBlocks;
+import ricky.terrariamod.client.render.ManaHudOverlay;
 import ricky.terrariamod.client.render.SniperScopeOverlay;
 import ricky.terrariamod.entity.ModEntities;
 import ricky.terrariamod.entity.ammo.EnchantedSwordModel;
@@ -107,6 +108,7 @@ public class TerrariaModClient implements ClientModInitializer {
         HudRenderCallback.EVENT.register((context, tickDelta) -> {
             SniperScopeOverlay.renderIfUsingScope(context);
         });
+        HudRenderCallback.EVENT.register(new ManaHudOverlay());
     }
     private static void registerCustomBow(Item item) {
         ModelPredicateProviderRegistry.register(item, new Identifier("pull"), (stack, world, entity, seed) -> {

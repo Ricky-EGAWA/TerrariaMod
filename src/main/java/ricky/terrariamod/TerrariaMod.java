@@ -2,6 +2,7 @@ package ricky.terrariamod;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
@@ -15,6 +16,7 @@ import ricky.terrariamod.effect.ModEffects;
 import ricky.terrariamod.entity.ModEntities;
 import ricky.terrariamod.entity.custom.*;
 import ricky.terrariamod.event.ModEvents;
+import ricky.terrariamod.event.PlayerTickHandler;
 import ricky.terrariamod.item.ModItemGroups;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.networking.ModNetworking;
@@ -43,8 +45,6 @@ public class TerrariaMod implements ModInitializer {
 
 		ModWorldGeneration.generateModWorldGen();
 
-		// サーバー側でパケットの登録を行う
-		ModNetworking.register();
 		//tree
 		StrippableBlockRegistry.register(ModBlocks.EBON_LOG, ModBlocks.STRIPPED_EBON_LOG);
 		StrippableBlockRegistry.register(ModBlocks.EBON_WOOD, ModBlocks.STRIPPED_EBON_WOOD);
@@ -104,5 +104,10 @@ public class TerrariaMod implements ModInitializer {
 				.destDimID(new Identifier(TerrariaMod.MOD_ID, "terraria"))
 				.tintColor(0xc76efa)
 				.registerPortal();
+
+		// サーバー側でパケットの登録を行う
+		ModNetworking.registerC2SPackets();
+		ModNetworking.registerS2CPackets();
+		ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
 	}
 }
