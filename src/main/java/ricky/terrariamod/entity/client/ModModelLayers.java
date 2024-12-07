@@ -50,6 +50,9 @@ public class ModModelLayers {
     public static final EntityModelLayer POSSESSED_ARMOR =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "possessed_armor"), "possessed_armor_layer");
 
+    public static final EntityModelLayer ENCHANTED_SWORD =
+            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "enchanted_sword"), "enchanted_sword_layer");
+
 
     private static EntityModelLayer registerMain(String id) {
         return ModModelLayers.register(id, MAIN);

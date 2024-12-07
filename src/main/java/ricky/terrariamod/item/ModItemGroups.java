@@ -193,6 +193,8 @@ public class ModItemGroups {
                         entries.add(ModItems.SHOTGUN);
                         entries.add(ModItems.MUSKET_BALL);
                         entries.add(ModItems.SNIPER_RIFLE);
+
+                        entries.add(ModItems.ENCHANTED_SWORD);
                     }).build());
 
     public static void registerItemGroups(){

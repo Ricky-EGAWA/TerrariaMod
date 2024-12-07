@@ -12,6 +12,8 @@ import net.minecraft.util.Identifier;
 import ricky.terrariamod.block.ModBlocks;
 import ricky.terrariamod.client.render.SniperScopeOverlay;
 import ricky.terrariamod.entity.ModEntities;
+import ricky.terrariamod.entity.ammo.EnchantedSwordModel;
+import ricky.terrariamod.entity.ammo.EnchantedSwordRenderer;
 import ricky.terrariamod.entity.ammo.MusketBallEntityRenderer;
 import ricky.terrariamod.entity.ammo.RocketEntityRenderer;
 import ricky.terrariamod.entity.client.*;
@@ -89,6 +91,8 @@ public class TerrariaModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.DEMON_EYE, DemonEyeModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.POSSESSED_ARMOR, PossessedArmorRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.POSSESSED_ARMOR, PossessedArmorModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.ENCHANTED_SWORD, EnchantedSwordRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ENCHANTED_SWORD, EnchantedSwordModel::getTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.ROCKET, RocketEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.MUSKET_BALL, MusketBallEntityRenderer::new);

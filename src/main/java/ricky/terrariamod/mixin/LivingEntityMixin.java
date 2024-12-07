@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import ricky.terrariamod.item.gun.ShotgunItem;
 import ricky.terrariamod.item.gun.SniperRifleItem;
+import ricky.terrariamod.item.magic.EnchantedSwordItem;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
@@ -36,6 +37,14 @@ public abstract class LivingEntityMixin {
                 sniper.attack(player.getWorld(), player, Hand.MAIN_HAND);
 
                 ci.cancel(); // 通常の手を振る動作をキャンセル
+            }
+            // プレイヤーが enchanted sword を持っているか確認
+            if (player.getMainHandStack().getItem() instanceof EnchantedSwordItem) {
+                // 魔法弾を発射
+                EnchantedSwordItem enchanted_sword = (EnchantedSwordItem) player.getMainHandStack().getItem();
+                enchanted_sword.attack(player.getWorld(), player, Hand.MAIN_HAND);
+
+//                ci.cancel(); // 通常の手を振る動作をキャンセル
             }
         }
     }

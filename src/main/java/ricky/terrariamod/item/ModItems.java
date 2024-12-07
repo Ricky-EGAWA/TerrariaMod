@@ -14,6 +14,7 @@ import ricky.terrariamod.item.gun.ShotgunItem;
 import ricky.terrariamod.item.gun.SniperRifleItem;
 import ricky.terrariamod.item.custom.*;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
+import ricky.terrariamod.item.magic.EnchantedSwordItem;
 
 public class ModItems {
     public static final Item MetalDetectorItem = registerItem("metal_detector",
@@ -182,6 +183,9 @@ public class ModItems {
     public static final Item MUSKET_BALL = registerItem("musket_ball", new MusketBallItem(new Item.Settings()));
     public static final Item SNIPER_RIFLE = registerItem("sniper_rifle",
             new SniperRifleItem(new Item.Settings().maxDamage(1024)));
+
+    public static final Item ENCHANTED_SWORD = registerItem("enchanted_sword",
+            new EnchantedSwordItem(ToolMaterials.DIAMOND, 5, -2.4f, new FabricItemSettings().maxCount(1)));
 
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {

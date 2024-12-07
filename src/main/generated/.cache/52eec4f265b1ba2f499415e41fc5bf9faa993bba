@@ -1,4 +1,4 @@
-// 1.20.1	2024-12-03T01:40:42.6370088	Terraria Mod/Recipes
+// 1.20.1	2024-12-06T23:32:53.3767206	Terraria Mod/Recipes
 ea2a4a0d8be2e90740264b74538b4f874765779d data\terrariamod\recipes\adamantite_pickaxe.json
 c058bec53a9a43f721c4c026d7d795d57cb03a0c data\terrariamod\advancements\recipes\tools\adamantite_pickaxe.json
 0175b8bda66c9ee67efe6852796c5259df1ada0e data\terrariamod\recipes\hellstone_ingot_from_smelting_hellstone_raw.json
@@ -223,8 +223,8 @@ d3ecd326db44a760426d934dbb5e150043e0ea2f data\terrariamod\recipes\adamantite_ing
 3fac303fe5bb8098e34a3bcbc00aa55672821f6c data\terrariamod\recipes\stripped_ebon_wood_planks.json
 7fc04016522056c030f824f76352bcad56a1da0b data\terrariamod\recipes\crim_slab.json
 10311bbe2d753ddc1afae690730fb85ed6f2d28b data\terrariamod\advancements\recipes\building_blocks\ebon_stairs.json
-6f94cbf718db9b0a2856e2288aad29b15ff12d5f data\terrariamod\advancements\recipes\combat\orichalcum_boots.json
 a8459fae62400c9a10ca6001ba8310eff9d733c0 data\terrariamod\advancements\recipes\misc\hellstone_ingot_from_blasting_hellstone_ore.json
+6f94cbf718db9b0a2856e2288aad29b15ff12d5f data\terrariamod\advancements\recipes\combat\orichalcum_boots.json
 012bce5bea679cb29d7cd0fd58ca47bb02d6fda2 data\terrariamod\advancements\recipes\misc\adamantite_ingot_from_smelting_adamantite_raw.json
 5540a1f0f29a6583c58dc1b645ad8dfdd81ec21b data\terrariamod\recipes\hellstone_helmet.json
 609a18564cb949c4d3d0f10e8b5c341a0ed96d3e data\terrariamod\advancements\recipes\building_blocks\stripped_ebon_wood.json

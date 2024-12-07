@@ -162,6 +162,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.GLASS_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.NIGHT_HELMET));
 
+        itemModelGenerator.register(ModItems.ENCHANTED_SWORD, Models.HANDHELD);
+
 //        itemModelGenerator.register(ModItems.ROCKET_LAUNCHER, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROCKET, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.SHOTGUN, Models.GENERATED);//チャージ状態と区別

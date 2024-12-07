@@ -8,6 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.TerrariaMod;
+import ricky.terrariamod.entity.ammo.EnchantedSwordEntity;
 import ricky.terrariamod.entity.ammo.MusketBallEntity;
 import ricky.terrariamod.entity.ammo.RocketEntity;
 import ricky.terrariamod.entity.custom.*;
@@ -111,6 +112,12 @@ public class ModEntities {
                     .build()
     );
 
-
-
+    public static final EntityType<EnchantedSwordEntity> ENCHANTED_SWORD = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "enchanted_sword"),
+            FabricEntityTypeBuilder.<EnchantedSwordEntity>create(SpawnGroup.MISC, EnchantedSwordEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+                    .trackRangeBlocks(80)
+                    .trackedUpdateRate(10)
+                    .build()
+    );
 }
