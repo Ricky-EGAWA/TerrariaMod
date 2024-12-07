@@ -16,28 +16,29 @@ public class ManaHudOverlay implements HudRenderCallback {
     @Override
     public void onHudRender(DrawContext drawContext, float tickDelta) {//TODO 場所の調整
         int x = 0;
-        int y = 0;
         MinecraftClient client = MinecraftClient.getInstance();
         if (client != null) {
-            int width = client.getWindow().getScaledWidth();
-            int height = client.getWindow().getScaledHeight();
-
-            x = width / 2;
-            y = height;
+            x = client.getWindow().getScaledWidth();
         }
 
         RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, NO_MANA);
         for(int i = 0; i < 10; i++) {
-            drawContext.drawTexture(NO_MANA,x - 94 + (i * 9),y - 54,0,0,12,12,
+            drawContext.drawTexture(NO_MANA,x - 20 ,90 - (i * 9),0,0,12,12,
                     12,12);
+        }
+
+        int currentMana = 0;
+        if (MinecraftClient.getInstance().player != null) {
+            currentMana = ((IEntityDataSaver) MinecraftClient.getInstance().player).getPersistentData().getInt("mana");
         }
 
         RenderSystem.setShaderTexture(0, MANA);
         for(int i = 0; i < 10; i++) {
-            if(((IEntityDataSaver) MinecraftClient.getInstance().player).getPersistentData().getInt("mana") > i) {
-                drawContext.drawTexture(MANA,x - 94 + (i * 9),y - 54,0,0,12,12,
+            //Mana 残量を確認し残量に応じて描画
+            if(currentMana > i) {
+                drawContext.drawTexture(MANA,x - 20 ,90 - (i * 9),0,0,12,12,
                         12,12);
             } else {
                 break;
