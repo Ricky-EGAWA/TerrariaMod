@@ -31,11 +31,14 @@ public class MagicMirrorItem extends Item {
         if (world.isClient) {
             return new TypedActionResult<>(ActionResult.FAIL, player.getStackInHand(hand));
         }
-        int currentMana = ((IEntityDataSaver) MinecraftClient.getInstance().player).getPersistentData().getInt("mana");
-        if(currentMana>=1){
-            if (player instanceof ServerPlayerEntity) {
+        if (player instanceof ServerPlayerEntity) {
+            int currentMana = 0; // 初期値を設定
+            if (MinecraftClient.getInstance().player != null) {
+                currentMana = ((IEntityDataSaver) MinecraftClient.getInstance().player).getPersistentData().getInt("mana");
+            }
+            if(currentMana>=10){
                 IEntityDataSaver dataPlayer = ((IEntityDataSaver) player);
-                ManaData.removeMana(dataPlayer,1);
+                ManaData.removeMana(dataPlayer,10);
                 ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
                 BlockPos respawnPos = serverPlayer.getSpawnPointPosition();
                 if (respawnPos == null || !serverPlayer.getSpawnPointDimension().equals(world.getRegistryKey())) {
@@ -49,7 +52,7 @@ public class MagicMirrorItem extends Item {
                 BlockPos finalRespawnPos = respawnPos;
                 server.execute(() -> {
                     try {
-                        // 2秒間スリープする
+                        // 2秒間スリープする TODO この間他の操作をできなくする
                         Thread.sleep(2000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -67,11 +70,9 @@ public class MagicMirrorItem extends Item {
                         serverPlayer.fallDistance = 0; // Reset fall distance to prevent fall damage
                     }
                 });
-
                 return new TypedActionResult<>(ActionResult.SUCCESS, player.getStackInHand(hand));
             }
         }
-
 
         return new TypedActionResult<>(ActionResult.FAIL, player.getStackInHand(hand));
     }

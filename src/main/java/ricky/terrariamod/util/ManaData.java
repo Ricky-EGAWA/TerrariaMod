@@ -11,8 +11,8 @@ public class ManaData {
     public static int addMana(IEntityDataSaver player, int amount) {
         NbtCompound nbt = player.getPersistentData();
         int mana = nbt.getInt("mana");
-        if(mana + amount >= 10) {
-            mana = 10;
+        if(mana + amount >= 200) {
+            mana = 200;
         } else {
             mana += amount;
         }

@@ -24,7 +24,7 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
             int lastUpdateTick = playerLastManaUpdate.getOrDefault(player, 0);
 
             // 10秒（200ティック）経過したか確認
-            if (currentTick - lastUpdateTick >= 200) {
+            if (currentTick - lastUpdateTick >= 10) {
                 // マナを回復
                 IEntityDataSaver dataPlayer = ((IEntityDataSaver) player);
                 ManaData.addMana(dataPlayer, 1);

@@ -37,7 +37,7 @@ public class ManaHudOverlay implements HudRenderCallback {
         RenderSystem.setShaderTexture(0, MANA);
         for(int i = 0; i < 10; i++) {
             //Mana 残量を確認し残量に応じて描画
-            if(currentMana > i) {
+            if(currentMana/20.0 -0.5 > i) {
                 drawContext.drawTexture(MANA,x - 20 ,90 - (i * 9),0,0,12,12,
                         12,12);
             } else {
