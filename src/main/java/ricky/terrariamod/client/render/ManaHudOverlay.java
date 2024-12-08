@@ -27,7 +27,7 @@ public class ManaHudOverlay implements HudRenderCallback {
         RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 
-        // NO_MANAのアイコンを描画
+        // NO_MANAのアイコンを描画（全体）
         RenderSystem.setShaderTexture(0, NO_MANA);
         for (int i = 0; i < 10; i++) {
             drawContext.drawTexture(NO_MANA, x - 20, 90 - (i * 9), 0, 0, 12, 12, 12, 12);
@@ -36,14 +36,18 @@ public class ManaHudOverlay implements HudRenderCallback {
         // プレイヤーのMana残量を取得
         int currentMana = ((IEntityDataSaver) client.player).getPersistentData().getInt("mana");
 
-        // MANAのアイコンを描画
+        // MANAのアイコンを描画（下から上に増やす）
         RenderSystem.setShaderTexture(0, MANA);
         for (int i = 0; i < 10; i++) {
-            // Mana残量に応じて描画
-            if (currentMana / 20.0 - 0.5 > i) {
-                drawContext.drawTexture(MANA, x - 20, 90 - (i * 9), 0, 0, 12, 12, 12, 12);
-            } else {
-                break;
+            // アイコン1つ分のマナを計算 (20マナ単位)
+            int manaForThisIcon = Math.min(currentMana - (i * 20), 20);
+            if (manaForThisIcon > 0) {
+                // 表示する高さを計算（12pxの高さを20分割）
+                int iconHeight = (int) (12 * (manaForThisIcon / 20.0));
+                int v = 12 - iconHeight; // 描画を開始するテクスチャの位置（下から描画するため）
+
+                // テクスチャの一部を描画
+                drawContext.drawTexture(MANA, x - 20, 90 - (i * 9) + v, 0, v, 12, iconHeight, 12, 12);
             }
         }
     }
