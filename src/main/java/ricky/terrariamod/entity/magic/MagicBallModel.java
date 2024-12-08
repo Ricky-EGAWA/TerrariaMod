@@ -13,7 +13,7 @@ public class MagicBallModel<T extends MagicBallEntity> extends SinglePartEntityM
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
-		ModelPartData ball = modelPartData.addChild("ball", ModelPartBuilder.create().uv(0, 0).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 4.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 2.0F, 0.0F));
+		ModelPartData ball = modelPartData.addChild("ball", ModelPartBuilder.create().uv(0, 0).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 4.0F, 4.0F, new Dilation(-2F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 		return TexturedModelData.of(modelData, 16, 16);
 	}
 	@Override

@@ -68,7 +68,8 @@ public class MagicBallEntity extends PersistentProjectileEntity {
 
         // パーティクルのスポーン処理
         if (this.getWorld().isClient) {
-            spawnRainbowParticles();
+            spawnTailParticles();
+            spawnCircleParticles();
         }
 
         if (this.inGroundTime > 4) {
@@ -104,7 +105,7 @@ public class MagicBallEntity extends PersistentProjectileEntity {
     }
 
     // パーティクル生成処理
-    private void spawnRainbowParticles() {
+    private void spawnTailParticles() {
         World world = this.getWorld();
         if (world.isClient) { // クライアントサイドでのみ実行
             Vec3d pos = this.getPos();
@@ -118,10 +119,10 @@ public class MagicBallEntity extends PersistentProjectileEntity {
                 double offsetY = this.random.nextGaussian() * 0.05;
                 double offsetZ = this.random.nextGaussian() * 0.05;
 
-                // RGB値をランダムに生成し、0.0f～1.0fにスケール変換
-                float red = this.random.nextFloat();
-                float green = this.random.nextFloat();
-                float blue = this.random.nextFloat();
+                // アメジストの紫色 (RGB)
+                float red = 0.6f;
+                float green = 0.2f;
+                float blue = 0.8f;
 
                 // DustParticleEffectを生成（Vector3fで色を指定）
                 world.addParticle(
@@ -135,6 +136,42 @@ public class MagicBallEntity extends PersistentProjectileEntity {
             }
         }
     }
+    private void spawnCircleParticles() {
+        World world = this.getWorld();
+        if (world.isClient) { // クライアントサイドでのみ実行
+            Vec3d center = this.getPos();
+
+            // アメジストの紫色 (RGB)
+            float red = 0.6f;
+            float green = 0.2f;
+            float blue = 0.8f;
+
+            // 半径 0.2 ブロックの範囲でパーティクルを生成
+            double radius = 0.2;
+
+            for (int i = 0; i < 10; i++) { // パーティクル数を増やす
+                double angle = this.random.nextDouble() * 2 * Math.PI; // ランダムな角度
+                double offsetX = Math.cos(angle) * radius;
+                double offsetZ = Math.sin(angle) * radius;
+
+                // 高さを少しランダム化
+                double offsetY = this.random.nextGaussian() * 0.02;
+
+                // パーティクルを生成
+                world.addParticle(
+                        new net.minecraft.particle.DustParticleEffect(
+                                new org.joml.Vector3f(red, green, blue), // カラー
+                                1.0F // スケール
+                        ),
+                        center.x + offsetX,
+                        center.y + offsetY,
+                        center.z + offsetZ,
+                        0, 0, 0 // パーティクルの移動速度は 0
+                );
+            }
+        }
+    }
+
 
     private boolean isOwnerAlive() {
         Entity entity = this.getOwner();
@@ -162,7 +199,7 @@ public class MagicBallEntity extends PersistentProjectileEntity {
         }
 
         Entity entity2 = this.getOwner();
-        DamageSource damageSource = this.getDamageSources().trident(this, (Entity)(entity2 == null ? this : entity2));
+        DamageSource damageSource = this.getDamageSources().trident(this, (entity2 == null ? this : entity2));
         this.dealtDamage = true;
         SoundEvent soundEvent = SoundEvents.ITEM_TRIDENT_HIT;
         if (entity.damage(damageSource, f)) {
