@@ -29,10 +29,7 @@ public class ManaHudOverlay implements HudRenderCallback {
                     12,12);
         }
 
-        int currentMana = 0;
-        if (MinecraftClient.getInstance().player != null) {
-            currentMana = ((IEntityDataSaver) MinecraftClient.getInstance().player).getPersistentData().getInt("mana");
-        }
+        int currentMana = ((IEntityDataSaver) MinecraftClient.getInstance().player).getPersistentData().getInt("mana");
 
         RenderSystem.setShaderTexture(0, MANA);
         for(int i = 0; i < 10; i++) {
