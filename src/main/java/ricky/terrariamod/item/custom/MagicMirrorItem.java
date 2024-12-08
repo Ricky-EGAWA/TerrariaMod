@@ -1,5 +1,6 @@
 package ricky.terrariamod.item.custom;
 
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -14,6 +15,8 @@ import net.minecraft.world.World;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import org.jetbrains.annotations.Nullable;
+import ricky.terrariamod.util.IEntityDataSaver;
+import ricky.terrariamod.util.ManaData;
 
 import java.util.List;
 
@@ -28,42 +31,47 @@ public class MagicMirrorItem extends Item {
         if (world.isClient) {
             return new TypedActionResult<>(ActionResult.FAIL, player.getStackInHand(hand));
         }
+        int currentMana = ((IEntityDataSaver) MinecraftClient.getInstance().player).getPersistentData().getInt("mana");
+        if(currentMana>=1){
+            if (player instanceof ServerPlayerEntity) {
+                IEntityDataSaver dataPlayer = ((IEntityDataSaver) player);
+                ManaData.removeMana(dataPlayer,1);
+                ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
+                BlockPos respawnPos = serverPlayer.getSpawnPointPosition();
+                if (respawnPos == null || !serverPlayer.getSpawnPointDimension().equals(world.getRegistryKey())) {
+                    respawnPos = world.getSpawnPos();
+                }
 
-        if (player instanceof ServerPlayerEntity) {
-            ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
-            BlockPos respawnPos = serverPlayer.getSpawnPointPosition();
-            if (respawnPos == null || !serverPlayer.getSpawnPointDimension().equals(world.getRegistryKey())) {
-                respawnPos = world.getSpawnPos();
+                // Get the Minecraft server
+                MinecraftServer server = ((ServerWorld) world).getServer();
+
+                // Schedule a task to run after 2 seconds (40 ticks)
+                BlockPos finalRespawnPos = respawnPos;
+                server.execute(() -> {
+                    try {
+                        // 2秒間スリープする
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    if (serverPlayer.isAlive()) {
+                        serverPlayer.teleport(
+                                serverPlayer.getServerWorld(),
+                                finalRespawnPos.getX() + 0.5,
+                                finalRespawnPos.getY(),
+                                finalRespawnPos.getZ() + 0.5,
+                                serverPlayer.getYaw(),
+                                serverPlayer.getPitch()
+                        );
+                        serverPlayer.fallDistance = 0; // Reset fall distance to prevent fall damage
+                    }
+                });
+
+                return new TypedActionResult<>(ActionResult.SUCCESS, player.getStackInHand(hand));
             }
-
-            // Get the Minecraft server
-            MinecraftServer server = ((ServerWorld) world).getServer();
-
-            // Schedule a task to run after 2 seconds (40 ticks)
-            BlockPos finalRespawnPos = respawnPos;
-            server.execute(() -> {
-                try {
-                    // 2秒間スリープする
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                if (serverPlayer.isAlive()) {
-                    serverPlayer.teleport(
-                            serverPlayer.getServerWorld(),
-                            finalRespawnPos.getX() + 0.5,
-                            finalRespawnPos.getY(),
-                            finalRespawnPos.getZ() + 0.5,
-                            serverPlayer.getYaw(),
-                            serverPlayer.getPitch()
-                    );
-                    serverPlayer.fallDistance = 0; // Reset fall distance to prevent fall damage
-                }
-            });
-
-            return new TypedActionResult<>(ActionResult.SUCCESS, player.getStackInHand(hand));
         }
+
 
         return new TypedActionResult<>(ActionResult.FAIL, player.getStackInHand(hand));
     }

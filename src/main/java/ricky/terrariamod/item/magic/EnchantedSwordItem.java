@@ -17,11 +17,8 @@ public class EnchantedSwordItem extends SwordItem {
     }
     public void attack(World world, PlayerEntity playerEntity, Hand hand) {
         if (!world.isClient) {
-            //TODO　test用後で削除
-            IEntityDataSaver dataPlayer = ((IEntityDataSaver) playerEntity);
-            ManaData.removeMana(dataPlayer,1);
-
             ItemStack enchanted = playerEntity.getStackInHand(hand);
+            enchanted.damage(1, playerEntity, p -> p.sendToolBreakStatus(hand));
 
             // EnchantedSwordEntity を生成
             EnchantedSwordEntity swordEntity  = new EnchantedSwordEntity(world, playerEntity, enchanted);
