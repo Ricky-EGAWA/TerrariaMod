@@ -195,6 +195,7 @@ public class ModItemGroups {
                         entries.add(ModItems.SNIPER_RIFLE);
 
                         entries.add(ModItems.ENCHANTED_SWORD);
+                        entries.add(ModItems.AMETHYST_STAFF);
                     }).build());
 
     public static void registerItemGroups(){

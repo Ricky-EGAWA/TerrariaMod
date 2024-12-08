@@ -14,6 +14,7 @@ import ricky.terrariamod.item.gun.ShotgunItem;
 import ricky.terrariamod.item.gun.SniperRifleItem;
 import ricky.terrariamod.item.custom.*;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
+import ricky.terrariamod.item.magic.AmethystStaff;
 import ricky.terrariamod.item.magic.EnchantedSwordItem;
 
 public class ModItems {
@@ -186,6 +187,8 @@ public class ModItems {
 
     public static final Item ENCHANTED_SWORD = registerItem("enchanted_sword",
             new EnchantedSwordItem(ToolMaterials.DIAMOND, 5, -2.4f, new FabricItemSettings().maxCount(1)));
+    public static final Item AMETHYST_STAFF = registerItem("amethyst_staff",
+            new AmethystStaff(ToolMaterials.WOOD, 1, -2.4f, new FabricItemSettings().maxCount(1)));
 
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {

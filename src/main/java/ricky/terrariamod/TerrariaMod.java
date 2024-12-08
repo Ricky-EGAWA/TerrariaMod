@@ -107,7 +107,6 @@ public class TerrariaMod implements ModInitializer {
 
 		// サーバー側でパケットの登録を行う
 		ModNetworking.registerC2SPackets();
-		ModNetworking.registerS2CPackets();
 		ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
 	}
 }

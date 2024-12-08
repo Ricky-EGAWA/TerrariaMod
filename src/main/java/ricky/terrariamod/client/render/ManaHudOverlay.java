@@ -14,29 +14,34 @@ public class ManaHudOverlay implements HudRenderCallback {
     private static final Identifier NO_MANA = new Identifier(TerrariaMod.MOD_ID, "textures/misc/no_mana.png");
 
     @Override
-    public void onHudRender(DrawContext drawContext, float tickDelta) {//TODO 場所の調整
-        int x = 0;
+    public void onHudRender(DrawContext drawContext, float tickDelta) {
         MinecraftClient client = MinecraftClient.getInstance();
-        if (client != null) {
-            x = client.getWindow().getScaledWidth();
+        if (client == null || client.player == null) {
+            // クライアントが存在しない、またはプレイヤーが存在しない場合は描画しない
+            return;
         }
+
+        // 画面の幅を取得
+        int x = client.getWindow().getScaledWidth();
 
         RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+
+        // NO_MANAのアイコンを描画
         RenderSystem.setShaderTexture(0, NO_MANA);
-        for(int i = 0; i < 10; i++) {
-            drawContext.drawTexture(NO_MANA,x - 20 ,90 - (i * 9),0,0,12,12,
-                    12,12);
+        for (int i = 0; i < 10; i++) {
+            drawContext.drawTexture(NO_MANA, x - 20, 90 - (i * 9), 0, 0, 12, 12, 12, 12);
         }
 
-        int currentMana = ((IEntityDataSaver) MinecraftClient.getInstance().player).getPersistentData().getInt("mana");
+        // プレイヤーのMana残量を取得
+        int currentMana = ((IEntityDataSaver) client.player).getPersistentData().getInt("mana");
 
+        // MANAのアイコンを描画
         RenderSystem.setShaderTexture(0, MANA);
-        for(int i = 0; i < 10; i++) {
-            //Mana 残量を確認し残量に応じて描画
-            if(currentMana/20.0 -0.5 > i) {
-                drawContext.drawTexture(MANA,x - 20 ,90 - (i * 9),0,0,12,12,
-                        12,12);
+        for (int i = 0; i < 10; i++) {
+            // Mana残量に応じて描画
+            if (currentMana / 20.0 - 0.5 > i) {
+                drawContext.drawTexture(MANA, x - 20, 90 - (i * 9), 0, 0, 12, 12, 12, 12);
             } else {
                 break;
             }

@@ -9,6 +9,10 @@ import ricky.terrariamod.util.IEntityDataSaver;
 public class ManaSyncDataS2CPacket {
     public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler,
                                PacketByteBuf buf, PacketSender responseSender) {
+        // クライアントプレイヤーが null の場合は処理をスキップ
+        if (client.player == null) {
+            return;
+        }
         ((IEntityDataSaver) client.player).getPersistentData().putInt("mana", buf.readInt());
     }
 }
