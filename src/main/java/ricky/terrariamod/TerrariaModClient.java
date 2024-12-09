@@ -26,6 +26,8 @@ import ricky.terrariamod.entity.client.slimes.*;
 import ricky.terrariamod.entity.client.zombies.*;
 import ricky.terrariamod.entity.magic.AmethystBallRenderer;
 import ricky.terrariamod.entity.magic.MagicBallModel;
+import ricky.terrariamod.entity.magic.WaterBoltModel;
+import ricky.terrariamod.entity.magic.WaterBoltRenderer;
 import ricky.terrariamod.event.KeyInputHandler;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.networking.ModNetworking;
@@ -100,6 +102,8 @@ public class TerrariaModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ENCHANTED_SWORD, EnchantedSwordModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.AMETHYST_BALL, AmethystBallRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.AMETHYST_BALL, MagicBallModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.WATER_BOLT, WaterBoltRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.WATER_BOLT, WaterBoltModel::getTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.ROCKET, RocketEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.MUSKET_BALL, MusketBallEntityRenderer::new);

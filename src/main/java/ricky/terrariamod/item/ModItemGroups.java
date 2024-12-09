@@ -196,6 +196,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.ENCHANTED_SWORD);
                         entries.add(ModItems.AMETHYST_STAFF);
+                        entries.add(ModItems.WATER_BOLT);
                     }).build());
 
     public static void registerItemGroups(){

@@ -16,6 +16,7 @@ import ricky.terrariamod.item.custom.*;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
 import ricky.terrariamod.item.magic.AmethystStaff;
 import ricky.terrariamod.item.magic.EnchantedSwordItem;
+import ricky.terrariamod.item.magic.WaterBoltItem;
 
 public class ModItems {
     public static final Item MetalDetectorItem = registerItem("metal_detector",
@@ -189,6 +190,8 @@ public class ModItems {
             new EnchantedSwordItem(ToolMaterials.DIAMOND, 5, -2.4f, new FabricItemSettings().maxCount(1)));
     public static final Item AMETHYST_STAFF = registerItem("amethyst_staff",
             new AmethystStaff(ToolMaterials.WOOD, 1, -2.4f, new FabricItemSettings().maxCount(1)));
+    public static final Item WATER_BOLT = registerItem("water_bolt",
+            new WaterBoltItem(ToolMaterials.WOOD, 1, -2.4f, new FabricItemSettings().maxCount(1)));
 
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {

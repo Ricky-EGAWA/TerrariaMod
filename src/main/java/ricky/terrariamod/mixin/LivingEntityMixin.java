@@ -11,6 +11,7 @@ import ricky.terrariamod.item.gun.ShotgunItem;
 import ricky.terrariamod.item.gun.SniperRifleItem;
 import ricky.terrariamod.item.magic.AmethystStaff;
 import ricky.terrariamod.item.magic.EnchantedSwordItem;
+import ricky.terrariamod.item.magic.WaterBoltItem;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
@@ -50,6 +51,12 @@ public abstract class LivingEntityMixin {
                 // 魔法弾を発射
                 AmethystStaff amethystStaff = (AmethystStaff) player.getMainHandStack().getItem();
                 amethystStaff.attack(player.getWorld(), player, Hand.MAIN_HAND);
+            }
+            // プレイヤーが amethyst staff を持っているか確認
+            if (player.getMainHandStack().getItem() instanceof WaterBoltItem) {
+                // 魔法弾を発射
+                WaterBoltItem waterBolt = (WaterBoltItem) player.getMainHandStack().getItem();
+                waterBolt.attack(player.getWorld(), player, Hand.MAIN_HAND);
             }
         }
     }

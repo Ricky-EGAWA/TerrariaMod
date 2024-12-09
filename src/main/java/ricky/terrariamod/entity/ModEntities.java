@@ -13,6 +13,7 @@ import ricky.terrariamod.entity.ammo.MusketBallEntity;
 import ricky.terrariamod.entity.ammo.RocketEntity;
 import ricky.terrariamod.entity.custom.*;
 import ricky.terrariamod.entity.magic.MagicBallEntity;
+import ricky.terrariamod.entity.magic.WaterBoltEntity;
 
 public class ModEntities {
     public static final EntityType<PorcupineEntity> PORCUPINE = Registry.register(Registries.ENTITY_TYPE,
@@ -124,6 +125,14 @@ public class ModEntities {
     public static final EntityType<MagicBallEntity> AMETHYST_BALL = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(TerrariaMod.MOD_ID, "amethyst_ball"),
             FabricEntityTypeBuilder.<MagicBallEntity>create(SpawnGroup.MISC, MagicBallEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.3f, 0.3f))
+                    .trackRangeBlocks(80)
+                    .trackedUpdateRate(10)
+                    .build()
+    );
+    public static final EntityType<WaterBoltEntity> WATER_BOLT = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "water_bolt"),
+            FabricEntityTypeBuilder.<WaterBoltEntity>create(SpawnGroup.MISC, WaterBoltEntity::new)
                     .dimensions(EntityDimensions.fixed(0.3f, 0.3f))
                     .trackRangeBlocks(80)
                     .trackedUpdateRate(10)
