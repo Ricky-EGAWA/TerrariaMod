@@ -175,5 +175,8 @@
   "effect.terrariamod.confused": "Confused",
 
   "key.category.terrariamod.mod_key": "Mod KeyBinds",
-  "key.terrariamod.reload": "Reload"
+  "key.terrariamod.reload": "Reload",
+
+  "item.terrariamod.enchanted_sword": "Enchanted Sword",
+  "item.terrariamod.amethyst_staff": "Amethyst Staff"
 }

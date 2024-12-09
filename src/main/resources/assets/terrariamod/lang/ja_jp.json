@@ -173,5 +173,8 @@
   "effect.terrariamod.confused": "混乱",
 
   "key.category.terrariamod.mod_key": "MOD用キー配置",
-  "key.terrariamod.reload": "リロード"
+  "key.terrariamod.reload": "リロード",
+
+  "item.terrariamod.enchanted_sword": "エンチャントソード",
+  "item.terrariamod.amethyst_staff": "アメジストの杖"
 }
