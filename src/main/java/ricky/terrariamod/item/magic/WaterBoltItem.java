@@ -1,6 +1,5 @@
 package ricky.terrariamod.item.magic;
 
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
@@ -18,14 +17,8 @@ public class WaterBoltItem extends SwordItem {
     }
     public void attack(World world, PlayerEntity playerEntity, Hand hand) {
         if (!world.isClient) {
-            int currentMana = 0; // 初期値を設定
-            if (MinecraftClient.getInstance().player != null) {
-                currentMana = ((IEntityDataSaver) MinecraftClient.getInstance().player).getPersistentData().getInt("mana");
-            }
-            if(currentMana>=40){
-                IEntityDataSaver dataPlayer = ((IEntityDataSaver) playerEntity);
-                ManaData.removeMana(dataPlayer,40);
-
+            //十分なマナがあるかクリエイティブモードの場合
+            if(ManaData.useMana((IEntityDataSaver) playerEntity,40) || playerEntity.getAbilities().creativeMode){
                 ItemStack enchanted = playerEntity.getStackInHand(hand);
                 enchanted.damage(1, playerEntity, p -> p.sendToolBreakStatus(hand));
 

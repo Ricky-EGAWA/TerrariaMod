@@ -2,6 +2,7 @@ package ricky.terrariamod.util;
 
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -34,6 +35,15 @@ public class ManaData {
         nbt.putInt("mana", mana);
         syncMana(mana, (ServerPlayerEntity) player);
         return mana;
+    }
+    public static boolean useMana(IEntityDataSaver player, int currentMana) {
+        int confuseMana = player.getPersistentData().getInt("mana");
+        //マナが足りない場合
+        if (confuseMana < currentMana) {
+            return false;
+        }
+        removeMana(player,currentMana);
+        return true;
     }
     public static void syncMana(int thirst, ServerPlayerEntity player) {
         PacketByteBuf buffer = PacketByteBufs.create();
