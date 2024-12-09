@@ -30,7 +30,7 @@ public class MagicBallEntity extends PersistentProjectileEntity {
 
     private static final TrackedData<Integer> MAX_HIT = DataTracker.registerData(MagicBallEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Integer> MAX_REFLECT = DataTracker.registerData(MagicBallEntity.class, TrackedDataHandlerRegistry.INTEGER);
-    private static final TrackedData<Float> DAMAGE = DataTracker.registerData(MagicBallEntity.class, TrackedDataHandlerRegistry.FLOAT);
+    private static final TrackedData<Integer> DAMAGE = DataTracker.registerData(MagicBallEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Float> COLOR_R = DataTracker.registerData(MagicBallEntity.class, TrackedDataHandlerRegistry.FLOAT);
     private static final TrackedData<Float> COLOR_G = DataTracker.registerData(MagicBallEntity.class, TrackedDataHandlerRegistry.FLOAT);
     private static final TrackedData<Float> COLOR_B = DataTracker.registerData(MagicBallEntity.class, TrackedDataHandlerRegistry.FLOAT);
@@ -41,13 +41,13 @@ public class MagicBallEntity extends PersistentProjectileEntity {
         this.tridentStack = new ItemStack(ModItems.WATER_BOLT);
     }
 
-    public MagicBallEntity(World world, LivingEntity owner, ItemStack stack, int hitCount, int reflectionCount, float damage, float r, float g, float b) {
+    public MagicBallEntity(World world, LivingEntity owner, ItemStack stack, int hitCount, int reflectionCount, int damage, float r, float g, float b) {
         super(ModEntities.WATER_BOLT, owner, world);
         this.tridentStack = stack.copy();
         this.setCustomValues(hitCount, reflectionCount, damage, r, g, b);
     }
 
-    private void setCustomValues(int hitCount, int reflectionCount, float damage, float r, float g, float b) {
+    private void setCustomValues(int hitCount, int reflectionCount, int damage, float r, float g, float b) {
         this.dataTracker.set(MAX_HIT, hitCount);
         this.dataTracker.set(MAX_REFLECT, reflectionCount);
         this.dataTracker.set(DAMAGE, damage);
@@ -61,7 +61,7 @@ public class MagicBallEntity extends PersistentProjectileEntity {
         super.initDataTracker();
         this.dataTracker.startTracking(MAX_HIT, 0);
         this.dataTracker.startTracking(MAX_REFLECT, 0);
-        this.dataTracker.startTracking(DAMAGE, 0.0f);
+        this.dataTracker.startTracking(DAMAGE, 0);
         this.dataTracker.startTracking(COLOR_R, 0.0f);
         this.dataTracker.startTracking(COLOR_G, 0.0f);
         this.dataTracker.startTracking(COLOR_B, 0.0f);

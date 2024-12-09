@@ -10,20 +10,19 @@ import net.minecraft.world.World;
 import ricky.terrariamod.entity.magic.MagicBallEntity;
 import ricky.terrariamod.util.ManaData;
 
-public class WaterBoltItem extends SwordItem {
-    public WaterBoltItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+public class EmeraldStaffItem extends SwordItem {
+    public EmeraldStaffItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
     public void attack(World world, PlayerEntity playerEntity, Hand hand) {
         if (!world.isClient) {
-            //十分なマナがあるかクリエイティブモードの場合
             if(ManaData.useMana(playerEntity,40)){
                 ItemStack enchanted = playerEntity.getStackInHand(hand);
                 enchanted.damage(1, playerEntity, p -> p.sendToolBreakStatus(hand));
 
                 // 魔法弾 を生成
-                MagicBallEntity ballEntity  = new MagicBallEntity(world, playerEntity, enchanted,10, 5, 4, 0, 0.4f, 0.8f);
-                ballEntity .setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 1F, 0F);
+                MagicBallEntity ballEntity  = new MagicBallEntity(world, playerEntity, enchanted,2, 0, 5, 0.32f, 0.81f, 0.63f);
+                ballEntity .setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 1.5F, 0F);
                 if (playerEntity.getAbilities().creativeMode) {
                     ballEntity .pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
                 }

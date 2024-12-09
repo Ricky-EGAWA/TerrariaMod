@@ -164,6 +164,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.ENCHANTED_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.AMETHYST_STAFF, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.EMERALD_STAFF, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DIAMOND_STAFF, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WATER_BOLT, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.ROCKET, Models.GENERATED);

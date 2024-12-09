@@ -9,9 +9,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import ricky.terrariamod.item.gun.ShotgunItem;
 import ricky.terrariamod.item.gun.SniperRifleItem;
-import ricky.terrariamod.item.magic.AmethystStaff;
-import ricky.terrariamod.item.magic.EnchantedSwordItem;
-import ricky.terrariamod.item.magic.WaterBoltItem;
+import ricky.terrariamod.item.magic.*;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
@@ -20,42 +18,46 @@ public abstract class LivingEntityMixin {
         LivingEntity entity = (LivingEntity) (Object) this;
 
         // entity が PlayerEntity のインスタンスか確認
-        if (entity instanceof PlayerEntity) {
-            PlayerEntity player = (PlayerEntity) entity; // プレイヤーとしてキャスト
+        if (entity instanceof PlayerEntity player) {
 
             // プレイヤーが Shotgun を持っているか確認
-            if (player.getMainHandStack().getItem() instanceof ShotgunItem) {
+            if (player.getMainHandStack().getItem() instanceof ShotgunItem shotgun) {
                 // ショットガンを発射
-                ShotgunItem shotgun = (ShotgunItem) player.getMainHandStack().getItem();
                 shotgun.attack(player.getWorld(), player, Hand.MAIN_HAND);
 
                 ci.cancel(); // 通常の手を振る動作をキャンセル
             }
 
             // プレイヤーが Sniper を持っているか確認
-            if (player.getMainHandStack().getItem() instanceof SniperRifleItem) {
+            if (player.getMainHandStack().getItem() instanceof SniperRifleItem sniper) {
                 // ショットガンを発射
-                SniperRifleItem sniper = (SniperRifleItem) player.getMainHandStack().getItem();
                 sniper.attack(player.getWorld(), player, Hand.MAIN_HAND);
 
                 ci.cancel(); // 通常の手を振る動作をキャンセル
             }
             // プレイヤーが enchanted sword を持っているか確認
-            if (player.getMainHandStack().getItem() instanceof EnchantedSwordItem) {
+            if (player.getMainHandStack().getItem() instanceof EnchantedSwordItem enchanted_sword) {
                 // 魔法弾を発射
-                EnchantedSwordItem enchanted_sword = (EnchantedSwordItem) player.getMainHandStack().getItem();
                 enchanted_sword.attack(player.getWorld(), player, Hand.MAIN_HAND);
             }
             // プレイヤーが amethyst staff を持っているか確認
-            if (player.getMainHandStack().getItem() instanceof AmethystStaff) {
+            if (player.getMainHandStack().getItem() instanceof AmethystStaffItem staff) {
                 // 魔法弾を発射
-                AmethystStaff amethystStaff = (AmethystStaff) player.getMainHandStack().getItem();
-                amethystStaff.attack(player.getWorld(), player, Hand.MAIN_HAND);
+                staff.attack(player.getWorld(), player, Hand.MAIN_HAND);
+            }
+            // プレイヤーが emerald staff を持っているか確認
+            if (player.getMainHandStack().getItem() instanceof EmeraldStaffItem staff) {
+                // 魔法弾を発射
+                staff.attack(player.getWorld(), player, Hand.MAIN_HAND);
+            }
+            // プレイヤーが diamond staff を持っているか確認
+            if (player.getMainHandStack().getItem() instanceof DiamondStaffItem staff) {
+                // 魔法弾を発射
+                staff.attack(player.getWorld(), player, Hand.MAIN_HAND);
             }
             // プレイヤーが amethyst staff を持っているか確認
-            if (player.getMainHandStack().getItem() instanceof WaterBoltItem) {
+            if (player.getMainHandStack().getItem() instanceof WaterBoltItem waterBolt) {
                 // 魔法弾を発射
-                WaterBoltItem waterBolt = (WaterBoltItem) player.getMainHandStack().getItem();
                 waterBolt.attack(player.getWorld(), player, Hand.MAIN_HAND);
             }
         }

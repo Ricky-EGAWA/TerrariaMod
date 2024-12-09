@@ -2,7 +2,6 @@ package ricky.terrariamod.item.magic;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
@@ -11,8 +10,8 @@ import net.minecraft.world.World;
 import ricky.terrariamod.entity.magic.MagicBallEntity;
 import ricky.terrariamod.util.ManaData;
 
-public class AmethystStaff extends SwordItem {
-    public AmethystStaff(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Item.Settings settings) {
+public class DiamondStaffItem extends SwordItem {
+    public DiamondStaffItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
     public void attack(World world, PlayerEntity playerEntity, Hand hand) {
@@ -22,8 +21,8 @@ public class AmethystStaff extends SwordItem {
                 enchanted.damage(1, playerEntity, p -> p.sendToolBreakStatus(hand));
 
                 // 魔法弾 を生成
-                MagicBallEntity ballEntity  = new MagicBallEntity(world, playerEntity, enchanted,5, 0, 4f, 0.6f, 0.2f, 0.8f);
-                ballEntity .setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 1.5F, 1.0F);
+                MagicBallEntity ballEntity  = new MagicBallEntity(world, playerEntity, enchanted,2, 0, 6, 0.63f, 0.99f, 0.9f);
+                ballEntity .setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 1.5F, 0F);
                 if (playerEntity.getAbilities().creativeMode) {
                     ballEntity .pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
                 }
