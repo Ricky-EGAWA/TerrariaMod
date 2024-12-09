@@ -8,7 +8,6 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import ricky.terrariamod.entity.magic.MagicBallEntity;
-import ricky.terrariamod.util.IEntityDataSaver;
 import ricky.terrariamod.util.ManaData;
 
 public class WaterBoltItem extends SwordItem {
@@ -18,7 +17,7 @@ public class WaterBoltItem extends SwordItem {
     public void attack(World world, PlayerEntity playerEntity, Hand hand) {
         if (!world.isClient) {
             //十分なマナがあるかクリエイティブモードの場合
-            if(ManaData.useMana((IEntityDataSaver) playerEntity,40) || playerEntity.getAbilities().creativeMode){
+            if(ManaData.useMana(playerEntity,40)){
                 ItemStack enchanted = playerEntity.getStackInHand(hand);
                 enchanted.damage(1, playerEntity, p -> p.sendToolBreakStatus(hand));
 
