@@ -88,6 +88,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PEARL_PRESSURE_PLATE);
                         entries.add(ModBlocks.PEARL_FENCE);
                         entries.add(ModBlocks.PEARL_FENCE_GATE);
+
+                        entries.add(ModBlocks.DUNGEON_TILE_GREEN);
+                        entries.add(ModBlocks.DUNGEON_TILE_GREEN_FRAGILE);
                     }).build());
 
     public static final ItemGroup MOD_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,

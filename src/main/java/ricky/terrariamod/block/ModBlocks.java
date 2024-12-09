@@ -11,6 +11,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import ricky.terrariamod.TerrariaMod;
+import ricky.terrariamod.block.custom.FragileBlock;
 import ricky.terrariamod.block.custom.SoundBlock;
 import ricky.terrariamod.world.ModConfiguredFeatures;
 import ricky.terrariamod.world.tree.CrimSaplingGenerator;
@@ -178,6 +179,11 @@ public class ModBlocks {
             new FenceBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE)));
     public static final Block PEARL_FENCE_GATE = registerBlock("pearl_fence_gate",
             new FenceGateBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE), WoodType.ACACIA));
+
+    public static final Block DUNGEON_TILE_GREEN_FRAGILE = registerBlock("dungeon_tile_green_fragile",
+            new FragileBlock(FabricBlockSettings.copyOf(Blocks.BRICKS)));
+    public static final Block DUNGEON_TILE_GREEN = registerBlock("dungeon_tile_green",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
 
     public static Block getSlab(String materialName) {
         return switch (materialName.toLowerCase()) {

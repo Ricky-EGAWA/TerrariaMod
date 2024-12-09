@@ -84,6 +84,9 @@ public class ModModelProvider extends FabricModelProvider {
         pearlPool.pressurePlate(ModBlocks.PEARL_PRESSURE_PLATE);
         pearlPool.fence(ModBlocks.PEARL_FENCE);
         pearlPool.fenceGate(ModBlocks.PEARL_FENCE_GATE);
+
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DUNGEON_TILE_GREEN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DUNGEON_TILE_GREEN_FRAGILE);
     }
 
     @Override
@@ -100,22 +103,18 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COBALT_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.COBALT_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.COBALT_SWORD, Models.HANDHELD);
-//        itemModelGenerator.register(ModItems.COBALT_DRILL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ORICHALCUM_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ORICHALCUM_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ORICHALCUM_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ORICHALCUM_SWORD, Models.HANDHELD);
-//        itemModelGenerator.register(ModItems.ORICHALCUM_DRILL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ADAMANTITE_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ADAMANTITE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ADAMANTITE_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ADAMANTITE_SWORD, Models.HANDHELD);
-//        itemModelGenerator.register(ModItems.ADAMANTITE_DRILL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.HELLSTONE_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.HELLSTONE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.HELLSTONE_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.HELLSTONE_SWORD, Models.HANDHELD);
-//        itemModelGenerator.register(ModItems.HELLSTONE_DRILL, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.MetalDetectorItem, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPIDER_FANG, Models.GENERATED);
