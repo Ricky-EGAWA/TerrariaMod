@@ -180,10 +180,28 @@ public class ModBlocks {
     public static final Block PEARL_FENCE_GATE = registerBlock("pearl_fence_gate",
             new FenceGateBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE), WoodType.ACACIA));
 
+    //ダンジョン用
     public static final Block DUNGEON_TILE_GREEN_FRAGILE = registerBlock("dungeon_tile_green_fragile",
             new FragileBlock(FabricBlockSettings.copyOf(Blocks.BRICKS)));
     public static final Block DUNGEON_TILE_GREEN = registerBlock("dungeon_tile_green",
             new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
+    public static final Block DUNGEON_TILE_GREEN_STAIRS = registerBlock("dungeon_tile_green_stairs",
+            new StairsBlock(ModBlocks.PEARL_PLANKS.getDefaultState(),FabricBlockSettings.copyOf(Blocks.STONE_STAIRS)));
+    public static final Block DUNGEON_TILE_GREEN_SLAB = registerBlock("dungeon_tile_green_slab",
+            new SlabBlock(FabricBlockSettings.copyOf(Blocks.STONE_SLAB)));
+    public static final Block DUNGEON_TILE_GREEN_WALL = registerBlock("dungeon_tile_green_wall",
+            new WallBlock(FabricBlockSettings.copyOf(Blocks.STONE_BRICK_WALL)));
+
+    public static final Block DUNGEON_BRICK_GREEN_FRAGILE = registerBlock("dungeon_brick_green_fragile",
+            new FragileBlock(FabricBlockSettings.copyOf(Blocks.BRICKS)));
+    public static final Block DUNGEON_BRICK_GREEN = registerBlock("dungeon_brick_green",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
+    public static final Block DUNGEON_BRICK_GREEN_STAIRS = registerBlock("dungeon_brick_green_stairs",
+            new StairsBlock(ModBlocks.PEARL_PLANKS.getDefaultState(),FabricBlockSettings.copyOf(Blocks.STONE_STAIRS)));
+    public static final Block DUNGEON_BRICK_GREEN_SLAB = registerBlock("dungeon_brick_green_slab",
+            new SlabBlock(FabricBlockSettings.copyOf(Blocks.STONE_SLAB)));
+    public static final Block DUNGEON_BRICK_GREEN_WALL = registerBlock("dungeon_brick_green_wall",
+            new WallBlock(FabricBlockSettings.copyOf(Blocks.STONE_BRICK_WALL)));
 
     public static Block getSlab(String materialName) {
         return switch (materialName.toLowerCase()) {

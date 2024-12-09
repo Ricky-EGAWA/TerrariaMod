@@ -89,8 +89,17 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PEARL_FENCE);
                         entries.add(ModBlocks.PEARL_FENCE_GATE);
 
+                        //ダンジョン用
                         entries.add(ModBlocks.DUNGEON_TILE_GREEN);
                         entries.add(ModBlocks.DUNGEON_TILE_GREEN_FRAGILE);
+                        entries.add(ModBlocks.DUNGEON_TILE_GREEN_SLAB);
+                        entries.add(ModBlocks.DUNGEON_TILE_GREEN_STAIRS);
+                        entries.add(ModBlocks.DUNGEON_TILE_GREEN_WALL);
+                        entries.add(ModBlocks.DUNGEON_BRICK_GREEN);
+                        entries.add(ModBlocks.DUNGEON_BRICK_GREEN_FRAGILE);
+                        entries.add(ModBlocks.DUNGEON_BRICK_GREEN_SLAB);
+                        entries.add(ModBlocks.DUNGEON_BRICK_GREEN_STAIRS);
+                        entries.add(ModBlocks.DUNGEON_BRICK_GREEN_WALL);
                     }).build());
 
     public static final ItemGroup MOD_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,

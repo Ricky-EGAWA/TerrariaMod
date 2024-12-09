@@ -85,8 +85,18 @@ public class ModModelProvider extends FabricModelProvider {
         pearlPool.fence(ModBlocks.PEARL_FENCE);
         pearlPool.fenceGate(ModBlocks.PEARL_FENCE_GATE);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DUNGEON_TILE_GREEN);
+        //ダンジョン用
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DUNGEON_TILE_GREEN_FRAGILE);
+        BlockStateModelGenerator.BlockTexturePool dungeonTileGreenPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DUNGEON_TILE_GREEN);
+        dungeonTileGreenPool.stairs(ModBlocks.DUNGEON_TILE_GREEN_STAIRS);
+        dungeonTileGreenPool.slab(ModBlocks.DUNGEON_TILE_GREEN_SLAB);
+        dungeonTileGreenPool.wall(ModBlocks.DUNGEON_TILE_GREEN_WALL);
+
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DUNGEON_BRICK_GREEN_FRAGILE);
+        BlockStateModelGenerator.BlockTexturePool dungeonBrickGreenPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DUNGEON_BRICK_GREEN);
+        dungeonBrickGreenPool.stairs(ModBlocks.DUNGEON_BRICK_GREEN_STAIRS);
+        dungeonBrickGreenPool.slab(ModBlocks.DUNGEON_BRICK_GREEN_SLAB);
+        dungeonBrickGreenPool.wall(ModBlocks.DUNGEON_BRICK_GREEN_WALL);
     }
 
     @Override
