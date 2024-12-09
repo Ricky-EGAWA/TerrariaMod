@@ -2,14 +2,13 @@ package ricky.terrariamod.util;
 
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 import ricky.terrariamod.networking.ModNetworking;
 
 public class ManaData {
-    public static int addMana(IEntityDataSaver player, int amount) {
+    public static void addMana(IEntityDataSaver player, int amount) {
         NbtCompound nbt = player.getPersistentData();
         int mana = nbt.getInt("mana");
         if(mana + amount >= 200) {
@@ -20,10 +19,9 @@ public class ManaData {
 
         nbt.putInt("mana", mana);
         syncMana(mana, (ServerPlayerEntity) player);
-        return mana;
     }
 
-    public static int removeMana(IEntityDataSaver player, int amount) {
+    public static void removeMana(IEntityDataSaver player, int amount) {
         NbtCompound nbt = player.getPersistentData();
         int mana = nbt.getInt("mana");
         if(mana - amount < 0) {
@@ -34,7 +32,6 @@ public class ManaData {
 
         nbt.putInt("mana", mana);
         syncMana(mana, (ServerPlayerEntity) player);
-        return mana;
     }
     public static boolean useMana(IEntityDataSaver player, int currentMana) {
         int confuseMana = player.getPersistentData().getInt("mana");
