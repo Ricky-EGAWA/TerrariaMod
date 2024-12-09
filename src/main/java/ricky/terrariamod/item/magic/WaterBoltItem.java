@@ -7,7 +7,7 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import ricky.terrariamod.entity.magic.WaterBoltEntity;
+import ricky.terrariamod.entity.magic.MagicBallEntity;
 import ricky.terrariamod.util.IEntityDataSaver;
 import ricky.terrariamod.util.ManaData;
 
@@ -23,7 +23,7 @@ public class WaterBoltItem extends SwordItem {
                 enchanted.damage(1, playerEntity, p -> p.sendToolBreakStatus(hand));
 
                 // 魔法弾 を生成
-                WaterBoltEntity ballEntity  = new WaterBoltEntity(world, playerEntity, enchanted);
+                MagicBallEntity ballEntity  = new MagicBallEntity(world, playerEntity, enchanted,10, 5, 4f, 0, 0.4f, 0.8f);
                 ballEntity .setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 1F, 1.0F);
                 if (playerEntity.getAbilities().creativeMode) {
                     ballEntity .pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;

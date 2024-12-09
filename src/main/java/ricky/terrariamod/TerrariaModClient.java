@@ -24,10 +24,8 @@ import ricky.terrariamod.entity.client.bats.LavaBatEntityModel;
 import ricky.terrariamod.entity.client.bats.LavaBatEntityRenderer;
 import ricky.terrariamod.entity.client.slimes.*;
 import ricky.terrariamod.entity.client.zombies.*;
-import ricky.terrariamod.entity.magic.AmethystBallRenderer;
 import ricky.terrariamod.entity.magic.MagicBallModel;
-import ricky.terrariamod.entity.magic.WaterBoltModel;
-import ricky.terrariamod.entity.magic.WaterBoltRenderer;
+import ricky.terrariamod.entity.magic.MagicBallRenderer;
 import ricky.terrariamod.event.KeyInputHandler;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.networking.ModNetworking;
@@ -100,10 +98,8 @@ public class TerrariaModClient implements ClientModInitializer {
         //magic
         EntityRendererRegistry.register(ModEntities.ENCHANTED_SWORD, EnchantedSwordRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ENCHANTED_SWORD, EnchantedSwordModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.AMETHYST_BALL, AmethystBallRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.AMETHYST_BALL, MagicBallModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.WATER_BOLT, WaterBoltRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.WATER_BOLT, WaterBoltModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.WATER_BOLT, MagicBallRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.WATER_BOLT, MagicBallModel::getTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.ROCKET, RocketEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.MUSKET_BALL, MusketBallEntityRenderer::new);
@@ -111,13 +107,10 @@ public class TerrariaModClient implements ClientModInitializer {
         registerCustomBow(ModItems.IRON_BOW); // IRON_BOW 用の登録
         registerCustomBow(ModItems.GOLD_BOW); // GOLD_BOW 用の登録
         registerCustomBow(ModItems.DIAMOND_BOW); // DIAMOND_BOW 用の登録
-        registerCustomShotgun(ModItems.SHOTGUN);
 
         //key bind
         KeyInputHandler.register();
-        HudRenderCallback.EVENT.register((context, tickDelta) -> {
-            SniperScopeOverlay.renderIfUsingScope(context);
-        });
+        HudRenderCallback.EVENT.register((context, tickDelta) -> SniperScopeOverlay.renderIfUsingScope(context));
         HudRenderCallback.EVENT.register(new ManaHudOverlay());
 
         ModNetworking.registerS2CPackets();
@@ -131,22 +124,8 @@ public class TerrariaModClient implements ClientModInitializer {
                     (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F;
         });
 
-        ModelPredicateProviderRegistry.register(item, new Identifier("pulling"), (stack, world, entity, seed) -> {
-            return entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F;
-        });
-    }
-    private static void registerCustomShotgun(Item item) {
-        // "charged" の状態でモデルを切り替え
-        ModelPredicateProviderRegistry.register(item, new Identifier("charged"), (stack, world, entity, seed) -> {
-            if (stack == null || !stack.hasNbt()) {
-                return 0.0F;
-            }
-
-            // チャージ状態を確認する
-            boolean isCharged = stack.getOrCreateSubNbt("Shotgun").getBoolean("charged");
-
-            // チャージされていれば1.0F、そうでなければ0.0F
-            return isCharged ? 1.0F : 0.0F;
-        });
+        ModelPredicateProviderRegistry.register(item, new Identifier("pulling"),
+                (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F
+        );
     }
 }

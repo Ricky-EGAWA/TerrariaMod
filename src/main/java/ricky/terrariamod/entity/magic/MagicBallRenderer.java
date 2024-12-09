@@ -2,23 +2,24 @@ package ricky.terrariamod.entity.magic;
 
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RotationAxis;
 import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.entity.client.ModModelLayers;
 
-public class AmethystBallRenderer extends EntityRenderer<MagicBallEntity> {
-    private static final Identifier TEXTURE = new Identifier(TerrariaMod.MOD_ID, "textures/entity/projectiles/amethyst_ball.png");
-    private final MagicBallModel model;
-    public AmethystBallRenderer(EntityRendererFactory.Context context) {
+public class MagicBallRenderer extends EntityRenderer<MagicBallEntity> {
+    private static final Identifier TEXTURE = new Identifier(TerrariaMod.MOD_ID, "textures/entity/projectiles/magic_ball.png");
+    private final MagicBallModel<MagicBallEntity> model;
+
+    public MagicBallRenderer(EntityRendererFactory.Context context) {
         super(context);
-        this.model = new MagicBallModel(context.getPart(ModModelLayers.AMETHYST_BALL));
+        this.model = new MagicBallModel<>(context.getPart(ModModelLayers.WATER_BOLT));
     }
 
     @Override

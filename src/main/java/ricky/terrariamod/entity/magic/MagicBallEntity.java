@@ -4,6 +4,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
@@ -21,21 +24,47 @@ public class MagicBallEntity extends PersistentProjectileEntity {
     private boolean dealtDamage;
 
     // 寿命を管理するタイマー（初期値: 100 ticks = 5秒）
-    private int lifeTime = 100;
+    private int lifeTime = 200;
+    private int hitCount = 0;
+    private int reflectionCount = 0;
+
+    private static final TrackedData<Integer> MAX_HIT = DataTracker.registerData(MagicBallEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Integer> MAX_REFLECT = DataTracker.registerData(MagicBallEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Float> DAMAGE = DataTracker.registerData(MagicBallEntity.class, TrackedDataHandlerRegistry.FLOAT);
+    private static final TrackedData<Float> COLOR_R = DataTracker.registerData(MagicBallEntity.class, TrackedDataHandlerRegistry.FLOAT);
+    private static final TrackedData<Float> COLOR_G = DataTracker.registerData(MagicBallEntity.class, TrackedDataHandlerRegistry.FLOAT);
+    private static final TrackedData<Float> COLOR_B = DataTracker.registerData(MagicBallEntity.class, TrackedDataHandlerRegistry.FLOAT);
+
 
     public MagicBallEntity(EntityType<? extends MagicBallEntity> entityType, World world) {
         super(entityType, world);
-        this.tridentStack = new ItemStack(ModItems.AMETHYST_STAFF);
+        this.tridentStack = new ItemStack(ModItems.WATER_BOLT);
     }
 
-    public MagicBallEntity(World world, LivingEntity owner, ItemStack stack) {
-        super(ModEntities.AMETHYST_BALL, owner, world);
-        this.tridentStack = new ItemStack(ModItems.AMETHYST_STAFF);
+    public MagicBallEntity(World world, LivingEntity owner, ItemStack stack, int hitCount, int reflectionCount, float damage, float r, float g, float b) {
+        super(ModEntities.WATER_BOLT, owner, world);
         this.tridentStack = stack.copy();
+        this.setCustomValues(hitCount, reflectionCount, damage, r, g, b);
     }
+
+    private void setCustomValues(int hitCount, int reflectionCount, float damage, float r, float g, float b) {
+        this.dataTracker.set(MAX_HIT, hitCount);
+        this.dataTracker.set(MAX_REFLECT, reflectionCount);
+        this.dataTracker.set(DAMAGE, damage);
+        this.dataTracker.set(COLOR_R, r);
+        this.dataTracker.set(COLOR_G, g);
+        this.dataTracker.set(COLOR_B, b);
+    }
+
 
     protected void initDataTracker() {
         super.initDataTracker();
+        this.dataTracker.startTracking(MAX_HIT, 0);
+        this.dataTracker.startTracking(MAX_REFLECT, 0);
+        this.dataTracker.startTracking(DAMAGE, 0.0f);
+        this.dataTracker.startTracking(COLOR_R, 0.0f);
+        this.dataTracker.startTracking(COLOR_G, 0.0f);
+        this.dataTracker.startTracking(COLOR_B, 0.0f);
     }
 
     public void tick() {
@@ -75,15 +104,14 @@ public class MagicBallEntity extends PersistentProjectileEntity {
                 double offsetY = this.random.nextGaussian() * 0.05;
                 double offsetZ = this.random.nextGaussian() * 0.05;
 
-                // アメジストの紫色 (RGB)
-                float red = 0.6f;
-                float green = 0.2f;
-                float blue = 0.8f;
+                float r = this.dataTracker.get(COLOR_R);
+                float g = this.dataTracker.get(COLOR_G);
+                float b = this.dataTracker.get(COLOR_B);
 
                 // DustParticleEffectを生成（Vector3fで色を指定）
                 world.addParticle(
                         new net.minecraft.particle.DustParticleEffect(
-                                new org.joml.Vector3f(red, green, blue), // カラー
+                                new org.joml.Vector3f(r, g, b), // カラー
                                 1.0F // スケール
                         ),
                         x, y, z,
@@ -92,16 +120,10 @@ public class MagicBallEntity extends PersistentProjectileEntity {
             }
         }
     }
-
     private void spawnCircleParticles() {
         World world = this.getWorld();
         if (world.isClient) { // クライアントサイドでのみ実行
             Vec3d center = this.getPos();
-
-            // アメジストの紫色 (RGB)
-            float red = 0.6f;
-            float green = 0.2f;
-            float blue = 0.8f;
 
             // 半径 0.2 ブロックの範囲でパーティクルを生成
             double radius = 0.2;
@@ -114,10 +136,14 @@ public class MagicBallEntity extends PersistentProjectileEntity {
                 // 高さを少しランダム化
                 double offsetY = this.random.nextGaussian() * 0.02;
 
+                float r = this.dataTracker.get(COLOR_R);
+                float g = this.dataTracker.get(COLOR_G);
+                float b = this.dataTracker.get(COLOR_B);
+
                 // パーティクルを生成
                 world.addParticle(
                         new net.minecraft.particle.DustParticleEffect(
-                                new org.joml.Vector3f(red, green, blue), // カラー
+                                new org.joml.Vector3f(r, g, b), // カラー
                                 1.0F // スケール
                         ),
                         center.x + offsetX,
@@ -138,20 +164,26 @@ public class MagicBallEntity extends PersistentProjectileEntity {
         return this.dealtDamage ? null : super.getEntityCollision(currentPosition, nextPosition);
     }
 
+
     protected void onEntityHit(EntityHitResult entityHitResult) {
         Entity entity = entityHitResult.getEntity();
-        float damage = 8.0F;
 
         DamageSource damageSource = this.getDamageSources().trident(this, this.getOwner());
         this.dealtDamage = true;
 
-        if (entity.damage(damageSource, damage)) {
+        if (entity.damage(damageSource, this.dataTracker.get(DAMAGE))) {
             if (entity instanceof LivingEntity livingEntity) {
                 this.onHit(livingEntity);
             }
         }
-
-        this.setVelocity(this.getVelocity().multiply(-0.01, -0.1, -0.01));
+    }
+    protected void onHit(LivingEntity target) {
+        // ヒット回数をチェック
+        if (hitCount >= this.dataTracker.get(MAX_HIT)) {
+            this.discard(); // ヒットが10回に達したらエンティティを消滅
+            return;
+        }
+        hitCount++;
     }
 
     protected boolean tryPickup(PlayerEntity player) {
@@ -159,11 +191,36 @@ public class MagicBallEntity extends PersistentProjectileEntity {
     }
 
     protected void onBlockHit(BlockHitResult blockHitResult) {
-        this.discard();
-    }
+        // 反射回数をチェック
+        if (reflectionCount >= this.dataTracker.get(MAX_REFLECT)) {
+            this.discard(); // 反射回数が5回に達したらエンティティを消滅
+            return;
+        }
 
-    protected void onHit(LivingEntity target) {
-        this.discard();
+        // 衝突時の位置とブロックの法線を取得
+        Vec3d velocity = this.getVelocity();
+        Vec3d normal = Vec3d.of(blockHitResult.getSide().getVector()); // ブロックの面法線（正規化ベクトル）
+
+        // 速度ベクトルを反射計算
+        Vec3d reflectedVelocity = velocity.subtract(normal.multiply(2 * velocity.dotProduct(normal)));
+
+        // 減速を適用（反射後の速度を調整）
+        reflectedVelocity = reflectedVelocity.multiply(0.9); // 0.9の速度で反射
+
+        // 新しい速度をセット
+        this.setVelocity(reflectedVelocity);
+
+        // 反射の位置を微調整（埋まり防止）
+        Vec3d hitPos = blockHitResult.getPos();
+        this.setPos(hitPos.x + reflectedVelocity.x * 0.01,
+                hitPos.y + reflectedVelocity.y * 0.01,
+                hitPos.z + reflectedVelocity.z * 0.01);
+
+        // Ground Time をリセット（必要に応じて追加）
+        this.inGroundTime = 0;
+
+        // 反射回数を増加
+        reflectionCount++;
     }
 
     public void readCustomDataFromNbt(NbtCompound nbt) {

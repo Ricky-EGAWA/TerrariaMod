@@ -23,7 +23,7 @@ public class AmethystStaff extends SwordItem {
                 enchanted.damage(1, playerEntity, p -> p.sendToolBreakStatus(hand));
 
                 // 魔法弾 を生成
-                MagicBallEntity ballEntity  = new MagicBallEntity(world, playerEntity, enchanted);
+                MagicBallEntity ballEntity  = new MagicBallEntity(world, playerEntity, enchanted,5, 0, 4f, 0.6f, 0.2f, 0.8f);
                 ballEntity .setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 1.5F, 1.0F);
                 if (playerEntity.getAbilities().creativeMode) {
                     ballEntity .pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
