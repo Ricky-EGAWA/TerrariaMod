@@ -34,7 +34,7 @@ import ricky.terrariamod.entity.ammo.MusketBallEntity;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
 
-public class ShotgunItem extends RangedWeaponItem implements Vanishable {
+public class ShotgunItem extends RangedWeaponItem implements Vanishable {//TODO クリエイティブモードでリロード時にクラッシュ
     private boolean charged = false;
     private boolean loaded = false;
 
@@ -55,14 +55,11 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
         user.setCurrentHand(hand);
         return TypedActionResult.fail(itemStack);
     }
-    public TypedActionResult<ItemStack> attack(World world, PlayerEntity user, Hand hand){
+    public void attack(World world, PlayerEntity user, Hand hand){
         ItemStack itemStack = user.getStackInHand(hand);
         if (isCharged(itemStack)) {
             shootAll(world, user, hand, itemStack, getSpeed(itemStack), 1.0F);
             setCharged(itemStack, false);
-            return TypedActionResult.consume(itemStack);
-        } else {
-            return TypedActionResult.fail(itemStack);
         }
     }
 
@@ -88,20 +85,16 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
     }
 
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
-//        int i = this.getMaxUseTime(stack) - remainingUseTicks;
-//        float f = getPullProgress(i, stack);
-//        if (f >= 1.0F && !isCharged(stack) && loadProjectiles(user, stack)) {
-//            setCharged(stack, true);
-//            SoundCategory soundCategory = user instanceof PlayerEntity ? SoundCategory.PLAYERS : SoundCategory.HOSTILE;
-//            world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ITEM_CROSSBOW_LOADING_END, soundCategory, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
-//        }
-
     }
 
     private static boolean loadProjectiles(LivingEntity shooter, ItemStack crossbow) {
         int j = 9; // 発射する弾の数
         boolean bl = shooter instanceof PlayerEntity && ((PlayerEntity)shooter).getAbilities().creativeMode;
         ItemStack musketBall = shooter instanceof PlayerEntity ? findMusketBall((PlayerEntity)shooter) : ItemStack.EMPTY;
+        // Nullチェック
+        if (musketBall == null) {
+            musketBall = ItemStack.EMPTY;
+        }
         ItemStack itemStack2 = musketBall.copy();
 
         for (int k = 0; k < j; ++k) {
@@ -195,15 +188,13 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
     }
 
     public static boolean hasProjectile(ItemStack crossbow, Item projectile) {
-        return getProjectiles(crossbow).stream().anyMatch((s) -> {
-            return s.isOf(projectile);
-        });
+        return getProjectiles(crossbow).stream().anyMatch((s) -> s.isOf(projectile));
     }
 
-    private static void shoot(World world, LivingEntity shooter, Hand hand, ItemStack crossbow, ItemStack projectile, float soundPitch, boolean creative, float speed, float divergence, float horizontalSpread, float verticalSpread) {
+    private static void shoot(World world, LivingEntity shooter, Hand hand, ItemStack crossbow, float soundPitch, float speed, float divergence, float horizontalSpread, float verticalSpread) {
         if (!world.isClient) {
             // カスタム弾丸エンティティを生成
-            PersistentProjectileEntity musketBallEntity = createMusketBall(world, shooter, crossbow, projectile);
+            PersistentProjectileEntity musketBallEntity = createMusketBall(world, shooter);
 
             // 矢の挙動を削除
             musketBallEntity.pickupType = PickupPermission.DISALLOWED;
@@ -229,7 +220,7 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
 
 
 
-    private static PersistentProjectileEntity createMusketBall(World world, LivingEntity entity, ItemStack crossbow, ItemStack musket) {
+    private static PersistentProjectileEntity createMusketBall(World world, LivingEntity entity) {
         MusketBallEntity musketBallEntity = new MusketBallEntity(world, entity);
 
         musketBallEntity.setVelocity(entity, entity.getPitch(), entity.getYaw(), 0.0F, 3.15F, 1.0F);
@@ -250,7 +241,6 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
         // 発射する弾丸の最大数
         int horizontalShots = 3; // 横方向の発射数
         int verticalShots = 3; // 縦方向の発射数
-        int totalShots = horizontalShots * verticalShots;
 
         int soundIndex = 0; // サウンドのインデックス
 
@@ -259,7 +249,6 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
                 if (soundIndex >= projectiles.size()) break;
 
                 ItemStack projectile = projectiles.get(soundIndex++);
-                boolean isCreative = entity instanceof PlayerEntity && ((PlayerEntity) entity).getAbilities().creativeMode;
 
                 if (!projectile.isEmpty()) {
                     // 水平角度 (左 -3度, 中央 0度, 右 +3度)
@@ -268,7 +257,7 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
                     float verticalSpread = (v - 1) * 3.0F;
 
                     // 発射処理
-                    shoot(world, entity, hand, stack, projectile, soundPitches[soundIndex % soundPitches.length], isCreative, speed, divergence, horizontalSpread, verticalSpread);
+                    shoot(world, entity, hand, stack, soundPitches[soundIndex % soundPitches.length], speed, divergence, horizontalSpread, verticalSpread);
                 }
             }
         }
@@ -338,25 +327,12 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
     }
 
     private SoundEvent getQuickChargeSound(int stage) {
-        switch (stage) {
-            case 1:
-                return SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_1;
-            case 2:
-                return SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_2;
-            case 3:
-                return SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_3;
-            default:
-                return SoundEvents.ITEM_CROSSBOW_LOADING_START;
-        }
-    }
-
-    private static float getPullProgress(int useTicks, ItemStack stack) {
-        float f = (float)useTicks / (float)getPullTime(stack);
-        if (f > 1.0F) {
-            f = 1.0F;
-        }
-
-        return f;
+        return switch (stage) {
+            case 1 -> SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_1;
+            case 2 -> SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_2;
+            case 3 -> SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_3;
+            default -> SoundEvents.ITEM_CROSSBOW_LOADING_START;
+        };
     }
 
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {

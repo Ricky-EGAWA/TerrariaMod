@@ -1,0 +1,10 @@
+{
+  "replace": false,
+
+  "_comment": " This biome tag can specify the biome directly. Or specify another biome tag by starting with # ",
+  "values": [
+    "terrariamod:ebon_biome",
+    "terrariamod:crim_biome",
+    "terrariamod:pearl_biome"
+  ]
+}
