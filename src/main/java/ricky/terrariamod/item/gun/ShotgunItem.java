@@ -34,7 +34,7 @@ import ricky.terrariamod.entity.ammo.MusketBallEntity;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
 
-public class ShotgunItem extends RangedWeaponItem implements Vanishable {//TODO クリエイティブモードでリロード時にクラッシュ
+public class ShotgunItem extends RangedWeaponItem implements Vanishable {
     private boolean charged = false;
     private boolean loaded = false;
 

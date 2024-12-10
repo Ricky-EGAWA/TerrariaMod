@@ -1,6 +1,7 @@
 package ricky.terrariamod.item.bows;
 
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
@@ -40,8 +41,8 @@ public class CustomBowItem extends BowItem {
                 stack.damage(1, user, (e) -> e.sendToolBreakStatus(user.getActiveHand()));
 
                 // 矢を消費
-                ItemStack arrowStack = user.getProjectileType(stack);//TODO　creative の場合矢を消費しないようにする
-                if (!arrowStack.isEmpty()) {
+                ItemStack arrowStack = user.getProjectileType(stack);
+                if (!arrowStack.isEmpty() && ((PlayerEntity)user).getAbilities().creativeMode) {
                     arrowStack.decrement(1);
                 }
 
