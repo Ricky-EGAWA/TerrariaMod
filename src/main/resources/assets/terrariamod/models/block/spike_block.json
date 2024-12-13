@@ -3,7 +3,6 @@
 	"textures": {
 		"3": "terrariamod:block/spike_block"
 	},
-	"ambientocclusion": false,
 	"elements": [
 		{
 			"from": [6.995, 0.02, 6.995],

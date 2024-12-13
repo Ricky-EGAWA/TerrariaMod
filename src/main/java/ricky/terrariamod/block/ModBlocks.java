@@ -205,7 +205,7 @@ public class ModBlocks {
             new WallBlock(FabricBlockSettings.copyOf(Blocks.STONE_BRICK_WALL)));
 
     public static final  Block SPIKE_BLOCK = registerBlock("spike_block",
-            new SpikeBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+            new SpikeBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
 
     public static Block getSlab(String materialName) {
         return switch (materialName.toLowerCase()) {
