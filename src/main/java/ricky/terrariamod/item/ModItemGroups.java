@@ -100,6 +100,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.DUNGEON_BRICK_GREEN_SLAB);
                         entries.add(ModBlocks.DUNGEON_BRICK_GREEN_STAIRS);
                         entries.add(ModBlocks.DUNGEON_BRICK_GREEN_WALL);
+                        entries.add(ModBlocks.SPIKE_BLOCK);
                     }).build());
 
     public static final ItemGroup MOD_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,

@@ -13,6 +13,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.block.custom.FragileBlock;
 import ricky.terrariamod.block.custom.SoundBlock;
+import ricky.terrariamod.block.custom.SpikeBlock;
 import ricky.terrariamod.world.ModConfiguredFeatures;
 import ricky.terrariamod.world.tree.CrimSaplingGenerator;
 import ricky.terrariamod.world.tree.EbonSaplingGenerator;
@@ -202,6 +203,9 @@ public class ModBlocks {
             new SlabBlock(FabricBlockSettings.copyOf(Blocks.STONE_SLAB)));
     public static final Block DUNGEON_BRICK_GREEN_WALL = registerBlock("dungeon_brick_green_wall",
             new WallBlock(FabricBlockSettings.copyOf(Blocks.STONE_BRICK_WALL)));
+
+    public static final  Block SPIKE_BLOCK = registerBlock("spike_block",
+            new SpikeBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
 
     public static Block getSlab(String materialName) {
         return switch (materialName.toLowerCase()) {
