@@ -181,5 +181,7 @@
   "item.terrariamod.amethyst_staff": "Amethyst Staff",
   "item.terrariamod.emerald_staff": "Emerald Staff",
   "item.terrariamod.diamond_staff": "Diamond Staff",
-  "item.terrariamod.water_bolt": "Water Bolt"
+  "item.terrariamod.water_bolt": "Water Bolt",
+
+  "block.terrariamod.dungeon_tile_green": "Dungeon Green Tile"
 }

@@ -4,7 +4,12 @@ import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.potion.PotionUtil;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.TypedActionResult;
 import ricky.terrariamod.effect.ModEffects;
@@ -24,6 +29,19 @@ public class ModEvents {
         UseItemCallback.EVENT.register((player, world, hand) -> {
             if (isCursed(player)) {
                 return TypedActionResult.fail(player.getStackInHand(hand)); // アイテム使用をキャンセル
+            }
+            ItemStack stack = player.getStackInHand(hand);
+            if((stack.isOf(Items.POTION) || stack.isOf(Items.SPLASH_POTION) || stack.isOf(Items.LINGERING_POTION)) && isBleeding(player)) {
+                // ポーションの効果を取得
+                var potionEffects = PotionUtil.getPotionEffects(stack);
+                for (StatusEffectInstance effect : potionEffects) {
+                    if (effect.getEffectType() == StatusEffects.REGENERATION || effect.getEffectType() == StatusEffects.INSTANT_HEALTH) {
+                        return TypedActionResult.fail(stack);
+                    }
+                }
+            }
+            if(isBleeding(player) && (stack.isOf(Items.GOLDEN_APPLE) || stack.isOf(Items.ENCHANTED_GOLDEN_APPLE))){
+                return TypedActionResult.fail(stack);
             }
             return TypedActionResult.pass(player.getStackInHand(hand)); // 通常のアイテム使用
         });
@@ -53,5 +71,9 @@ public class ModEvents {
     private static boolean isUnPlaceable(PlayerEntity player) {
         // プレイヤーが設置不可エフェクトを持っているかを判定
         return player.hasStatusEffect(ModEffects.UN_PLACEABLE);
+    }
+    private static boolean isBleeding(PlayerEntity player) {
+        // プレイヤーが出血しているかを判定
+        return player.hasStatusEffect(ModEffects.BLEEDING);
     }
 }
