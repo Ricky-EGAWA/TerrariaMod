@@ -8,7 +8,8 @@
 		"LivingEntityMixin",
 		"GameRendererMixin",
 		"KeyboardInputMixin",
-		"EntityDataSaverMixin"
+		"EntityDataSaverMixin",
+		"PlayerEntityMixin"
 	],
 	"client": [
 		"ItemRendererAccessor",
