@@ -183,5 +183,6 @@
   "item.terrariamod.diamond_staff": "Diamond Staff",
   "item.terrariamod.water_bolt": "Water Bolt",
 
-  "block.terrariamod.dungeon_tile_green": "Dungeon Green Tile"
+  "block.terrariamod.dungeon_tile_green": "Dungeon Green Tile",
+  "tooltip.terrariamod.cobalt_shield.tooltip": "Unable Knockback"
 }

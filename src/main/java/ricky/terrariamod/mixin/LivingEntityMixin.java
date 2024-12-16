@@ -2,11 +2,13 @@ package ricky.terrariamod.mixin;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import ricky.terrariamod.item.custom.CobaltShieldItem;
 import ricky.terrariamod.item.gun.ShotgunItem;
 import ricky.terrariamod.item.gun.SniperRifleItem;
 import ricky.terrariamod.item.magic.*;
@@ -67,4 +69,15 @@ public abstract class LivingEntityMixin {
             }
         }
     }
+    @Inject(method = "takeKnockback", at = @At("HEAD"), cancellable = true)
+    private void disableKnockback(double strength, double x, double z, CallbackInfo ci) {
+        if ((Object) this instanceof PlayerEntity player) {
+            for (ItemStack stack : player.getInventory().main) {
+                if (stack.getItem() instanceof CobaltShieldItem) {
+                    ci.cancel(); // ノックバック処理をキャンセル
+                }
+            }
+        }
+    }
+
 }
