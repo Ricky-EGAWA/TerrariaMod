@@ -52,12 +52,15 @@ public class MagicMissileItem extends SwordItem {
                     // 世界にミサイルをスポーン
                     world.spawnEntity(ballEntity);
                 } else{
-                    // 魔法弾 を生成
-                    MagicBallEntity ballEntity  = new MagicBallEntity(world, playerEntity, enchanted,0, 0, 4, 0.5f, 0.9f, 0.9f);
-                    ballEntity .setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 1.5F, 0F);
-                    if (playerEntity.getAbilities().creativeMode) {
-                        ballEntity .pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
-                    }
+                    // 魔法弾を生成してターゲットを設定
+                    Direction.Axis playerFacingAxis = playerEntity.getHorizontalFacing().getAxis();
+                    MagicMissileEntity ballEntity = new MagicMissileEntity(world, playerEntity, playerFacingAxis);
+//                    System.out.print("target is "+target);
+
+                    // ミサイルの発射速度を設定
+                    ballEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 0.15F, 0.0F);
+
+                    // 世界にミサイルをスポーン
                     world.spawnEntity(ballEntity);
                 }
             }

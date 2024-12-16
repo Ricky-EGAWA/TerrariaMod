@@ -67,6 +67,17 @@ public class MagicMissileEntity extends ProjectileEntity {
         this.direction = Direction.UP;
         this.changeTargetDirection(axis);
     }
+    public MagicMissileEntity(World world, LivingEntity owner, Direction.Axis axis) {
+        this(ModEntities.MAGIC_MISSILE, world);
+        this.setOwner(owner);
+        BlockPos blockPos = owner.getBlockPos();
+        double d = (double)blockPos.getX() + 0.5;
+        double e = (double)blockPos.getY() + 0.5;
+        double f = (double)blockPos.getZ() + 0.5;
+        this.refreshPositionAndAngles(d, e, f, this.getYaw(), this.getPitch());
+        this.direction = Direction.UP;
+        this.changeTargetDirection(axis);
+    }
 
     public SoundCategory getSoundCategory() {
         return SoundCategory.HOSTILE;
