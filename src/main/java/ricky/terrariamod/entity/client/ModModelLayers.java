@@ -56,6 +56,8 @@ public class ModModelLayers {
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "amethyst_ball"), "amethyst_ball_layer");
     public static final EntityModelLayer WATER_BOLT =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "water_bolt"), "water_bolt_layer");
+    public static final EntityModelLayer MAGIC_MISSILE =
+            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "magic_missile"), "magic_missile_layer");
 
 
     private static EntityModelLayer registerMain(String id) {

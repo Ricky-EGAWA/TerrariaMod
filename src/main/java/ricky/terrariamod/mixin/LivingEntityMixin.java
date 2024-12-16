@@ -55,10 +55,15 @@ public abstract class LivingEntityMixin {
                 // 魔法弾を発射
                 staff.attack(player.getWorld(), player, Hand.MAIN_HAND);
             }
-            // プレイヤーが amethyst staff を持っているか確認
+            // プレイヤーが water bolt を持っているか確認
             if (player.getMainHandStack().getItem() instanceof WaterBoltItem waterBolt) {
                 // 魔法弾を発射
                 waterBolt.attack(player.getWorld(), player, Hand.MAIN_HAND);
+            }
+            // プレイヤーが magic missile を持っているか確認
+            if (player.getMainHandStack().getItem() instanceof MagicMissileItem magicMissileItem) {
+                // 魔法弾を発射
+                magicMissileItem.attack(player.getWorld(), player, Hand.MAIN_HAND);
             }
         }
     }

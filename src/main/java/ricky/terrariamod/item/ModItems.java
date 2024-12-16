@@ -189,6 +189,11 @@ public class ModItems {
 
     public static final Item GOLDEN_KEY = registerItem("golden_key", new Item(new FabricItemSettings()));
 
+    public static final Item MURAMASA = registerItem("muramasa",
+            new SwordItem(ToolMaterials.NETHERITE, 5, -2.4f, new FabricItemSettings().maxCount(1)));
+    public static final Item MAGIC_MISSILE = registerItem("magic_missile",
+            new MagicMissileItem(ToolMaterials.WOOD, 1, -2.4f, new FabricItemSettings().maxCount(1)));
+
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {
         return switch (materialName.toLowerCase()) {

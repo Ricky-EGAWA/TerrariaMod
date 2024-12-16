@@ -181,5 +181,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.ROCKET, Models.GENERATED);
         itemModelGenerator.register(ModItems.MUSKET_BALL, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.MAGIC_MISSILE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.MURAMASA, Models.HANDHELD);
     }
 }
