@@ -1,20 +1,13 @@
 package ricky.terrariamod.entity.magic;
 
-import com.google.common.base.MoreObjects;
-import com.google.common.collect.Lists;
 import java.util.List;
-import java.util.UUID;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.Monster;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.particle.ParticleTypes;
@@ -27,16 +20,13 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.hit.HitResult.Type;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Direction.Axis;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import net.minecraft.world.event.GameEvent.Emitter;
 import org.jetbrains.annotations.Nullable;
 import ricky.terrariamod.entity.ModEntities;
-import ricky.terrariamod.item.ModItems;
 
 public class MagicMissileEntity extends ProjectileEntity {
     @Nullable
@@ -47,15 +37,13 @@ public class MagicMissileEntity extends ProjectileEntity {
     private double targetX;
     private double targetY;
     private double targetZ;
-    @Nullable
-    private UUID targetUuid;
 
     public MagicMissileEntity(EntityType<? extends MagicMissileEntity> entityType, World world) {
         super(entityType, world);
         this.noClip = true;
     }
 
-    public MagicMissileEntity(World world, LivingEntity owner, LivingEntity target, Direction.Axis axis) {
+    public MagicMissileEntity(World world, LivingEntity owner, @Nullable LivingEntity target, Direction.Axis axis) {
         this(ModEntities.MAGIC_MISSILE, world);
         this.setOwner(owner);
         BlockPos blockPos = owner.getBlockPos();
@@ -64,17 +52,6 @@ public class MagicMissileEntity extends ProjectileEntity {
         double f = (double)blockPos.getZ() + 0.5;
         this.refreshPositionAndAngles(d, e, f, this.getYaw(), this.getPitch());
         this.target = target;
-        this.direction = Direction.UP;
-        this.changeTargetDirection(axis);
-    }
-    public MagicMissileEntity(World world, LivingEntity owner, Direction.Axis axis) {
-        this(ModEntities.MAGIC_MISSILE, world);
-        this.setOwner(owner);
-        BlockPos blockPos = owner.getBlockPos();
-        double d = (double)blockPos.getX() + 0.5;
-        double e = (double)blockPos.getY() + 0.5;
-        double f = (double)blockPos.getZ() + 0.5;
-        this.refreshPositionAndAngles(d, e, f, this.getYaw(), this.getPitch());
         this.direction = Direction.UP;
         this.changeTargetDirection(axis);
     }
@@ -108,23 +85,9 @@ public class MagicMissileEntity extends ProjectileEntity {
         if (nbt.contains("Dir", 99)) {
             this.direction = Direction.byId(nbt.getInt("Dir"));
         }
-
-        if (nbt.containsUuid("Target")) {
-            this.targetUuid = nbt.getUuid("Target");
-        }
-
     }
 
     protected void initDataTracker() {
-    }
-
-    @Nullable
-    private Direction getDirection() {
-        return this.direction;
-    }
-
-    private void setDirection(@Nullable Direction direction) {
-        this.direction = direction;
     }
 
     private void changeTargetDirection(@Nullable Direction.Axis axis) {
