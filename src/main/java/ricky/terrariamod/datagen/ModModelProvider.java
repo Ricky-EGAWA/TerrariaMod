@@ -177,6 +177,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DIAMOND_STAFF, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WATER_BOLT, Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.GOLDEN_KEY, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.ROCKET, Models.GENERATED);
         itemModelGenerator.register(ModItems.MUSKET_BALL, Models.GENERATED);
     }

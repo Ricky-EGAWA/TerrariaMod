@@ -2,6 +2,7 @@ package ricky.terrariamod;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
@@ -10,6 +11,9 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import ricky.terrariamod.block.ModBlocks;
+import ricky.terrariamod.block.custom.GoldenChestBlockEntityRenderer;
+import ricky.terrariamod.block.custom.LockedGoldenChestBlockEntityRenderer;
+import ricky.terrariamod.block.custom.ModBlockEntities;
 import ricky.terrariamod.client.render.ManaHudOverlay;
 import ricky.terrariamod.client.render.SniperScopeOverlay;
 import ricky.terrariamod.entity.ModEntities;
@@ -114,6 +118,17 @@ public class TerrariaModClient implements ClientModInitializer {
         HudRenderCallback.EVENT.register(new ManaHudOverlay());
 
         ModNetworking.registerS2CPackets();
+
+        ModBlockEntities.registerBlockEntities();
+        // Golden Chest のレンダラーを登録
+        BlockEntityRendererRegistry.register(
+                ModBlockEntities.GOLDEN_CHEST_ENTITY,
+                GoldenChestBlockEntityRenderer::new // メソッド参照を使用してコンストラクタを参照
+        );
+        BlockEntityRendererRegistry.register(
+                ModBlockEntities.LOCKED_GOLDEN_CHEST_ENTITY,
+                LockedGoldenChestBlockEntityRenderer::new // メソッド参照を使用してコンストラクタを参照
+        );
     }
     private static void registerCustomBow(Item item) {
         ModelPredicateProviderRegistry.register(item, new Identifier("pull"), (stack, world, entity, seed) -> {

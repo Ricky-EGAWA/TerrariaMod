@@ -103,6 +103,17 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.PEARL_FENCE);
         addDrop(ModBlocks.PEARL_FENCE_GATE);
 
+        addDrop(ModBlocks.DUNGEON_TILE_GREEN);
+        addDrop(ModBlocks.DUNGEON_TILE_GREEN_SLAB);
+        addDrop(ModBlocks.DUNGEON_TILE_GREEN_STAIRS);
+        addDrop(ModBlocks.DUNGEON_TILE_GREEN_WALL);
+        addDrop(ModBlocks.DUNGEON_BRICK_GREEN);
+        addDrop(ModBlocks.DUNGEON_BRICK_GREEN_SLAB);
+        addDrop(ModBlocks.DUNGEON_BRICK_GREEN_STAIRS);
+        addDrop(ModBlocks.DUNGEON_BRICK_GREEN_WALL);
+        addDrop(ModBlocks.SPIKE_BLOCK);
+        addDrop(ModBlocks.GOLDEN_CHEST);
+
     }
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {
         return BlockLootTableGenerator.dropsWithSilkTouch(drop, (LootPoolEntry.Builder)this.applyExplosionDecay(drop,

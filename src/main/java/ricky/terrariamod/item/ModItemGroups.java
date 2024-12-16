@@ -21,6 +21,8 @@ public class ModItemGroups {
                         entries.add(ModItems.INFINITE_WATER_BUCKET);
                         entries.add(ModItems.INFINITE_LAVA_BUCKET);
                         entries.add(ModItems.MAGIC_MIRROR);
+                        entries.add(ModItems.GOLDEN_KEY);
+                        entries.add(ModBlocks.GOLDEN_CHEST);
                     }).build());
 
     //ModBlocks

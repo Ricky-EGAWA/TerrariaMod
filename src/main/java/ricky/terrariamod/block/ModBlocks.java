@@ -11,9 +11,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import ricky.terrariamod.TerrariaMod;
-import ricky.terrariamod.block.custom.FragileBlock;
-import ricky.terrariamod.block.custom.SoundBlock;
-import ricky.terrariamod.block.custom.SpikeBlock;
+import ricky.terrariamod.block.custom.*;
 import ricky.terrariamod.world.ModConfiguredFeatures;
 import ricky.terrariamod.world.tree.CrimSaplingGenerator;
 import ricky.terrariamod.world.tree.EbonSaplingGenerator;
@@ -206,6 +204,11 @@ public class ModBlocks {
 
     public static final  Block SPIKE_BLOCK = registerBlock("spike_block",
             new SpikeBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
+
+    public static final Block LOCKED_GOLDEN_CHEST = registerBlock("locked_golden_chest",
+            new LockedGoldenChestBlock(FabricBlockSettings.copyOf(Blocks.BEDROCK)));
+    public static final Block GOLDEN_CHEST = registerBlock("golden_chest",
+            new GoldenChestBlock(FabricBlockSettings.copyOf(Blocks.CHEST)));
 
     public static Block getSlab(String materialName) {
         return switch (materialName.toLowerCase()) {

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "terrariamod:block/locked_golden_chest"
+    }
+  }
+}

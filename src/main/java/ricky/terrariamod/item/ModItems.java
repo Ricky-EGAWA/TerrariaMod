@@ -187,6 +187,8 @@ public class ModItems {
     public static final Item WATER_BOLT = registerItem("water_bolt",
             new WaterBoltItem(ToolMaterials.WOOD, 1, -2.4f, new FabricItemSettings().maxCount(1)));
 
+    public static final Item GOLDEN_KEY = registerItem("golden_key", new Item(new FabricItemSettings()));
+
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {
         return switch (materialName.toLowerCase()) {
