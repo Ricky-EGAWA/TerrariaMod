@@ -5,6 +5,15 @@
     {
       "weight": 3,
       "element": {
+        "location": "terrariamod:path_down",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
         "location": "terrariamod:path",
         "processors": "minecraft:empty",
         "projection": "rigid",
