@@ -43,7 +43,7 @@ public class LockedGoldenChestBlock extends ChestBlock {
                 // ブロックエンティティの更新
                 BlockEntity blockEntity = world.getBlockEntity(pos);
                 if (blockEntity instanceof GoldenChestBlockEntity chestBlockEntity) {
-                    chestBlockEntity.setLootTable(new Identifier(TerrariaMod.MOD_ID, "chests/locked_treasure"), player.getRandom().nextLong());
+                    chestBlockEntity.setLootTable(new Identifier(TerrariaMod.MOD_ID, "chests/locked_golden_chest"), player.getRandom().nextLong());
                     chestBlockEntity.markDirty(); // ブロックエンティティの変更を通知
                 }
 

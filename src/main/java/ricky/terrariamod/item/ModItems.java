@@ -191,7 +191,7 @@ public class ModItems {
     public static final Item GOLDEN_KEY = registerItem("golden_key", new Item(new FabricItemSettings()));
 
     public static final Item MURAMASA = registerItem("muramasa",
-            new SwordItem(ToolMaterials.NETHERITE, 5, -2.4f, new FabricItemSettings().maxCount(1)));
+            new SwordItem(ToolMaterials.NETHERITE, 5, 3f, new FabricItemSettings().maxCount(1)));
     public static final Item MAGIC_MISSILE = registerItem("magic_missile",
             new MagicMissileItem(ToolMaterials.WOOD, 1, -2.4f, new FabricItemSettings().maxCount(1)));
     public static final Item COBALT_SHIELD = registerItem("cobalt_shield", new CobaltShieldItem(new FabricItemSettings()));

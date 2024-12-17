@@ -39,12 +39,12 @@ public class LockedGoldenChestBlockEntityRenderer extends ChestBlockEntityRender
 
     private static final SpriteIdentifier DOUBLE_CHEST_TEXTURE_LEFT = new SpriteIdentifier(
             CHEST_ATLAS_TEXTURE,
-            new Identifier(TerrariaMod.MOD_ID, "entity/chest/golden_chest_left")
+            new Identifier(TerrariaMod.MOD_ID, "entity/chest/locked_golden_chest_left")
     );
 
     private static final SpriteIdentifier DOUBLE_CHEST_TEXTURE_RIGHT = new SpriteIdentifier(
             CHEST_ATLAS_TEXTURE,
-            new Identifier(TerrariaMod.MOD_ID, "entity/chest/golden_chest_right")
+            new Identifier(TerrariaMod.MOD_ID, "entity/chest/locked_golden_chest_right")
     );
 
     public LockedGoldenChestBlockEntityRenderer(BlockEntityRendererFactory.Context ctx) {

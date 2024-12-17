@@ -81,6 +81,7 @@ public class TerrariaMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.SAND_SLIME, SandSlimeEntity.createSandSlimeAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.CORRUPT_SLIME, CorruptSlimeEntity.createCorruptSlimeAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.CRIM_SLIME, CrimSlimeEntity.createCrimSlimeAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.DUNGEON_SLIME, DungeonSlimeEntity.createDungeonSlimeAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.JUNGLE_BAT, JungleBatEntity.createJungleBatAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.LAVA_BAT, LavaBatEntity.createLavaBatAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.PIRANHA, PiranhaEntity.createPiranhaAttributes());
