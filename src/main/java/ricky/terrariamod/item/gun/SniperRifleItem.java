@@ -180,20 +180,20 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
     private static void shoot(World world, LivingEntity shooter, Hand hand, ItemStack crossbow) {
         if (!world.isClient) {
             // カスタム弾丸エンティティを生成
-            PersistentProjectileEntity SniperBulletEntity = createSniperBullet(world, shooter);
+            PersistentProjectileEntity sniperBulletEntity = createSniperBullet(world, shooter);
 
             // 矢の挙動を削除
-            SniperBulletEntity.pickupType = PickupPermission.DISALLOWED;
+            sniperBulletEntity.pickupType = PickupPermission.DISALLOWED;
 
             Vec3d direction = shooter.getRotationVec(1.0F); // 発射方向
             // 発射方向に回転を適用
             Vector3f rotatedDirection = new Vector3f((float) direction.x, (float) direction.y, (float) direction.z);
 
-            SniperBulletEntity.setVelocity(rotatedDirection.x(), rotatedDirection.y(), rotatedDirection.z(), 10, 0);
+            sniperBulletEntity.setVelocity(rotatedDirection.x(), rotatedDirection.y(), rotatedDirection.z(), 10, 0);
 
             // 弾丸を発射
             crossbow.damage(1, shooter, (e) -> e.sendToolBreakStatus(hand));
-            world.spawnEntity(SniperBulletEntity);
+            world.spawnEntity(sniperBulletEntity);
             world.playSound(null, shooter.getX(), shooter.getY(), shooter.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.PLAYERS, 0.7F, 1.0F);
         }
     }
