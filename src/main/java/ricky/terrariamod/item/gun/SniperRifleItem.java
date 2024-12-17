@@ -203,7 +203,7 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
 
 
     private static PersistentProjectileEntity createSniperBullet(World world, LivingEntity entity) {
-        MusketBallEntity musketBallEntity = new MusketBallEntity(world, entity);
+        MusketBallEntity musketBallEntity = new MusketBallEntity(world, entity,1.5f);
 
         musketBallEntity.setVelocity(entity, entity.getPitch(), entity.getYaw(), 0.0F, 3.15F, 1.0F);
         musketBallEntity.setCritical(false);

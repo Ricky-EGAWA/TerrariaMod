@@ -195,7 +195,10 @@ public class ModItems {
     public static final Item MAGIC_MISSILE = registerItem("magic_missile",
             new MagicMissileItem(ToolMaterials.WOOD, 1, -2.4f, new FabricItemSettings().maxCount(1)));
     public static final Item COBALT_SHIELD = registerItem("cobalt_shield", new CobaltShieldItem(new FabricItemSettings()));
-    public static final Item HANDGUN = registerItem("handgun", new HandGunItem(ToolMaterials.IRON, -1, -2.4f,new FabricItemSettings()));
+    public static final Item HANDGUN = registerItem("handgun",
+            new HandGunItem(ToolMaterials.IRON, -1, -2.4f,new FabricItemSettings()));
+    public static final Item PHOENIX_BLASTER = registerItem("phoenix_blaster",
+            new HandGunItem(ToolMaterials.IRON, -1, -2.4f,new FabricItemSettings()));
 
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {

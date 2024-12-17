@@ -16,17 +16,18 @@ import ricky.terrariamod.item.ModItems;
 
 public class MusketBallEntity extends PersistentProjectileEntity {
     private static final TrackedData<Integer> COLOR;
+    private float damageValue = 0;
 
     public MusketBallEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    public MusketBallEntity(World world, double x, double y, double z) {
-        super(ModEntities.MUSKET_BALL, x, y, z, world);
-    }
-
     public MusketBallEntity(World world, LivingEntity owner) {
         super(ModEntities.MUSKET_BALL, owner, world);
+    }
+    public MusketBallEntity(World world, LivingEntity owner, float damage) {
+        super(ModEntities.MUSKET_BALL, owner, world);
+        this.damageValue = damage;
     }
 
     protected void initDataTracker() {
@@ -53,7 +54,11 @@ public class MusketBallEntity extends PersistentProjectileEntity {
         DamageSource damageSource = this.getWorld().getDamageSources().arrow(this, this.getOwner());
 
         // ダメージを与える
-        target.damage(damageSource, 2.5F);
+        if (this.damageValue != 0){
+            target.damage(damageSource, this.damageValue);
+        }else{
+            target.damage(damageSource, 2.5F);
+        }
 
         // 無敵時間をリセット
         target.timeUntilRegen = 0;

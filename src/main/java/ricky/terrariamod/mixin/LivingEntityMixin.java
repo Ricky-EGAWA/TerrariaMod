@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import ricky.terrariamod.item.custom.CobaltShieldItem;
 import ricky.terrariamod.item.gun.HandGunItem;
+import ricky.terrariamod.item.gun.PhoenixBlasterItem;
 import ricky.terrariamod.item.gun.ShotgunItem;
 import ricky.terrariamod.item.gun.SniperRifleItem;
 import ricky.terrariamod.item.magic.*;
@@ -72,6 +73,12 @@ public abstract class LivingEntityMixin {
             if (player.getMainHandStack().getItem() instanceof HandGunItem handGunItem) {
                 // 弾を発射
                 handGunItem.attack(player.getWorld(), player, Hand.MAIN_HAND);
+                ci.cancel(); // 通常の手を振る動作をキャンセル
+            }
+            // プレイヤーが phoenixBlasterItem を持っているか確認
+            if (player.getMainHandStack().getItem() instanceof PhoenixBlasterItem phoenixBlasterItem) {
+                // 弾を発射
+                phoenixBlasterItem.attack(player.getWorld(), player, Hand.MAIN_HAND);
                 ci.cancel(); // 通常の手を振る動作をキャンセル
             }
         }

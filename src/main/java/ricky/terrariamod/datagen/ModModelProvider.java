@@ -186,5 +186,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MURAMASA, Models.HANDHELD);
         itemModelGenerator.register(ModItems.COBALT_SHIELD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.HANDGUN, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PHOENIX_BLASTER, Models.HANDHELD);
     }
 }

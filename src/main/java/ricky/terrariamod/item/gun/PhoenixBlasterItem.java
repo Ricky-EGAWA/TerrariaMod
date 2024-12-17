@@ -15,8 +15,8 @@ import org.joml.Vector3f;
 import ricky.terrariamod.entity.ammo.MusketBallEntity;
 import ricky.terrariamod.item.ModItems;
 
-public class HandGunItem extends SwordItem {
-    public HandGunItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+public class PhoenixBlasterItem extends SwordItem {
+    public PhoenixBlasterItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
     public void attack(World world, PlayerEntity playerEntity, Hand hand) {
@@ -31,7 +31,7 @@ public class HandGunItem extends SwordItem {
         }
     }
     private static PersistentProjectileEntity createBullet(World world, LivingEntity entity) {
-        MusketBallEntity musketBallEntity = new MusketBallEntity(world, entity);
+        MusketBallEntity musketBallEntity = new MusketBallEntity(world, entity,4);
 
         musketBallEntity.setVelocity(entity, entity.getPitch(), entity.getYaw(), 0.0F, 2F, 1.0F);
         musketBallEntity.setCritical(false);
