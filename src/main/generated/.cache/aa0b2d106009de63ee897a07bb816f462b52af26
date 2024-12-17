@@ -1,4 +1,4 @@
-// 1.20.1	2024-12-17T10:55:09.7295796	Terraria Mod/Block Loot Tables
+// 1.20.1	2024-12-17T13:19:23.5586057	Terraria Mod/Block Loot Tables
 ff9cb428ffccd7b94e6f0f7abb92d692ede92245 data\terrariamod\loot_tables\blocks\golden_chest.json
 47cb637d42af5ec77ad89ef8155141e0dfada907 data\terrariamod\loot_tables\blocks\ebon_leaves.json
 79ebc1c912090e1a1444f775049d81595aedb422 data\terrariamod\loot_tables\blocks\dungeon_brick_green_wall.json
@@ -29,6 +29,7 @@ e5c9a62b4f0c7281f518d8c2b11fef7791fedea8 data\terrariamod\loot_tables\blocks\cri
 67f207039d304ee0842fef6e182d2eab78b915e2 data\terrariamod\loot_tables\blocks\pearl_sandstone.json
 a82bd1630d38b6f7acf4d415ad9947d06d56ccf0 data\terrariamod\loot_tables\blocks\ebon_wood.json
 1675f65855373140a7ca23035c48ac364ec87897 data\terrariamod\loot_tables\blocks\pearl_ice.json
+d94d24e2b85989e512006fa5a796762ea700052a data\terrariamod\loot_tables\blocks\deepslate_adamantite_ore.json
 a7ffbfda7e8ebc545ef4045c35b76196d4920951 data\terrariamod\loot_tables\blocks\ebon_slab.json
 4bcc4ca951d225700eeec857310e12a38c47f69d data\terrariamod\loot_tables\blocks\stripped_pearl_wood.json
 0ca6cc09ad5768d83a0932c612b4e77e53963a78 data\terrariamod\loot_tables\blocks\shiver_thorn.json
@@ -54,6 +55,7 @@ c83f8c501bbe8c8183dc9da93f78dd837a31caaa data\terrariamod\loot_tables\blocks\pot
 a54cd25c544414df7b2489900f5d96a1494f2cf7 data\terrariamod\loot_tables\blocks\hellstone_block.json
 fe0b31d10c8800494a144ae6b2279b688e4968c1 data\terrariamod\loot_tables\blocks\ebon_stairs.json
 8307ba0141a247dbe17083e4abf586bb86f15478 data\terrariamod\loot_tables\blocks\crim_ice.json
+9df7c4e99c9671ac5da1fdc3c027b06fcecd32ca data\terrariamod\loot_tables\blocks\deepslate_orichalcum_ore.json
 869b4dfaff7fe7068ddb501c08bb61092b91f6fb data\terrariamod\loot_tables\blocks\dungeon_tile_green.json
 f77127e6a14ca78a4e5a3725b039ebdedd507d83 data\terrariamod\loot_tables\blocks\crim_stone.json
 bb61af458ec9b099385586ea4a628f578c630586 data\terrariamod\loot_tables\blocks\crim_log.json
@@ -76,8 +78,8 @@ c3e90dab0fbf5e2b3ac365f3b1e73ef7a85b36a0 data\terrariamod\loot_tables\blocks\glo
 63951cdfd13757672ac21bf3b2020616952b374f data\terrariamod\loot_tables\blocks\pearl_leaves.json
 763eeeeb44d05155b78b3800c0b75c60e082b8e0 data\terrariamod\loot_tables\blocks\stripped_pearl_log.json
 ccedd0c73fa476130982ce7a4db437d123243824 data\terrariamod\loot_tables\blocks\dungeon_brick_green.json
-f6735d8fbbb3952130406b5d7da3d7192be4fbef data\terrariamod\loot_tables\blocks\pearl_stairs.json
 eddcbc32f6b43ac56607f6abae6500357d56be7a data\terrariamod\loot_tables\blocks\dungeon_tile_green_slab.json
+f6735d8fbbb3952130406b5d7da3d7192be4fbef data\terrariamod\loot_tables\blocks\pearl_stairs.json
 46b63d7911e02f18c99d144d14122f422f222e6b data\terrariamod\loot_tables\blocks\ebon_sand.json
 e85b1eb2ba3f738a298a8d228a9d7ed21784d080 data\terrariamod\loot_tables\blocks\crim_wood.json
 41cbcf75caf578f25f4edab3ed405c194742db0f data\terrariamod\loot_tables\blocks\pearl_log.json
