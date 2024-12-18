@@ -88,6 +88,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createTwoItemRecipe(exporter,RecipeCategory.COMBAT,ModItems.IRON_BOW," AB","A B"," AB",Items.IRON_INGOT,Items.STRING,"iron_bow",1);
         createTwoItemRecipe(exporter,RecipeCategory.COMBAT,ModItems.GOLD_BOW," AB","A B"," AB",Items.GOLD_INGOT,Items.STRING,"gold_bow",1);
         createTwoItemRecipe(exporter,RecipeCategory.COMBAT,ModItems.DIAMOND_BOW," AB","A B"," AB",Items.DIAMOND,Items.STRING,"diamond_bow",1);
+
+        createTwoItemRecipe(exporter,RecipeCategory.COMBAT,ModItems.AMETHYST_STAFF,"  B"," A ","A  ",Items.COPPER_INGOT,Items.AMETHYST_SHARD,"amethyst_staff",1);
+        createTwoItemRecipe(exporter,RecipeCategory.COMBAT,ModItems.EMERALD_STAFF,"  B"," A ","A  ",Items.IRON_INGOT,Items.EMERALD,"emerald_staff",1);
+        createTwoItemRecipe(exporter,RecipeCategory.COMBAT,ModItems.PHOENIX_BLASTER,"AAA","ABA","AAA",ModItems.HELLSTONE_INGOT,ModItems.HANDGUN,"phoenix_blaster",1);
     }
 
     private void generateSmeltingAndBlastingRecipes(Consumer<RecipeJsonProvider> exporter, List<ItemConvertible> smeltables, ItemConvertible result, String name) {
@@ -105,7 +109,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         // アックス
         createStickItemRecipe(exporter, RecipeCategory.TOOLS, ModItems.getAxe(materialName), " II", " SI", " S ", ingot, materialName, "_axe",1);
         // ソード
-        createStickItemRecipe(exporter, RecipeCategory.TOOLS, ModItems.getSword(materialName), " I ", " I ", " S ", ingot, materialName, "_sword",1);
+        createStickItemRecipe(exporter, RecipeCategory.COMBAT, ModItems.getSword(materialName), " I ", " I ", " S ", ingot, materialName, "_sword",1);
         // シャベル
         createStickItemRecipe(exporter, RecipeCategory.TOOLS, ModItems.getShovel(materialName), " I ", " S ", " S ", ingot, materialName, "_shovel",1);
     }

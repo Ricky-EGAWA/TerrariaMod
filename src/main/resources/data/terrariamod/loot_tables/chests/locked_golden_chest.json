@@ -306,6 +306,16 @@
           "type": "minecraft:item",
           "name": "terrariamod:cobalt_shield",
           "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "terrariamod:water_bolt",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "terrariamod:enchanted_sword",
+          "weight": 1
         }
       ],
       "rolls": 1.0

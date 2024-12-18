@@ -14,7 +14,6 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity.PickupPermissi
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
-import net.minecraft.screen.ScreenTexts;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
@@ -335,12 +334,10 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
         };
     }
 
+    @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        List<ItemStack> list = getProjectiles(stack);
-        if (isCharged(stack) && !list.isEmpty()) {
-            ItemStack itemStack = list.get(0);
-            tooltip.add(Text.translatable("item.minecraft.crossbow.projectile").append(ScreenTexts.SPACE).append(itemStack.toHoverableText()));
-        }
+        tooltip.add(Text.translatable("tooltip.terrariamod.gun.tooltip"));
+        super.appendTooltip(stack, world, tooltip, context);
     }
 
     public boolean isUsedOnRelease(ItemStack stack) {

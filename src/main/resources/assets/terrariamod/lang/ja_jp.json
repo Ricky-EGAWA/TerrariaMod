@@ -179,5 +179,27 @@
   "item.terrariamod.amethyst_staff": "アメジストの杖",
   "item.terrariamod.emerald_staff": "エメラルドの杖",
   "item.terrariamod.diamond_staff": "ダイアモンドの杖",
-  "item.terrariamod.water_bolt": "ウォーターボルト"
+  "item.terrariamod.water_bolt": "ウォーターボルト",
+
+  "tooltip.terrariamod.cobalt_shield.tooltip": "ノックバック無効",
+  "tooltip.terrariamod.gun.tooltip": "Rキーを押してリロード",
+  "item.terrariamod.handgun": "ウォーターボルト",
+  "item.terrariamod.phoenix_blaster": "フェニックスブラスター",
+  "item.terrariamod.cobalt_shield": "コバルトシールド",
+  "item.terrariamod.magic_missile": "マジックミサイル",
+  "item.terrariamod.muramasa": "ムラマサ",
+  "item.terrariamod.golden_key": "黄金の鍵",
+  "block.terrariamod.golden_chest": "黄金のチェスト",
+  "block.terrariamod.locked_golden_chest": "施錠された黄金のチェスト",
+  "block.terrariamod.spike_block": "スパイクブロック",
+  "block.terrariamod.dungeon_tile_green": "緑のダンジョンタイル",
+  "block.terrariamod.dungeon_tile_green_fragile": "脆い緑のダンジョンタイル",
+  "block.terrariamod.dungeon_tile_green_slab": "緑のダンジョンタイルのハーフブロック",
+  "block.terrariamod.dungeon_tile_green_stairs": "緑のダンジョンタイルの階段",
+  "block.terrariamod.dungeon_tile_green_wall": "緑のダンジョンタイルの壁",
+  "block.terrariamod.dungeon_brick_green": "緑のダンジョンレンガ",
+  "block.terrariamod.dungeon_brick_green_fragile": "脆い緑のダンジョンレンガ",
+  "block.terrariamod.dungeon_brick_green_slab": "緑のダンジョンレンガのハーフブロック",
+  "block.terrariamod.dungeon_brick_green_stairs": "緑のダンジョンレンガの階段",
+  "block.terrariamod.dungeon_brick_green_wall": "緑のダンジョンレンガの壁"
 }

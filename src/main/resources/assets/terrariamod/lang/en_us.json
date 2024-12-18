@@ -183,6 +183,25 @@
   "item.terrariamod.diamond_staff": "Diamond Staff",
   "item.terrariamod.water_bolt": "Water Bolt",
 
+  "tooltip.terrariamod.cobalt_shield.tooltip": "Unable Knockback",
+  "tooltip.terrariamod.gun.tooltip": "Press R to reload",
+  "item.terrariamod.handgun": "Water Bolt",
+  "item.terrariamod.phoenix_blaster": "Phoenix Blaster",
+  "item.terrariamod.cobalt_shield": "Cobalt Shield",
+  "item.terrariamod.magic_missile": "Magic Missile",
+  "item.terrariamod.muramasa": "Muramasa",
+  "item.terrariamod.golden_key": "Golden Key",
+  "block.terrariamod.golden_chest": "Golden Chest",
+  "block.terrariamod.locked_golden_chest": "Locked Golden Chest",
+  "block.terrariamod.spike_block": "Spike Block",
   "block.terrariamod.dungeon_tile_green": "Dungeon Green Tile",
-  "tooltip.terrariamod.cobalt_shield.tooltip": "Unable Knockback"
+  "block.terrariamod.dungeon_tile_green_fragile": "Dungeon Green Tile Fragile",
+  "block.terrariamod.dungeon_tile_green_slab": "Dungeon Green Tile Slab",
+  "block.terrariamod.dungeon_tile_green_stairs": "Dungeon Green Tile Stairs",
+  "block.terrariamod.dungeon_tile_green_wall": "Dungeon Green Tile Wall",
+  "block.terrariamod.dungeon_brick_green": "Dungeon Green Brick",
+  "block.terrariamod.dungeon_brick_green_fragile": "Dungeon Green Brick Fragile",
+  "block.terrariamod.dungeon_brick_green_slab": "Dungeon Green Brick Slab",
+  "block.terrariamod.dungeon_brick_green_stairs": "Dungeon Green Brick Stairs",
+  "block.terrariamod.dungeon_brick_green_wall": "Dungeon Green Brick Wall"
 }

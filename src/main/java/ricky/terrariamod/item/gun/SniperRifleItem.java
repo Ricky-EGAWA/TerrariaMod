@@ -1,6 +1,5 @@
 package ricky.terrariamod.item.gun;
 
-import com.google.common.collect.Lists;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -12,7 +11,6 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity.PickupPermissi
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
-import net.minecraft.screen.ScreenTexts;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -161,21 +159,6 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
         nbtCompound.put("ChargedProjectiles", nbtList);
     }
 
-    private static List<ItemStack> getProjectiles(ItemStack crossbow) {
-        List<ItemStack> list = Lists.newArrayList();
-        NbtCompound nbtCompound = crossbow.getNbt();
-        if (nbtCompound != null && nbtCompound.contains("ChargedProjectiles", 9)) {
-            NbtList nbtList = nbtCompound.getList("ChargedProjectiles", 10);
-            if (nbtList != null) {
-                for(int i = 0; i < nbtList.size(); ++i) {
-                    NbtCompound nbtCompound2 = nbtList.getCompound(i);
-                    list.add(ItemStack.fromNbt(nbtCompound2));
-                }
-            }
-        }
-
-        return list;
-    }
 
     private static void shoot(World world, LivingEntity shooter, Hand hand, ItemStack crossbow) {
         if (!world.isClient) {
@@ -245,12 +228,10 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
         return UseAction.SPYGLASS;
     }
 
+    @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        List<ItemStack> list = getProjectiles(stack);
-        if (isCharged(stack) && !list.isEmpty()) {
-            ItemStack itemStack = list.get(0);
-            tooltip.add(Text.translatable("item.minecraft.crossbow.projectile").append(ScreenTexts.SPACE).append(itemStack.toHoverableText()));
-        }
+        tooltip.add(Text.translatable("tooltip.terrariamod.gun.tooltip"));
+        super.appendTooltip(stack, world, tooltip, context);
     }
 
     public boolean isUsedOnRelease(ItemStack stack) {

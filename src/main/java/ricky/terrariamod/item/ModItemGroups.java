@@ -23,6 +23,7 @@ public class ModItemGroups {
                         entries.add(ModItems.MAGIC_MIRROR);
                         entries.add(ModItems.GOLDEN_KEY);
                         entries.add(ModBlocks.GOLDEN_CHEST);
+                        entries.add(ModBlocks.LOCKED_GOLDEN_CHEST);
                     }).build());
 
     //ModBlocks

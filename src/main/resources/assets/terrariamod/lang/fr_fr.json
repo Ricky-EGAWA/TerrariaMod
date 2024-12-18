@@ -174,5 +174,33 @@
   "effect.terrariamod.confused": "Confusion",
 
   "key.category.terrariamod.mod_key": "Raccourcis du Mod",
-  "key.terrariamod.reload": "Recharger"
+  "key.terrariamod.reload": "Recharger",
+
+  "item.terrariamod.enchanted_sword": "Épée enchantée",
+  "item.terrariamod.amethyst_staff": "Bâton d'améthyste",
+  "item.terrariamod.emerald_staff": "Bâton d'émeraude",
+  "item.terrariamod.diamond_staff": "Bâton de diamant",
+  "item.terrariamod.water_bolt": "Projectiles d'eau",
+
+  "tooltip.terrariamod.cobalt_shield.tooltip": "Immunisé contre le recul",
+  "tooltip.terrariamod.gun.tooltip": "Appuyez sur R pour recharger",
+  "item.terrariamod.handgun": "Boulon d'eau",
+  "item.terrariamod.phoenix_blaster": "Lance-phénix",
+  "item.terrariamod.cobalt_shield": "Bouclier de cobalt",
+  "item.terrariamod.magic_missile": "Missile magique",
+  "item.terrariamod.muramasa": "Muramasa",
+  "item.terrariamod.golden_key": "Clé dorée",
+  "block.terrariamod.golden_chest": "Coffre doré",
+  "block.terrariamod.locked_golden_chest": "Coffre doré verrouillé",
+  "block.terrariamod.spike_block": "Bloc de pointes",
+  "block.terrariamod.dungeon_tile_green": "Tuile de donjon verte",
+  "block.terrariamod.dungeon_tile_green_fragile": "Tuile de donjon verte fragile",
+  "block.terrariamod.dungeon_tile_green_slab": "Dalle de tuile de donjon verte",
+  "block.terrariamod.dungeon_tile_green_stairs": "Escalier de tuile de donjon verte",
+  "block.terrariamod.dungeon_tile_green_wall": "Mur de tuile de donjon verte",
+  "block.terrariamod.dungeon_brick_green": "Brique de donjon verte",
+  "block.terrariamod.dungeon_brick_green_fragile": "Brique de donjon verte fragile",
+  "block.terrariamod.dungeon_brick_green_slab": "Dalle de brique de donjon verte",
+  "block.terrariamod.dungeon_brick_green_stairs": "Escalier de brique de donjon verte",
+  "block.terrariamod.dungeon_brick_green_wall": "Mur de brique de donjon verte"
 }
