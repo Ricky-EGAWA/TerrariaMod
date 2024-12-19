@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import ricky.terrariamod.item.boomerang.BoomerangItem;
 import ricky.terrariamod.item.custom.CobaltShieldItem;
 import ricky.terrariamod.item.gun.HandGunItem;
 import ricky.terrariamod.item.gun.PhoenixBlasterItem;
@@ -79,6 +80,12 @@ public abstract class LivingEntityMixin {
             if (player.getMainHandStack().getItem() instanceof PhoenixBlasterItem phoenixBlasterItem) {
                 // 弾を発射
                 phoenixBlasterItem.attack(player.getWorld(), player, Hand.MAIN_HAND);
+                ci.cancel(); // 通常の手を振る動作をキャンセル
+            }
+            // プレイヤーが boomerangItem を持っているか確認
+            if (player.getMainHandStack().getItem() instanceof BoomerangItem boomerangItem) {
+                // 弾を発射
+                boomerangItem.attack(player.getWorld(), player, Hand.MAIN_HAND);
                 ci.cancel(); // 通常の手を振る動作をキャンセル
             }
         }

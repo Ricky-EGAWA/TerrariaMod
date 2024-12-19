@@ -32,6 +32,7 @@ import ricky.terrariamod.entity.magic.MagicBallModel;
 import ricky.terrariamod.entity.magic.MagicBallRenderer;
 import ricky.terrariamod.entity.magic.MagicMissileModel;
 import ricky.terrariamod.entity.magic.MagicMissileRenderer;
+import ricky.terrariamod.entity.weapon.BoomerangRenderer;
 import ricky.terrariamod.event.KeyInputHandler;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.networking.ModNetworking;
@@ -113,6 +114,7 @@ public class TerrariaModClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.ROCKET, RocketEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.MUSKET_BALL, MusketBallEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.WOODEN_BOOMERANG, BoomerangRenderer::new);
 
         registerCustomBow(ModItems.IRON_BOW); // IRON_BOW 用の登録
         registerCustomBow(ModItems.GOLD_BOW); // GOLD_BOW 用の登録

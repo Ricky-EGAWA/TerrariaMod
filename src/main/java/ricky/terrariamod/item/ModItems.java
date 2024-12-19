@@ -8,6 +8,7 @@ import ricky.terrariamod.TerrariaMod;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
+import ricky.terrariamod.item.boomerang.BoomerangItem;
 import ricky.terrariamod.item.bows.CustomBowItem;
 import ricky.terrariamod.item.gun.HandGunItem;
 import ricky.terrariamod.item.gun.RocketLauncherItem;
@@ -199,6 +200,7 @@ public class ModItems {
             new HandGunItem(ToolMaterials.IRON, -1, -2.4f,new FabricItemSettings()));
     public static final Item PHOENIX_BLASTER = registerItem("phoenix_blaster",
             new HandGunItem(ToolMaterials.IRON, -1, -2.4f,new FabricItemSettings()));
+    public static final Item WOODEN_BOOMERANG = registerItem("wooden_boomerang", new BoomerangItem(new Item.Settings().maxDamage(256)));
 
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {
