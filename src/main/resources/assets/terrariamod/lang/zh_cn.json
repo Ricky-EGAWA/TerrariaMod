@@ -191,5 +191,14 @@
   "block.terrariamod.dungeon_brick_green_fragile": "易碎的绿色地牢砖块",
   "block.terrariamod.dungeon_brick_green_slab": "绿色地牢砖块台阶",
   "block.terrariamod.dungeon_brick_green_stairs": "绿色地牢砖块楼梯",
-  "block.terrariamod.dungeon_brick_green_wall": "绿色地牢砖块墙"
+  "block.terrariamod.dungeon_brick_green_wall": "绿色地牢砖块墙",
+
+  "item.terrariamod.wooden_boomerang": "木制回旋镖",
+  "item.terrariamod.enchanted_boomerang": "魔法回旋镖",
+  "item.terrariamod.ice_boomerang": "冰回旋镖",
+  "item.terrariamod.Flamarang": "火焰回旋镖",
+  "item.terrariamod.Shroomerang": "蘑菇回旋镖",
+  "item.terrariamod.thorn_chakram": "荆棘环刃",
+  "item.terrariamod.trimarang": "三重回旋镖"
+
 }

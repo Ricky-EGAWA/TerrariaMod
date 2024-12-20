@@ -201,5 +201,13 @@
   "block.terrariamod.dungeon_brick_green_fragile": "脆い緑のダンジョンレンガ",
   "block.terrariamod.dungeon_brick_green_slab": "緑のダンジョンレンガのハーフブロック",
   "block.terrariamod.dungeon_brick_green_stairs": "緑のダンジョンレンガの階段",
-  "block.terrariamod.dungeon_brick_green_wall": "緑のダンジョンレンガの壁"
+  "block.terrariamod.dungeon_brick_green_wall": "緑のダンジョンレンガの壁",
+
+  "item.terrariamod.wooden_boomerang": "木のブーメラン",
+  "item.terrariamod.enchanted_boomerang": "エンチャントブーメラン",
+  "item.terrariamod.ice_boomerang": "アイスブーメラン",
+  "item.terrariamod.Flamarang": "フレイムラン",
+  "item.terrariamod.Shroomerang": "シュルーメラン",
+  "item.terrariamod.thorn_chakram": "茨のチャクラム",
+  "item.terrariamod.trimarang": "トライメラン"
 }

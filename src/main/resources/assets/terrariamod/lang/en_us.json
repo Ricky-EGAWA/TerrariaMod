@@ -203,5 +203,13 @@
   "block.terrariamod.dungeon_brick_green_fragile": "Dungeon Green Brick Fragile",
   "block.terrariamod.dungeon_brick_green_slab": "Dungeon Green Brick Slab",
   "block.terrariamod.dungeon_brick_green_stairs": "Dungeon Green Brick Stairs",
-  "block.terrariamod.dungeon_brick_green_wall": "Dungeon Green Brick Wall"
+  "block.terrariamod.dungeon_brick_green_wall": "Dungeon Green Brick Wall",
+
+  "item.terrariamod.wooden_boomerang": "Wooden Boomerang",
+  "item.terrariamod.enchanted_boomerang": "Enchanted Boomerang",
+  "item.terrariamod.ice_boomerang": "Ice Boomerang",
+  "item.terrariamod.Flamarang": "Flamarang",
+  "item.terrariamod.Shroomerang": "Shroomerang",
+  "item.terrariamod.thorn_chakram": "Thorn Chakram",
+  "item.terrariamod.trimarang": "Trimarang"
 }
