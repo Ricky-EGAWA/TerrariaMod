@@ -4,6 +4,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -14,19 +16,19 @@ import net.minecraft.world.World;
 import ricky.terrariamod.entity.ModEntities;
 import ricky.terrariamod.item.ModItems;
 
-public class EnchantedBoomerangEntity extends PersistentProjectileEntity {
+public class ThornChakramEntity extends PersistentProjectileEntity {
     private Vec3d initialPosition; // 投げられた位置
     private boolean returning; // プレイヤーに戻る状態フラグ
     private int tickNum = 0;
     private ItemStack boomerangStack; // ブーメランの状態を保持するアイテムスタック
 
-    public EnchantedBoomerangEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
+    public ThornChakramEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
         super(entityType, world);
-        this.boomerangStack = new ItemStack(ModItems.ENCHANTED_BOOMERANG); // デフォルトのアイテムスタックを設定
+        this.boomerangStack = new ItemStack(ModItems.THORN_CHAKRAM); // デフォルトのアイテムスタックを設定
     }
 
-    public EnchantedBoomerangEntity(World world, LivingEntity owner, ItemStack stack) {
-        super(ModEntities.ENCHANTED_BOOMERANG, owner, world);
+    public ThornChakramEntity(World world, LivingEntity owner, ItemStack stack) {
+        super(ModEntities.THORN_CHAKRAM, owner, world);
         this.initialPosition = owner.getPos(); // プレイヤーの位置を初期値として設定
         this.boomerangStack = stack.copy(); // 渡されたスタックをコピーして保持
     }
@@ -63,7 +65,7 @@ public class EnchantedBoomerangEntity extends PersistentProjectileEntity {
             if (!returning) {
                 if (initialPosition == null) {
                     this.discard();
-                } else if (this.getPos().distanceTo(initialPosition) > 10) { // 10ブロック離れたら帰ってくる
+                } else if (this.getPos().distanceTo(initialPosition) > 15) { // 10ブロック離れたら帰ってくる
                     this.returning = true;
                 }
             } else {
@@ -82,12 +84,18 @@ public class EnchantedBoomerangEntity extends PersistentProjectileEntity {
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
         if (!returning) {
+            // 衝突時の位置とブロックの法線を取得
             Vec3d velocity = this.getVelocity();
-            this.setVelocity(velocity.multiply(-1));
-            Vec3d currentPos = this.getPos();
-            Vec3d previousPos = currentPos.subtract(velocity); // 1ティック前の位置を計算
-            this.setPosition(previousPos.x, previousPos.y, previousPos.z);
-            this.returning = true;
+            Vec3d normal = Vec3d.of(blockHitResult.getSide().getVector()); // ブロックの面法線（正規化ベクトル）
+            // 速度ベクトルを反射計算
+            Vec3d reflectedVelocity = velocity.subtract(normal.multiply(2 * velocity.dotProduct(normal)));
+            // 新しい速度をセット
+            this.setVelocity(reflectedVelocity);
+            // 反射の位置を微調整（埋まり防止）
+            Vec3d hitPos = blockHitResult.getPos();
+            this.setPos(hitPos.x + reflectedVelocity.x * 0.01,
+                    hitPos.y + reflectedVelocity.y * 0.01,
+                    hitPos.z + reflectedVelocity.z * 0.01);
         }
     }
 
@@ -98,7 +106,11 @@ public class EnchantedBoomerangEntity extends PersistentProjectileEntity {
                 this.returning = true;
                 Entity entity2 = this.getOwner();
                 DamageSource damageSource = this.getDamageSources().trident(this, (entity2 == null ? this : entity2));
-                entityHitResult.getEntity().damage(damageSource, 7.0F);  // 5ダメージを与える
+                entityHitResult.getEntity().damage(damageSource, 9.5F);  // ダメージを与える
+                // 50% の確率で毒エフェクトを付与
+                if (entityHitResult.getEntity() instanceof LivingEntity target && Math.random() < 0.5) {
+                    target.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 1));
+                }
 
                 // 耐久値を減少
                 this.boomerangStack.damage(1, this.getWorld().random, null);

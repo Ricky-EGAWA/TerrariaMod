@@ -14,19 +14,19 @@ import net.minecraft.world.World;
 import ricky.terrariamod.entity.ModEntities;
 import ricky.terrariamod.item.ModItems;
 
-public class EnchantedBoomerangEntity extends PersistentProjectileEntity {
+public class ShroomerangEntity extends PersistentProjectileEntity {
     private Vec3d initialPosition; // 投げられた位置
     private boolean returning; // プレイヤーに戻る状態フラグ
     private int tickNum = 0;
     private ItemStack boomerangStack; // ブーメランの状態を保持するアイテムスタック
 
-    public EnchantedBoomerangEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
+    public ShroomerangEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
         super(entityType, world);
-        this.boomerangStack = new ItemStack(ModItems.ENCHANTED_BOOMERANG); // デフォルトのアイテムスタックを設定
+        this.boomerangStack = new ItemStack(ModItems.SHROOMERANG); // デフォルトのアイテムスタックを設定
     }
 
-    public EnchantedBoomerangEntity(World world, LivingEntity owner, ItemStack stack) {
-        super(ModEntities.ENCHANTED_BOOMERANG, owner, world);
+    public ShroomerangEntity(World world, LivingEntity owner, ItemStack stack) {
+        super(ModEntities.SHROOMERANG, owner, world);
         this.initialPosition = owner.getPos(); // プレイヤーの位置を初期値として設定
         this.boomerangStack = stack.copy(); // 渡されたスタックをコピーして保持
     }
@@ -98,7 +98,7 @@ public class EnchantedBoomerangEntity extends PersistentProjectileEntity {
                 this.returning = true;
                 Entity entity2 = this.getOwner();
                 DamageSource damageSource = this.getDamageSources().trident(this, (entity2 == null ? this : entity2));
-                entityHitResult.getEntity().damage(damageSource, 7.0F);  // 5ダメージを与える
+                entityHitResult.getEntity().damage(damageSource, 9.0F);  // 5ダメージを与える
 
                 // 耐久値を減少
                 this.boomerangStack.damage(1, this.getWorld().random, null);

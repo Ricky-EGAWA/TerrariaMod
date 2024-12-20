@@ -32,8 +32,7 @@ import ricky.terrariamod.entity.magic.MagicBallModel;
 import ricky.terrariamod.entity.magic.MagicBallRenderer;
 import ricky.terrariamod.entity.magic.MagicMissileModel;
 import ricky.terrariamod.entity.magic.MagicMissileRenderer;
-import ricky.terrariamod.entity.weapon.EnchantedBoomerangRenderer;
-import ricky.terrariamod.entity.weapon.WoodenBoomerangRenderer;
+import ricky.terrariamod.entity.weapon.*;
 import ricky.terrariamod.event.KeyInputHandler;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.networking.ModNetworking;
@@ -117,6 +116,11 @@ public class TerrariaModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.MUSKET_BALL, MusketBallEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.WOODEN_BOOMERANG, WoodenBoomerangRenderer::new);
         EntityRendererRegistry.register(ModEntities.ENCHANTED_BOOMERANG, EnchantedBoomerangRenderer::new);
+        EntityRendererRegistry.register(ModEntities.FLAMARANG, FlamarangRenderer::new);
+        EntityRendererRegistry.register(ModEntities.ICE_BOOMERANG, IceBoomerangRenderer::new);
+        EntityRendererRegistry.register(ModEntities.SHROOMERANG, ShroomerangRenderer::new);
+        EntityRendererRegistry.register(ModEntities.THORN_CHAKRAM, ThornChakramRenderer::new);
+        EntityRendererRegistry.register(ModEntities.TRIMARANG, TrimarangRenderer::new);
 
         registerCustomBow(ModItems.IRON_BOW); // IRON_BOW 用の登録
         registerCustomBow(ModItems.GOLD_BOW); // GOLD_BOW 用の登録

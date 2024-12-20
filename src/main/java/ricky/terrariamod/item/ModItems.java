@@ -8,8 +8,7 @@ import ricky.terrariamod.TerrariaMod;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import ricky.terrariamod.item.boomerang.EnchantedBoomerangItem;
-import ricky.terrariamod.item.boomerang.WoodenBoomerangItem;
+import ricky.terrariamod.item.boomerang.*;
 import ricky.terrariamod.item.bows.CustomBowItem;
 import ricky.terrariamod.item.gun.HandGunItem;
 import ricky.terrariamod.item.gun.RocketLauncherItem;
@@ -202,11 +201,12 @@ public class ModItems {
     public static final Item PHOENIX_BLASTER = registerItem("phoenix_blaster",
             new HandGunItem(ToolMaterials.IRON, -1, -2.4f,new FabricItemSettings()));
     public static final Item WOODEN_BOOMERANG = registerItem("wooden_boomerang", new WoodenBoomerangItem(new Item.Settings().maxDamage(256)));
-    public static final Item THORN_CHAKRAM = registerItem("thorn_chakram", new WoodenBoomerangItem(new Item.Settings().maxDamage(256)));
+    public static final Item THORN_CHAKRAM = registerItem("thorn_chakram", new ThornChakramItem(new Item.Settings().maxDamage(256)));
     public static final Item ENCHANTED_BOOMERANG = registerItem("enchanted_boomerang", new EnchantedBoomerangItem(new Item.Settings().maxDamage(256)));
-    public static final Item ICE_BOOMERANG = registerItem("ice_boomerang", new WoodenBoomerangItem(new Item.Settings().maxDamage(256)));
-    public static final Item FLAMERANG = registerItem("flamerang", new WoodenBoomerangItem(new Item.Settings().maxDamage(256)));
-    public static final Item SHROOMERANG = registerItem("shroomerang", new WoodenBoomerangItem(new Item.Settings().maxDamage(256)));
+    public static final Item ICE_BOOMERANG = registerItem("ice_boomerang", new IceBoomerangItem(new Item.Settings().maxDamage(256)));
+    public static final Item FLAMARANG = registerItem("flamarang", new FlamarangItem(new Item.Settings().maxDamage(256)));
+    public static final Item SHROOMERANG = registerItem("shroomerang", new ShroomerangItem(new Item.Settings().maxDamage(256)));
+    public static final Item TRIMARANG = registerItem("trimarang", new TrimarangItem(new Item.Settings().maxDamage(256)));
 
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {

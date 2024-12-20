@@ -190,8 +190,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.WOODEN_BOOMERANG, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ENCHANTED_BOOMERANG, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ICE_BOOMERANG, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.FLAMERANG, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.FLAMARANG, Models.HANDHELD);
         itemModelGenerator.register(ModItems.SHROOMERANG, Models.HANDHELD);
         itemModelGenerator.register(ModItems.THORN_CHAKRAM, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TRIMARANG, Models.HANDHELD);
     }
 }

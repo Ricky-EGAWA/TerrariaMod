@@ -14,8 +14,7 @@ import ricky.terrariamod.entity.ammo.RocketEntity;
 import ricky.terrariamod.entity.custom.*;
 import ricky.terrariamod.entity.magic.MagicBallEntity;
 import ricky.terrariamod.entity.magic.MagicMissileEntity;
-import ricky.terrariamod.entity.weapon.EnchantedBoomerangEntity;
-import ricky.terrariamod.entity.weapon.WoodenBoomerangEntity;
+import ricky.terrariamod.entity.weapon.*;
 
 public class ModEntities {
     public static final EntityType<PorcupineEntity> PORCUPINE = Registry.register(Registries.ENTITY_TYPE,
@@ -160,5 +159,44 @@ public class ModEntities {
                     .trackRangeBlocks(64).trackedUpdateRate(10) // トラッキング設定
                     .build()
     );
-
+    public static final EntityType<FlamarangEntity> FLAMARANG = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "flamarang"),
+            FabricEntityTypeBuilder.<FlamarangEntity>create(SpawnGroup.MISC, FlamarangEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.3f, 0.3f)) // サイズを設定
+                    .trackRangeBlocks(64).trackedUpdateRate(10) // トラッキング設定
+                    .build()
+    );
+    public static final EntityType<IceBoomerangEntity> ICE_BOOMERANG = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "iec_boomerang"),
+            FabricEntityTypeBuilder.<IceBoomerangEntity>create(SpawnGroup.MISC, IceBoomerangEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.3f, 0.3f)) // サイズを設定
+                    .trackRangeBlocks(64).trackedUpdateRate(10) // トラッキング設定
+                    .build()
+    );
+    public static final EntityType<ShroomerangEntity> SHROOMERANG = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "shroomerang"),
+            FabricEntityTypeBuilder.<ShroomerangEntity>create(SpawnGroup.MISC, ShroomerangEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.3f, 0.3f)) // サイズを設定
+                    .trackRangeBlocks(64).trackedUpdateRate(10) // トラッキング設定
+                    .build()
+    );
+    public static final EntityType<ThornChakramEntity> THORN_CHAKRAM = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "thorn_chakram"),
+            FabricEntityTypeBuilder.<ThornChakramEntity>create(SpawnGroup.MISC, ThornChakramEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.3f, 0.3f)) // サイズを設定
+                    .trackRangeBlocks(64).trackedUpdateRate(10) // トラッキング設定
+                    .build()
+    );
+    public static final EntityType<TrimarangEntity> TRIMARANG = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "trimarang"),
+            FabricEntityTypeBuilder.<TrimarangEntity>create(SpawnGroup.MISC, TrimarangEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.3f, 0.3f)) // サイズを設定
+                    .trackRangeBlocks(64).trackedUpdateRate(10) // トラッキング設定
+                    .build()
+    );
 }

@@ -13,7 +13,6 @@ import ricky.terrariamod.block.ModBlocks;
 public abstract class CactusBlockMixin {
     @Inject(method = "canPlaceAt", at = @At("HEAD"), cancellable = true)
     public void canPlaceAt(BlockState state, WorldView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        System.out.println("cactus mixin method has been called!");  // デバッグ用メッセージ
         Block blockBelow = world.getBlockState(pos.down()).getBlock();
         // `Ebon Sand` の上にもサボテンが生成可能にする
         if (blockBelow == ModBlocks.EBON_SAND || blockBelow == ModBlocks.CRIM_SAND || blockBelow == ModBlocks.PEARL_SAND) {
