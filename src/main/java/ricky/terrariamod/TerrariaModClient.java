@@ -21,6 +21,7 @@ import ricky.terrariamod.entity.ammo.EnchantedSwordModel;
 import ricky.terrariamod.entity.ammo.EnchantedSwordRenderer;
 import ricky.terrariamod.entity.ammo.MusketBallEntityRenderer;
 import ricky.terrariamod.entity.ammo.RocketEntityRenderer;
+import ricky.terrariamod.entity.boss.EyeOfCthulhuRenderer;
 import ricky.terrariamod.entity.client.*;
 import ricky.terrariamod.entity.client.bats.JungleBatEntityModel;
 import ricky.terrariamod.entity.client.bats.JungleBatEntityRenderer;
@@ -121,6 +122,7 @@ public class TerrariaModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SHROOMERANG, ShroomerangRenderer::new);
         EntityRendererRegistry.register(ModEntities.THORN_CHAKRAM, ThornChakramRenderer::new);
         EntityRendererRegistry.register(ModEntities.TRIMARANG, TrimarangRenderer::new);
+        EntityRendererRegistry.register(ModEntities.EYE_OF_CTHULHU, EyeOfCthulhuRenderer::new);
 
         registerCustomBow(ModItems.IRON_BOW); // IRON_BOW 用の登録
         registerCustomBow(ModItems.GOLD_BOW); // GOLD_BOW 用の登録

@@ -11,6 +11,7 @@ import ricky.terrariamod.TerrariaMod;
 import ricky.terrariamod.entity.ammo.EnchantedSwordEntity;
 import ricky.terrariamod.entity.ammo.MusketBallEntity;
 import ricky.terrariamod.entity.ammo.RocketEntity;
+import ricky.terrariamod.entity.boss.EyeOfCthulhuEntity;
 import ricky.terrariamod.entity.custom.*;
 import ricky.terrariamod.entity.magic.MagicBallEntity;
 import ricky.terrariamod.entity.magic.MagicMissileEntity;
@@ -199,4 +200,8 @@ public class ModEntities {
                     .trackRangeBlocks(64).trackedUpdateRate(10) // トラッキング設定
                     .build()
     );
+    public static final EntityType<EyeOfCthulhuEntity> EYE_OF_CTHULHU = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "eye_of_cthulhu"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, EyeOfCthulhuEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.7f, 0.7f)).build());
 }

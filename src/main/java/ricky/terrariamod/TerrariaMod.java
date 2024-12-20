@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import ricky.terrariamod.block.ModBlocks;
 import ricky.terrariamod.effect.ModEffects;
 import ricky.terrariamod.entity.ModEntities;
+import ricky.terrariamod.entity.boss.EyeOfCthulhuEntity;
 import ricky.terrariamod.entity.custom.*;
 import ricky.terrariamod.event.ModEvents;
 import ricky.terrariamod.event.PlayerTickHandler;
@@ -93,6 +94,7 @@ public class TerrariaMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.CRIMERA, CrimeraEntity.createCrimeraAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.DEMON_EYE, DemonEyeEntity.createDemonEyeAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.POSSESSED_ARMOR, PossessedArmorEntity.createPossessedArmorAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.EYE_OF_CTHULHU, EyeOfCthulhuEntity.createEyeCthulhuAttributes());
 
 		// エンティティのスポーンを追加
 		ModEntitySpawn.addEntitySpawn();
