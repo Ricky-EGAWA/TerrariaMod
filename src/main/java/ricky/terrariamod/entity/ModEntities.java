@@ -14,6 +14,7 @@ import ricky.terrariamod.entity.ammo.RocketEntity;
 import ricky.terrariamod.entity.custom.*;
 import ricky.terrariamod.entity.magic.MagicBallEntity;
 import ricky.terrariamod.entity.magic.MagicMissileEntity;
+import ricky.terrariamod.entity.weapon.EnchantedBoomerangEntity;
 import ricky.terrariamod.entity.weapon.WoodenBoomerangEntity;
 
 public class ModEntities {
@@ -147,6 +148,14 @@ public class ModEntities {
             Registries.ENTITY_TYPE,
             new Identifier(TerrariaMod.MOD_ID, "wooden_boomerang"),
             FabricEntityTypeBuilder.<WoodenBoomerangEntity>create(SpawnGroup.MISC, WoodenBoomerangEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.3f, 0.3f)) // サイズを設定
+                    .trackRangeBlocks(64).trackedUpdateRate(10) // トラッキング設定
+                    .build()
+    );
+    public static final EntityType<EnchantedBoomerangEntity> ENCHANTED_BOOMERANG = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "enchanted_boomerang"),
+            FabricEntityTypeBuilder.<EnchantedBoomerangEntity>create(SpawnGroup.MISC, EnchantedBoomerangEntity::new)
                     .dimensions(EntityDimensions.fixed(0.3f, 0.3f)) // サイズを設定
                     .trackRangeBlocks(64).trackedUpdateRate(10) // トラッキング設定
                     .build()

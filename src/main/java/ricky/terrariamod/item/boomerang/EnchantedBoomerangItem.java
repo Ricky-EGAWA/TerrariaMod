@@ -6,13 +6,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import ricky.terrariamod.entity.weapon.WoodenBoomerangEntity;
+import ricky.terrariamod.entity.weapon.EnchantedBoomerangEntity;
+import ricky.terrariamod.item.AttackableItem;
 
-public class BoomerangItem extends Item {
-    public BoomerangItem(Settings settings) {
+public class EnchantedBoomerangItem extends Item implements AttackableItem {
+    public EnchantedBoomerangItem(Settings settings) {
         super(settings);
     }
 
+    @Override
     public void attack(World world, PlayerEntity playerEntity, Hand hand) {
         if (!world.isClient) {
             ItemStack boomerang = playerEntity.getStackInHand(hand);
@@ -20,8 +22,8 @@ public class BoomerangItem extends Item {
             // アイテムの耐久値を減らす
             boomerang.damage(1, playerEntity, p -> p.sendToolBreakStatus(hand));
 
-            // WoodenBoomerangEntity を生成
-            WoodenBoomerangEntity boomerangEntity = new WoodenBoomerangEntity(world, playerEntity, boomerang);
+            // BoomerangEntity を生成
+            EnchantedBoomerangEntity boomerangEntity = new EnchantedBoomerangEntity(world, playerEntity, boomerang);
             boomerangEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 0.9F, 1.0F);
 
             // クリエイティブモードの場合のピックアップ設定

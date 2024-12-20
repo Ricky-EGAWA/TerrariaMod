@@ -8,12 +8,14 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import ricky.terrariamod.entity.magic.MagicBallEntity;
+import ricky.terrariamod.item.AttackableItem;
 import ricky.terrariamod.util.ManaData;
 
-public class DiamondStaffItem extends SwordItem {
+public class DiamondStaffItem extends SwordItem implements AttackableItem {
     public DiamondStaffItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
+    @Override
     public void attack(World world, PlayerEntity playerEntity, Hand hand) {
         if (!world.isClient) {
             if(ManaData.useMana(playerEntity,40)){

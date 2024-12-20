@@ -8,12 +8,14 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import ricky.terrariamod.entity.magic.MagicBallEntity;
+import ricky.terrariamod.item.AttackableItem;
 import ricky.terrariamod.util.ManaData;
 
-public class WaterBoltItem extends SwordItem {
+public class WaterBoltItem extends SwordItem implements AttackableItem {
     public WaterBoltItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
+    @Override
     public void attack(World world, PlayerEntity playerEntity, Hand hand) {
         if (!world.isClient) {
             //十分なマナがあるかクリエイティブモードの場合

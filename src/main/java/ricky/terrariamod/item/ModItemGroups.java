@@ -154,6 +154,11 @@ public class ModItemGroups {
                         entries.add(ModItems.HANDGUN);
                         entries.add(ModItems.PHOENIX_BLASTER);
                         entries.add(ModItems.WOODEN_BOOMERANG);
+                        entries.add(ModItems.ENCHANTED_BOOMERANG);
+                        entries.add(ModItems.ICE_BOOMERANG);
+                        entries.add(ModItems.FLAMERANG);
+                        entries.add(ModItems.SHROOMERANG);
+                        entries.add(ModItems.THORN_CHAKRAM);
                     }).build());
 
     public static final ItemGroup MOD_MIN_GROUP = Registry.register(Registries.ITEM_GROUP,

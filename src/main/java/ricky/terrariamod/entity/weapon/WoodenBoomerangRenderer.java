@@ -13,10 +13,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.RotationAxis;
 import ricky.terrariamod.TerrariaMod;
 
-public class BoomerangRenderer extends EntityRenderer<WoodenBoomerangEntity> {
+public class WoodenBoomerangRenderer extends EntityRenderer<WoodenBoomerangEntity> {
     private final ItemStack boomerangStack;
 
-    public BoomerangRenderer(EntityRendererFactory.Context context) {
+    public WoodenBoomerangRenderer(EntityRendererFactory.Context context) {
         super(context);
         // wooden_boomerangモデルを使用
         this.boomerangStack = new ItemStack(Registries.ITEM.get(new Identifier(TerrariaMod.MOD_ID, "wooden_boomerang")));

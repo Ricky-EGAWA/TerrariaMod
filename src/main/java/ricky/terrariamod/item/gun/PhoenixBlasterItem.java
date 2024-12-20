@@ -13,12 +13,14 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.joml.Vector3f;
 import ricky.terrariamod.entity.ammo.MusketBallEntity;
+import ricky.terrariamod.item.AttackableItem;
 import ricky.terrariamod.item.ModItems;
 
-public class PhoenixBlasterItem extends SwordItem {
+public class PhoenixBlasterItem extends SwordItem implements AttackableItem {
     public PhoenixBlasterItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
+    @Override
     public void attack(World world, PlayerEntity playerEntity, Hand hand) {
         if (!world.isClient) {
             ItemStack itemStack = findMusketBall((playerEntity));

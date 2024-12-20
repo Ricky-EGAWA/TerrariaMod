@@ -23,13 +23,14 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
 import ricky.terrariamod.entity.ammo.MusketBallEntity;
+import ricky.terrariamod.item.AttackableItem;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
 
 import java.util.List;
 import java.util.function.Predicate;
 
-public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
+public class SniperRifleItem extends RangedWeaponItem implements Vanishable, AttackableItem {
     private boolean loaded = true;
 
     public SniperRifleItem(Settings settings) {
@@ -55,8 +56,7 @@ public class SniperRifleItem extends RangedWeaponItem implements Vanishable {
         return TypedActionResult.fail(itemStack);
     }
 
-
-
+    @Override
     public void attack(World world, PlayerEntity user, Hand hand){
         ItemStack itemStack = user.getStackInHand(hand);
         if (isCharged(itemStack)) {

@@ -11,15 +11,17 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import ricky.terrariamod.entity.magic.MagicMissileEntity;
+import ricky.terrariamod.item.AttackableItem;
 import ricky.terrariamod.util.ManaData;
 
 import java.util.List;
 
-public class MagicMissileItem extends SwordItem {
+public class MagicMissileItem extends SwordItem implements AttackableItem {
     public MagicMissileItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Item.Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 
+    @Override
     public void attack(World world, PlayerEntity playerEntity, Hand hand) {
         if (!world.isClient) { // サーバー側のみ実行
             // マナを消費（40マナ）できるかチェック

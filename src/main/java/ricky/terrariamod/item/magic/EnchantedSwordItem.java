@@ -8,11 +8,13 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import ricky.terrariamod.entity.ammo.EnchantedSwordEntity;
+import ricky.terrariamod.item.AttackableItem;
 
-public class EnchantedSwordItem extends SwordItem {
+public class EnchantedSwordItem extends SwordItem implements AttackableItem {
     public EnchantedSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
+    @Override
     public void attack(World world, PlayerEntity playerEntity, Hand hand) {
         if (!world.isClient) {
             ItemStack enchanted = playerEntity.getStackInHand(hand);

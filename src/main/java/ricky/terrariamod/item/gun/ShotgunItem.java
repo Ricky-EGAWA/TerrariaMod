@@ -30,10 +30,11 @@ import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 import ricky.terrariamod.entity.ammo.MusketBallEntity;
+import ricky.terrariamod.item.AttackableItem;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
 
-public class ShotgunItem extends RangedWeaponItem implements Vanishable {
+public class ShotgunItem extends RangedWeaponItem implements Vanishable, AttackableItem {
     private boolean charged = false;
     private boolean loaded = false;
 
@@ -54,6 +55,7 @@ public class ShotgunItem extends RangedWeaponItem implements Vanishable {
         user.setCurrentHand(hand);
         return TypedActionResult.fail(itemStack);
     }
+    @Override
     public void attack(World world, PlayerEntity user, Hand hand){
         ItemStack itemStack = user.getStackInHand(hand);
         if (isCharged(itemStack)) {

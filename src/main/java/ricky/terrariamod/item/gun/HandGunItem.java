@@ -13,12 +13,14 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.joml.Vector3f;
 import ricky.terrariamod.entity.ammo.MusketBallEntity;
+import ricky.terrariamod.item.AttackableItem;
 import ricky.terrariamod.item.ModItems;
 
-public class HandGunItem extends SwordItem {
+public class HandGunItem extends SwordItem implements AttackableItem {
     public HandGunItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
+    @Override
     public void attack(World world, PlayerEntity playerEntity, Hand hand) {
         if (!world.isClient) {
             ItemStack itemStack = findMusketBall((playerEntity));
