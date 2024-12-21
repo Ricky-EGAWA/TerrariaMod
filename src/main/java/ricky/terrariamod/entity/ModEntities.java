@@ -203,5 +203,5 @@ public class ModEntities {
     public static final EntityType<EyeOfCthulhuEntity> EYE_OF_CTHULHU = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(TerrariaMod.MOD_ID, "eye_of_cthulhu"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, EyeOfCthulhuEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.7f, 0.7f)).build());
+                    .dimensions(EntityDimensions.fixed(3f, 3f)).build());
 }

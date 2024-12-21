@@ -54,8 +54,6 @@ public class ModModelLayers {
 
     public static final EntityModelLayer ENCHANTED_SWORD =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "enchanted_sword"), "enchanted_sword_layer");
-    public static final EntityModelLayer AMETHYST_BALL =
-            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "amethyst_ball"), "amethyst_ball_layer");
     public static final EntityModelLayer WATER_BOLT =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "water_bolt"), "water_bolt_layer");
     public static final EntityModelLayer MAGIC_MISSILE =

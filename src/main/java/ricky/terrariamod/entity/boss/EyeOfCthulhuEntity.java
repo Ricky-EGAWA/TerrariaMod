@@ -26,6 +26,7 @@ import ricky.terrariamod.entity.ModEntities;
 import java.util.EnumSet;
 
 public class EyeOfCthulhuEntity extends FlyingEntity implements Monster {
+    private int phase = 1;
     private final ServerBossBar bossBar = new ServerBossBar(
             Text.literal("Eye Of Cthulhu"),
             BossBar.Color.RED,
@@ -39,10 +40,28 @@ public class EyeOfCthulhuEntity extends FlyingEntity implements Monster {
 
     public static DefaultAttributeContainer.Builder createEyeCthulhuAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 15)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 300)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f)
-                .add(EntityAttributes.GENERIC_ARMOR, 0.5f)
+                .add(EntityAttributes.GENERIC_ARMOR, 12f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 7);
+    }
+    public int getCurrentPhase() {
+        return phase;
+    }
+    // フェーズ切り替え処理
+    private void switchToPhaseTwo() {
+        if (phase == 2) return; // 二重切り替え防止
+        phase = 2;
+
+        // 属性の変更
+        this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.4f);
+        this.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE).setBaseValue(15);
+
+        // ボスバーの色変更
+        this.bossBar.setColor(BossBar.Color.YELLOW);
+
+        // パーティクルやエフェクトの発生
+        this.getWorld().sendEntityStatus(this, (byte) 63);
     }
 
     @Override
@@ -58,6 +77,9 @@ public class EyeOfCthulhuEntity extends FlyingEntity implements Monster {
         // Update boss bar progress based on health
         float healthProgress = this.getHealth() / this.getMaxHealth();
         bossBar.setPercent(healthProgress);
+        if (this.getHealth() <= this.getMaxHealth() / 2 && phase == 1) {
+            switchToPhaseTwo();
+        }
     }
 
     @Override
@@ -121,7 +143,7 @@ public class EyeOfCthulhuEntity extends FlyingEntity implements Monster {
             if (this.target != null) {
                 this.eye.lookAtEntity(target, 30.0F, 30.0F);
                 double distance = this.eye.squaredDistanceTo(target);
-                if (distance < 2.0) {
+                if (distance < 3.0) {
                     this.eye.tryAttack(target);
                 } else {
                     this.eye.getMoveControl().moveTo(target.getX(), target.getY(), target.getZ(), 1.5);
