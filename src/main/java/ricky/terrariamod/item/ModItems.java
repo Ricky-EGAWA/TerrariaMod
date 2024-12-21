@@ -17,6 +17,7 @@ import ricky.terrariamod.item.gun.SniperRifleItem;
 import ricky.terrariamod.item.custom.*;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
 import ricky.terrariamod.item.magic.*;
+import ricky.terrariamod.item.summon.SuspiciousLookingEyeItem;
 
 public class ModItems {
     public static final Item MetalDetectorItem = registerItem("metal_detector",
@@ -207,6 +208,8 @@ public class ModItems {
     public static final Item FLAMARANG = registerItem("flamarang", new FlamarangItem(new Item.Settings().maxDamage(256)));
     public static final Item SHROOMERANG = registerItem("shroomerang", new ShroomerangItem(new Item.Settings().maxDamage(256)));
     public static final Item TRIMARANG = registerItem("trimarang", new TrimarangItem(new Item.Settings().maxDamage(256)));
+
+    public static final Item SUSPICIOUS_LOOKING_EYE = registerItem("suspicious_looking_eye", new SuspiciousLookingEyeItem(new FabricItemSettings()));
 
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {

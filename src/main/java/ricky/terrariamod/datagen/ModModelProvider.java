@@ -194,5 +194,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SHROOMERANG, Models.HANDHELD);
         itemModelGenerator.register(ModItems.THORN_CHAKRAM, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TRIMARANG, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.SUSPICIOUS_LOOKING_EYE, Models.GENERATED);
     }
 }

@@ -209,5 +209,10 @@
   "item.terrariamod.flamarang": "フレイムラン",
   "item.terrariamod.shroomerang": "シュルーメラン",
   "item.terrariamod.thorn_chakram": "茨のチャクラム",
-  "item.terrariamod.trimarang": "トライメラン"
+  "item.terrariamod.trimarang": "トライメラン",
+
+  "item.terrariamod.suspicious_looking_eye": "怪しげな目玉",
+  "message.terrariamod.summon_success": "クトゥルフの目玉が召喚された",
+  "message.terrariamod.not_night": "夜にしか召喚できません",
+  "tooltip.terrariamod.summon_eye.tooltip": "クトゥルフの目玉を召喚"
 }

@@ -27,6 +27,7 @@ import java.util.EnumSet;
 
 public class EyeOfCthulhuEntity extends FlyingEntity implements Monster {
     private int phase = 1;
+    int summonCooldown = 100;
     private final ServerBossBar bossBar = new ServerBossBar(
             Text.literal("Eye Of Cthulhu"),
             BossBar.Color.RED,
@@ -40,10 +41,32 @@ public class EyeOfCthulhuEntity extends FlyingEntity implements Monster {
 
     public static DefaultAttributeContainer.Builder createEyeCthulhuAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 300)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 150)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f)
-                .add(EntityAttributes.GENERIC_ARMOR, 12f)
+                .add(EntityAttributes.GENERIC_ARMOR, 8f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 7);
+    }
+    private void summonDemonEyes() {
+        if (!(this.getWorld() instanceof ServerWorld)) return;
+
+        ServerWorld world = (ServerWorld) this.getWorld();
+        Random random = this.getRandom();
+
+        for (int i = 0; i < 3; i++) {
+            // 召喚位置をランダムに設定（半径5ブロック内）
+            int offsetX = (int)(random.nextDouble() - 0.5) * 10;
+            int offsetY = (int)(random.nextDouble() - 0.5) * 5;
+            int offsetZ = (int)(random.nextDouble() - 0.5) * 10;
+
+            BlockPos spawnPos = this.getBlockPos().add(offsetX, offsetY, offsetZ);
+
+            // DEMON_EYEの生成と召喚
+            MobEntity demonEye = ModEntities.DEMON_EYE.create(world); // DEMON_EYEを適切なエンティティタイプに置き換える
+            if (demonEye != null) {
+                demonEye.refreshPositionAndAngles(spawnPos, 0.0F, 0.0F);
+                world.spawnEntity(demonEye);
+            }
+        }
     }
     public int getCurrentPhase() {
         return phase;
@@ -54,8 +77,8 @@ public class EyeOfCthulhuEntity extends FlyingEntity implements Monster {
         phase = 2;
 
         // 属性の変更
-        this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.4f);
-        this.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE).setBaseValue(15);
+        this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.3f);
+        this.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE).setBaseValue(11);
 
         // ボスバーの色変更
         this.bossBar.setColor(BossBar.Color.YELLOW);
@@ -79,6 +102,15 @@ public class EyeOfCthulhuEntity extends FlyingEntity implements Monster {
         bossBar.setPercent(healthProgress);
         if (this.getHealth() <= this.getMaxHealth() / 2 && phase == 1) {
             switchToPhaseTwo();
+        }
+        // フェーズ1の特別行動（DEMON_EYE召喚）
+        if (phase == 1 && !this.getWorld().isClient) {
+            if (summonCooldown > 0) {
+                summonCooldown--;
+            } else {
+                summonDemonEyes(); // DEMON_EYEを召喚
+                summonCooldown = 200; // 10秒クールダウン (20 tick = 1 秒)
+            }
         }
     }
 
@@ -129,7 +161,7 @@ public class EyeOfCthulhuEntity extends FlyingEntity implements Monster {
 
         @Override
         public boolean canStart() {
-            this.target = this.eye.getWorld().getClosestPlayer(this.eye, 15.0);
+            this.target = this.eye.getWorld().getClosestPlayer(this.eye, 40.0);
             return this.target != null && !this.target.isCreative() && !this.target.isSpectator();
         }
 

@@ -24,6 +24,7 @@ public class ModItemGroups {
                         entries.add(ModItems.GOLDEN_KEY);
                         entries.add(ModBlocks.GOLDEN_CHEST);
                         entries.add(ModBlocks.LOCKED_GOLDEN_CHEST);
+                        entries.add(ModItems.SUSPICIOUS_LOOKING_EYE);
                     }).build());
 
     //ModBlocks
