@@ -25,6 +25,13 @@ public class ModItemGroups {
                         entries.add(ModBlocks.GOLDEN_CHEST);
                         entries.add(ModBlocks.LOCKED_GOLDEN_CHEST);
                         entries.add(ModItems.SUSPICIOUS_LOOKING_EYE);
+                        entries.add(ModItems.ADHESIVE_BANDAGE);
+                        entries.add(ModItems.NAZAR);
+                        entries.add(ModItems.VITAMIN);
+                        entries.add(ModItems.BEZOAR);
+                        entries.add(ModItems.TRIFOLD_MAP);
+                        entries.add(ModItems.BLIND_FOLD);
+                        entries.add(ModItems.FAST_CLOCK);
                     }).build());
 
     //ModBlocks

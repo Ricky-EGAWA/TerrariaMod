@@ -1,4 +1,4 @@
-package ricky.terrariamod.item.custom;
+package ricky.terrariamod.item.accessories;
 
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;

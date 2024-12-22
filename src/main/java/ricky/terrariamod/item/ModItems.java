@@ -8,6 +8,7 @@ import ricky.terrariamod.TerrariaMod;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
+import ricky.terrariamod.item.accessories.*;
 import ricky.terrariamod.item.boomerang.*;
 import ricky.terrariamod.item.bows.CustomBowItem;
 import ricky.terrariamod.item.gun.HandGunItem;
@@ -210,6 +211,15 @@ public class ModItems {
     public static final Item TRIMARANG = registerItem("trimarang", new TrimarangItem(new Item.Settings().maxDamage(256)));
 
     public static final Item SUSPICIOUS_LOOKING_EYE = registerItem("suspicious_looking_eye", new SuspiciousLookingEyeItem(new FabricItemSettings()));
+    public static final Item ADHESIVE_BANDAGE = registerItem("adhesive_bandage", new AdhesiveBandageItem((new FabricItemSettings())));
+    public static final Item NAZAR = registerItem("nazar", new NazarItem((new FabricItemSettings())));
+    public static final Item VITAMIN = registerItem("vitamins", new VitaminItem((new FabricItemSettings())));
+    public static final Item BEZOAR = registerItem("bezoar", new BezoarItem((new FabricItemSettings())));
+    public static final Item FAST_CLOCK = registerItem("fast_clock", new FastClockItem((new FabricItemSettings())));
+    public static final Item TRIFOLD_MAP = registerItem("trifold_map", new AdhesiveBandageItem((new FabricItemSettings())));
+    public static final Item BLIND_FOLD = registerItem("blindfold", new BlindFoldItem((new FabricItemSettings())));
+//    public static final Item ADHESIVE_BANDAGE = registerItem("adhesive_bandage", new AdhesiveBandageItem((new FabricItemSettings())));
+//    public static final Item ADHESIVE_BANDAGE = registerItem("adhesive_bandage", new AdhesiveBandageItem((new FabricItemSettings())));
 
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {

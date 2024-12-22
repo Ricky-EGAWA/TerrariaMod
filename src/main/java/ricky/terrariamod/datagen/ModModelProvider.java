@@ -196,5 +196,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.TRIMARANG, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.SUSPICIOUS_LOOKING_EYE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ADHESIVE_BANDAGE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.NAZAR ,Models.GENERATED);
+        itemModelGenerator.register(ModItems.VITAMIN ,Models.GENERATED);
+        itemModelGenerator.register(ModItems.BEZOAR ,Models.GENERATED);
+        itemModelGenerator.register(ModItems.BLIND_FOLD ,Models.GENERATED);
+        itemModelGenerator.register(ModItems.FAST_CLOCK ,Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRIFOLD_MAP ,Models.GENERATED);
     }
 }
