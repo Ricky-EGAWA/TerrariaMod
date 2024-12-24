@@ -218,8 +218,15 @@ public class ModItems {
     public static final Item FAST_CLOCK = registerItem("fast_clock", new FastClockItem((new FabricItemSettings())));
     public static final Item TRIFOLD_MAP = registerItem("trifold_map", new AdhesiveBandageItem((new FabricItemSettings())));
     public static final Item BLIND_FOLD = registerItem("blindfold", new BlindFoldItem((new FabricItemSettings())));
-//    public static final Item ADHESIVE_BANDAGE = registerItem("adhesive_bandage", new AdhesiveBandageItem((new FabricItemSettings())));
-//    public static final Item ADHESIVE_BANDAGE = registerItem("adhesive_bandage", new AdhesiveBandageItem((new FabricItemSettings())));
+
+    public static final Item CANDY_CANE_SWORD = registerItem("candy_cane_sword",
+            new SwordItem(ToolMaterials.GOLD, 3, -2.4f, new FabricItemSettings().maxCount(1)));
+    public static final Item CANDY_CANE_PICKAXE = registerItem("candy_cane_pickaxe",
+            new PickaxeItem(ToolMaterials.GOLD, 1, 1, new FabricItemSettings().maxCount(1)));
+    public static final Item FRUITCAKE_CHAKRAM = registerItem("fruitcake_chakram",
+            new FruitcakeChakramItem(new Item.Settings().maxDamage(256)));
+    public static final Item PRESENT = registerItem("present",
+            new PresentItem(new FabricItemSettings()));
 
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {

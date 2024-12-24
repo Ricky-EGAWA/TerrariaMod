@@ -214,5 +214,10 @@
   "item.terrariamod.suspicious_looking_eye": "怪しげな目玉",
   "message.terrariamod.summon_success": "クトゥルフの目玉が召喚された",
   "message.terrariamod.not_night": "夜にしか召喚できません",
-  "tooltip.terrariamod.summon_eye.tooltip": "クトゥルフの目玉を召喚"
+  "tooltip.terrariamod.summon_eye.tooltip": "クトゥルフの目玉を召喚",
+
+  "item.terrariamod.present": "プレゼント",
+  "item.terrariamod.candy_cane_sword": "キャンディステッキの剣",
+  "item.terrariamod.candy_cane_pickaxe": "キャンディステッキのつるはし",
+  "item.terrariamod.fruitcake_chakram": "フルーツケーキチャクラム"
 }

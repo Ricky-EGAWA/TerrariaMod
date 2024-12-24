@@ -118,6 +118,7 @@ public class TerrariaModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.ROCKET, RocketEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.MUSKET_BALL, MusketBallEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.WOODEN_BOOMERANG, WoodenBoomerangRenderer::new);
+        EntityRendererRegistry.register(ModEntities.CANDY_CANE_CHAKRAM, FruitcakeChakramRenderer::new);
         EntityRendererRegistry.register(ModEntities.ENCHANTED_BOOMERANG, EnchantedBoomerangRenderer::new);
         EntityRendererRegistry.register(ModEntities.FLAMARANG, FlamarangRenderer::new);
         EntityRendererRegistry.register(ModEntities.ICE_BOOMERANG, IceBoomerangRenderer::new);

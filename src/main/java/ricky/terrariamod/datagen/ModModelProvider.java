@@ -203,5 +203,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BLIND_FOLD ,Models.GENERATED);
         itemModelGenerator.register(ModItems.FAST_CLOCK ,Models.GENERATED);
         itemModelGenerator.register(ModItems.TRIFOLD_MAP ,Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.FRUITCAKE_CHAKRAM, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.CANDY_CANE_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.CANDY_CANE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PRESENT, Models.GENERATED);
     }
 }

@@ -32,6 +32,11 @@ public class ModItemGroups {
                         entries.add(ModItems.TRIFOLD_MAP);
                         entries.add(ModItems.BLIND_FOLD);
                         entries.add(ModItems.FAST_CLOCK);
+
+                        entries.add(ModItems.CANDY_CANE_PICKAXE);
+                        entries.add(ModItems.FRUITCAKE_CHAKRAM);
+                        entries.add(ModItems.CANDY_CANE_SWORD);
+                        entries.add(ModItems.PRESENT);
                     }).build());
 
     //ModBlocks

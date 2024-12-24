@@ -152,6 +152,14 @@ public class ModEntities {
                     .trackRangeBlocks(64).trackedUpdateRate(10) // トラッキング設定
                     .build()
     );
+    public static final EntityType<FruitcakeChakramEntity> CANDY_CANE_CHAKRAM = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "candy_cane_chakram"),
+            FabricEntityTypeBuilder.<FruitcakeChakramEntity>create(SpawnGroup.MISC, FruitcakeChakramEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.3f, 0.3f)) // サイズを設定
+                    .trackRangeBlocks(64).trackedUpdateRate(10) // トラッキング設定
+                    .build()
+    );
     public static final EntityType<EnchantedBoomerangEntity> ENCHANTED_BOOMERANG = Registry.register(
             Registries.ENTITY_TYPE,
             new Identifier(TerrariaMod.MOD_ID, "enchanted_boomerang"),

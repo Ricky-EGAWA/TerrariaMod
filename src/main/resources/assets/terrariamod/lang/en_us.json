@@ -216,5 +216,10 @@
   "item.terrariamod.suspicious_looking_eye": "Suspicious looking eye",
   "message.terrariamod.summon_success": "Eye of cthulhu summoned",
   "message.terrariamod.not_night": "Can only be summoned at night",
-  "tooltip.terrariamod.summon_eye.tooltip": "Summon eye of cthulhu"
+  "tooltip.terrariamod.summon_eye.tooltip": "Summon eye of cthulhu",
+
+  "item.terrariamod.present": "Present",
+  "item.terrariamod.candy_cane_sword": "Candy Cane Sword",
+  "item.terrariamod.candy_cane_pickaxe": "Candy Cane Pickaxe",
+  "item.terrariamod.fruitcake_chakram": "Fruitcake Chakram"
 }
