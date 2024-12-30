@@ -1,0 +1,84 @@
+{
+  "parent": "terrariamod:root",
+  "criteria": {
+    "terrariamod:ebon_biome": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "terrariamod:ebon_biome"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "terrariamod:crim_biome": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "terrariamod:crim_biome"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "terrariamod:pearl_biome": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "terrariamod:pearl_biome"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "terrariamod:advancements.all_biome.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "terrariamod:cobalt_boots",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "terrariamod:advancements.all_biome.title"
+    }
+  },
+  "requirements": [
+    [
+      "terrariamod:ebon_biome"
+    ],
+    [
+      "terrariamod:crim_biome"
+    ],
+    [
+      "terrariamod:pearl_biome"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

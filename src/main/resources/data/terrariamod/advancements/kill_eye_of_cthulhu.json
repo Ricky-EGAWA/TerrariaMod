@@ -1,0 +1,40 @@
+{
+  "parent": "terrariamod:root",
+  "criteria": {
+    "killed_eye_of_cthulhu": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "terrariamod:eye_of_cthulhu"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "terrariamod:advancements.boss.kill_eye_of_cthulhu.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "terrariamod:suspicious_looking_eye"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "terrariamod:advancements.boss.kill_eye_of_cthulhu.title"
+    }
+  },
+  "requirements": [
+    [
+      "killed_eye_of_cthulhu"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

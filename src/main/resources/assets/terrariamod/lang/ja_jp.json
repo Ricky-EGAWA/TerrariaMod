@@ -219,5 +219,17 @@
   "item.terrariamod.present": "プレゼント",
   "item.terrariamod.candy_cane_sword": "キャンディステッキの剣",
   "item.terrariamod.candy_cane_pickaxe": "キャンディステッキのつるはし",
-  "item.terrariamod.fruitcake_chakram": "フルーツケーキチャクラム"
+  "item.terrariamod.fruitcake_chakram": "フルーツケーキチャクラム",
+
+
+  "terrariamod:advancements.boss.kill_eye_of_cthulhu.title": "クトゥルフの目玉を討伐",
+  "terrariamod:advancements.boss.kill_eye_of_cthulhu.description": "不気味な目玉を使い召喚",
+  "terrariamod:advancements.all_biome.title": "すべてのバイオームを訪れる",
+  "terrariamod:advancements.all_biome.description": "",
+  "terrariamod:advancements.pickaxe.hellstone_pickaxe.title": "ヘルストーンインピッケルを入手",
+  "terrariamod:advancements.pickaxe.hellstone_pickaxe.description": "ネザーで手に入るヘルストーンから作成",
+  "terrariamod:advancements.pickaxe.cobalt_pickaxe.title": "コバルトピッケルを入手",
+  "terrariamod:advancements.pickaxe.cobalt_pickaxe.description": "ヘルストーンピッケルにて入手可能",
+  "terrariamod:advancements.pickaxe.orichalcum_pickaxe.title": "オリハルコンピッケルを入手",
+  "terrariamod:advancements.pickaxe.orichalcum_pickaxe.description": "コバルトピッケルにて入手可能"
 }

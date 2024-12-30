@@ -221,5 +221,16 @@
   "item.terrariamod.present": "Present",
   "item.terrariamod.candy_cane_sword": "Candy Cane Sword",
   "item.terrariamod.candy_cane_pickaxe": "Candy Cane Pickaxe",
-  "item.terrariamod.fruitcake_chakram": "Fruitcake Chakram"
+  "item.terrariamod.fruitcake_chakram": "Fruitcake Chakram",
+
+  "terrariamod:advancements.boss.kill_eye_of_cthulhu.title": "",
+  "terrariamod:advancements.boss.kill_eye_of_cthulhu.description": "",
+  "terrariamod:advancements.all_biome.title": "",
+  "terrariamod:advancements.all_biome.description": "",
+  "terrariamod:advancements.pickaxe.hellstone_pickaxe.title": "",
+  "terrariamod:advancements.pickaxe.hellstone_pickaxe.description": "",
+  "terrariamod:advancements.pickaxe.cobalt_pickaxe.title": "",
+  "terrariamod:advancements.pickaxe.cobalt_pickaxe.description": "",
+  "terrariamod:advancements.pickaxe.orichalcum_pickaxe.title": "",
+  "terrariamod:advancements.pickaxe.orichalcum_pickaxe.description": ""
 }

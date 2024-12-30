@@ -1,0 +1,43 @@
+{
+  "criteria": {
+    "killed_dragon": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:ender_dragon"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/gui/advancements/backgrounds/end.png",
+    "description": {
+      "translate": "terrariamod:advancements.root.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "terrariamod:cobalt_ingot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "terrariamod:advancements.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "killed_dragon"
+    ]
+  ],
+  "rewards": {
+    "experience": 1000
+  },
+  "sends_telemetry_event": true
+}
