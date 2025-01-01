@@ -19,6 +19,7 @@ import ricky.terrariamod.item.custom.*;
 import ricky.terrariamod.item.gun.ammo.MusketBallItem;
 import ricky.terrariamod.item.magic.*;
 import ricky.terrariamod.item.summon.SuspiciousLookingEyeItem;
+import ricky.terrariamod.item.tools.ModPickaxeItem;
 
 public class ModItems {
     public static final Item MetalDetectorItem = registerItem("metal_detector",
@@ -35,7 +36,7 @@ public class ModItems {
     public static final Item HELLSTONE_RAW = registerItem("hellstone_raw", new Item(new FabricItemSettings()));
 
     public static final Item COBALT_PICKAXE = registerItem("cobalt_pickaxe",
-            new PickaxeItem(ModToolMaterial.COBALT_INGOT, 2, -3f, new FabricItemSettings().maxCount(1)));
+            new ModPickaxeItem(ModToolMaterial.COBALT_INGOT, 2, -3f, new FabricItemSettings().maxCount(1), 1));
     public static final Item COBALT_AXE = registerItem("cobalt_axe",
             new AxeItem(ModToolMaterial.COBALT_INGOT, 7, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item COBALT_SHOVEL = registerItem("cobalt_shovel",
@@ -44,7 +45,7 @@ public class ModItems {
             new SwordItem(ModToolMaterial.COBALT_INGOT, 5, -2.4f, new FabricItemSettings().maxCount(1)));
 
     public static final Item ORICHALCUM_PICKAXE = registerItem("orichalcum_pickaxe",
-            new PickaxeItem(ModToolMaterial.ORICHALCUM_INGOT, 2, -3f, new FabricItemSettings().maxCount(1)));
+            new ModPickaxeItem(ModToolMaterial.ORICHALCUM_INGOT, 2, -3f, new FabricItemSettings().maxCount(1),2));
     public static final Item ORICHALCUM_AXE = registerItem("orichalcum_axe",
             new AxeItem(ModToolMaterial.ORICHALCUM_INGOT, 7, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item ORICHALCUM_SHOVEL = registerItem("orichalcum_shovel",
@@ -53,7 +54,7 @@ public class ModItems {
             new SwordItem(ModToolMaterial.ORICHALCUM_INGOT, 5, -2.4f, new FabricItemSettings().maxCount(1)));
 
     public static final Item ADAMANTITE_PICKAXE = registerItem("adamantite_pickaxe",
-            new PickaxeItem(ModToolMaterial.ADAMANTITE_INGOT, 2, -3f, new FabricItemSettings().maxCount(1)));
+            new ModPickaxeItem(ModToolMaterial.ADAMANTITE_INGOT, 2, -3f, new FabricItemSettings().maxCount(1),2));
     public static final Item ADAMANTITE_AXE = registerItem("adamantite_axe",
             new AxeItem(ModToolMaterial.ADAMANTITE_INGOT, 7, -3f, new FabricItemSettings().maxCount(1)));
     public static final Item ADAMANTITE_SHOVEL = registerItem("adamantite_shovel",
