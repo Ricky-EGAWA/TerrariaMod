@@ -45,11 +45,9 @@ public class ModPickaxeItem extends PickaxeItem {
                     if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) > 0) {
                         // シルクタッチの効果を適用してアイテムをドロップ
                         targetBlock.afterBreak(world, player, targetPos, targetState, null, stack);
-//                        Block.dropStacks(targetState, world, targetPos);
                         world.breakBlock(targetPos, false, player);
                     } else {
                         // 通常のドロップ
-//                        targetBlock.afterBreak(world, player, targetPos, targetState, null, stack);
                         world.breakBlock(targetPos, true, player);
                     }
                 }
