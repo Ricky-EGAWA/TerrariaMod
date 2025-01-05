@@ -62,6 +62,7 @@ public abstract class LivingEntityMixin{
             }
         }
     }
+    private int roll = 0;
 
     @Inject(method = "tickFallFlying", at = @At("HEAD"), cancellable = true)
     private void customTickFallFlying(CallbackInfo ci) {
@@ -72,18 +73,16 @@ public abstract class LivingEntityMixin{
 
                 if ((itemStack.isOf(Items.ELYTRA) && ElytraItem.isUsable(itemStack) || itemStack.isOf(ModItems.FLAME_WING))) {
                     bl = true;
-                    int roll = ((LivingEntityAccessor) player).getRoll() + 1;
-                    ((LivingEntityAccessor) player).setRoll(roll);
-                    System.out.println("have wings");
+                    System.out.println(roll);
 
                     if (!player.getWorld().isClient && roll % 10 == 0) {
                         int j = roll / 10;
-                        if (j % 2 == 0) {
+                        if (j % 2 == 0 && itemStack.isOf(Items.ELYTRA)) {
                             itemStack.damage(1, player, (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.CHEST));
                         }
                         player.emitGameEvent(GameEvent.ELYTRA_GLIDE);
-                        System.out.println("gliding");//TODO 呼び出されていない
                     }
+                    roll++;
                 } else {
                     bl = false;
                 }
