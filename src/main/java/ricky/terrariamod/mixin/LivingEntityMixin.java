@@ -9,7 +9,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ElytraItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.event.GameEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -66,14 +68,49 @@ public abstract class LivingEntityMixin{
 
     @Inject(method = "tickFallFlying", at = @At("HEAD"), cancellable = true)
     private void customTickFallFlying(CallbackInfo ci) {
-        if ((Object) this instanceof PlayerEntity player){
-            boolean bl = ((FlagInvoker) player).invokeGetFlag(7);  // フラグ7を取得
+        if ((Object) this instanceof PlayerEntity player) {
+            boolean bl = ((FlagInvoker) player).invokeGetFlag(7); // フラグ7を取得
             if (bl && !player.isOnGround() && !player.hasVehicle() && !player.hasStatusEffect(StatusEffects.LEVITATION)) {
                 ItemStack itemStack = player.getEquippedStack(EquipmentSlot.CHEST);
 
-                if ((itemStack.isOf(Items.ELYTRA) && ElytraItem.isUsable(itemStack) || itemStack.isOf(ModItems.FLAME_WING))) {
+                if ((itemStack.isOf(Items.ELYTRA) && ElytraItem.isUsable(itemStack)) || itemStack.isOf(ModItems.FLAME_WING)) {
                     bl = true;
-                    System.out.println(roll);
+
+                    // 炎のエフェクトを生成 (FLAME_WING装着時のみ)
+                    if (itemStack.isOf(ModItems.FLAME_WING)) {
+                        // プレイヤーの速度を取得
+                        Vec3d velocity = player.getVelocity();
+                        double speed = Math.sqrt(velocity.x * velocity.x + velocity.z * velocity.z); // XY平面の速度
+                        if (speed > 0.01) { // 動いている場合のみ処理
+                            // 正規化して方向を求める
+                            double normX = velocity.x / speed;
+                            double normZ = velocity.z / speed;
+
+                            // 左右の羽のオフセット位置（進行方向の左右）
+                            double wingOffset = 0.5;
+
+                            // パーティクルの座標計算
+                            double leftWingX = player.getX() - normZ * wingOffset;
+                            double leftWingZ = player.getZ() + normX * wingOffset;
+                            double rightWingX = player.getX() + normZ * wingOffset;
+                            double rightWingZ = player.getZ() - normX * wingOffset;
+                            double wingY = player.getY() + 0.6; // プレイヤーの少し上
+
+                            // サーバー側で左の羽にパーティクルを生成
+                            player.getWorld().addParticle(
+                                    ParticleTypes.FLAME, // パーティクルの種類
+                                    leftWingX, wingY, leftWingZ, // 左羽の座標
+                                    0, 0, 0 // パーティクルの速度
+                            );
+
+                            // サーバー側で右の羽にパーティクルを生成
+                            player.getWorld().addParticle(
+                                    ParticleTypes.FLAME, // パーティクルの種類
+                                    rightWingX, wingY, rightWingZ, // 右羽の座標
+                                    0, 0, 0 // パーティクルの速度
+                            );
+                        }
+                    }
 
                     if (!player.getWorld().isClient && roll % 10 == 0) {
                         int j = roll / 10;
@@ -91,7 +128,7 @@ public abstract class LivingEntityMixin{
             }
 
             if (!player.getWorld().isClient) {
-                ((FlagInvoker) player).invokeSetFlag(7, bl);  // フラグ7を設定
+                ((FlagInvoker) player).invokeSetFlag(7, bl); // フラグ7を設定
             }
             ci.cancel();
         }
