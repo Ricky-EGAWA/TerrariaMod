@@ -11,7 +11,8 @@
 		"EntityDataSaverMixin",
 		"PlayerEntityMixin",
 		"LivingEntityAccessor",
-		"FlagInvoker"
+		"FlagInvoker",
+		"ElytraFeatureRendererMixin"
 	],
 	"client": [
 		"ItemRendererAccessor",

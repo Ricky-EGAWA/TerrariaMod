@@ -12,7 +12,6 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Hand;
 import net.minecraft.world.event.GameEvent;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -64,12 +63,6 @@ public abstract class LivingEntityMixin{
         }
     }
 
-    @Shadow
-    public abstract boolean isFallFlying();
-
-    @Shadow
-    public abstract boolean hasStatusEffect(StatusEffect effect);
-
     @Inject(method = "tickFallFlying", at = @At("HEAD"), cancellable = true)
     private void customTickFallFlying(CallbackInfo ci) {
         if ((Object) this instanceof PlayerEntity player){
@@ -89,7 +82,7 @@ public abstract class LivingEntityMixin{
                             itemStack.damage(1, player, (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.CHEST));
                         }
                         player.emitGameEvent(GameEvent.ELYTRA_GLIDE);
-                        System.out.println("gliding");
+                        System.out.println("gliding");//TODO 呼び出されていない
                     }
                 } else {
                     bl = false;
