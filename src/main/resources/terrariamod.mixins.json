@@ -9,7 +9,9 @@
 		"GameRendererMixin",
 		"KeyboardInputMixin",
 		"EntityDataSaverMixin",
-		"PlayerEntityMixin"
+		"PlayerEntityMixin",
+		"LivingEntityAccessor",
+		"FlagInvoker"
 	],
 	"client": [
 		"ItemRendererAccessor",

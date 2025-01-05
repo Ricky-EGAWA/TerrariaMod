@@ -15,9 +15,7 @@ public class ModItemGroups {
             new Identifier(TerrariaMod.MOD_ID, "mod"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.special_item"))
                     .icon(()->new ItemStack(ModItems.MetalDetectorItem)).entries((displayContext, entries) -> {
-//                        entries.add(ModItems.SPIDER_FANG);
                         entries.add(ModItems.MetalDetectorItem);
-//                        entries.add(ModBlocks.SOUND_BLOCK);
                         entries.add(ModItems.INFINITE_WATER_BUCKET);
                         entries.add(ModItems.INFINITE_LAVA_BUCKET);
                         entries.add(ModItems.MAGIC_MIRROR);
@@ -37,6 +35,8 @@ public class ModItemGroups {
                         entries.add(ModItems.FRUITCAKE_CHAKRAM);
                         entries.add(ModItems.CANDY_CANE_SWORD);
                         entries.add(ModItems.PRESENT);
+
+                        entries.add(ModItems.FLAME_WING);
                     }).build());
 
     //ModBlocks

@@ -208,5 +208,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CANDY_CANE_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.CANDY_CANE_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PRESENT, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.FLAME_WING, Models.GENERATED);
     }
 }

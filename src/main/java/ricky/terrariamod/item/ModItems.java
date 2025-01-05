@@ -20,6 +20,7 @@ import ricky.terrariamod.item.gun.ammo.MusketBallItem;
 import ricky.terrariamod.item.magic.*;
 import ricky.terrariamod.item.summon.SuspiciousLookingEyeItem;
 import ricky.terrariamod.item.tools.ModPickaxeItem;
+import ricky.terrariamod.item.wings.FlameWingItem;
 
 public class ModItems {
     public static final Item MetalDetectorItem = registerItem("metal_detector",
@@ -228,6 +229,9 @@ public class ModItems {
             new FruitcakeChakramItem(new Item.Settings().maxDamage(256)));
     public static final Item PRESENT = registerItem("present",
             new PresentItem(new FabricItemSettings()));
+
+    public static final Item FLAME_WING = registerItem("flame_wing",
+            new ElytraItem(new FabricItemSettings()));
 
     // 各ツールを取得するメソッド
     public static Item getPickaxe(String materialName) {
