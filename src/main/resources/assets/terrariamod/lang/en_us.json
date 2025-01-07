@@ -232,5 +232,10 @@
   "terrariamod:advancements.pickaxe.cobalt_pickaxe.title": "",
   "terrariamod:advancements.pickaxe.cobalt_pickaxe.description": "",
   "terrariamod:advancements.pickaxe.orichalcum_pickaxe.title": "",
-  "terrariamod:advancements.pickaxe.orichalcum_pickaxe.description": ""
+  "terrariamod:advancements.pickaxe.orichalcum_pickaxe.description": "",
+
+  "item.minecraft.potion.effect.fighter_potion": "Potion of Fighter",
+  "item.minecraft.splash_potion.effect.fighter_potion": "Splash Potion of Fighter",
+  "item.minecraft.lingering_potion.effect.fighter_potion": "Lingering Potion of Fighter",
+  "item.minecraft.tipped_arrow.effect.fighter_potion": "Arrow of Fighter"
 }

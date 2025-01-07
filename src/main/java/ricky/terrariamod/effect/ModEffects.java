@@ -15,6 +15,7 @@ public class ModEffects {
     public static StatusEffect CURSED;
     public static StatusEffect CONFUSED;
     public static StatusEffect CURSED_INFERNO;
+    public static StatusEffect FIGHTER;
 
     // エフェクト登録メソッド
     public static StatusEffect registerStatusEffect(String name, StatusEffect effect) {
@@ -34,8 +35,10 @@ public class ModEffects {
         CURSED = registerStatusEffect("cursed",
                 new CursedEffect(StatusEffectCategory.HARMFUL, 0xFFFFFF));
         CONFUSED = registerStatusEffect("confused",
-                new CursedEffect(StatusEffectCategory.HARMFUL, 0xFFFFFF));
+                new ConfusedEffect(StatusEffectCategory.HARMFUL, 0xFFFFFF));
         CURSED_INFERNO = registerStatusEffect("confused_inferno",
                 new CursedInfernoEffect(StatusEffectCategory.HARMFUL, 0xFFFFFF));
+        FIGHTER = registerStatusEffect("fighter",
+                new FighterEffect(StatusEffectCategory.BENEFICIAL, 0xFFFFFF));
     }
 }

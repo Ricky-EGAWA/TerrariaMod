@@ -231,5 +231,10 @@
   "terrariamod:advancements.pickaxe.cobalt_pickaxe.title": "コバルトピッケルを入手",
   "terrariamod:advancements.pickaxe.cobalt_pickaxe.description": "ヘルストーンピッケルにて入手可能",
   "terrariamod:advancements.pickaxe.orichalcum_pickaxe.title": "オリハルコンピッケルを入手",
-  "terrariamod:advancements.pickaxe.orichalcum_pickaxe.description": "コバルトピッケルにて入手可能"
+  "terrariamod:advancements.pickaxe.orichalcum_pickaxe.description": "コバルトピッケルにて入手可能",
+
+  "item.minecraft.potion.effect.fighter_potion": "戦士のポーション",
+  "item.minecraft.splash_potion.effect.fighter_potion": "戦士のスプラッシュポーション",
+  "item.minecraft.lingering_potion.effect.fighter_potion": "戦士の残留ポーション",
+  "item.minecraft.tipped_arrow.effect.fighter_potion": "戦士の矢"
 }

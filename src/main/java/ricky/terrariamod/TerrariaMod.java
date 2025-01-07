@@ -20,6 +20,7 @@ import ricky.terrariamod.event.ModEvents;
 import ricky.terrariamod.event.PlayerTickHandler;
 import ricky.terrariamod.item.ModItemGroups;
 import ricky.terrariamod.item.ModItems;
+import ricky.terrariamod.item.potion.ModPotions;
 import ricky.terrariamod.networking.ModNetworking;
 import ricky.terrariamod.util.ModLootTableModifiers;
 import ricky.terrariamod.entity.ModEntitySpawn;
@@ -111,5 +112,8 @@ public class TerrariaMod implements ModInitializer {
 		// サーバー側でパケットの登録を行う
 		ModNetworking.registerC2SPackets();
 		ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
+
+		// ポーションを登録
+		ModPotions.registerPotions();
 	}
 }
