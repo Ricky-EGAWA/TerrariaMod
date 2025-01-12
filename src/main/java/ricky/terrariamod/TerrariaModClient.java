@@ -35,7 +35,11 @@ import ricky.terrariamod.entity.magic.MagicBallModel;
 import ricky.terrariamod.entity.magic.MagicBallRenderer;
 import ricky.terrariamod.entity.magic.MagicMissileModel;
 import ricky.terrariamod.entity.magic.MagicMissileRenderer;
+import ricky.terrariamod.entity.monster.cursed_hammer.CursedHammerModel;
+import ricky.terrariamod.entity.monster.cursed_hammer.CursedHammerRenderer;
 import ricky.terrariamod.entity.weapon.*;
+import ricky.terrariamod.entity.worm.devourer.DevourerModel;
+import ricky.terrariamod.entity.worm.devourer.DevourerRenderer;
 import ricky.terrariamod.event.KeyInputHandler;
 import ricky.terrariamod.item.ModItems;
 import ricky.terrariamod.networking.ModNetworking;
@@ -125,9 +129,15 @@ public class TerrariaModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SHROOMERANG, ShroomerangRenderer::new);
         EntityRendererRegistry.register(ModEntities.THORN_CHAKRAM, ThornChakramRenderer::new);
         EntityRendererRegistry.register(ModEntities.TRIMARANG, TrimarangRenderer::new);
+
         EntityRendererRegistry.register(ModEntities.EYE_OF_CTHULHU, EyeOfCthulhuRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(EyeOfCthulhuModelOne.LAYER_LOCATION, EyeOfCthulhuModelOne::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(EyeOfCthulhuModelTwo.LAYER_LOCATION, EyeOfCthulhuModelTwo::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.DEVOURER, DevourerRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.DEVOURER, DevourerModel::getTexturedModelData);
+
+        EntityRendererRegistry.register(ModEntities.CURSED_HAMMER, CursedHammerRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CURSED_HAMMER, CursedHammerModel::getTexturedModelData);
 
         registerCustomBow(ModItems.IRON_BOW); // IRON_BOW 用の登録
         registerCustomBow(ModItems.GOLD_BOW); // GOLD_BOW 用の登録

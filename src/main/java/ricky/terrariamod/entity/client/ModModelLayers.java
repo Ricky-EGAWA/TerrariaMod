@@ -59,6 +59,12 @@ public class ModModelLayers {
     public static final EntityModelLayer MAGIC_MISSILE =
             new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "magic_missile"), "magic_missile_layer");
 
+    public static final EntityModelLayer DEVOURER =
+            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "devourer"), "devourer_layer");
+
+    public static final EntityModelLayer CURSED_HAMMER =
+            new EntityModelLayer(new Identifier(TerrariaMod.MOD_ID, "cursed_hammer"), "cursed_hammer_layer");
+
 
     private static EntityModelLayer registerMain(String id) {
         return ModModelLayers.register(id, MAIN);

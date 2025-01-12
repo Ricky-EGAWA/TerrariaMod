@@ -8,6 +8,8 @@ import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.block.Blocks;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +18,9 @@ import ricky.terrariamod.effect.ModEffects;
 import ricky.terrariamod.entity.ModEntities;
 import ricky.terrariamod.entity.boss.EyeOfCthulhuEntity;
 import ricky.terrariamod.entity.custom.*;
+import ricky.terrariamod.entity.monster.cursed_hammer.CursedHammerEntity;
+import ricky.terrariamod.entity.worm.devourer.DevourerEntity;
+import ricky.terrariamod.entity.worm.devourer.DevourerPartEntity;
 import ricky.terrariamod.event.ModEvents;
 import ricky.terrariamod.event.PlayerTickHandler;
 import ricky.terrariamod.item.ModItemGroups;
@@ -96,6 +101,8 @@ public class TerrariaMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.DEMON_EYE, DemonEyeEntity.createDemonEyeAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.POSSESSED_ARMOR, PossessedArmorEntity.createPossessedArmorAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.EYE_OF_CTHULHU, EyeOfCthulhuEntity.createEyeCthulhuAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.DEVOURER, DevourerEntity.createDevourerAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.CURSED_HAMMER, CursedHammerEntity.createCursedHammerAttributes());
 
 		// エンティティのスポーンを追加
 		ModEntitySpawn.addEntitySpawn();

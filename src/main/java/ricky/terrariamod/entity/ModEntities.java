@@ -15,7 +15,10 @@ import ricky.terrariamod.entity.boss.EyeOfCthulhuEntity;
 import ricky.terrariamod.entity.custom.*;
 import ricky.terrariamod.entity.magic.MagicBallEntity;
 import ricky.terrariamod.entity.magic.MagicMissileEntity;
+import ricky.terrariamod.entity.monster.cursed_hammer.CursedHammerEntity;
 import ricky.terrariamod.entity.weapon.*;
+import ricky.terrariamod.entity.worm.devourer.DevourerEntity;
+import ricky.terrariamod.entity.worm.devourer.DevourerPartEntity;
 
 public class ModEntities {
     public static final EntityType<PorcupineEntity> PORCUPINE = Registry.register(Registries.ENTITY_TYPE,
@@ -98,6 +101,16 @@ public class ModEntities {
             new Identifier(TerrariaMod.MOD_ID, "possessed_armor"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, PossessedArmorEntity::new)
                     .dimensions(EntityDimensions.fixed(0.6f, 1.9f)).build());
+
+    public static final EntityType<DevourerEntity> DEVOURER = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "devourer"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, DevourerEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 1f)).build());
+
+    public static final EntityType<CursedHammerEntity> CURSED_HAMMER = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(TerrariaMod.MOD_ID, "cursed_hammer"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, CursedHammerEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 1f)).build());
 
 
 
