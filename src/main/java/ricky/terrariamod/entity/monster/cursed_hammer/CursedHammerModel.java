@@ -39,7 +39,7 @@ public class CursedHammerModel<T extends CursedHammerEntity> extends SinglePartE
 	@Override
 	public void setAngles(CursedHammerEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		// モデルのピッチとヨーをエンティティの回転角度に対応させる
-		this.cursed_hammer.yaw = netHeadYaw * ((float) Math.PI / 180) - (float) Math.PI * rotateAngle* 30 / 180; // ヨーの回転
+		this.cursed_hammer.yaw = netHeadYaw * ((float) Math.PI / 180) - (float) Math.PI * rotateAngle* 50 / 360; //TODO　複数体いると回転がおかしくなる
 		this.cursed_hammer.pitch = headPitch * ((float) Math.PI / 180) + (float) Math.PI / 2; // ピッチの回転
 	}
 	@Override
